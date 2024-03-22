@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="background" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java24groupe08.Index">
+<AnchorPane id="background" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java24groupe08.views.indexController">
    <children>
       <Accordion layoutX="137.0" layoutY="14.0" />
       <AnchorPane id="cinemaTitle" prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #05859c;" />

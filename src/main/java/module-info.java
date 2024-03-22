@@ -1,4 +1,4 @@
-module com.example.java24groupe08 {
+module java24groupe08 {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -8,6 +8,6 @@ module com.example.java24groupe08 {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.java24groupe08 to javafx.fxml;
-    exports com.example.java24groupe08;
+    exports java24groupe08.views;
+    opens java24groupe08.views to javafx.fxml;
 }
