@@ -7,6 +7,7 @@ module com.example.java24groupe08 {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.net.http;
 
     opens com.example.java24groupe08 to javafx.fxml;
     exports com.example.java24groupe08;
