@@ -8,6 +8,7 @@ module com.example.java24groupe08 {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.java24groupe08 to javafx.fxml;
-    exports com.example.java24groupe08;
+    exports com.example.java24groupe08.controller;
+    exports com.example.java24groupe08.view;
+    opens com.example.java24groupe08.view to javafx.fxml;
 }

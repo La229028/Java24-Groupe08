@@ -1,4 +1,4 @@
-package com.example.java24groupe08;
+package com.example.java24groupe08.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class IndexController {
+public class ViewController {
     @FXML
     public Label titleLabel;
 
