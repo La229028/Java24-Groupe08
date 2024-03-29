@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class ViewController {
+public class IndexViewController {
     @FXML
     public Label titleLabel;
 
@@ -34,7 +34,7 @@ public class ViewController {
                 poster.setPrefSize(106, 116);
                 poster.setStyle("-fx-background-color: #e1f8fc;");
 
-                Button buyButton = new Button("Acheter");
+                Button buyButton = new Button("Voir plus");//changer le nom
                 buyButton.setPrefSize(106, 21);
 
                 vbox.getChildren().addAll(movieTitle, poster, buyButton);
