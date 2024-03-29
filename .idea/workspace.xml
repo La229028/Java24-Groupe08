@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Amélioration code + visuel">
+    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="ajout de la première classe (FILM), pour la db (table film)">
+      <change afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java24groupe08/controllers/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java24groupe08/views/ViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/controllers/indexApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/views/indexController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,19 +66,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/coupe/Downloads/Demineur/Demineur&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ljann/IdeaProjects/Demineur",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.toDoOptions",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
@@ -88,11 +93,11 @@
   </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controller.HelloApplication" />
+      <option name="MAIN_CLASS_NAME" value="java24groupe08.controllers.HelloApplication" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.java24groupe08.controller.*" />
+          <option name="PATTERN" value="java24groupe08.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711614980406</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajout de la première classe (FILM), pour la db (table film)">
+      <option name="closed" value="true" />
+      <created>1711698586292</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711698586292</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +202,7 @@
     <MESSAGE value="Visuel page index" />
     <MESSAGE value="Ajout classe index" />
     <MESSAGE value="Amélioration code + visuel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Amélioration code + visuel" />
+    <MESSAGE value="ajout de la première classe (FILM), pour la db (table film)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout de la première classe (FILM), pour la db (table film)" />
   </component>
 </project>

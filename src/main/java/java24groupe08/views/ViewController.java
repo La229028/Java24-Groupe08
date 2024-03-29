@@ -1,4 +1,4 @@
-package com.example.java24groupe08.view;
+package java24groupe08.views;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
