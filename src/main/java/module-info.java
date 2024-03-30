@@ -9,8 +9,14 @@ module com.example.java24groupe08 {
     requires org.kordamp.bootstrapfx.core;
 
 
-    opens com.example.java24groupe08.view to javafx.fxml;
-    exports java24groupe08.views;
-    opens java24groupe08.views to javafx.fxml;
-    exports java24groupe08.controllers;
+
+
+    exports com.example.java24groupe08.controllers;
+    exports com.example.java24groupe08.views;
+    opens com.example.java24groupe08.views to javafx.fxml;
+
+    requires com.google.gson;
+    exports com.example.java24groupe08.models to com.google.gson;
+    opens com.example.java24groupe08.models to com.google.gson;
+
 }

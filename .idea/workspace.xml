@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="ajout de la première classe (FILM), pour la db (table film)">
-      <change afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Base FXML + MVC">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/movieData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java24groupe08/controllers/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/java24groupe08/views/ViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/controllers/indexApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/views/indexController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/controllers/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controllers/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/models/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/models/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/views/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/views/IndexViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/views/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +39,7 @@
             <value>
               <list>
                 <branch-info repo="$PROJECT_DIR$" source="origin/Lyara" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/Janna" />
               </list>
             </value>
           </entry>
@@ -68,46 +69,68 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.FilmController.executor": "Run",
     "Application.HelloApplication.executor": "Run",
+    "Application.com.example.java24groupe08.controllers.HelloApplication.executor": "Run",
+    "Application.start.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Main",
+    "git-widget-placeholder": "Merging Main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ljann/IdeaProjects/Demineur",
+    "last_opened_file_path": "C:/Users/coupe/Downloads/Demineur/Demineur",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.toDoOptions",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\src\main\resources" />
+      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\src\main\java\java24groupe08" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example" />
       <recent name="com.example.java24groupe08.view" />
       <recent name="com.example.java24groupe08" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java24groupe08.controllers.HelloApplication" />
+  <component name="RunManager" selected="Application.start">
+    <configuration name="FilmController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FilmController" />
+      <module name="Java24-Groupe08" />
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="start" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controllers.FilmController" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java24groupe08.controllers.*" />
-          <option name="ENABLED" value="true" />
+          <option name="PATTERN" value="com.example.java24groupe08.controller.*" />
+          <option name="ENABLED" value="false" />
         </pattern>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.FilmController" />
+      <item itemvalue="Application.start" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.start" />
+        <item itemvalue="Application.FilmController" />
       </list>
     </recent_temporary>
   </component>
@@ -127,6 +150,9 @@
       <option name="presentableId" value="Default" />
       <updated>1711031115323</updated>
       <workItem from="1711031116520" duration="3000" />
+      <workItem from="1711699319587" duration="1295000" />
+      <workItem from="1711826263692" duration="1650000" />
+      <workItem from="1711827928648" duration="802000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -160,13 +186,13 @@
       <option name="project" value="LOCAL" />
       <updated>1711614980406</updated>
     </task>
-    <task id="LOCAL-00005" summary="ajout de la première classe (FILM), pour la db (table film)">
+    <task id="LOCAL-00005" summary="Base FXML + MVC">
       <option name="closed" value="true" />
-      <created>1711698586292</created>
+      <created>1711631266045</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1711698586292</updated>
+      <updated>1711631266045</updated>
     </task>
     <option name="localTasksCounter" value="6" />
     <servers />
@@ -185,7 +211,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Lyara" />
+                        <option value="Main" />
                       </list>
                     </value>
                   </entry>
@@ -202,7 +228,7 @@
     <MESSAGE value="Visuel page index" />
     <MESSAGE value="Ajout classe index" />
     <MESSAGE value="Amélioration code + visuel" />
-    <MESSAGE value="ajout de la première classe (FILM), pour la db (table film)" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout de la première classe (FILM), pour la db (table film)" />
+    <MESSAGE value="Base FXML + MVC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Base FXML + MVC" />
   </component>
 </project>

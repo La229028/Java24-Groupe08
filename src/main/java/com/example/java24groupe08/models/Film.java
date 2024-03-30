@@ -1,8 +1,9 @@
-package java24groupe08.models;
+package com.example.java24groupe08.models;
 
-import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
 public class Film {
+    @SerializedName("Title")
     private String title;
     private String year;
     private String rated;
@@ -18,10 +19,14 @@ public class Film {
     private String awards;
     private String poster;
 
-
     // Constructeur par défaut
     public Film() {
         // Initialisation des attributs
+    }
+
+    //récuperer le titre
+    public String getTitle() {
+        return title;
     }
 
     // Getters et setters pour chaque attribut

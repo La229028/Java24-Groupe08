@@ -1,6 +1,6 @@
-package java24groupe08.controllers;
+package com.example.java24groupe08.controllers;
 
-import java24groupe08.views.ViewController;
+import com.example.java24groupe08.views.IndexViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +11,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ViewController.class.getResource("index.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(IndexViewController.class.getResource("index.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
 
@@ -24,3 +24,4 @@ public class HelloApplication extends Application {
         launch();
     }
 }
+
