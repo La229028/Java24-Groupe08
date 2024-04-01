@@ -1,6 +1,6 @@
-package com.example.java24groupe08.controller;
+package com.example.java24groupe08.controllers;
 
-import com.example.java24groupe08.view.IndexViewController;
+import com.example.java24groupe08.views.IndexViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

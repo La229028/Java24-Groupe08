@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Base FXML + MVC">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/movieData.json" afterDir="false" />
+    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Création movieData.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controllers/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/movieData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/database/movieData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/views/IndexViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/views/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +80,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\java\com\example\java24groupe08\database" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08" />
     </key>
@@ -88,11 +91,11 @@
   </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controller.HelloApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controllers.HelloApplication" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.java24groupe08.controller.*" />
+          <option name="PATTERN" value="com.example.java24groupe08.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -163,30 +166,51 @@
       <option name="project" value="LOCAL" />
       <updated>1711631266045</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Création movieData.json">
+      <option name="closed" value="true" />
+      <created>1711698486345</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711698486345</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Janna" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Lyara" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="Main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -198,6 +222,7 @@
     <MESSAGE value="Ajout classe index" />
     <MESSAGE value="Amélioration code + visuel" />
     <MESSAGE value="Base FXML + MVC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base FXML + MVC" />
+    <MESSAGE value="Création movieData.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Création movieData.json" />
   </component>
 </project>
