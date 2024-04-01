@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Base FXML + MVC">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/movieData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/movieData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/controllers/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controllers/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/models/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/models/Film.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java24groupe08/views/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/views/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/views/index.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controller/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/view/IndexViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/view/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +35,6 @@
             <value>
               <list>
                 <branch-info repo="$PROJECT_DIR$" source="origin/Lyara" />
-                <branch-info repo="$PROJECT_DIR$" source="origin/Janna" />
               </list>
             </value>
           </entry>
@@ -67,70 +62,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.FilmController.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.com.example.java24groupe08.controllers.HelloApplication.executor": "Run",
-    "Application.start.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merging Main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/coupe/Downloads/Demineur/Demineur",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/coupe/Downloads/Demineur/Demineur&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\src\main\resources" />
-      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\src\main\java\java24groupe08" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example" />
       <recent name="com.example.java24groupe08.view" />
       <recent name="com.example.java24groupe08" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.start">
-    <configuration name="FilmController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="FilmController" />
-      <module name="Java24-Groupe08" />
-      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="start" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controllers.FilmController" />
+  <component name="RunManager">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controller.HelloApplication" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.java24groupe08.controller.*" />
-          <option name="ENABLED" value="false" />
+          <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.FilmController" />
-      <item itemvalue="Application.start" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.start" />
-        <item itemvalue="Application.FilmController" />
+        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -150,9 +122,6 @@
       <option name="presentableId" value="Default" />
       <updated>1711031115323</updated>
       <workItem from="1711031116520" duration="3000" />
-      <workItem from="1711699319587" duration="1295000" />
-      <workItem from="1711826263692" duration="1650000" />
-      <workItem from="1711827928648" duration="802000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
