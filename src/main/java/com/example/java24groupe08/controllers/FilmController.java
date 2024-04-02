@@ -10,8 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class FilmController {
-    public List<Film> loadFilmData() {
-        InputStream inputStream = getClass().getResourceAsStream("/moviedata.json");
+    public static List<Film> loadFilmData() {
+        InputStream inputStream = FilmController.class.getResourceAsStream("/moviedata.json");
         if (inputStream != null) {
             Gson gson = new Gson();
             Type filmListType = new TypeToken<List<Film>>(){}.getType();
@@ -31,6 +31,7 @@ public class FilmController {
             System.out.println("Liste des films :");
             for (Film film : films) {
                 System.out.println("Titre du film : " + film.getTitle());
+                System.out.println("Description du film : " + film.getPlot());//récupération de la description et affichage dans la console (pour plus tard)
             }
         } else {
             System.out.println("Aucun film trouvé dans le fichier JSON.");

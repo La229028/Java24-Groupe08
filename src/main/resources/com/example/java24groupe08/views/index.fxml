@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="background" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java24groupe08.views.IndexViewController">
+<AnchorPane id="background" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java24groupe08.views.IndexViewController">
 
-    <BorderPane prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <BorderPane prefHeight="700.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
       <top>
-         <AnchorPane prefHeight="56.0" prefWidth="850.0" style="-fx-background-color: #7383ff;" BorderPane.alignment="CENTER">
+         <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #0509ff;" BorderPane.alignment="CENTER">
             <children>
-               <Label fx:id="titleLabel" layoutX="374.0" prefHeight="56.0" prefWidth="102.0" text="Cinéma" textFill="#fcfcfc">
+               <Label fx:id="titleLabel" layoutX="393.0" prefHeight="56.0" prefWidth="165.0" text="CinémaXYZ" textFill="#fcfcfc">
                   <font>
                      <Font size="30.0" />
                   </font>
@@ -19,7 +19,9 @@
          </AnchorPane>
       </top>
       <center>
-         <Pane fx:id="pane" prefHeight="445.0" prefWidth="843.0" BorderPane.alignment="CENTER" />
+          <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0">
+         <Pane fx:id="pane" prefHeight="1800.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+          </ScrollPane>
       </center>
     </BorderPane>
 </AnchorPane>

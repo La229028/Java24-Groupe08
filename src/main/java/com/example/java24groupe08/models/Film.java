@@ -13,10 +13,14 @@ public class Film {
     private String director;
     private String writer;
     private String actors;
+
+    @SerializedName("Plot")
     private String plot;
     private String language;
     private String country;
     private String awards;
+
+    @SerializedName("Poster")
     private String poster;
 
     // Constructeur par défaut
@@ -27,6 +31,16 @@ public class Film {
     //récuperer le titre
     public String getTitle() {
         return title;
+    }
+
+    //récuperer l'image
+    public String getPoster() {
+        return poster;
+    }
+
+    //récuperer la description/résumé
+    public String getPlot() {
+        return plot;
     }
 
     // Getters et setters pour chaque attribut
