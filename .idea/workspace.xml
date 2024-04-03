@@ -4,31 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Réorganisation code et fichiers">
+    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="null">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controllers/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/controllers/FilmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/database/movieData.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/models/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/models/Film.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/java24groupe08/views/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/java24groupe08/views/index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/movieData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movieData.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="FxmlFile" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/Janna" />
   </component>
   <component name="Git.Settings">
     <favorite-branches>
@@ -37,7 +19,7 @@
           <entry type="REMOTE">
             <value>
               <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/Lyara" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/Valentin" />
               </list>
             </value>
           </entry>
@@ -45,16 +27,14 @@
       </branch-storage>
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -71,27 +51,32 @@
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/coupe/Downloads/Demineur/Demineur&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valentin/IdeaProjects/Java24-Groupe08/src/main/DB/DB.db&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\java\com\example\java24groupe08\database" />
-      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
-      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example.java24groupe08.view" />
-      <recent name="com.example.java24groupe08" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Valentin\IdeaProjects\Java24-Groupe08\src\main\DB" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloApplication">
+  <component name="RunManager" selected="Application.FilmController">
     <configuration name="FilmController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controllers.FilmController" />
       <module name="Java24-Groupe08" />
@@ -106,11 +91,11 @@
       </method>
     </configuration>
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controllers.HelloApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.HelloApplication" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.java24groupe08.controllers.*" />
+          <option name="PATTERN" value="com.example.java24groupe08.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="Application.FilmController" />
+        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -140,126 +125,63 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711031115323</updated>
-      <workItem from="1711031116520" duration="3000" />
+      <workItem from="1711031116520" duration="1360000" />
+      <workItem from="1711032896238" duration="2297000" />
+      <workItem from="1711200046676" duration="4370000" />
+      <workItem from="1712039133373" duration="291000" />
+      <workItem from="1712125341389" duration="45000" />
+      <workItem from="1712126902184" duration="120000" />
+      <workItem from="1712127022927" duration="113000" />
     </task>
-    <task id="LOCAL-00001" summary="Test">
+    <task id="LOCAL-00001" summary="TEST">
       <option name="closed" value="true" />
-      <created>1711032506181</created>
+      <created>1711032738296</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1711032506181</updated>
+      <updated>1711032738296</updated>
     </task>
-    <task id="LOCAL-00002" summary="Visuel page index">
+    <task id="LOCAL-00002" summary="TEST">
       <option name="closed" value="true" />
-      <created>1711034552117</created>
+      <created>1711032871193</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1711034552118</updated>
+      <updated>1711032871193</updated>
     </task>
-    <task id="LOCAL-00003" summary="Ajout classe index">
+    <task id="LOCAL-00003" summary="TEST">
       <option name="closed" value="true" />
-      <created>1711034627514</created>
+      <created>1711032930644</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1711034627514</updated>
+      <updated>1711032930644</updated>
     </task>
-    <task id="LOCAL-00004" summary="Amélioration code + visuel">
+    <task id="LOCAL-00004" summary="Init DB">
       <option name="closed" value="true" />
-      <created>1711614980405</created>
+      <created>1711033874733</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1711614980406</updated>
+      <updated>1711033874733</updated>
     </task>
-    <task id="LOCAL-00005" summary="Base FXML + MVC">
+    <task id="LOCAL-00005" summary="Init DB">
       <option name="closed" value="true" />
-      <created>1711631266045</created>
+      <created>1711203048763</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1711631266045</updated>
+      <updated>1711203048763</updated>
     </task>
-    <task id="LOCAL-00006" summary="Création movieData.json">
-      <option name="closed" value="true" />
-      <created>1711698486345</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1711698486345</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Réorganisation code et fichiers">
-      <option name="closed" value="true" />
-      <created>1711990746899</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1711990746899</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Janna" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Lyara" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="Main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test" />
-    <MESSAGE value="Visuel page index" />
-    <MESSAGE value="Ajout classe index" />
-    <MESSAGE value="Amélioration code + visuel" />
-    <MESSAGE value="Base FXML + MVC" />
-    <MESSAGE value="Création movieData.json" />
-    <MESSAGE value="Réorganisation code et fichiers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Réorganisation code et fichiers" />
+    <MESSAGE value="TEST" />
+    <MESSAGE value="Init DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init DB" />
   </component>
 </project>
