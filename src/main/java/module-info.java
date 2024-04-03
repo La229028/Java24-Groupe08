@@ -11,11 +11,11 @@ module com.example.java24groupe08 {
 
 
 
-    exports com.example.java24groupe08.controllers;
-    exports com.example.java24groupe08.views;
-    opens com.example.java24groupe08.views to javafx.fxml;
+    exports com.java24groupe08.controllers;
+    exports com.java24groupe08.views;
+    opens com.java24groupe08.views to javafx.fxml;
 
     requires com.google.gson;
-    exports com.example.java24groupe08.models to com.google.gson;
-    opens com.example.java24groupe08.models to com.google.gson;
+    exports com.java24groupe08.models to com.google.gson;
+    opens com.java24groupe08.models to com.google.gson;
 }
