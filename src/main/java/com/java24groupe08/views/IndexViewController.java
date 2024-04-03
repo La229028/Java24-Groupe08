@@ -1,5 +1,6 @@
-package com.example.java24groupe08.views;
+package com.java24groupe08.views;
 
+import com.java24groupe08.controllers.FilmController;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -11,8 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import com.example.java24groupe08.controllers.FilmController;
-import com.example.java24groupe08.models.Film;
+import com.java24groupe08.models.Film;
 
 import java.util.List;
 

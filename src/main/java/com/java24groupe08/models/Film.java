@@ -1,4 +1,4 @@
-package com.example.java24groupe08.models;
+package com.java24groupe08.models;
 
 import com.google.gson.annotations.SerializedName;
 
