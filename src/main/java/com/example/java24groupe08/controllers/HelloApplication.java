@@ -1,4 +1,4 @@
-package com.example.java24groupe08.controllers;
+package com.example.java24groupe08;
 
 import com.example.java24groupe08.views.IndexViewController;
 import javafx.application.Application;
