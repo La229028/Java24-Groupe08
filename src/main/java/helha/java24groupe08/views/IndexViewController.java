@@ -1,8 +1,15 @@
-package com.java24groupe08.views;
+package helha.java24groupe08.views;
 
-import com.java24groupe08.controllers.FilmController;
+import helha.java24groupe08.controllers.FilmController;
+import helha.java24groupe08.models.Film;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -11,9 +18,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-import com.java24groupe08.models.Film;
-
+import java.io.IOException;
 import java.util.List;
 
 public class IndexViewController {
@@ -26,63 +33,118 @@ public class IndexViewController {
     @FXML
     public ScrollPane scrollPane;
 
+    // Initialize method to set the title label and load film data
     public void initialize() {
-        titleLabel.setText("CinémaXYZ");
-
+        titleLabel.setText("CINEMA");
         List<Film> films = FilmController.loadFilmData();
-        createVBoxes(pane, films);
-
-
+        createVBoxes(films);
         scrollPane.setContent(pane);
     }
 
-    private void createVBoxes(Pane pane, List<Film> films){
-        for (int i = 0; i < 5; i++) {//column
-            for (int j = 0; j < 6; j++) {//row
-                VBox vbox = new VBox();
-                vbox.setPrefSize(130, 200);
-                vbox.setStyle("-fx-background-color: black;");
+    // Create VBox elements for each film and add them to the pane
+    private void createVBoxes(List<Film> films) {
+        int boxWidth = 150;
+        int boxHeight = 300;
+        int horizontalGap = 20;
+        int verticalGap = 25;
 
-                AnchorPane movieTitle = new AnchorPane();
-                movieTitle.setPrefSize(130, 50);
-                movieTitle.setStyle("-fx-background-color: #95d8fc;");
-
-                Label filmTitle = new Label(films.get(i * 6 + j).getTitle());
-                filmTitle.setWrapText(true);
-                filmTitle.setPrefSize(130, 40);
-                filmTitle.setAlignment(Pos.CENTER);
-                movieTitle.getChildren().add(filmTitle);
-
-                AnchorPane poster = new AnchorPane();
-                poster.setStyle("-fx-background-color: #e1f8fc;");
-
-                String posterURL = films.get(i * 6 + j).getPoster();
-                if(posterURL != null){
-                    try{
-                        Image image = new Image(posterURL);
-                        ImageView imageView = new ImageView(image);
-                        imageView.setPreserveRatio(true);
-
-                        vbox.setPrefWidth(imageView.getFitWidth());
-                        //vbox.setPrefHeight(imageView.getFitHeight());
-                        imageView.setFitWidth(130);
-
-                        poster.getChildren().add(imageView);
-                    }catch(IllegalArgumentException e){//it runs even if the image is not found
-                        System.err.println("Image not found" + posterURL);
-                    }
-                }
-
-
-                Button seeMoreButton = new Button("Voir plus");
-                seeMoreButton.setPrefSize(130, 30);
-
-                vbox.getChildren().addAll(movieTitle, poster, seeMoreButton);
-
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 6; j++) {
+                VBox vbox = createVBox(films.get(i * 6 + j));
                 pane.getChildren().add(vbox);
-                vbox.setLayoutX(35 + i * 180);//distance between each vbox
-                vbox.setLayoutY(30 + j * 300);
+                vbox.setLayoutX(35 + i * (boxWidth + horizontalGap));
+                vbox.setLayoutY(30 + j * (boxHeight + verticalGap));
             }
         }
     }
+
+    // Create a VBox for a single film
+    private VBox createVBox(Film film) {
+        VBox vbox = new VBox();
+        vbox.setPrefSize(150, 300);
+        vbox.setStyle("-fx-background-color: #F0F0F0; -fx-padding: 10px; -fx-spacing: 10px; -fx-border-color: black; -fx-border-width: 1px;");
+
+        AnchorPane movieTitle = createMovieTitle(film.getTitle());
+        AnchorPane poster = createPoster(film.getPoster());
+        Button seeMoreButton = createSeeMoreButton(film); // Passer le film en tant que paramètre
+
+
+        vbox.getChildren().addAll(movieTitle, poster, seeMoreButton);
+        vbox.setAlignment(Pos.CENTER); // Center the VBox content
+        return vbox;
+    }
+
+    // Create an AnchorPane for the movie title
+    private AnchorPane createMovieTitle(String title) {
+        AnchorPane movieTitle = new AnchorPane();
+        movieTitle.setPrefSize(150, 50);
+        movieTitle.setStyle("-fx-background-color: #6495ED; -fx-padding: 5px;");
+
+        Label filmTitle = new Label(title);
+        filmTitle.setWrapText(true);
+        filmTitle.setPrefSize(140, 40);
+        filmTitle.setAlignment(Pos.CENTER);
+        filmTitle.setStyle("-fx-font-size: 14pt; -fx-text-fill: white;");
+        AnchorPane.setLeftAnchor(filmTitle, 5.0);
+        AnchorPane.setRightAnchor(filmTitle, 5.0);
+        AnchorPane.setTopAnchor(filmTitle, 5.0);
+        AnchorPane.setBottomAnchor(filmTitle, 5.0);
+        movieTitle.getChildren().add(filmTitle);
+
+        return movieTitle;
+    }
+
+    // Create an AnchorPane for the poster image
+    private AnchorPane createPoster(String posterURL) {
+        AnchorPane poster = new AnchorPane();
+        poster.setPrefSize(150, 200);
+        poster.setStyle("-fx-background-color: white; -fx-border-color: black; -fx-border-width: 1px;");
+
+        if (posterURL != null) {
+            try {
+                Image image = new Image(posterURL);
+                ImageView imageView = new ImageView(image);
+                imageView.setPreserveRatio(true);
+                imageView.setFitWidth(130);
+                imageView.setFitHeight(180);
+                AnchorPane.setLeftAnchor(imageView, 10.0);
+                AnchorPane.setRightAnchor(imageView, 10.0);
+                AnchorPane.setTopAnchor(imageView, 10.0);
+                AnchorPane.setBottomAnchor(imageView, 10.0);
+                poster.getChildren().add(imageView);
+            } catch (IllegalArgumentException e) {
+                System.err.println("Image not found" + posterURL);
+            }
+        }
+        return poster;
+    }
+
+    private Button createSeeMoreButton(Film film) {
+        Button seeMoreButton = new Button("Voir plus");
+        seeMoreButton.setPrefSize(150, 30);
+        seeMoreButton.setStyle("-fx-background-color: #6495ED; -fx-text-fill: white; -fx-font-size: 12pt; -fx-font-weight: bold;");
+
+        // Add an event handler for the click on the button
+        seeMoreButton.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
+                Parent root = loader.load();
+
+                DescriptionViewController descriptionViewController = loader.getController();
+                descriptionViewController.setMovieTitle(film.getTitle());
+                descriptionViewController.setMovieImage(film.getPoster());
+                descriptionViewController.setMoviePlot(film.getPlot());
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        return seeMoreButton;
+    }
+
+
 }
