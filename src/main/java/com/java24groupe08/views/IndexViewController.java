@@ -75,6 +75,12 @@ public class IndexViewController {
 
 
                 Button seeMoreButton = new Button("Voir plus");
+                seeMoreButton.setOnAction(event -> {
+                    //ICI LANCER LA COMMUNICATION AVEC LES CONTROLLERS POUR AFFICHER LA PAGE DE DETAILS
+                    System.out.println(filmTitle.getText());
+
+                    // System.out.println("Voir plus");
+                });
                 seeMoreButton.setPrefSize(130, 30);
 
                 vbox.getChildren().addAll(movieTitle, poster, seeMoreButton);
