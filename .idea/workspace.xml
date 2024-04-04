@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Java24-Groupe08:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Affichage films">
+    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -58,39 +63,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.FilmController.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/coupe/Downloads/Demineur/Demineur&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.FilmController.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.IndexApplication.executor": "Run",
+    "Application.be.helha.java24groupe08.controllers.HelloApplication.executor": "Run",
+    "Application.helha.java24groupe08.controllers.FilmController.executor": "Run",
+    "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
+    "Application.launcher.executor": "Run",
+    "JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar.executor": "Run",
+    "JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
+    "JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
+    "Maven.Java24-Groupe08 [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ljann/IdeaProjects/Java24-Groupe08/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\target\classes\helha\java24groupe08\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\java\com\example\java24groupe08\database" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="be.helha" />
+      <recent name="com" />
+      <recent name="" />
+      <recent name="java" />
       <recent name="com.example.java24groupe08.view" />
-      <recent name="com.example.java24groupe08" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloApplication">
-    <configuration name="FilmController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controllers.FilmController" />
+  <component name="RunManager" selected="Application.helha.java24groupe08.controllers.IndexApplication">
+    <configuration name="helha.java24groupe08.controllers.IndexApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.IndexApplication" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.java24groupe08.controllers.*" />
+          <option name="PATTERN" value="be.helha.java24groupe08.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,12 +124,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.java24groupe08.controllers.HelloApplication" />
+    <configuration name="launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.launcher" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.java24groupe08.controllers.*" />
+          <option name="PATTERN" value="helha.java24groupe08.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,10 +137,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Java24-Groupe08-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="original-Java24-Groupe08-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/original-Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.launcher" />
+      <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
+      <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" />
+      <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="Application.FilmController" />
+        <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
+        <item itemvalue="Application.launcher" />
+        <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -134,6 +182,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711031115323</updated>
       <workItem from="1711031116520" duration="3000" />
+      <workItem from="1712230714276" duration="3417000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -191,15 +240,31 @@
       <option name="project" value="LOCAL" />
       <updated>1711990746899</updated>
     </task>
-    <task id="LOCAL-00008" summary="Affichage films">
+    <task id="LOCAL-00008" summary="Ajout d'une TODO pour le groupe (chaque membre à sa propre section, vous êtes libres d'ajouter les tâches générales et individuelles). Peut être d'une grande aide pour une autogestion de ses tâches (cf. exemple Janna)">
       <option name="closed" value="true" />
-      <created>1712059860271</created>
+      <created>1712130650955</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1712059860271</updated>
+      <updated>1712130650955</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ajout du dossier DEPOT">
+      <option name="closed" value="true" />
+      <created>1712168968610</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712168968610</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale">
+      <option name="closed" value="true" />
+      <created>1712175692318</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712175692318</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +300,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Janna" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -249,7 +326,13 @@
     <MESSAGE value="Base FXML + MVC" />
     <MESSAGE value="Création movieData.json" />
     <MESSAGE value="Réorganisation code et fichiers" />
-    <MESSAGE value="Affichage films" />
-    <option name="LAST_COMMIT_MESSAGE" value="Affichage films" />
+    <MESSAGE value="ajout du dossier DEPOT" />
+    <MESSAGE value="Ajout d'une TODO pour le groupe (chaque membre à sa propre section, vous êtes libres d'ajouter les tâches générales et individuelles). Peut être d'une grande aide pour une autogestion de ses tâches (cf. exemple Janna)" />
+    <MESSAGE value="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
