@@ -1,6 +1,6 @@
-package com.java24groupe08.controllers;
+package helha.java24groupe08.controllers;
 
-import com.java24groupe08.models.Film;
+import helha.java24groupe08.models.Film;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.InputStream;
