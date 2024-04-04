@@ -1,0 +1,22 @@
+TODO :
+
+GÉNÉRAL :
+- Ajouter des commentaires dans le code
+- Ajouter des tests unitaires
+
+
+VALENTIN :
+
+
+LYARA :
+
+
+GUILLAUME :
+
+
+JANNA :
+- Conclure la backlog du projet
+- Réajuster le format des affiches sur index.fxml
+- Réajuster l'affichage des affiches selon la taille de l'onglet
+- Créer la page de description.fxml reliée au boutton "En savoir plus" sur index.fxml (avec description, image, et potentiellement horaires)
+
