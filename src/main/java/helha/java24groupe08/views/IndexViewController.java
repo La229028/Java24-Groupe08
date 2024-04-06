@@ -33,12 +33,17 @@ public class IndexViewController {
     @FXML
     public ScrollPane scrollPane;
 
+    @FXML
+    public Button loginButton;
+
     // Initialize method to set the title label and load film data
     public void initialize() {
         titleLabel.setText("CINEMA");
         List<Film> films = FilmController.loadFilmData();
         createVBoxes(films);
         scrollPane.setContent(pane);
+
+        loginButton.setOnAction(event -> loginButtonAction());
     }
 
     // Create VBox elements for each film and add them to the pane
@@ -144,6 +149,19 @@ public class IndexViewController {
         });
 
         return seeMoreButton;
+    }
+
+    private void loginButtonAction() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/login.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -9,7 +9,12 @@ VALENTIN :
 
 
 LYARA :
-
+- Création page de login
+- Ajout du bouton pour aller sur la page login
+- Hardcoder les identifiants de connexion admin
+- Clique sur le bouton "Se connecter" --> affichage "Bienvenue, admin"
+- Visuel page description (RESPONSIVE !!) => voir schéma fait dans le cahier
+- tests, commentaires, javadoc
 
 GUILLAUME :
 
