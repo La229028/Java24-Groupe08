@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javafx.geometry.Pos;
@@ -151,6 +152,7 @@ public class IndexViewController {
         return seeMoreButton;
     }
 
+    // Open the login page
     private void loginButtonAction() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/login.fxml"));
@@ -158,7 +160,11 @@ public class IndexViewController {
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.show();
+            stage.setTitle("Connexion");
+            stage.setResizable(false);//page cannot be resized
+            stage.initModality(Modality.APPLICATION_MODAL);//The page cannot be closed without logging in
+            stage.initOwner(loginButton.getScene().getWindow());//The main page cannot be clicked
+            stage.showAndWait();//The main page cannot be clicked until the login page is closed
         } catch (IOException e) {
             e.printStackTrace();
         }

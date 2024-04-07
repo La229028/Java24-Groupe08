@@ -37,27 +37,33 @@ public class LoginViewController {
     }
 
     private void returnButtonAction() throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/index.fxml"));
-
             Stage currentStage = (Stage) returnButton.getScene().getWindow();
-            currentStage.close();
+            currentStage.hide();
     }
 
     private void connectButtonAction() {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+            String username = usernameField.getText();
+            String password = passwordField.getText();
 
-        if (username.equals("admin") && password.equals("admin")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Bienvenue");
+            if (username.equals("admin") && password.equals("admin")) {
+                showAlert(Alert.AlertType.INFORMATION, "Connexion réussie", "Vous êtes connecté en tant qu'administrateur");
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Connexion échouée", "Nom d'utilisateur ou mot de passe incorrect");
+            }
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String content){
+        try {
+            Alert alert = new Alert(alertType);
+            alert.setTitle(title);
             alert.setHeaderText(null);
-            alert.setContentText("Vous êtes connecté en tant qu'admin");
+            alert.setContentText(content);
             alert.showAndWait();
-        }else {
+        } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
+            alert.setTitle("Erreur !");
             alert.setHeaderText(null);
-            alert.setContentText("Nom d'utilisateur ou mot de passe incorrect");
+            alert.setContentText("L'erreur est : " + e.getMessage());
             alert.showAndWait();
         }
     }
