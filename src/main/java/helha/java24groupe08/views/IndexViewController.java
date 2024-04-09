@@ -1,7 +1,7 @@
 package helha.java24groupe08.views;
 
-import helha.java24groupe08.controllers.FilmController;
-import helha.java24groupe08.models.Film;
+import helha.java24groupe08.controllers.MovieController;
+import helha.java24groupe08.models.Movie;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +10,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -19,7 +18,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
@@ -40,15 +38,15 @@ public class IndexViewController {
     // Initialize method to set the title label and load film data
     public void initialize() {
         titleLabel.setText("CINEMA");
-        List<Film> films = FilmController.loadFilmData();
-        createVBoxes(films);
+        List<Movie> movies = MovieController.loadFilmData();
+        createVBoxes(movies);
         scrollPane.setContent(pane);
 
         loginButton.setOnAction(event -> loginButtonAction());
     }
 
     // Create VBox elements for each film and add them to the pane
-    private void createVBoxes(List<Film> films) {
+    private void createVBoxes(List<Movie> movies) {
         int boxWidth = 150;
         int boxHeight = 300;
         int horizontalGap = 20;
@@ -56,7 +54,7 @@ public class IndexViewController {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 6; j++) {
-                VBox vbox = createVBox(films.get(i * 6 + j));
+                VBox vbox = createVBox(movies.get(i * 6 + j));
                 pane.getChildren().add(vbox);
                 vbox.setLayoutX(35 + i * (boxWidth + horizontalGap));
                 vbox.setLayoutY(30 + j * (boxHeight + verticalGap));
@@ -65,14 +63,14 @@ public class IndexViewController {
     }
 
     // Create a VBox for a single film
-    private VBox createVBox(Film film) {
+    private VBox createVBox(Movie movie) {
         VBox vbox = new VBox();
         vbox.setPrefSize(150, 300);
         vbox.setStyle("-fx-background-color: #F0F0F0; -fx-padding: 10px; -fx-spacing: 10px; -fx-border-color: black; -fx-border-width: 1px;");
 
-        AnchorPane movieTitle = createMovieTitle(film.getTitle());
-        AnchorPane poster = createPoster(film.getPoster());
-        Button seeMoreButton = createSeeMoreButton(film); // Passer le film en tant que paramètre
+        AnchorPane movieTitle = createMovieTitle(movie.getTitle());
+        AnchorPane poster = createPoster(movie.getPoster());
+        Button seeMoreButton = createSeeMoreButton(movie); // Passer le film en tant que paramètre
 
 
         vbox.getChildren().addAll(movieTitle, poster, seeMoreButton);
@@ -125,7 +123,7 @@ public class IndexViewController {
         return poster;
     }
 
-    private Button createSeeMoreButton(Film film) {
+    private Button createSeeMoreButton(Movie movie) {
         Button seeMoreButton = new Button("Voir plus");
         seeMoreButton.setPrefSize(150, 30);
         seeMoreButton.setStyle("-fx-background-color: #6495ED; -fx-text-fill: white; -fx-font-size: 12pt; -fx-font-weight: bold;");
@@ -137,9 +135,8 @@ public class IndexViewController {
                 Parent root = loader.load();
 
                 DescriptionViewController descriptionViewController = loader.getController();
-                descriptionViewController.setMovieTitle(film.getTitle());
-                descriptionViewController.setMovieImage(film.getPoster());
-                descriptionViewController.setMoviePlot(film.getPlot());
+                descriptionViewController.setMovieImage(movie.getPoster());
+                descriptionViewController.setMovieDetails(movie);//retrieve film details
 
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
