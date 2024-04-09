@@ -15,6 +15,11 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the DescriptionView.
+ * This class is responsible for handling user interactions with the DescriptionView,
+ * and updating the view based on changes in the model (Movie).
+ */
 public class DescriptionViewController implements Initializable {
     @FXML
     private Label movieLabel;
@@ -35,6 +40,13 @@ public class DescriptionViewController implements Initializable {
     @FXML
     private StackPane stackPane;
 
+    /**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     *
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         VBox.setMargin(stackPane, new Insets(15, 0, 0, 0));
@@ -42,14 +54,18 @@ public class DescriptionViewController implements Initializable {
         backButtonIndex.setOnAction(event -> {
             try {
                 backButtonIndexAction();
-                System.out.println("CLICK !");
+                System.out.println("CLICK !");//test to see if button click works
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
     }
 
-
+    /**
+     * Sets the image of the movie in the view.
+     *
+     * @param imageUrl The URL of the image to set.
+     */
     public void setMovieImage(String imageUrl) {
         // Load and set the image
         if (imageUrl != null) {
@@ -62,6 +78,11 @@ public class DescriptionViewController implements Initializable {
         }
     }
 
+    /**
+     * Sets the details of the movie in the view.
+     *
+     * @param movie The Movie object containing the movie details to set.
+     */
    public void setMovieDetails(Movie movie) {
         movieLabel.setText(movie.getTitle());
         movieRuntime.setText(movie.getRuntime() + " | " + movie.getGenre());
@@ -71,19 +92,13 @@ public class DescriptionViewController implements Initializable {
         movieActors.setText("Casting\n" + movie.getActors());
     }
 
-    //NE FONCTIONNE PAS
+    /**
+     * Closes the view when the back button is clicked.
+     * NE FONCTIONNE PAS
+     */
     private void backButtonIndexAction() {
         Stage stage = (Stage) backButtonIndex.getScene().getWindow();
         stage.close();
     }
-
-
-
-//    @FXML
-//    private void handleButtonAction(ActionEvent event) {
-//        Stage stage = (Stage) backButtonIndex.getScene().getWindow();
-//        stage.close();
-//    }
-
 
 }

@@ -9,13 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Ajout pour page login">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/backButton.png" afterDir="false" />
+    <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Visuel page description + /!\ problème avec bouton retour page description">
+      <change afterPath="$PROJECT_DIR$/.idea/DatabaseToolDbSqlDialect.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/DatabaseToolSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/SqlFileSource.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/movieData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +37,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -68,36 +79,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.FilmController.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.IndexApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.be.helha.java24groupe08.controllers.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.helha.java24groupe08.controllers.FilmController.executor&quot;: &quot;Run&quot;,
-    &quot;Application.helha.java24groupe08.controllers.IndexApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.launcher.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Java24-Groupe08 [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/coupe/OneDrive - Haute Ecole Louvain en Hainaut/B2/Programmation - JAVA/LABOS/Labo 2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.FilmController.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.IndexApplication.executor": "Run",
+    "Application.Launcher.executor": "Run",
+    "Application.be.helha.java24groupe08.controllers.HelloApplication.executor": "Run",
+    "Application.helha.java24groupe08.controllers.FilmController.executor": "Run",
+    "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
+    "Application.launcher.executor": "Run",
+    "JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar.executor": "Run",
+    "JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
+    "JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
+    "JUnit.MovieControllerTest.executor": "Run",
+    "JUnit.MovieTest.executor": "Run",
+    "Maven.Java24-Groupe08 [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/coupe/OneDrive - Haute Ecole Louvain en Hainaut/B2/Programmation - JAVA/LABOS/Labo 2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.database.db.setting.configurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\target\classes\helha\java24groupe08\views" />
@@ -108,6 +124,9 @@
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="be.helha" />
       <recent name="com" />
@@ -115,8 +134,25 @@
       <recent name="java" />
       <recent name="com.example.java24groupe08.view" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="helha.java24groupe08.models" />
+      <recent name="helha.java24groupe08.controllers" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.launcher">
+  <component name="RunManager" selected="JUnit.MovieTest">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.Launcher" />
+      <module name="Java24-Groupe08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="helha.java24groupe08.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="helha.java24groupe08.controllers.IndexApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.IndexApplication" />
       <module name="Java24-Groupe08" />
@@ -130,8 +166,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.launcher" />
+    <configuration name="MovieControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
@@ -139,36 +174,46 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="helha.java24groupe08.controllers" />
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.MovieControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" />
-      <method v="2" />
+    <configuration name="MovieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java24-Groupe08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="helha.java24groupe08.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="helha.java24groupe08.models" />
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.models.MovieTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Java24-Groupe08-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java24-Groupe08-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="original-Java24-Groupe08-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/original-Java24-Groupe08-1.0-SNAPSHOT.jar" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Application.launcher" />
+      <item itemvalue="Application.Launcher" />
       <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
-      <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" />
       <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
-      <item itemvalue="JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JUnit.MovieControllerTest" />
+      <item itemvalue="JUnit.MovieTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.launcher" />
+        <item itemvalue="JUnit.MovieTest" />
+        <item itemvalue="JUnit.MovieControllerTest" />
+        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
         <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
-        <item itemvalue="JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar" />
-        <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712505360710</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Visuel page description + /!\ problème avec bouton retour page description">
+      <option name="closed" value="true" />
+      <created>1712669879640</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712669879640</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +406,8 @@
     <MESSAGE value="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale" />
     <MESSAGE value="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password" />
     <MESSAGE value="Ajout pour page login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout pour page login" />
+    <MESSAGE value="Visuel page description + /!\ problème avec bouton retour page description" />
+    <option name="LAST_COMMIT_MESSAGE" value="Visuel page description + /!\ problème avec bouton retour page description" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
