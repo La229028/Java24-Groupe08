@@ -27,7 +27,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>helha.java24groupe08.controllers.launcher</mainClass>
+                  <mainClass>helha.java24groupe08.controllers.Launcher</mainClass>
                 </transformer>
               </transformers>
             </configuration>

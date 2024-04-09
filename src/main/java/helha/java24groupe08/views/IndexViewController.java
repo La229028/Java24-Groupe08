@@ -1,15 +1,16 @@
 package helha.java24groupe08.views;
 
-import helha.java24groupe08.controllers.FilmController;
-import helha.java24groupe08.models.Film;
+import helha.java24groupe08.controllers.MovieController;
+import helha.java24groupe08.models.Movie;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -18,12 +19,18 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class IndexViewController {
+/**
+ * Controller for the IndexView.
+ * This class is responsible for handling user interactions with the IndexView,
+ * and updating the view based on changes in the model (Movie).
+ */
+public class IndexViewController implements Initializable {
     @FXML
     public Label titleLabel;
 
@@ -33,16 +40,29 @@ public class IndexViewController {
     @FXML
     public ScrollPane scrollPane;
 
-    // Initialize method to set the title label and load film data
-    public void initialize() {
+    @FXML
+    public Button loginButton;
+
+    /**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         titleLabel.setText("CINEMA");
-        List<Film> films = FilmController.loadFilmData();
-        createVBoxes(films);
+        List<Movie> movies = MovieController.loadMovieData();
+        createVBoxes(movies);
         scrollPane.setContent(pane);
+
+        loginButton.setOnAction(event -> loginButtonAction());
     }
 
-    // Create VBox elements for each film and add them to the pane
-    private void createVBoxes(List<Film> films) {
+    /**
+     * Create VBox elements for each film and add them to the pane.
+     *
+     * @param movies The list of movies to create VBox elements for.
+     */
+    private void createVBoxes(List<Movie> movies) {
         int boxWidth = 150;
         int boxHeight = 300;
         int horizontalGap = 20;
@@ -50,7 +70,7 @@ public class IndexViewController {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 6; j++) {
-                VBox vbox = createVBox(films.get(i * 6 + j));
+                VBox vbox = createVBox(movies.get(i * 6 + j));
                 pane.getChildren().add(vbox);
                 vbox.setLayoutX(35 + i * (boxWidth + horizontalGap));
                 vbox.setLayoutY(30 + j * (boxHeight + verticalGap));
@@ -58,15 +78,20 @@ public class IndexViewController {
         }
     }
 
-    // Create a VBox for a single film
-    private VBox createVBox(Film film) {
+    /**
+     * Create a VBox for a single film.
+     *
+     * @param movie The movie to create a VBox for.
+     * @return The created VBox.
+     */
+    private VBox createVBox(Movie movie) {
         VBox vbox = new VBox();
         vbox.setPrefSize(150, 300);
         vbox.setStyle("-fx-background-color: #F0F0F0; -fx-padding: 10px; -fx-spacing: 10px; -fx-border-color: black; -fx-border-width: 1px;");
 
-        AnchorPane movieTitle = createMovieTitle(film.getTitle());
-        AnchorPane poster = createPoster(film.getPoster());
-        Button seeMoreButton = createSeeMoreButton(film); // Passer le film en tant que paramètre
+        AnchorPane movieTitle = createMovieTitle(movie.getTitle());
+        AnchorPane poster = createPoster(movie.getPoster());
+        Button seeMoreButton = createSeeMoreButton(movie); // Set film as parameter
 
 
         vbox.getChildren().addAll(movieTitle, poster, seeMoreButton);
@@ -74,7 +99,12 @@ public class IndexViewController {
         return vbox;
     }
 
-    // Create an AnchorPane for the movie title
+    /**
+     * Create an AnchorPane for the movie title.
+     *
+     * @param title The title of the movie.
+     * @return The created AnchorPane.
+     */
     private AnchorPane createMovieTitle(String title) {
         AnchorPane movieTitle = new AnchorPane();
         movieTitle.setPrefSize(150, 50);
@@ -94,7 +124,12 @@ public class IndexViewController {
         return movieTitle;
     }
 
-    // Create an AnchorPane for the poster image
+    /**
+     * Create an AnchorPane for the poster image.
+     *
+     * @param posterURL The URL of the poster image.
+     * @return The created AnchorPane.
+     */
     private AnchorPane createPoster(String posterURL) {
         AnchorPane poster = new AnchorPane();
         poster.setPrefSize(150, 200);
@@ -119,7 +154,13 @@ public class IndexViewController {
         return poster;
     }
 
-    private Button createSeeMoreButton(Film film) {
+    /**
+     * Create a "See More" button.
+     *
+     * @param movie The movie that the button is associated with.
+     * @return The created button.
+     */
+    private Button createSeeMoreButton(Movie movie) {
         Button seeMoreButton = new Button("Voir plus");
         seeMoreButton.setPrefSize(150, 30);
         seeMoreButton.setStyle("-fx-background-color: #6495ED; -fx-text-fill: white; -fx-font-size: 12pt; -fx-font-weight: bold;");
@@ -131,9 +172,8 @@ public class IndexViewController {
                 Parent root = loader.load();
 
                 DescriptionViewController descriptionViewController = loader.getController();
-                descriptionViewController.setMovieTitle(film.getTitle());
-                descriptionViewController.setMovieImage(film.getPoster());
-                descriptionViewController.setMoviePlot(film.getPlot());
+                descriptionViewController.setMovieImage(movie.getPoster());
+                descriptionViewController.setMovieDetails(movie);//retrieve film details
 
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
@@ -146,5 +186,24 @@ public class IndexViewController {
         return seeMoreButton;
     }
 
+    /**
+     * Open the login page when the login button is clicked.
+     */
+    private void loginButtonAction() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/login.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Connexion");
+            stage.setResizable(false);//page cannot be resized
+            stage.initModality(Modality.APPLICATION_MODAL);//The page cannot be closed without logging in
+            stage.initOwner(loginButton.getScene().getWindow());//The main page cannot be clicked
+            stage.showAndWait();//The main page cannot be clicked until the login page is closed
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -9,7 +9,8 @@ VALENTIN :
 
 
 LYARA :
-
+- Visuel page description (RESPONSIVE !!) => voir schéma fait dans le cahier
+- tests, commentaires, javadoc
 
 GUILLAUME :
 
