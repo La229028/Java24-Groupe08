@@ -6,17 +6,27 @@ GÉNÉRAL :
 
 
 VALENTIN :
-
+-Visuel clean, scrollbar, responsive, meilleur visuel, test, commentaires, clique sur sur le titre + image
++ "voir plus" et si le temps quand on clique ça ouvre pas une nouvelle page,
+gestion entre les 2 pages
 
 LYARA :
+- Création page de login
+- Ajout du bouton pour aller sur la page login
+- Hardcoder les identifiants de connexion admin
+- Clique sur le bouton "Se connecter" --> affichage "Bienvenue, admin"
+- Visuel page description (RESPONSIVE !!) => voir schéma fait dans le cahier
+- tests, commentaires, javadoc
 
 
 GUILLAUME :
-
+barre de recherche de fil. si film pas dans la db alors recherche sur lapi et lajoute au json puis a la db
 
 JANNA :
 - Conclure la backlog du projet
 - Réajuster le format des affiches sur index.fxml
 - Réajuster l'affichage des affiches selon la taille de l'onglet
-- Créer la page de description.fxml reliée au boutton "En savoir plus" sur index.fxml (avec description, image, et potentiellement horaires)
+- Créer la page de description.fxml reliée au boutton "En savoir plus" sur index.fxml
+(avec description, image, et potentiellement horaires)
 
+- Récupération des données film via .db (et pas .json)
