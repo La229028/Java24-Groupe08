@@ -10,11 +10,6 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class SceneViewsController {
-    private FXMLLoader loader;
-    private Scene scene;
-    private Stage stage;
-    private Parent root;
-    private Movie movie;
 
     public static void switchToDescription(Movie movie, Stage currentStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(DescriptionViewController.class.getResource("descrip.fxml"));
@@ -27,9 +22,10 @@ public class SceneViewsController {
         stage.show();
     }
 
-    public void switchToIndex(ActionEvent event) throws IOException {
-        loader = new FXMLLoader(IndexViewController.class.getResource("index.fxml"));
-        scene = new Scene(loader.load());
+    public static void switchToIndex(Stage currentStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(IndexViewController.class.getResource("index.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = currentStage;
         stage.setScene(scene);
         stage.show();
     }

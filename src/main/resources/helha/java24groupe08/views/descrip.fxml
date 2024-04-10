@@ -11,16 +11,17 @@
         <top>
             <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #0509ff;" BorderPane.alignment="CENTER">
                 <children>
-                    <Button fx:id="backButtonIndex" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="34.0" style="-fx-background-color: #0509ff; -fx-border-color: #ffffff; -fx-border-radius: 5px;">
-                        <graphic>
-                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="/backButton.png" />
-                                </image>
-                            </ImageView>
-                        </graphic>
+               <SplitPane prefHeight="62.0" prefWidth="97.0" visible="false" />
+                    <Button fx:id="backButtonIndex" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backButtonIndexAction" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #0509ff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Retour" textAlignment="CENTER" textFill="WHITE">
+<!--                        <graphic>-->
+<!--                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                                <image>-->
+<!--                                    <Image url="/backButton.png" />-->
+<!--                                </image>-->
+<!--                            </ImageView>-->
+<!--                        </graphic>-->
                     </Button>
-                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" prefHeight="56.0" prefWidth="1007.0" style="-fx-font-family: Arial;" text="CINEMA" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" prefHeight="56.0" prefWidth="945.0" style="-fx-font-family: Arial;" text="CINEMA" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
                         <font>
                             <Font size="30.0" />
                         </font>
@@ -35,8 +36,7 @@
                     <HBox>
                         <VBox prefHeight="588.0" prefWidth="307.0" spacing="10">
                             <StackPane fx:id="stackPane" prefHeight="300.0" prefWidth="230.0">
-                                <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0"
-                                           style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);"/>
+                                <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);" />
                             </StackPane>
                         </VBox>
                         <VBox prefHeight="505.0" prefWidth="734.0">
