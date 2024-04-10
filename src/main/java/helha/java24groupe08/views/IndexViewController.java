@@ -5,6 +5,7 @@ import helha.java24groupe08.models.Movie;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -19,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import org.w3c.dom.Node;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,7 +44,7 @@ public class IndexViewController implements Initializable {
     @FXML
     public Button loginButton;
 
-    public Stage stage;
+
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -171,17 +171,22 @@ public class IndexViewController implements Initializable {
         // Add an event handler for the click on the button
         seeMoreButton.setOnAction(event -> {
             try {
-               // SceneViewsController.switchToDescription(movie, stage);
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
-                Parent root = loader.load();
+                Stage currentStage = (Stage) seeMoreButton.getScene().getWindow();
+                SceneViewsController.switchToDescription(movie,currentStage);
 
-                DescriptionViewController descriptionViewController = loader.getController();
-                descriptionViewController.setMovieImage(movie.getPoster());
-                descriptionViewController.setMovieDetails(movie);//retrieve film details
 
-                stage = event.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
+//                Parent root = loader.load();
+//
+//                DescriptionViewController descriptionViewController = loader.getController();
+//                descriptionViewController.setMovieImage(movie.getPoster());
+//                descriptionViewController.setMovieDetails(movie);//retrieve film details
+//
+//                //stage = event.getScene().getWindow();
+//                //stage = (Stage) root.getScene().getWindow();
+//                Stage stage = new Stage();
+//                stage.setScene(new Scene(root));
+//                stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }

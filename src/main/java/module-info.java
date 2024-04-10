@@ -1,4 +1,4 @@
-module com.example.java24groupe08 {
+module helha.java24groupe08 {
     requires javafx.controls;
     requires javafx.fxml;
 

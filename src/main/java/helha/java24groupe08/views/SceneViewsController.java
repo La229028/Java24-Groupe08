@@ -17,7 +17,7 @@ public class SceneViewsController {
     private Movie movie;
 
     public static void switchToDescription(Movie movie, Stage currentStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(DescriptionViewController.class.getResource("description.fxml"));
+        FXMLLoader loader = new FXMLLoader(DescriptionViewController.class.getResource("descrip.fxml"));
         Scene scene = new Scene(loader.load());
         DescriptionViewController controller = loader.getController();
         controller.setMovieImage(movie.getPoster());
