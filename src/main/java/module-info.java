@@ -1,4 +1,4 @@
-module com.example.java24groupe08 {
+module helha.java24groupe08 {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -10,7 +10,6 @@ module com.example.java24groupe08 {
 
 
 
-
     exports helha.java24groupe08.controllers;
     exports helha.java24groupe08.views;
     opens helha.java24groupe08.views to javafx.fxml;
@@ -19,4 +18,9 @@ module com.example.java24groupe08 {
     requires java.sql;
     exports helha.java24groupe08.models to com.google.gson;
     opens helha.java24groupe08.models to com.google.gson;
+
+
+    requires org.testng;
+
+
 }

@@ -20,8 +20,9 @@
          </AnchorPane>
       </top>
       <center>
-          <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWid/th="922.0">
+          <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0">
          <Pane fx:id="pane" prefHeight="1800.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+
           </ScrollPane>
       </center>
     </BorderPane>

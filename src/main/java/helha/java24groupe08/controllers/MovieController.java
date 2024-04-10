@@ -14,6 +14,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.*;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * This class is responsible for managing movies.
  * It includes methods for retrieving movie data from an external API,
@@ -22,7 +26,7 @@ import java.sql.*;
 public class MovieController {
 
     private static final String CONNECTION_STRING = "jdbc:sqlite:src/main/DB/DB.db";
-    private static final String JSON_PATH = "src/main/resources/movie.json";
+    private static final String JSON_FILE_PATH = "src/main/resources/movie.json";
 
     /**
      * Retrieves a movie from an external API using the movie's title.
@@ -112,7 +116,7 @@ public class MovieController {
     public static void writeMoviesToJson(List<Movie> movies) {
         if (movies != null) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            try (Writer writer = new FileWriter(JSON_PATH)) {
+            try (Writer writer = new FileWriter(JSON_FILE_PATH)) {
                 gson.toJson(movies, writer);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -128,16 +132,27 @@ public class MovieController {
      * @return A list of movies loaded from the JSON file.
      */
     public static List<Movie> loadMovieData() {
-        try (Reader reader = new FileReader(JSON_PATH)) { // Use the JSON_PATH constant
+        File jsonFile = new File(JSON_FILE_PATH);
+        if (!jsonFile.exists()) {
+            setupDefaultJsonFile();
+        }
+        try (Reader reader = new FileReader(JSON_FILE_PATH)) {
             Gson gson = new Gson();
             Type movieListType = new TypeToken<List<Movie>>(){}.getType();
             return gson.fromJson(reader, movieListType);
         } catch (IOException e) {
             System.out.println("Erreur lors du chargement du fichier JSON: " + e.getMessage());
-            return null; // Returns null on error
+            return null;
         }
     }
 
+    private static void setupDefaultJsonFile() {
+        try {
+            Files.write(Paths.get(JSON_FILE_PATH), "[]".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * Inserts a movie into the SQLite database.
      *
@@ -150,7 +165,7 @@ public class MovieController {
         }
 
         String sql = "INSERT INTO movies(title, year, rated, released, runtime, genre, director, writer, actors, plot, language, country, awards, poster) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING); // Connexion à la db sqlite
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, movie.getTitle());
@@ -198,6 +213,27 @@ public class MovieController {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+
+    public static void deleteMovie(String posterURL) {
+        String sql = "DELETE FROM movies WHERE poster = ?";
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, posterURL);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la suppression du film dans la base de données : " + e.getMessage());
+        }
+
+        // Load all movies from the JSON file
+        List<Movie> movies = loadMovieData();
+
+        // Remove the movie with the matching poster URL
+        movies.removeIf(movie -> movie.getPoster().equals(posterURL));
+
+        // Write the updated list back to the JSON file
+        writeMoviesToJson(movies);
     }
 }
 
