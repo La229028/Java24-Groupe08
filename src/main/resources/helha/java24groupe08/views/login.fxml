@@ -8,15 +8,15 @@
     <VBox alignment="CENTER" layoutX="133.0" layoutY="88.0" prefHeight="208.0" prefWidth="345.0" spacing="10" style="-fx-border-radius: 5px;">
 
         <GridPane alignment="CENTER" hgap="10" prefHeight="142.0" prefWidth="368.0" vgap="5">
-            <Label text="Nom d'utilisateur" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <TextField fx:id="usernameField" prefHeight="27.0" prefWidth="346.0" style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
 
-            <Label text="Mot de passe" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <PasswordField fx:id="passwordField" prefHeight="28.0" prefWidth="328.0" style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
 
             <HBox alignment="CENTER" prefHeight="27.0" prefWidth="164.0" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                <Button fx:id="connectButton" prefHeight="25.0" prefWidth="87.0" text="Connexion" />
-                <Button fx:id="returnButton" text="Annuler" />
+                <Button fx:id="connectButton" prefHeight="25.0" prefWidth="87.0" text="Log In" />
+                <Button fx:id="returnButton" text="Cancel" />
             </HBox>
             <columnConstraints>
                 <ColumnConstraints maxWidth="314.3679894296879" minWidth="314.3679894296879" prefWidth="314.3679894296879" />

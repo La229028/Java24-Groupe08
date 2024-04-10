@@ -70,9 +70,9 @@ public class LoginViewController implements Initializable {
             String password = passwordField.getText();
 
             if (username.equals("admin") && password.equals("admin")) {
-                showAlert(Alert.AlertType.INFORMATION, "Connexion réussie", "Vous êtes connecté en tant qu'administrateur");
+                showAlert(Alert.AlertType.INFORMATION, "Successful connection", "You are logged in as administrator");
             } else {
-                showAlert(Alert.AlertType.ERROR, "Connexion échouée", "Nom d'utilisateur ou mot de passe incorrect");
+                showAlert(Alert.AlertType.ERROR, "Connection failed", "Incorrect user name or password");
             }
     }
 
@@ -92,9 +92,9 @@ public class LoginViewController implements Initializable {
             alert.showAndWait();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur !");
+            alert.setTitle("Error !");
             alert.setHeaderText(null);
-            alert.setContentText("L'erreur est : " + e.getMessage());
+            alert.setContentText("Error is : " + e.getMessage());
             alert.showAndWait();
         }
     }

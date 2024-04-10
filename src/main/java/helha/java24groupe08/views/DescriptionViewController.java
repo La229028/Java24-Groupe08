@@ -88,8 +88,8 @@ public class DescriptionViewController implements Initializable {
         movieLabel.setText(movie.getTitle());
         movieRuntime.setText(movie.getRuntime() + " | " + movie.getGenre());
         moviePlot.setText("Synopsis\n" + movie.getPlot());
-        movieReleaseDate.setText("Sortie\n" + movie.getReleased());
-        movieDirector.setText("Réalisateur\n" + movie.getDirector());
+        movieReleaseDate.setText("release\n" + movie.getReleased());
+        movieDirector.setText("Director\n" + movie.getDirector());
         movieActors.setText("Casting\n" + movie.getActors());
     }
 

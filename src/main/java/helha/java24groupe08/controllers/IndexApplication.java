@@ -26,10 +26,9 @@ public class IndexApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(IndexViewController.class.getResource("index.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-
-        String[] movieTitles = getMovieTitles();
-
-        MovieController.getAndStoreMoviesFromApi(movieTitles);
+//Pour récupérer les films depuis l'API
+        //String[] movieTitles = getMovieTitles();
+        //MovieController.getAndStoreMoviesFromApi(movieTitles);
 
         stage.setTitle("Cinéma");
         stage.setScene(scene);
@@ -140,7 +139,7 @@ public class IndexApplication extends Application {
                 }
                 launch();
             } else {
-                System.out.println("La liste des films chargée est nulle. Impossible d'insérer des films dans la base de données.");
+                System.out.println("The list of films loaded is null. Impossible to insert films in the database");
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

@@ -164,7 +164,7 @@ public class IndexViewController implements Initializable {
      * @return The created button.
      */
     private Button createSeeMoreButton(Movie movie) {
-        Button seeMoreButton = new Button("Voir plus");
+        Button seeMoreButton = new Button("See more");
         seeMoreButton.setPrefSize(150, 30);
         seeMoreButton.setStyle("-fx-background-color: #6495ED; -fx-text-fill: white; -fx-font-size: 12pt; -fx-font-weight: bold;");
 
@@ -205,7 +205,7 @@ public class IndexViewController implements Initializable {
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Connexion");
+            stage.setTitle("Log In");
             stage.setResizable(false);//page cannot be resized
             stage.initModality(Modality.APPLICATION_MODAL);//The page cannot be closed without logging in
             stage.initOwner(loginButton.getScene().getWindow());//The main page cannot be clicked
