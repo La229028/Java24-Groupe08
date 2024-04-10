@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5f7ecb9-76b0-45b3-86d5-3b7fd378f06f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" afterDir="false" />
+    <list default="true" id="d5f7ecb9-76b0-45b3-86d5-3b7fd378f06f" name="Changes" comment="Ajout de bouton retour à la page Descript">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/SceneViewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/SceneViewsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/movie.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.json" afterDir="false" />
     </list>
@@ -148,8 +144,17 @@
       <workItem from="1712754912563" duration="1516000" />
       <workItem from="1712757588010" duration="428000" />
       <workItem from="1712758027581" duration="359000" />
-      <workItem from="1712758393320" duration="674000" />
+      <workItem from="1712758393320" duration="3058000" />
     </task>
+    <task id="LOCAL-00001" summary="Ajout de bouton retour à la page Descript">
+      <option name="closed" value="true" />
+      <created>1712759313980</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712759313980</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,5 +170,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ajout de bouton retour à la page Descript" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de bouton retour à la page Descript" />
   </component>
 </project>

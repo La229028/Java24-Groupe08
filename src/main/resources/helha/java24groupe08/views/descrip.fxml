@@ -11,8 +11,11 @@
         <top>
             <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #0509ff;" BorderPane.alignment="CENTER">
                 <children>
-               <SplitPane prefHeight="62.0" prefWidth="97.0" visible="false" />
-                    <Button fx:id="backButtonIndex" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backButtonIndexAction" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #0509ff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Retour" textAlignment="CENTER" textFill="WHITE">
+               <SplitPane dividerPositions="0.10341151385927505" focusTraversable="false" prefHeight="87.0" prefWidth="940.0">
+                 <items>
+                     <AnchorPane prefHeight="85.0" prefWidth="96.0">
+                        <children>
+                                <Button fx:id="backButtonIndex" alignment="CENTER" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#backButtonIndexAction" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #0509ff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
 <!--                        <graphic>-->
 <!--                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">-->
 <!--                                <image>-->
@@ -21,16 +24,24 @@
 <!--                            </ImageView>-->
 <!--                        </graphic>-->
                     </Button>
-                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" prefHeight="56.0" prefWidth="945.0" style="-fx-font-family: Arial;" text="CINEMA" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
-                        <font>
-                            <Font size="30.0" />
-                        </font>
-                    </Label>
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-4.0" layoutY="15.0" prefHeight="56.0" prefWidth="839.0" style="-fx-font-family: Arial; -fx-background-color: #0509ff;" text="CINEMA" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+                                    <font>
+                                        <Font size="30.0" />
+                                    </font>
+                                </Label>
+                        </children>
+                     </AnchorPane>
+                 </items>
+               </SplitPane>
                 </children>
             </AnchorPane>
         </top>
         <center>
-            <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0" style="-fx-background-color: #f6f5f2;">
+            <ScrollPane fx:id="scrollPane" prefHeight="613.0" prefWidth="940.0" style="-fx-background-color: #f6f5f2;">
                 <VBox fx:id="movieDetails" prefHeight="642.0" prefWidth="1017.0" BorderPane.alignment="CENTER_LEFT">
                     <!-- ImageView for movie image -->
                     <HBox>
