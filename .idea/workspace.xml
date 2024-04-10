@@ -12,12 +12,6 @@
     <list default="true" id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="Visuel page description + /!\ problème avec bouton retour page description">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/movie.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +45,20 @@
       </branch-storage>
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "lamrij"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3081bb72-bd49-4357-b572-466f1c6c1faf" />
+        <option name="url" value="https://github.com/La229028/Java24-Groupe08.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -102,7 +110,7 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -226,7 +234,7 @@
       <updated>1711031115323</updated>
       <workItem from="1711031116520" duration="3000" />
       <workItem from="1712230714276" duration="3417000" />
-      <workItem from="1712730013358" duration="7645000" />
+      <workItem from="1712730013358" duration="8774000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -332,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712669879640</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="ajout du bouton pour supprimer des films (supprimés aussi de la db), j'ai fait en sorte que le json soit recréé lorsqu'il est supprimé mais il faut relancer le code 2 fois.">
+      <option name="closed" value="true" />
+      <created>1712758268184</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712758268184</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +416,8 @@
     <MESSAGE value="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password" />
     <MESSAGE value="Ajout pour page login" />
     <MESSAGE value="Visuel page description + /!\ problème avec bouton retour page description" />
-    <option name="LAST_COMMIT_MESSAGE" value="Visuel page description + /!\ problème avec bouton retour page description" />
+    <MESSAGE value="ajout du bouton pour supprimer des films (supprimés aussi de la db), j'ai fait en sorte que le json soit recréé lorsqu'il est supprimé mais il faut relancer le code 2 fois." />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout du bouton pour supprimer des films (supprimés aussi de la db), j'ai fait en sorte que le json soit recréé lorsqu'il est supprimé mais il faut relancer le code 2 fois." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
