@@ -66,14 +66,22 @@ public class LoginViewController implements Initializable {
      * If the username and password are incorrect, an error alert is shown.
      */
     private void connectButtonAction() {
-            String username = usernameField.getText();
-            String password = passwordField.getText();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
 
-            if (username.equals("admin") && password.equals("admin")) {
-                showAlert(Alert.AlertType.INFORMATION, "Successful connection", "You are logged in as administrator");
-            } else {
-                showAlert(Alert.AlertType.ERROR, "Connection failed", "Incorrect user name or password");
-            }
+        if (username.equals("admin") && password.equals("admin")) {
+            // Afficher l'alerte de connexion réussie
+            showAlert(Alert.AlertType.INFORMATION, "Successful connection", "You are logged in as administrator");
+
+            // Fermer la fenêtre de connexion
+            Stage currentStage = (Stage) connectButton.getScene().getWindow();
+            currentStage.close();
+            // Ouvrir la page d'index avec l'étiquette "admin"
+            //openIndexPageAsAdmin();
+
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Connection failed", "Incorrect user name or password");
+        }
     }
 
     /**
