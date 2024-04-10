@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Java24-Groupe08:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5f7ecb9-76b0-45b3-86d5-3b7fd378f06f" name="Changes" comment="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion">
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/movie.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,22 +25,29 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/Guillaume" />
-  </component>
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="Main" />
+    <option name="BRANCH" value="origin/Janna" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="30f2442b3bb2f1789acbb1ef802488f78b93e720" />
-      </map>
-    </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Lyara" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -45,50 +62,59 @@
     &quot;accountId&quot;: &quot;16ec3f5e-dc7f-4702-a408-ce2d33926979&quot;
   }
 }</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2esOM4MC5HucrLDBMNsRkb5DHPj" />
+  <component name="ProjectId" id="2e0ARGaTu4eHfuulePmeyZLksFz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.IndexApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valentin/Desktop/Cours supp 2ème/B2Q2/Programmation/LABO/Java24-Groupe08&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.IndexController.executor": "Run",
+    "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
+    "git-widget-placeholder": "Main",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
-  <component name="RunManager" selected="Application.Launcher">
-    <configuration name="IndexApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.IndexApplication" />
-      <module name="Java24-Groupe08" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="helha.java24groupe08.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\target\classes\helha\java24groupe08\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources" />
+      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\java\com\example\java24groupe08\database" />
+      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
+      <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="be.helha" />
+      <recent name="com" />
+      <recent name="" />
+      <recent name="java" />
+      <recent name="com.example.java24groupe08.view" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="helha.java24groupe08.models" />
+      <recent name="helha.java24groupe08.controllers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.helha.java24groupe08.controllers.IndexApplication">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.Launcher" />
       <module name="Java24-Groupe08" />
@@ -102,91 +128,257 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="helha.java24groupe08.controllers.IndexApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.IndexApplication" />
+      <module name="Java24-Groupe08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="be.helha.java24groupe08.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MovieControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java24-Groupe08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="helha.java24groupe08.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="helha.java24groupe08.controllers" />
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.MovieControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MovieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java24-Groupe08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="helha.java24groupe08.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="helha.java24groupe08.models" />
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.models.MovieTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Java24-Groupe08-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.IndexApplication" />
       <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
+      <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JUnit.MovieControllerTest" />
+      <item itemvalue="JUnit.MovieTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
+        <item itemvalue="JUnit.MovieTest" />
+        <item itemvalue="JUnit.MovieControllerTest" />
         <item itemvalue="Application.Launcher" />
-        <item itemvalue="Application.IndexApplication" />
-        <item itemvalue="Application.IndexApplication" />
-        <item itemvalue="Application.Launcher" />
+        <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d5f7ecb9-76b0-45b3-86d5-3b7fd378f06f" name="Changes" comment="" />
-      <created>1712689771429</created>
+      <changelist id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="" />
+      <created>1711031115323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712689771429</updated>
-      <workItem from="1712689772837" duration="88000" />
-      <workItem from="1712689866413" duration="3501000" />
-      <workItem from="1712730784109" duration="1495000" />
-      <workItem from="1712734071577" duration="415000" />
-      <workItem from="1712737053283" duration="2393000" />
-      <workItem from="1712752762124" duration="111000" />
-      <workItem from="1712754308880" duration="156000" />
-      <workItem from="1712754912563" duration="1516000" />
-      <workItem from="1712757588010" duration="428000" />
-      <workItem from="1712758027581" duration="359000" />
-      <workItem from="1712758393320" duration="674000" />
+      <updated>1711031115323</updated>
+      <workItem from="1711031116520" duration="3000" />
+      <workItem from="1712230714276" duration="3417000" />
     </task>
-    <task id="LOCAL-00001" summary="Correction Frenglish&#10;Ajout SearchBar fxml&#10;GetFromApi desactiver au lancement&#10;Film deja dans la db supprimé des logs">
+    <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
-      <created>1712770289140</created>
+      <created>1711032506181</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1712770289140</updated>
+      <updated>1711032506181</updated>
     </task>
-    <task id="LOCAL-00002" summary="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion">
+    <task id="LOCAL-00002" summary="Visuel page index">
       <option name="closed" value="true" />
-      <created>1712778068891</created>
+      <created>1711034552117</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1712778068891</updated>
+      <updated>1711034552118</updated>
     </task>
-    <task id="LOCAL-00003" summary="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion">
+    <task id="LOCAL-00003" summary="Ajout classe index">
       <option name="closed" value="true" />
-      <created>1712778115049</created>
+      <created>1711034627514</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1712778115049</updated>
+      <updated>1711034627514</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Amélioration code + visuel">
+      <option name="closed" value="true" />
+      <created>1711614980405</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711614980406</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Base FXML + MVC">
+      <option name="closed" value="true" />
+      <created>1711631266045</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711631266045</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Création movieData.json">
+      <option name="closed" value="true" />
+      <created>1711698486345</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711698486345</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Réorganisation code et fichiers">
+      <option name="closed" value="true" />
+      <created>1711990746899</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711990746899</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ajout d'une TODO pour le groupe (chaque membre à sa propre section, vous êtes libres d'ajouter les tâches générales et individuelles). Peut être d'une grande aide pour une autogestion de ses tâches (cf. exemple Janna)">
+      <option name="closed" value="true" />
+      <created>1712130650955</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712130650955</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ajout du dossier DEPOT">
+      <option name="closed" value="true" />
+      <created>1712168968610</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712168968610</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale">
+      <option name="closed" value="true" />
+      <created>1712175692318</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712175692318</updated>
+    </task>
+    <task id="LOCAL-00011" summary="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password">
+      <option name="closed" value="true" />
+      <created>1712389137203</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712389137204</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ajout pour page login">
+      <option name="closed" value="true" />
+      <created>1712505360709</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712505360710</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Visuel page description + /!\ problème avec bouton retour page description">
+      <option name="closed" value="true" />
+      <created>1712669879640</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712669879640</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Janna" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Lyara" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Janna" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correction Frenglish&#10;Ajout SearchBar fxml&#10;GetFromApi desactiver au lancement&#10;Film deja dans la db supprimé des logs" />
-    <MESSAGE value="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion" />
-    <option name="LAST_COMMIT_MESSAGE" value="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion" />
+    <MESSAGE value="Test" />
+    <MESSAGE value="Visuel page index" />
+    <MESSAGE value="Ajout classe index" />
+    <MESSAGE value="Amélioration code + visuel" />
+    <MESSAGE value="Base FXML + MVC" />
+    <MESSAGE value="Création movieData.json" />
+    <MESSAGE value="Réorganisation code et fichiers" />
+    <MESSAGE value="ajout du dossier DEPOT" />
+    <MESSAGE value="Ajout d'une TODO pour le groupe (chaque membre à sa propre section, vous êtes libres d'ajouter les tâches générales et individuelles). Peut être d'une grande aide pour une autogestion de ses tâches (cf. exemple Janna)" />
+    <MESSAGE value="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale" />
+    <MESSAGE value="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password" />
+    <MESSAGE value="Ajout pour page login" />
+    <MESSAGE value="Visuel page description + /!\ problème avec bouton retour page description" />
+    <option name="LAST_COMMIT_MESSAGE" value="Visuel page description + /!\ problème avec bouton retour page description" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

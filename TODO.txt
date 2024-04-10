@@ -16,8 +16,7 @@ GUILLAUME :
 
 
 JANNA :
-- Conclure la backlog du projet
-- Réajuster le format des affiches sur index.fxml
-- Réajuster l'affichage des affiches selon la taille de l'onglet
-- Créer la page de description.fxml reliée au boutton "En savoir plus" sur index.fxml (avec description, image, et potentiellement horaires)
-
+- DeleteMovie
+- ModifyMovie
+- AddMovie
+- login

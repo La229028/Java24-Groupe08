@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="background" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.views.IndexViewController">
+<AnchorPane id="background" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.views.IndexViewController">
 
     <BorderPane prefHeight="700.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
       <top>
@@ -20,16 +20,14 @@
                      <Font size="30.0" />
                   </font>
                </Label>
-                <Button fx:id="loginButton" layoutX="847.0" layoutY="13.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #0509ff; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Log In" />
+                <Button fx:id="loginButton" layoutX="847.0" layoutY="13.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #0509ff; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Connexion" />
             </children>
          </AnchorPane>
       </top>
       <center>
           <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0">
-         <Pane fx:id="pane" prefHeight="1800.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-               <children>
-                  <TextField layoutX="393.0" layoutY="2.0" promptText="MovieTitle.." />
-               </children></Pane>
+         <Pane fx:id="pane" prefHeight="1800.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+
           </ScrollPane>
       </center>
     </BorderPane>

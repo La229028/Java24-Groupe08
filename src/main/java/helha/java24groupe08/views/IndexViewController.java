@@ -54,7 +54,7 @@ public class IndexViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleLabel.setText("CINEMA");
         List<Movie> movies = MovieController.loadMovieData();
-        createVBoxes(movies);
+        createVBoxes(movies, movies.size());
         scrollPane.setContent(pane);
 
         loginButton.setOnAction(event -> loginButtonAction());
@@ -65,14 +65,17 @@ public class IndexViewController implements Initializable {
      *
      * @param movies The list of movies to create VBox elements for.
      */
-    private void createVBoxes(List<Movie> movies) {
+    private void createVBoxes(List<Movie> movies, int size) {
         int boxWidth = 150;
         int boxHeight = 300;
         int horizontalGap = 20;
         int verticalGap = 25;
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 6; j++) {
+        int rows = size / 6;
+        int cols = size % 6 == 0 ? 6 : size % 6;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 VBox vbox = createVBox(movies.get(i * 6 + j));
                 pane.getChildren().add(vbox);
                 vbox.setLayoutX(35 + i * (boxWidth + horizontalGap));
@@ -138,6 +141,23 @@ public class IndexViewController implements Initializable {
         poster.setPrefSize(150, 200);
         poster.setStyle("-fx-background-color: white; -fx-border-color: black; -fx-border-width: 1px;");
 
+        // Create delete Button
+        Button deleteButton = new Button("X");
+        deleteButton.setPrefSize(30, 30);
+        deleteButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-background-radius: 15px;");
+        deleteButton.setMinSize(30, 30);
+        deleteButton.setMaxSize(30, 30);
+        deleteButton.setOnAction(event -> {
+            // Delete the movie from the database
+            MovieController.deleteMovie(posterURL);
+            // Remove the VBox from the pane
+            pane.getChildren().remove(poster.getParent()); // Remove the parent of the poster (VBox)
+        });
+        // position of the delete button
+        AnchorPane.setTopAnchor(deleteButton, 0.0);
+        AnchorPane.setRightAnchor(deleteButton, 0.0);
+
+
         if (posterURL != null) {
             try {
                 Image image = new Image(posterURL);
@@ -154,6 +174,7 @@ public class IndexViewController implements Initializable {
                 System.err.println("Image not found" + posterURL);
             }
         }
+        poster.getChildren().add(deleteButton);
         return poster;
     }
 
@@ -214,5 +235,7 @@ public class IndexViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
 
 }
