@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5f7ecb9-76b0-45b3-86d5-3b7fd378f06f" name="Changes" comment="Correction Frenglish&#10;Ajout SearchBar fxml&#10;GetFromApi desactiver au lancement&#10;Film deja dans la db supprimé des logs">
+    <list default="true" id="d5f7ecb9-76b0-45b3-86d5-3b7fd378f06f" name="Changes" comment="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +151,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712770289140</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion">
+      <option name="closed" value="true" />
+      <created>1712778068891</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712778068891</updated>
+    </task>
+    <task id="LOCAL-00003" summary="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion">
+      <option name="closed" value="true" />
+      <created>1712778115049</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712778115049</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +186,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Correction Frenglish&#10;Ajout SearchBar fxml&#10;GetFromApi desactiver au lancement&#10;Film deja dans la db supprimé des logs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction Frenglish&#10;Ajout SearchBar fxml&#10;GetFromApi desactiver au lancement&#10;Film deja dans la db supprimé des logs" />
+    <MESSAGE value="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion" />
+    <option name="LAST_COMMIT_MESSAGE" value="LoginViewController : &#10;Afficher l'alerte de connexion réussie&#10;Fermer la fenêtre de connexion" />
   </component>
 </project>
