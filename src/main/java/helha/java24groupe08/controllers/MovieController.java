@@ -2,29 +2,35 @@ package helha.java24groupe08.controllers;
 
 import helha.java24groupe08.models.Movie;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import java.io.*;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.GsonBuilder;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 /**
- * Contrôle les opérations liées aux films, notamment la récupération depuis une API externe,
- * le stockage dans une base de données SQLite, et la gestion des données de film.
+ * This class is responsible for managing movies.
+ * It includes methods for retrieving movie data from an external API,
+ * storing movie data in a SQLite database, and loading movie data from a JSON file.
  */
-public class FilmController {
+public class MovieController {
+
     private static final String CONNECTION_STRING = "jdbc:sqlite:src/main/DB/DB.db";
-    private static final String JSON_PATH = "src/main/resources/movies.json";
+    private static final String JSON_PATH = "src/main/resources/movie.json";
+
     /**
-     * Récupère un film depuis une API externe en utilisant le titre du film.
+     * Retrieves a movie from an external API using the movie's title.
      *
-     * @param title Le titre du film à rechercher.
-     * @return Un objet Movie contenant les données du film récupéré, ou null si le film n'est pas trouvé.
+     * @param title The title of the movie to search for.
+     * @return A Movie object containing the retrieved movie data, or null if the movie is not found.
      */
-    public static Movie getFilmFromApi(String title) {
+    public static Movie getMovieFromApi(String title) {
         String apiUrl = "http://www.omdbapi.com/?t=" + title.replace(" ", "%20") + "&apikey=3703372b";
         try {
             URL url = new URL(apiUrl);
@@ -42,7 +48,7 @@ public class FilmController {
                     }
                     String response = content.toString();
 
-                    // Vérifier si le film n'est pas trouvé
+                    // Check if the film is not found
                     if(response.contains("\"Response\":\"False\"")) {
                         System.out.println("Le film " + title + " n'a pas été trouvé ou n'est pas accessible via l'API.");
                         return null;
@@ -60,36 +66,34 @@ public class FilmController {
     }
 
     /**
-     * Récupère et stocke une liste de films dans la base de données et dans un fichier JSON à partir de leurs titres.
+     * Retrieves and stores a list of movies in the database and in a JSON file from their titles.
      *
-     * @param titles Tableau contenant les titres des films à récupérer.
+     * @param titles An array containing the titles of the movies to retrieve.
      */
-    public static void getAndStoreFilmsFromApi(String[] titles) {
-        createMoviesTable(); // Crée la table 'movies' si elle n'existe pas déjà
-
+    public static void getAndStoreMoviesFromApi(String[] titles) {
         List<Movie> moviesFromApi = new ArrayList<>();
-        List<Movie> existingMovies = loadFilmData(); // Chargez les films déjà présents dans le JSON
+        List<Movie> existingMovies = loadMovieData(); // Load movies already in JSON
 
         for (String title : titles) {
-            Movie movie = getFilmFromApi(title);
-            if (movie != null && isValidURL(movie.getPoster())) { // Vérifiez si le film est déjà présent
+            Movie movie = getMovieFromApi(title);
+            if (movie != null && !existingMovies.contains(movie) && isValidURL(movie.getPoster())) { // Check if the film is already present
                 moviesFromApi.add(movie);
             }
         }
 
-        // Ajoutez les nouveaux films au fichier JSON et à la base de données
+        // Add new movies to JSON file and database
         existingMovies.addAll(moviesFromApi);
-        writeMoviesToJson(existingMovies); // Mettez à jour le fichier JSON avec la liste combinée
-        for (Movie movie : moviesFromApi) { // Insérez seulement les nouveaux films dans la base de données
+        writeMoviesToJson(existingMovies); // Update the JSON file with the combined list
+        for (Movie movie : moviesFromApi) { // Insert only new films into the database
             insertMoviesIntoDb(movie);
         }
     }
 
     /**
-     * Vérifie si une URL est valide.
+     * Checks if a URL is valid.
      *
-     * @param url L'URL à vérifier.
-     * @return true si l'URL est valide, false autrement.
+     * @param url The URL to check.
+     * @return true if the URL is valid, false otherwise.
      */
     public static boolean isValidURL(String url) {
         try {
@@ -99,14 +103,12 @@ public class FilmController {
             return false;
         }
     }
-    /**
-     * Écrit une liste de films dans un fichier JSON.
-     *
-     * @param movies La liste des films à écrire dans le fichier.
-     */
 
-    // ERREUR ICI : json est vide
-    // ici besoin au moins d'une fois le json pour setup la db, puis récupérer le data à partir de la DB
+    /**
+     * Writes a list of movies to a JSON file.
+     *
+     * @param movies The list of movies to write to the file.
+     */
     public static void writeMoviesToJson(List<Movie> movies) {
         if (movies != null) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -119,63 +121,27 @@ public class FilmController {
             System.out.println("La liste des films est nulle. Impossible d'écrire dans le fichier JSON.");
         }
     }
+
     /**
-     * Charge les données de film à partir d'un fichier JSON.
+     * Loads movie data from a JSON file.
      *
-     * @return Une liste de films chargée à partir du fichier JSON.
+     * @return A list of movies loaded from the JSON file.
      */
-
-    // ISSUE HERE : ou est le JSON ??
-    public static List<Movie> loadFilmData() {
-        File jsonFile = new File(JSON_PATH);
-        if (!jsonFile.exists()) {
-            try {
-                jsonFile.createNewFile();
-                writeMoviesToJson(new ArrayList<>()); // Écrivez une liste vide de films dans le fichier
-            } catch (IOException e) {
-                System.out.println("Erreur lors de la création du fichier JSON: " + e.getMessage());
-                return null;
-            }
-        }
-
-        try (Reader reader = new FileReader(JSON_PATH)) {
+    public static List<Movie> loadMovieData() {
+        try (Reader reader = new FileReader(JSON_PATH)) { // Use the JSON_PATH constant
             Gson gson = new Gson();
-            Type filmListType = new TypeToken<List<Movie>>(){}.getType();
-            return gson.fromJson(reader, filmListType);
+            Type movieListType = new TypeToken<List<Movie>>(){}.getType();
+            return gson.fromJson(reader, movieListType);
         } catch (IOException e) {
             System.out.println("Erreur lors du chargement du fichier JSON: " + e.getMessage());
-            return null;
-        }
-    }
-    public static void createMoviesTable() {
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-             Statement stmt = conn.createStatement()) {
-            stmt.execute("CREATE TABLE IF NOT EXISTS movies ("
-                    + "id INTEGER PRIMARY KEY,"
-                    + "title TEXT,"
-                    + "year TEXT,"
-                    + "rated TEXT,"
-                    + "released TEXT,"
-                    + "runtime TEXT,"
-                    + "genre TEXT,"
-                    + "director TEXT,"
-                    + "writer TEXT,"
-                    + "actors TEXT,"
-                    + "plot TEXT,"
-                    + "language TEXT,"
-                    + "country TEXT,"
-                    + "awards TEXT,"
-                    + "poster TEXT"
-                    + ")");
-        } catch (SQLException e) {
-            System.out.println("Erreur lors de la création de la table 'movies' : " + e.getMessage());
+            return null; // Returns null on error
         }
     }
 
     /**
-     * Insère un film dans la base de données SQLite.
+     * Inserts a movie into the SQLite database.
      *
-     * @param movie L'objet Movie contenant les données du film à insérer.
+     * @param movie The Movie object containing the movie data to insert.
      */
     public static void insertMoviesIntoDb(Movie movie) {
         if (movieExistsInDb(movie)) {
@@ -210,33 +176,28 @@ public class FilmController {
     }
 
     /**
-     * Vérifie si un film existe déjà dans la base de données en utilisant son titre et son année de sortie.
+     * Checks if a movie already exists in the database using its title and release year.
      *
-     * @param movie L'objet Movie à vérifier.
-     * @return true si le film existe déjà, false autrement.
+     * @param movie The Movie object to check.
+     * @return true if the movie already exists, false otherwise.
      */
     public static boolean movieExistsInDb(Movie movie) {
-        String sql = "SELECT COUNT(*) FROM movies WHERE title = ? AND year = ?";
+        String url = "jdbc:sqlite:src/main/DB/DB.db/";
+        String sql = "SELECT * FROM movies WHERE title = ? AND year = ?";
 
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+        try (Connection conn = DriverManager.getConnection(url);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, movie.getTitle());
             pstmt.setString(2, movie.getYear());
-
             ResultSet rs = pstmt.executeQuery();
 
-            // Si le nombre de films avec le même titre et la même année est supérieur à 0, alors le film existe déjà
-            if (rs.next()) {
-                return rs.getInt(1) > 0;
-            }
+            return rs.next();
 
         } catch (SQLException e) {
-            System.out.println("Erreur lors de la vérification de l'existence du film dans la base de données : " + e.getMessage());
+            System.out.println(e.getMessage());
+            return false;
         }
-
-        return false;
     }
-
-
 }
+

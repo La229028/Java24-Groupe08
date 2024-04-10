@@ -6,30 +6,43 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
 
 /**
- * Classe principale de l'application cinéma JavaFX.
- * Cette classe lance l'interface utilisateur de l'application, initialise la base de données
- * et charge les films à partir d'une liste de titres prédéfinis.
+ * This is the main class for the application.
+ * It sets up the stage and scene, and loads the movie data.
  */
-
 public class IndexApplication extends Application {
+
     /**
-     * Démarre et affiche l'interface utilisateur de l'application.
-     * Cette méthode charge la scène principale à partir d'un fichier FXML et affiche les films récupérés.
+     * This method starts the application.
+     * It sets up the stage and scene, and loads the movie data.
      *
-     * @param stage Le stage principal sur lequel la scène est définie et affichée.
-     * @throws IOException Si le chargement du fichier FXML échoue.
+     * @param stage The primary stage for this application.
+     * @throws IOException If there is an error loading the FXML file.
      */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(IndexViewController.class.getResource("index.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        // Récupérez une liste de titres de films pour le traitement
-        String[] movieTitles = {
+
+        String[] movieTitles = getMovieTitles();
+
+        MovieController.getAndStoreMoviesFromApi(movieTitles);
+
+        stage.setTitle("Cinéma");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * This method returns a list of movie titles.
+     *
+     * @return A list of movie titles.
+     */
+    public String[] getMovieTitles() {
+        return new String[] {
                 "Psycho",
                 "Hereditary",
                 "The Witch",
@@ -109,28 +122,21 @@ public class IndexApplication extends Application {
                 "Cars",
                 "Greenroom"
         };
-        FilmController.getAndStoreFilmsFromApi(movieTitles);
-
-
-        stage.setTitle("CINEMA");
-        stage.setScene(scene);
-        stage.show();
     }
-    /**
-     * Point d'entrée principal pour l'application JavaFX.
-     * Cette méthode initialise la base de données et charge les films dans la base de données
-     * à partir d'une liste prédéfinie de titres de films.
-     *
-     * @param args Arguments de ligne de commande passés à l'application.
-     */
 
+    /**
+     * The main method of the application.
+     * It loads the movie data and launches the application.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         try {
             Class.forName("org.sqlite.JDBC");
-            List<Movie> movies = FilmController.loadFilmData();
+            List<Movie> movies = MovieController.loadMovieData();
             if (movies != null) {
                 for (Movie movie : movies) {
-                    FilmController.insertMoviesIntoDb(movie);
+                    MovieController.insertMoviesIntoDb(movie);
                 }
                 launch();
             } else {
@@ -138,7 +144,6 @@ public class IndexApplication extends Application {
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            return;
         }
     }
 }

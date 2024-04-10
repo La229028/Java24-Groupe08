@@ -16,7 +16,6 @@ module com.example.java24groupe08 {
     opens helha.java24groupe08.views to javafx.fxml;
 
     requires com.google.gson;
-    requires org.testng;
     requires java.sql;
     exports helha.java24groupe08.models to com.google.gson;
     opens helha.java24groupe08.models to com.google.gson;

@@ -15,6 +15,7 @@
                      <Font size="30.0" />
                   </font>
                </Label>
+                <Button fx:id="loginButton" layoutX="847.0" layoutY="13.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #0509ff; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Connexion" />
             </children>
          </AnchorPane>
       </top>

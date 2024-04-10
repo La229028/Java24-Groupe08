@@ -1,13 +1,14 @@
-
 package helha.java24groupe08.models;
+
 import com.google.gson.annotations.SerializedName;
+
 /**
- * Représente un film dans l'application de cinéma.
- * Contient des informations sur le film qui peuvent être récupérées et stockées dans une base de données,
- * ainsi que sérialisées et désérialisées à partir du format JSON.
+ * Represents a movie in the cinema application.
+ * Contains information about the movie that can be retrieved and stored in a database,
+ * as well as serialized and deserialized from the JSON format.
  */
 public class Movie {
-    // Annotations @SerializedName indiquent le nom des champs dans le JSON source
+    // @SerializedName annotations indicate the name of the fields in the source JSON
     @SerializedName("Title") private String title;
     @SerializedName("Year") private String year;
     @SerializedName("Rated") private String rated;
@@ -22,6 +23,7 @@ public class Movie {
     @SerializedName("Country") private String country;
     @SerializedName("Awards") private String awards;
     @SerializedName("Poster") private String poster;
+
     // Getters
     public String getTitle() { return title; }
     public String getYear() { return year; }
@@ -37,6 +39,7 @@ public class Movie {
     public String getCountry() { return country; }
     public String getAwards() { return awards; }
     public String getPoster() { return poster; }
+
     // Setters
     public void setTitle(String title) { this.title = title; }
     public void setYear(String year) { this.year = year; }
@@ -52,13 +55,14 @@ public class Movie {
     public void setCountry(String country) { this.country = country; }
     public void setAwards(String awards) { this.awards = awards; }
     public void setPoster(String poster) { this.poster = poster; }
+
     /**
-     * Retourne une représentation en chaîne de caractères de l'objet Movie.
-     * Utilisé principalement à des fins de débogage pour afficher les informations du film dans la console.
-     * @return Une chaîne de caractères représentant les informations du film.
+     * Returns a string representation of the Movie object.
+     * Mainly used for debugging purposes to display movie information in the console.
+     * @return A string representing the movie information.
      */
     @Override
-    public String toString() {     // toString pour l'affichage
+    public String toString() {
         return "Movie{" +
                 "title='" + title + '\'' +
                 ", year=" + year +
