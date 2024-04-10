@@ -54,7 +54,7 @@ public class MovieController {
 
                     // Check if the film is not found
                     if(response.contains("\"Response\":\"False\"")) {
-                        System.out.println("Le film " + title + " n'a pas été trouvé ou n'est pas accessible via l'API.");
+                        System.out.println("The movie : " + title + " has not been found or is not accessible via the API.");
                         return null;
                     }
 
@@ -141,8 +141,8 @@ public class MovieController {
             Type movieListType = new TypeToken<List<Movie>>(){}.getType();
             return gson.fromJson(reader, movieListType);
         } catch (IOException e) {
-            System.out.println("Erreur lors du chargement du fichier JSON: " + e.getMessage());
-            return null;
+            System.out.println("Error loading JSON file: " + e.getMessage());
+            return null; // Returns null on error
         }
     }
 
@@ -160,10 +160,9 @@ public class MovieController {
      */
     public static void insertMoviesIntoDb(Movie movie) {
         if (movieExistsInDb(movie)) {
-            System.out.println("Le film " + movie.getTitle() + " existe déjà dans le JSON donc dans la base de données.");
             return;
         }
-
+        System.out.println("The Movie: " + movie.getTitle() + " does not exist in the JSON, i.e. in the database.");
         String sql = "INSERT INTO movies(title, year, rated, released, runtime, genre, director, writer, actors, plot, language, country, awards, poster) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try (Connection conn = DriverManager.getConnection(CONNECTION_STRING); // Connexion à la db sqlite
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -186,7 +185,7 @@ public class MovieController {
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            System.out.println("Erreur lors de l'insertion du film dans la base de données : " + e.getMessage());
+            System.out.println("Error inserting film into database : " + e.getMessage());
         }
     }
 

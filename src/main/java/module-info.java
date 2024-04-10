@@ -16,6 +16,7 @@ module helha.java24groupe08 {
 
     requires com.google.gson;
     requires java.sql;
+    requires java.desktop;
     exports helha.java24groupe08.models to com.google.gson;
     opens helha.java24groupe08.models to com.google.gson;
 

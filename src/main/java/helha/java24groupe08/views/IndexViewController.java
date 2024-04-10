@@ -5,6 +5,7 @@ import helha.java24groupe08.models.Movie;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -42,6 +43,8 @@ public class IndexViewController implements Initializable {
 
     @FXML
     public Button loginButton;
+
+
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -182,23 +185,29 @@ public class IndexViewController implements Initializable {
      * @return The created button.
      */
     private Button createSeeMoreButton(Movie movie) {
-        Button seeMoreButton = new Button("Voir plus");
+        Button seeMoreButton = new Button("See more");
         seeMoreButton.setPrefSize(150, 30);
         seeMoreButton.setStyle("-fx-background-color: #6495ED; -fx-text-fill: white; -fx-font-size: 12pt; -fx-font-weight: bold;");
 
         // Add an event handler for the click on the button
         seeMoreButton.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
-                Parent root = loader.load();
+                Stage currentStage = (Stage) seeMoreButton.getScene().getWindow();
+                SceneViewsController.switchToDescription(movie,currentStage);
 
-                DescriptionViewController descriptionViewController = loader.getController();
-                descriptionViewController.setMovieImage(movie.getPoster());
-                descriptionViewController.setMovieDetails(movie);//retrieve film details
 
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
+//                Parent root = loader.load();
+//
+//                DescriptionViewController descriptionViewController = loader.getController();
+//                descriptionViewController.setMovieImage(movie.getPoster());
+//                descriptionViewController.setMovieDetails(movie);//retrieve film details
+//
+//                //stage = event.getScene().getWindow();
+//                //stage = (Stage) root.getScene().getWindow();
+//                Stage stage = new Stage();
+//                stage.setScene(new Scene(root));
+//                stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -217,7 +226,7 @@ public class IndexViewController implements Initializable {
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Connexion");
+            stage.setTitle("Log In");
             stage.setResizable(false);//page cannot be resized
             stage.initModality(Modality.APPLICATION_MODAL);//The page cannot be closed without logging in
             stage.initOwner(loginButton.getScene().getWindow());//The main page cannot be clicked

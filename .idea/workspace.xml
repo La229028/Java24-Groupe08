@@ -46,20 +46,6 @@
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "lamrij"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="3081bb72-bd49-4357-b572-466f1c6c1faf" />
-        <option name="url" value="https://github.com/La229028/Java24-Groupe08.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -70,6 +56,18 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;La229028&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/La229028/Java24-Groupe08.git&quot;,
+    &quot;accountId&quot;: &quot;16ec3f5e-dc7f-4702-a408-ce2d33926979&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -79,39 +77,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.FilmController.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.IndexApplication.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "Application.be.helha.java24groupe08.controllers.HelloApplication.executor": "Run",
-    "Application.helha.java24groupe08.controllers.FilmController.executor": "Run",
-    "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
-    "Application.launcher.executor": "Run",
-    "JAR Application.Java24-Groupe08-1.0-SNAPSHOT-shaded.jar.executor": "Run",
-    "JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
-    "JAR Application.original-Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
-    "JUnit.MovieControllerTest.executor": "Run",
-    "JUnit.MovieTest.executor": "Run",
-    "Maven.Java24-Groupe08 [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/coupe/OneDrive - Haute Ecole Louvain en Hainaut/B2/Programmation - JAVA/LABOS/Labo 2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.IndexApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valentin/Desktop/Cours supp 2ème/B2Q2/Programmation/LABO/Java24-Groupe08&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="RecentsManager">
@@ -139,7 +123,7 @@
       <recent name="helha.java24groupe08.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Launcher">
+  <component name="RunManager" selected="JUnit.MovieTest">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.Launcher" />
       <module name="Java24-Groupe08" />
@@ -201,6 +185,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.IndexApplication" />
       <item itemvalue="Application.Launcher" />
       <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
       <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
@@ -209,10 +194,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Launcher" />
-        <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
         <item itemvalue="JUnit.MovieTest" />
         <item itemvalue="JUnit.MovieControllerTest" />
+        <item itemvalue="Application.Launcher" />
+        <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
         <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
@@ -234,7 +219,6 @@
       <updated>1711031115323</updated>
       <workItem from="1711031116520" duration="3000" />
       <workItem from="1712230714276" duration="3417000" />
-      <workItem from="1712730013358" duration="8774000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -340,15 +324,7 @@
       <option name="project" value="LOCAL" />
       <updated>1712669879640</updated>
     </task>
-    <task id="LOCAL-00014" summary="ajout du bouton pour supprimer des films (supprimés aussi de la db), j'ai fait en sorte que le json soit recréé lorsqu'il est supprimé mais il faut relancer le code 2 fois.">
-      <option name="closed" value="true" />
-      <created>1712758268184</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1712758268184</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,8 +392,7 @@
     <MESSAGE value="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password" />
     <MESSAGE value="Ajout pour page login" />
     <MESSAGE value="Visuel page description + /!\ problème avec bouton retour page description" />
-    <MESSAGE value="ajout du bouton pour supprimer des films (supprimés aussi de la db), j'ai fait en sorte que le json soit recréé lorsqu'il est supprimé mais il faut relancer le code 2 fois." />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout du bouton pour supprimer des films (supprimés aussi de la db), j'ai fait en sorte que le json soit recréé lorsqu'il est supprimé mais il faut relancer le code 2 fois." />
+    <option name="LAST_COMMIT_MESSAGE" value="Visuel page description + /!\ problème avec bouton retour page description" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

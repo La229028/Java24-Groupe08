@@ -12,6 +12,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -51,14 +52,14 @@ public class DescriptionViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         VBox.setMargin(stackPane, new Insets(15, 0, 0, 0));
 
-        backButtonIndex.setOnAction(event -> {
-            try {
-                backButtonIndexAction();
-                System.out.println("CLICK !");//test to see if button click works
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+//        backButtonIndex.setOnAction(event -> {
+//            try {
+//                backButtonIndexAction();
+//                System.out.println("CLICK !");//test to see if button click works
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        });
     }
 
     /**
@@ -87,8 +88,8 @@ public class DescriptionViewController implements Initializable {
         movieLabel.setText(movie.getTitle());
         movieRuntime.setText(movie.getRuntime() + " | " + movie.getGenre());
         moviePlot.setText("Synopsis\n" + movie.getPlot());
-        movieReleaseDate.setText("Sortie\n" + movie.getReleased());
-        movieDirector.setText("Réalisateur\n" + movie.getDirector());
+        movieReleaseDate.setText("release\n" + movie.getReleased());
+        movieDirector.setText("Director\n" + movie.getDirector());
         movieActors.setText("Casting\n" + movie.getActors());
     }
 
@@ -96,9 +97,16 @@ public class DescriptionViewController implements Initializable {
      * Closes the view when the back button is clicked.
      * NE FONCTIONNE PAS
      */
+    @FXML
     private void backButtonIndexAction() {
+        System.out.println("CLICK !");
         Stage stage = (Stage) backButtonIndex.getScene().getWindow();
-        stage.close();
+        try {
+            SceneViewsController.switchToIndex(stage);
+        } catch (IOException e) {
+            System.out.println("Error switching to index view");
+            throw new RuntimeException(e);
+        }
     }
 
 }
