@@ -27,9 +27,9 @@ public class LoginViewController implements Initializable {
 
     private LoginApplication controller;
 
-//    public void setController(LoginApplication controller) {
-//        this.controller = controller;
-//    }
+    public void setController(LoginApplication controller) {
+        this.controller = controller;
+    }
 
     /**
      * Initializes the controller class. This method is automatically called

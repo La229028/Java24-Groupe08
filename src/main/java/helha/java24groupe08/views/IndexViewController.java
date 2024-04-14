@@ -1,7 +1,6 @@
 package helha.java24groupe08.views;
 
-import helha.java24groupe08.controllers.MovieController;
-import helha.java24groupe08.models.Movie;
+import helha.java24groupe08.models.MovieDBController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -19,11 +18,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * Controller for the IndexView.
- * This class is responsible for handling user interactions with the IndexView,
- * and updating the view based on changes in the model (Movie).
- */
 public class IndexViewController implements Initializable {
 
     @FXML
@@ -37,36 +31,21 @@ public class IndexViewController implements Initializable {
 
     private static Listener listener;
 
-    /**
-     * Sets the listener for this controller.
-     *
-     * @param listener The listener to be set.
-     */
     public void setListener(Listener listener) {
         this.listener = listener;
     }
 
-    /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
-     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleLabel.setText("CINEMA");
-        List<Movie> movies = MovieController.loadMovieData();
+        List<String[]> movies = MovieDBController.getAllMovies();
         createVBoxes(movies);
         scrollPane.setContent(pane);
 
         loginButton.setOnAction(event -> loginButtonAction());
     }
 
-
-    /**
-     * Creates VBox elements for each movie and adds them to the pane.
-     *
-     * @param movies The list of movies to create VBox elements for.
-     */
-    private void createVBoxes(List<Movie> movies) {
+    private void createVBoxes(List<String[]> movies) {
         int boxWidth = 150;
         int boxHeight = 300;
         int horizontalGap = 25;
@@ -82,33 +61,20 @@ public class IndexViewController implements Initializable {
         }
     }
 
-    /**
-     * Creates a VBox for a single movie.
-     *
-     * @param movie The movie to create a VBox for.
-     * @return The created VBox.
-     */
-    private VBox createVBox(Movie movie) {
+    private VBox createVBox(String[] movieDetails) {
         VBox vbox = new VBox();
         vbox.setPrefSize(150, 300);
         vbox.setStyle("-fx-background-color: #e0e0e0; -fx-padding: 10px; -fx-spacing: 10px;");
 
-        AnchorPane movieTitle = createMovieTitle(movie.getTitle());
-        AnchorPane poster = createPoster(movie.getPoster());
-        Button seeMoreButton = createSeeMoreButton(movie); // Set film as parameter
-
+        AnchorPane movieTitle = createMovieTitle(movieDetails[0]);
+        AnchorPane poster = createPoster(movieDetails[13]);
+        Button seeMoreButton = createSeeMoreButton(movieDetails);
 
         vbox.getChildren().addAll(movieTitle, poster, seeMoreButton);
-        vbox.setAlignment(Pos.CENTER); // Center the VBox content
+        vbox.setAlignment(Pos.CENTER);
         return vbox;
     }
 
-    /**
-     * Creates an AnchorPane for the movie title.
-     *
-     * @param title The title of the movie.
-     * @return The created AnchorPane.
-     */
     private AnchorPane createMovieTitle(String title) {
         AnchorPane movieTitle = new AnchorPane();
         movieTitle.setPrefSize(150, 50);
@@ -128,35 +94,12 @@ public class IndexViewController implements Initializable {
         return movieTitle;
     }
 
-    /**
-     * Creates an AnchorPane for the poster image.
-     *
-     * @param posterURL The URL of the poster image.
-     * @return The created AnchorPane.
-     */
     private AnchorPane createPoster(String posterURL) {
         AnchorPane poster = new AnchorPane();
         poster.setPrefSize(150, 200);
         poster.setStyle("-fx-background-color: white; -fx-border-color: black; -fx-border-width: 1px;");
 
-        // Create delete Button
-        Button deleteButton = new Button("X");
-        deleteButton.setPrefSize(30, 30);
-        deleteButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-background-radius: 15px;");
-        deleteButton.setMinSize(30, 30);
-        deleteButton.setMaxSize(30, 30);
-        deleteButton.setOnAction(event -> {
-            // Delete the movie from the database
-            MovieController.deleteMovie(posterURL);
-            // Remove the VBox from the pane
-            pane.getChildren().remove(poster.getParent()); // Remove the parent of the poster (VBox)
-        });
-        // position of the delete button
-        AnchorPane.setTopAnchor(deleteButton, 0.0);
-        AnchorPane.setRightAnchor(deleteButton, 0.0);
-
-
-        if (posterURL != null) {
+        if (posterURL != null && !posterURL.isEmpty()) {
             try {
                 Image image = new Image(posterURL);
                 ImageView imageView = new ImageView(image);
@@ -172,45 +115,32 @@ public class IndexViewController implements Initializable {
                 System.err.println("Image not found" + posterURL);
             }
         }
-        poster.getChildren().add(deleteButton);
         return poster;
     }
 
-    /**
-     * Creates a "See More" button.
-     *
-     * @param movie The movie that the button is associated with.
-     * @return The created button.
-     */
-    private static Button createSeeMoreButton(Movie movie) {
+    private Button createSeeMoreButton(String[] movieDetails) {
         Button seeMoreButton = new Button("See more");
         seeMoreButton.setPrefSize(150, 30);
         seeMoreButton.setStyle("-fx-background-color: #6495ED; -fx-text-fill: white; -fx-font-size: 12pt; -fx-font-weight: bold;");
 
-        // Add an event handler for the click on the button
         seeMoreButton.setOnAction(event -> {
             if (listener != null) {
-                listener.seeMoreButtonAction(movie);
+                listener.seeMoreButtonAction(movieDetails);
             }
         });
         return seeMoreButton;
     }
 
-    /**
-     * Open the login page when the login button is clicked.
-     */
     private void loginButtonAction() {
         if (listener != null) {
             listener.loginButtonAction();
         }
     }
 
-    /**
-     * Interface for the listener of this controller.
-     */
     public interface Listener {
         void loginButtonAction();
-        void seeMoreButtonAction(Movie movie);
-    }
+        void seeMoreButtonAction(String[] movieDetails);
 
+        void seeMoreButtonAction(String movieTitle);
+    }
 }

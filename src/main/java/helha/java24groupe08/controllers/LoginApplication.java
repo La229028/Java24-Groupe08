@@ -45,6 +45,7 @@ public class LoginApplication implements Initializable{
      */
     public void returnButtonAction() {
         try{
+            // Close the current stage
             Stage currentStage = (Stage) returnButton.getScene().getWindow();
             currentStage.hide();
         }catch (Exception e) {

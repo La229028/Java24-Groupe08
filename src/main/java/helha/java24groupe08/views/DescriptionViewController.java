@@ -1,6 +1,7 @@
 package helha.java24groupe08.views;
 
-import helha.java24groupe08.models.Movie;
+import helha.java24groupe08.models.MovieDBController;
+import helha.java24groupe08.models.MovieDBController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -21,6 +22,21 @@ import java.util.ResourceBundle;
  * This class is responsible for handling user interactions with the DescriptionView,
  * and updating the view based on changes in the model (Movie).
  */
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class DescriptionViewController implements Initializable {
     @FXML
     private Label movieLabel;
@@ -45,21 +61,12 @@ public class DescriptionViewController implements Initializable {
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      *
-     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
      * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         VBox.setMargin(stackPane, new Insets(15, 0, 0, 0));
-
-//        backButtonIndex.setOnAction(event -> {
-//            try {
-//                backButtonIndexAction();
-//                System.out.println("CLICK !");//test to see if button click works
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
     }
 
     /**
@@ -82,31 +89,25 @@ public class DescriptionViewController implements Initializable {
     /**
      * Sets the details of the movie in the view.
      *
-     * @param movie The Movie object containing the movie details to set.
+     * @param movieDetails The array containing the movie details to set.
      */
-   public void setMovieDetails(Movie movie) {
-        movieLabel.setText(movie.getTitle());
-        movieRuntime.setText(movie.getRuntime() + " | " + movie.getGenre());
-        moviePlot.setText("Synopsis\n" + movie.getPlot());
-        movieReleaseDate.setText("release\n" + movie.getReleased());
-        movieDirector.setText("Director\n" + movie.getDirector());
-        movieActors.setText("Casting\n" + movie.getActors());
+    public void setMovieDetails(String[] movieDetails) {
+        movieLabel.setText(movieDetails[0]);
+        setMovieImage(movieDetails[13]); // Assuming poster URL is at index 13
+        moviePlot.setText(movieDetails[9]); // Assuming plot is at index 9
+        movieRuntime.setText("Runtime: " + movieDetails[4]);
+        movieDirector.setText("Director: " + movieDetails[6]);
+        movieReleaseDate.setText("Release date: " + movieDetails[3]);
+        movieActors.setText("Actors: " + movieDetails[8]);
     }
 
     /**
      * Closes the view when the back button is clicked.
-     * NE FONCTIONNE PAS
      */
     @FXML
     private void backButtonIndexAction() {
-        System.out.println("CLICK !");
         Stage stage = (Stage) backButtonIndex.getScene().getWindow();
-        try {
-            SceneViewsController.switchToIndex(stage);
-        } catch (IOException e) {
-            System.out.println("Error switching to index view");
-            throw new RuntimeException(e);
-        }
+        // Call a method to switch to the index view
+        // Example: SceneViewsController.switchToIndex(stage);
     }
-
 }

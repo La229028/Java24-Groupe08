@@ -10,20 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Remise en ordre code + javadoc + test + intégration du code de Guigui">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieAPIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Movie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/SceneViewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/SceneViewsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/movie.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/movie.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/controllers/MovieControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/controllers/MovieAPIControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +98,16 @@
     "Application.IndexController.executor": "Run",
     "Application.Launcher.executor": "Run",
     "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "git-widget-placeholder": "Main",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ljann/IdeaProjects/Java24-Groupe08",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -111,12 +123,15 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="helha.java24groupe08.controllers" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="helha.java24groupe08.models" />
       <recent name="be.helha" />
       <recent name="com" />
       <recent name="" />
       <recent name="java" />
-      <recent name="com.example.java24groupe08.view" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="helha.java24groupe08.models" />
@@ -129,7 +144,7 @@
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="helha.java24groupe08.controllers.*" />
+          <option name="PATTERN" value="helha.java24groupe08.models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -150,16 +165,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MovieAPIControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="helha.java24groupe08.controllers.*" />
+          <option name="PATTERN" value="helha.java24groupe08.models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="helha.java24groupe08.controllers" />
-      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.MovieControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.MovieAPIControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,7 +203,7 @@
       <item itemvalue="Application.Launcher" />
       <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
       <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
-      <item itemvalue="JUnit.MovieControllerTest" />
+      <item itemvalue="JUnit.MovieAPIControllerTest" />
       <item itemvalue="JUnit.MovieTest" />
     </list>
     <recent_temporary>
@@ -196,7 +211,7 @@
         <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
         <item itemvalue="JUnit.MovieTest" />
-        <item itemvalue="JUnit.MovieControllerTest" />
+        <item itemvalue="JUnit.MovieAPIControllerTest" />
         <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
@@ -204,13 +219,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dab16179-2038-43b9-ba15-91fc84853fef" name="Changes" comment="" />
+      <changelist id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Remise en ordre code + javadoc + test + intégration du code de Guigui" />
       <created>1711031115323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711031115323</updated>
       <workItem from="1711031116520" duration="3000" />
       <workItem from="1712230714276" duration="3417000" />
+      <workItem from="1713096106797" duration="16976000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -352,19 +368,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="Janna" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
