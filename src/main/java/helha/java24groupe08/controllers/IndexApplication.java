@@ -2,9 +2,13 @@ package helha.java24groupe08.controllers;
 
 import helha.java24groupe08.models.Movie;
 import helha.java24groupe08.views.IndexViewController;
+import helha.java24groupe08.views.SceneViewsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
@@ -13,7 +17,24 @@ import java.util.List;
  * This is the main class for the application.
  * It sets up the stage and scene, and loads the movie data.
  */
-public class IndexApplication extends Application {
+public class IndexApplication extends Application implements IndexViewController.Listener {
+
+    private Stage indexStage;
+    private static final String ERROR_TITLE = "Error";
+    private static final String ERROR_HEADER = "An error occurred";
+
+    /**
+     * This method shows an error alert with the given content text.
+     *
+     * @param contentText The content text of the error alert.
+     */
+    private void showErrorAlert(String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(ERROR_TITLE);
+        alert.setHeaderText(ERROR_HEADER);
+        alert.setContentText(contentText);
+        alert.showAndWait();
+    }
 
     /**
      * This method starts the application.
@@ -24,11 +45,13 @@ public class IndexApplication extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
+        this.indexStage = stage;
+
         FXMLLoader fxmlLoader = new FXMLLoader(IndexViewController.class.getResource("index.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-//Pour récupérer les films depuis l'API
-        //String[] movieTitles = getMovieTitles();
-        //MovieController.getAndStoreMoviesFromApi(movieTitles);
+
+        IndexViewController controller = fxmlLoader.getController();
+        controller.setListener(this);
 
         stage.setTitle("Cinéma");
         stage.setScene(scene);
@@ -36,91 +59,40 @@ public class IndexApplication extends Application {
     }
 
     /**
-     * This method returns a list of movie titles.
-     *
-     * @return A list of movie titles.
+     * This method is called when the login button is clicked.
+     * It opens the login page in a new stage.
      */
-    public String[] getMovieTitles() {
-        return new String[] {
-                "Psycho",
-                "Hereditary",
-                "The Witch",
-                "Midsommar",
-                "The Conjuring",
-                "Sinister",
-                "Insidious",
-                "Saw",
-                "Halloween",
-                "A Nightmare on Elm Street",
-                "Friday the 13th",
-                "The Texas Chainsaw Massacre",
-                "The Shining",
-                "Basic Instinct",
-                "Fatal Attraction",
-                "Se7en",
-                "Zodiac",
-                "Gone Girl",
-                "Black Swan",
-                "Eyes Wide Shut",
-                "The Silence of the Lambs",
-                "Mulholland Drive",
-                "Blue Velvet",
-                "Antichrist",
-                "Raw",
-                "It Follows",
-                "The Neon Demon",
-                "Suspiria",
-                "Climax",
-                "The Human Centipede",
-                "Mother!",
-                "Annihilation",
-                "The Cabin in the Woods",
-                "Get Out",
-                "Us",
-                "Scream",
-                "The Ring",
-                "The Babadook",
-                "A Quiet Place",
-                "The Descent",
-                "Carrie",
-                "Jaws",
-                "Rosemary's Baby",
-                "The Omen",
-                "Shutter Island",
-                "The Departed",
-                "Misery",
-                "Oldboy",
-                "Memento",
-                "American Psycho",
-                "The Prestige",
-                "Donnie Darko",
-                "The Machinist",
-                "The Others",
-                "The Sixth Sense",
-                "Nightcrawler",
-                "Prisoners",
-                "Funny Games",
-                "The Strangers",
-                "The Purge",
-                "You're Next",
-                "Hard Candy",
-                "I Spit on Your Grave",
-                "The Last House on the Left",
-                "Eden Lake",
-                "Martyrs",
-                "High Tension",
-                "Wolf Creek",
-                "Audition",
-                "Irreversible",
-                "A Serbian Film",
-                "Teeth",
-                "Raw",
-                "Inception",
-                "Matrix",
-                "Interstellar",
-                "Cars",
-                "Greenroom"
-        };
+    @Override
+    public void loginButtonAction() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/login.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Log In");
+            stage.setResizable(false);//page cannot be resized
+            stage.initModality(Modality.APPLICATION_MODAL);//The page cannot be closed without logging in
+            stage.initOwner(indexStage.getOwner());//The main page cannot be clicked
+            stage.showAndWait();//The main page cannot be clicked until the login page is closed
+        } catch (IOException e) {
+            showErrorAlert("Error while trying to open the login page : " + e.getMessage());
+        }
+    }
+
+    /**
+     * This method is called when the "see more" button is clicked for a movie.
+     * It switches the scene to the description page for the given movie.
+     *
+     * @param movie The movie for which the "see more" button was clicked.
+     */
+    @Override
+    public void seeMoreButtonAction(Movie movie) {
+        try {
+            SceneViewsController.switchToDescription(movie,indexStage);
+        } catch (IOException e) {
+           showErrorAlert("Error for movie : " + movie.getTitle() + " \n " + e.getMessage());
+        }
     }
 
     /**
@@ -132,17 +104,30 @@ public class IndexApplication extends Application {
     public static void main(String[] args) {
         try {
             Class.forName("org.sqlite.JDBC");
-            List<Movie> movies = MovieController.loadMovieData();
-            if (movies != null) {
-                for (Movie movie : movies) {
-                    MovieController.insertMoviesIntoDb(movie);
-                }
-                launch();
-            } else {
-                System.out.println("The list of films loaded is null. Impossible to insert films in the database");
-            }
+            loadAndInsertMovies();
+            launch();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Error while loading the JDBC driver : "+ e.getMessage());
+            System.exit(1);//exit the program, error code 1
+        }catch (Exception e){
+            System.err.println("An error has occurred : "+ e.getMessage());
+            System.exit(1);
+        }
+    }
+
+    /**
+     * This method loads the movie data and inserts it into the database.
+     * It throws an exception if the list of movies is null.
+     *
+     * @throws Exception If the list of movies is null.
+     */
+    private static void loadAndInsertMovies() throws Exception{
+        List<Movie> movies = MovieController.loadMovieData();
+        if (movies == null) {
+            throw new Exception("The list of films loaded is null. Impossible to insert films in the database");
+        }
+        for(Movie movie : movies){
+            MovieController.insertMoviesIntoDb(movie);
         }
     }
 }

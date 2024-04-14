@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane id="background" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.views.IndexViewController">
 
     <BorderPane prefHeight="700.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
       <top>
-         <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #0509ff;" BorderPane.alignment="CENTER">
+         <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #6495ED;" BorderPane.alignment="CENTER">
             <children>
-               <Label fx:id="titleLabel" layoutX="393.0" prefHeight="56.0" prefWidth="165.0" text="CinémaXYZ" textFill="#fcfcfc">
+               <Label fx:id="titleLabel" layoutX="393.0" prefHeight="56.0" prefWidth="165.0" text="Cinéma" textFill="#fcfcfc">
                   <font>
                      <Font size="30.0" />
                   </font>
                </Label>
-                <Button fx:id="loginButton" layoutX="847.0" layoutY="13.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #0509ff; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Connexion" />
+                <Button fx:id="loginButton" layoutX="847.0" layoutY="13.0" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #6495ED; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Connexion" />
             </children>
          </AnchorPane>
       </top>

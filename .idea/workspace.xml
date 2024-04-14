@@ -9,11 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" afterDir="false" />
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Remise en ordre code + javadoc + test + intégration du code de Guigui">
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_04_2024_16_07__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/movie.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.json" afterDir="false" />
     </list>
@@ -26,8 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,6 +92,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.IndexController.executor": "Run",
+    "Application.Launcher.executor": "Run",
     "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
     "git-widget-placeholder": "Main",
     "node.js.selected.package.tslint": "(autodetect)"
@@ -114,7 +123,7 @@
       <recent name="helha.java24groupe08.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.helha.java24groupe08.controllers.IndexApplication">
+  <component name="RunManager" selected="Application.Launcher">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.Launcher" />
       <module name="Java24-Groupe08" />
@@ -184,10 +193,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
         <item itemvalue="JUnit.MovieTest" />
         <item itemvalue="JUnit.MovieControllerTest" />
-        <item itemvalue="Application.Launcher" />
         <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
@@ -375,10 +384,16 @@
     <MESSAGE value="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password" />
     <MESSAGE value="Ajout pour page login" />
     <MESSAGE value="Visuel page description + /!\ problème avec bouton retour page description" />
-    <option name="LAST_COMMIT_MESSAGE" value="Visuel page description + /!\ problème avec bouton retour page description" />
+    <MESSAGE value="Remise en ordre code + javadoc + test + intégration du code de Guigui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remise en ordre code + javadoc + test + intégration du code de Guigui" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Java24_Groupe08$Launcher.ic" NAME="Launcher Coverage Results" MODIFIED="1712841038526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>helha.java24groupe08.controllers.*</FILTER>
+    </SUITE>
   </component>
 </project>
