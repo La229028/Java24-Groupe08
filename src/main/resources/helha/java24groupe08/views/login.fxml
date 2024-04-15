@@ -11,10 +11,10 @@
 
         <GridPane alignment="CENTER" hgap="10" prefHeight="142.0" prefWidth="368.0" vgap="5">
             <Label text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <TextField fx:id="usernameField" prefHeight="27.0" prefWidth="346.0" style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="usernameField" prefHeight="27.0" prefWidth="346.0" promptText="username..." style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
 
             <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <PasswordField fx:id="passwordField" prefHeight="28.0" prefWidth="328.0" style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <PasswordField fx:id="passwordField" prefHeight="28.0" prefWidth="328.0" promptText="password..." style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
 
             <HBox alignment="CENTER" prefHeight="27.0" prefWidth="164.0" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
                 <Button fx:id="connectButton" onAction="#handleLogin" prefHeight="11.0" prefWidth="54.0" text="Log In" />
