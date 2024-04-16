@@ -11,7 +11,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -23,7 +23,7 @@ public class IndexViewController implements Initializable {
     @FXML
     public Label titleLabel;
     @FXML
-    public Pane pane;
+    public FlowPane flowPane;
     @FXML
     public ScrollPane scrollPane;
     @FXML
@@ -40,7 +40,7 @@ public class IndexViewController implements Initializable {
         titleLabel.setText("CINEMA");
         List<String[]> movies = MovieDBController.getAllMovies();
         createVBoxes(movies);
-        scrollPane.setContent(pane);
+        scrollPane.setContent(flowPane);
 
         loginButton.setOnAction(event -> loginButtonAction());
     }
@@ -54,7 +54,7 @@ public class IndexViewController implements Initializable {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 6; j++) {
                 VBox vbox = createVBox(movies.get(i * 6 + j));
-                pane.getChildren().add(vbox);
+                flowPane.getChildren().add(vbox);
                 vbox.setLayoutX(35 + i * (boxWidth + horizontalGap));
                 vbox.setLayoutY(30 + j * (boxHeight + verticalGap));
             }

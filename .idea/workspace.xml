@@ -9,15 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="workspace">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/newAccount.fxml" afterDir="false" />
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/images/backButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +83,6 @@
   &quot;keyToString&quot;: {
     &quot;Application.IndexController.executor&quot;: &quot;Run&quot;,
     &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.NewAccountApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.helha.java24groupe08.controllers.IndexApplication.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
@@ -106,6 +101,7 @@
       <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\target\classes\helha\java24groupe08\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\src\main\resources\helha\java24groupe08\views\ressources" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\java\com\example\java24groupe08\database" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
@@ -136,19 +132,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="helha.java24groupe08.models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NewAccountApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.NewAccountApplication" />
-      <module name="Java24-Groupe08" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="helha.java24groupe08.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -199,29 +182,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Java24-Groupe08-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.NewAccountApplication" />
       <item itemvalue="Application.Launcher" />
       <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
+      <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
       <item itemvalue="JUnit.MovieAPIControllerTest" />
       <item itemvalue="JUnit.MovieTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
-        <item itemvalue="Application.NewAccountApplication" />
         <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
         <item itemvalue="JUnit.MovieTest" />
         <item itemvalue="JUnit.MovieAPIControllerTest" />
+        <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -234,7 +214,8 @@
       <workItem from="1711031116520" duration="3000" />
       <workItem from="1712230714276" duration="3417000" />
       <workItem from="1713096106797" duration="18716000" />
-      <workItem from="1713200898178" duration="5698000" />
+      <workItem from="1713200898178" duration="15039000" />
+      <workItem from="1713282425945" duration="1236000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -348,7 +329,31 @@
       <option name="project" value="LOCAL" />
       <updated>1713118560504</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="réparation du login">
+      <option name="closed" value="true" />
+      <created>1713263486198</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713263486198</updated>
+    </task>
+    <task id="LOCAL-00016" summary="réparation de la page de description">
+      <option name="closed" value="true" />
+      <created>1713280521399</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713280521399</updated>
+    </task>
+    <task id="LOCAL-00017" summary="commit du workspace.xml">
+      <option name="closed" value="true" />
+      <created>1713280552686</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713280552686</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +411,10 @@
     <MESSAGE value="Visuel page description + /!\ problème avec bouton retour page description" />
     <MESSAGE value="Remise en ordre code + javadoc + test + intégration du code de Guigui" />
     <MESSAGE value="refactor du systeme de recup de données (soucis avec la récupération sur la page de description que je vais regler)" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor du systeme de recup de données (soucis avec la récupération sur la page de description que je vais regler)" />
+    <MESSAGE value="réparation du login" />
+    <MESSAGE value="réparation de la page de description" />
+    <MESSAGE value="commit du workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit du workspace.xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
