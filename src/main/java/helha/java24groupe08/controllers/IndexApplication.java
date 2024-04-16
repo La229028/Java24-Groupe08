@@ -43,7 +43,6 @@ public class IndexApplication extends Application implements IndexViewController
      * This method is called when the login button is clicked.
      * It opens the login page in a new stage.
      */
-    @Override
     public void loginButtonAction() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/login.fxml"));
@@ -53,10 +52,10 @@ public class IndexApplication extends Application implements IndexViewController
             LoginViewController controller = loader.getController();
 
             // Create an instance of LoginApplication
-            LoginApplication loginApp = new LoginApplication();
-
-            // Set the instance of LoginApplication to the controller
-            controller.setController(loginApp);
+//            LoginApplication loginApp = new LoginApplication();
+//
+//            // Set the instance of LoginApplication to the controller
+//            controller.setController(loginApp);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -69,6 +68,8 @@ public class IndexApplication extends Application implements IndexViewController
             showErrorAlert("Error while trying to open the login page : " + e.getMessage());
         }
     }
+
+
 
 
 
