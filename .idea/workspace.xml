@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="" />
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/backButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/images/backButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +101,7 @@
       <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\target\classes\helha\java24groupe08\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\src\main\resources\helha\java24groupe08\views\ressources" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\java\com\example\java24groupe08\database" />
       <recent name="C:\Users\coupe\OneDrive - Haute Ecole Louvain en Hainaut\B2\Programmation - JAVA\Java24-Groupe08\src\main\resources\com\example\java24groupe08\view" />
@@ -208,7 +214,8 @@
       <workItem from="1711031116520" duration="3000" />
       <workItem from="1712230714276" duration="3417000" />
       <workItem from="1713096106797" duration="18716000" />
-      <workItem from="1713200898178" duration="14660000" />
+      <workItem from="1713200898178" duration="15039000" />
+      <workItem from="1713282425945" duration="1236000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -338,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713280521399</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="commit du workspace.xml">
+      <option name="closed" value="true" />
+      <created>1713280552686</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713280552686</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +413,8 @@
     <MESSAGE value="refactor du systeme de recup de données (soucis avec la récupération sur la page de description que je vais regler)" />
     <MESSAGE value="réparation du login" />
     <MESSAGE value="réparation de la page de description" />
-    <option name="LAST_COMMIT_MESSAGE" value="réparation de la page de description" />
+    <MESSAGE value="commit du workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit du workspace.xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
