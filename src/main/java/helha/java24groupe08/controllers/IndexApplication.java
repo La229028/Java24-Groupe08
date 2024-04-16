@@ -61,9 +61,6 @@ public class IndexApplication extends Application implements IndexViewController
     }
 
 
-
-
-
     @Override
     public void seeMoreButtonAction(String[] movieTitle) {
         try {
@@ -80,13 +77,13 @@ public class IndexApplication extends Application implements IndexViewController
             DescriptionViewController controller = loader.getController();
 
             // Get movie details from the database
-            String[] movieDetails = movieDBController.getMovie(Arrays.toString(movieTitle));
+            String[] movieDetails = movieDBController.getMovie(movieTitle[0]); // Pass the movie title directly
 
             // If the movie is found, configure the description view controller with the movie details
             if (movieDetails != null) {
                 controller.setMovieDetails(movieDetails);
             } else {
-                showErrorAlert("The movie \"" + Arrays.toString(movieTitle) + "\" was not found in the database.");
+                showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
                 return;
             }
 

@@ -1,80 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane id="background" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.views.DescriptionViewController">
-
-    <BorderPane prefHeight="700.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-        <top>
-            <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #6495ED;" BorderPane.alignment="CENTER">
-                <children>
-               <SplitPane prefHeight="62.0" prefWidth="97.0" visible="false" />
-                    <Button fx:id="backButtonIndex" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backButtonIndexAction" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #6495ED; -fx-border-color: #ffffff; -fx-border-radius: 5px;" text="Retour" textAlignment="CENTER" textFill="WHITE">
-<!--                        <graphic>-->
-<!--                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">-->
-<!--                                <image>-->
-<!--                                    <Image url="/backButton.png" />-->
-<!--                                </image>-->
-<!--                            </ImageView>-->
-<!--                        </graphic>-->
-                    </Button>
-                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" prefHeight="56.0" prefWidth="945.0" style="-fx-font-family: Arial;" text="CINEMA" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
-                        <font>
-                            <Font size="30.0" />
-                        </font>
-                    </Label>
-                </children>
-            </AnchorPane>
-        </top>
-        <center>
-            <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0" style="-fx-background-color: #f6f5f2;">
-                <VBox fx:id="movieDetails" prefHeight="642.0" prefWidth="1017.0" BorderPane.alignment="CENTER_LEFT">
-                    <!-- ImageView for movie image -->
-                    <HBox>
-                        <VBox prefHeight="588.0" prefWidth="307.0" spacing="10">
-                            <StackPane fx:id="stackPane" prefHeight="300.0" prefWidth="230.0">
-                                <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);" />
-                            </StackPane>
-                        </VBox>
-                        <VBox prefHeight="505.0" prefWidth="734.0">
-                            <!-- Label for movie description -->
-                            <Label fx:id="movieLabel" prefHeight="53.0" prefWidth="733.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
-                                <font>
-                                    <Font size="24.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="movieRuntime" prefHeight="43.0" prefWidth="733.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="moviePlot" prefHeight="119.0" prefWidth="737.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="movieDirector" prefHeight="68.0" prefWidth="724.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="movieReleaseDate" prefHeight="58.0" prefWidth="729.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="movieActors" prefHeight="56.0" prefWidth="729.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </Label>
-                        </VBox>
-                    </HBox>
-                </VBox>
-            </ScrollPane>
-        </center>
-    </BorderPane>
+    <children>
+        <BorderPane prefHeight="700.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+            <top>
+                <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #6495ED;" BorderPane.alignment="CENTER">
+                    <!-- Your top content here -->
+                </AnchorPane>
+            </top>
+            <center>
+                <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0" style="-fx-background-color: #f6f5f2;">
+                    <VBox fx:id="movieDetails" prefHeight="642.0" prefWidth="1017.0" BorderPane.alignment="CENTER_LEFT">
+                        <!-- ImageView for movie image -->
+                        <HBox>
+                            <VBox prefHeight="588.0" prefWidth="307.0" spacing="10">
+                                <StackPane fx:id="stackPane" prefHeight="300.0" prefWidth="230.0">
+                                    <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);" />
+                                </StackPane>
+                            </VBox>
+                            <VBox prefHeight="505.0" prefWidth="734.0">
+                                <!-- Label for movie description -->
+                                <Label fx:id="movieLabel" prefHeight="53.0" prefWidth="733.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                                <!-- Label for movie plot -->
+                                <Label fx:id="moviePlot" prefHeight="119.0" prefWidth="737.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </ScrollPane>
+            </center>
+        </BorderPane>
+    </children>
 </AnchorPane>
