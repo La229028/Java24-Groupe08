@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class LoginViewController {
 
     @FXML
@@ -14,6 +16,7 @@ public class LoginViewController {
 
     @FXML
     private PasswordField passwordField;
+
 
     /**
      * This method is called when the "Login" button is clicked.
@@ -63,5 +66,13 @@ public class LoginViewController {
         // Close the login window
         usernameField.getScene().getWindow().hide();
     }
+
+    @FXML
+    private void handleNewAccount(ActionEvent event) throws IOException {
+        ((Button) event.getSource()).getScene().getWindow().hide();
+        NewAccountViewController.showNewAccountWindow();
+    }
+
+
 
 }
