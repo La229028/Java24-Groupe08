@@ -1,46 +1,67 @@
 package helha.java24groupe08.views;
 
-import helha.java24groupe08.controllers.LoginApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+public class LoginViewController {
 
-/**
- * Controller for the LoginView.
- * This class is responsible for handling user interactions with the LoginView,
- * and updating the view based on user input.
- */
-public class LoginViewController implements Initializable {
     @FXML
-    public Button returnButton;
-    @FXML
-    public Button connectButton;
-    @FXML
-    public TextField usernameField;
-    @FXML
-    public TextField passwordField;
+    private TextField usernameField;
 
-    private LoginApplication controller;
+    @FXML
+    private PasswordField passwordField;
 
-    public void setController(LoginApplication controller) {
-        this.controller = controller;
+    /**
+     * This method is called when the "Login" button is clicked.
+     * It checks if the username and password are correct, and displays an error message if they are not.
+     */
+    @FXML
+    private void handleLogin(ActionEvent event) {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (username.equals("admin") && password.equals("admin")) {
+            // Print a message to indicate that the login was successful
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Connexion réussie");
+            alert.setHeaderText(null);
+            alert.setContentText("Vous êtes connecté en tant qu'administrateur.");
+            alert.showAndWait();
+
+            // Call the onLoginSuccess method to close the login window (and possibly do other things)
+            onLoginSuccess();
+        } else {
+            // Print an error message if the login failed
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur de connexion");
+            alert.setHeaderText(null);
+            alert.setContentText("Nom d'utilisateur ou mot de passe incorrect.");
+            alert.showAndWait();
+        }
+    }
+
+
+    /**
+     * This method is called when the "Cancel" button is clicked.
+     * It closes the login window.
+     */
+    @FXML
+    private void handleCancel(ActionEvent event) {
+        // Close the login window
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
 
     /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
-     *
-     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     * This method is called when the login is successful.
+     * It closes the login window.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        returnButton.setOnAction(event -> controller.returnButtonAction());
-        connectButton.setOnAction(event -> controller.connectButtonAction());
+    private void onLoginSuccess() {
+        // Close the login window
+        usernameField.getScene().getWindow().hide();
     }
+
 }

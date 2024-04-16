@@ -21,15 +21,19 @@ public class MovieDBController {
     private static final String CONNECTION_STRING = "jdbc:sqlite:src/main/DB/DB.db";
     private static final int MOVIE_DETAILS_LENGTH = 14;
 
-    // Get Title
+    /**
+     * Retrieves movie data from the database.
+     * @param title The title of the movie to search for.
+     * @return The movie data as a JSON string.
+     */
     public static String getTitle(String title) {
-        String sql = "SELECT Title FROM movies WHERE data LIKE ?";
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "%" + title + "%");
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return rs.getString("Title");
+        String sql = "SELECT Title FROM movies WHERE data LIKE ?"; // SQL query to get the movie title from the database
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING); // Open a connection to the database
+             PreparedStatement pstmt = conn.prepareStatement(sql)) { // Prepare the SQL statement
+            pstmt.setString(1, "%" + title + "%"); // Set the title parameter
+            ResultSet rs = pstmt.executeQuery(); // Execute the query (search for the movie title) and get the result
+            if (rs.next()) { // Check if a result was found
+                return rs.getString("Title"); // Return the movie title
             }
         } catch (SQLException e) {
             System.err.println("Error getting movie title from database: " + e.getMessage());
@@ -37,18 +41,28 @@ public class MovieDBController {
         return null;
     }
 
+
+    /**
+     * Retrieves movie data from the database.
+     * @param movieData The movie data to search for.
+     * @return The movie data as a JSON string.
+     */
     public static void insertMovie(String movieData) {
-        String sql = "INSERT INTO movies(data) VALUES(?)";
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, movieData);
-            pstmt.executeUpdate();
-            System.out.println("Movie inserted successfully.");
+        String sql = "INSERT INTO movies(data) VALUES(?)"; // SQL query to insert the movie data into the database
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING); // Open a connection to the database
+             PreparedStatement pstmt = conn.prepareStatement(sql)) { // Prepare the SQL statement
+            pstmt.setString(1, movieData); // Set the movie data parameter
+            pstmt.executeUpdate(); // Execute the query (insert the movie data into the database)
+            System.out.println("Movie inserted successfully."); // Print a success message
         } catch (SQLException e) {
             System.err.println("Error inserting movie into database: " + e.getMessage());
         }
     }
 
+    /**
+     * Retrieves all movie data from the database.
+     * @return A list of movie data as JSON strings.
+     */
     public static List<String[]> getAllMovies() {
         List<String[]> movies = new ArrayList<>();
         String sql = "SELECT * FROM movies";
@@ -82,6 +96,7 @@ public class MovieDBController {
         movie[13] = rs.getString("Poster");
         return movie;
     }
+
 
     public void setMovie(String title, String year, String rated, String released, String runtime,
                          String genre, String director, String writer, String actors, String plot,

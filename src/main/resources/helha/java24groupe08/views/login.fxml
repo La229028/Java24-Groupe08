@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
+<!-- NOUVEAU LOGIN FXML - 2021-05-06 - 15:00 - 15:30 -->
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.views.LoginViewController"
 >
 
@@ -24,8 +24,8 @@
             <PasswordField fx:id="passwordField" prefHeight="28.0" prefWidth="328.0" style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
 
             <HBox alignment="CENTER" prefHeight="27.0" prefWidth="164.0" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                <Button fx:id="connectButton" prefHeight="11.0" prefWidth="54.0" text="Log In" />
-                <Button fx:id="returnButton" prefHeight="11.0" prefWidth="54.0" text="Cancel" />
+                <Button fx:id="connectButton" prefHeight="11.0" prefWidth="54.0" text="Log In" onAction="#handleLogin" />
+                <Button fx:id="returnButton" prefHeight="11.0" prefWidth="54.0" text="Cancel" onAction="#handleCancel" />
             </HBox>
             <columnConstraints>
                 <ColumnConstraints maxWidth="314.3679894296879" minWidth="314.3679894296879" prefWidth="314.3679894296879" />

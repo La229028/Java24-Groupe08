@@ -37,6 +37,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class DescriptionViewController implements Initializable {
     @FXML
     private Label movieLabel;
@@ -57,40 +69,11 @@ public class DescriptionViewController implements Initializable {
     @FXML
     private StackPane stackPane;
 
-    /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
-     *
-     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
-     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        VBox.setMargin(stackPane, new Insets(15, 0, 0, 0));
+        VBox.setMargin(stackPane, new javafx.geometry.Insets(15, 0, 0, 0));
     }
 
-    /**
-     * Sets the image of the movie in the view.
-     *
-     * @param imageUrl The URL of the image to set.
-     */
-    public void setMovieImage(String imageUrl) {
-        // Load and set the image
-        if (imageUrl != null) {
-            try {
-                Image image = new Image(imageUrl);
-                movieImage.setImage(image);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * Sets the details of the movie in the view.
-     *
-     * @param movieDetails The array containing the movie details to set.
-     */
     public void setMovieDetails(String[] movieDetails) {
         movieLabel.setText(movieDetails[0]);
         setMovieImage(movieDetails[13]); // Assuming poster URL is at index 13
@@ -101,12 +84,20 @@ public class DescriptionViewController implements Initializable {
         movieActors.setText("Actors: " + movieDetails[8]);
     }
 
-    /**
-     * Closes the view when the back button is clicked.
-     */
+    public void setMovieImage(String imageUrl) {
+        if (imageUrl != null) {
+            try {
+                Image image = new Image(imageUrl);
+                movieImage.setImage(image);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @FXML
     private void backButtonIndexAction() {
-        Stage stage = (Stage) backButtonIndex.getScene().getWindow();
+        javafx.stage.Stage stage = (javafx.stage.Stage) backButtonIndex.getScene().getWindow();
         // Call a method to switch to the index view
         // Example: SceneViewsController.switchToIndex(stage);
     }

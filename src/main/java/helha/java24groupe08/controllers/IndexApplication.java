@@ -3,7 +3,7 @@ package helha.java24groupe08.controllers;
 import helha.java24groupe08.models.MovieDBController;
 import helha.java24groupe08.views.DescriptionViewController;
 import helha.java24groupe08.views.IndexViewController;
-import helha.java24groupe08.views.LoginViewController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -46,27 +46,17 @@ public class IndexApplication extends Application implements IndexViewController
     @Override
     public void loginButtonAction() {
         try {
+            // Load the login.fxml file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/login.fxml"));
             Parent root = loader.load();
 
-            // Get the controller instance
-            LoginViewController controller = loader.getController();
-
-            // Create an instance of LoginApplication
-            LoginApplication loginApp = new LoginApplication();
-
-            // Set the instance of LoginApplication to the controller
-            controller.setController(loginApp);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Log In");
-            stage.setResizable(false);//page cannot be resized
-            stage.initModality(Modality.APPLICATION_MODAL);//The page cannot be closed without logging in
-            stage.initOwner(indexStage.getOwner());//The main page cannot be clicked
-            stage.showAndWait();//The main page cannot be clicked until the login page is closed
-        } catch (IOException e) {
-            showErrorAlert("Error while trying to open the login page : " + e.getMessage());
+            // Create a new stage for the login window
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Login");
+            loginStage.setScene(new Scene(root));
+            loginStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
