@@ -3,7 +3,7 @@ package helha.java24groupe08.controllers;
 import helha.java24groupe08.models.MovieDBController;
 import helha.java24groupe08.views.DescriptionViewController;
 import helha.java24groupe08.views.IndexViewController;
-
+import helha.java24groupe08.views.LoginViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -59,6 +59,8 @@ public class IndexApplication extends Application implements IndexViewController
             e.printStackTrace();
         }
     }
+
+
 
 
 
