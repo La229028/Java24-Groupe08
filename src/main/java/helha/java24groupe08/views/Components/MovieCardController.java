@@ -19,12 +19,12 @@ public class MovieCardController {
     private Button seeMoreButton;
 
 
-    public void createVBox(String[] movie) {
-        titleLabel.setText(movie[0]);
-        Image image = new Image(movie[1]);
-        imageView.setImage(image);
-        seeMoreButton.setOnAction(event -> seeMoreButtonAction(movie));
-    }
+//    public void createVBox(String[] movie) {
+//        titleLabel.setText(movie[0]);
+//        Image image = new Image(movie[1]);
+//        imageView.setImage(image);
+//        seeMoreButton.setOnAction(event -> seeMoreButtonAction(movie));
+//    }
 
 
 
