@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_09_04_2024_20_15__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/backButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/images/backButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
     &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ljann/IdeaProjects/Java24-Groupe08&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ljann/IdeaProjects/Cours.2024.04.10&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -215,7 +215,9 @@
       <workItem from="1712230714276" duration="3417000" />
       <workItem from="1713096106797" duration="18716000" />
       <workItem from="1713200898178" duration="15039000" />
-      <workItem from="1713282425945" duration="1236000" />
+      <workItem from="1713282425945" duration="1578000" />
+      <workItem from="1713335126909" duration="3467000" />
+      <workItem from="1713341017476" duration="1463000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -353,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713280552686</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="réparation du bouton pour revenir en arrière via la page de description">
+      <option name="closed" value="true" />
+      <created>1713283771448</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713283771448</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +424,8 @@
     <MESSAGE value="réparation du login" />
     <MESSAGE value="réparation de la page de description" />
     <MESSAGE value="commit du workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit du workspace.xml" />
+    <MESSAGE value="réparation du bouton pour revenir en arrière via la page de description" />
+    <option name="LAST_COMMIT_MESSAGE" value="réparation du bouton pour revenir en arrière via la page de description" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
