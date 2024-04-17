@@ -20,6 +20,8 @@ public class LoginViewController {
     @FXML
     private PasswordField passwordField;
 
+    private static boolean isAdminLoggedIn = false;
+
 
     /**
      * This method is called when the "Login" button is clicked.
@@ -43,25 +45,22 @@ public class LoginViewController {
      * @param username The username entered by the user
      * @param password The password entered by the user
      */
-    private void handleLoginAdmin(String username, String password){
+    private void handleLoginAdmin(String username, String password) {
         if (username.equals("admin") && password.equals("admin")) {
-            // Print a message to indicate that the login was successful
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Successful connection");
-            alert.setHeaderText(null);
-            alert.setContentText("You are logged in as administrator.");
-            alert.showAndWait();
-
-            // Call the onLoginSuccess method to close the login window (and possibly do other things)
+            isAdminLoggedIn = true; // Accorder les droits administrateurs
+            showAlert("Successful connection", "You are logged in as administrator.", Alert.AlertType.INFORMATION);
             onLoginSuccess();
         } else {
-            // Print an error message if the login failed
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Connection error");
-            alert.setHeaderText(null);
-            alert.setContentText("Incorrect username or password.");
-            alert.showAndWait();
+            showAlert("Connection error", "Incorrect username or password.", Alert.AlertType.ERROR);
         }
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     /**
@@ -80,7 +79,7 @@ public class LoginViewController {
             alert.setHeaderText(null);
             alert.setContentText("Welcome " + user.getFirstname() + " !");
             alert.showAndWait();
-
+            isAdminLoggedIn = false;
             onLoginSuccess();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -123,6 +122,8 @@ public class LoginViewController {
         NewAccountViewController.showNewAccountWindow();
     }
 
-
+    public static boolean isAdminLoggedIn() {
+        return isAdminLoggedIn;
+    }
 
 }

@@ -162,7 +162,7 @@ public class MovieDBController {
         }
     }
 
-    public void deleteMovie(String title) {
+    public static void deleteMovie(String title) {
         String sql = "DELETE FROM movies WHERE Title = ?";
         try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
