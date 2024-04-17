@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="520.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.views.NewAccountViewController">
 
     <children>
-        <VBox layoutX="85.0" prefHeight="500.0" prefWidth="448.0" spacing="10" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-padding: 10;">
+        <VBox layoutX="85.0" layoutY="6.0" prefHeight="583.0" prefWidth="427.0" spacing="10" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-padding: 10;">
             <Label text="Name :" />
             <TextField fx:id="nameTextField" />
             <Label text="Firstname :" />
@@ -23,18 +23,20 @@
             <ChoiceBox fx:id="statusChoiceBox">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Enfant" />
-                        <String fx:value="Étudiant" />
+                        <String fx:value="Child" />
+                        <String fx:value="Student" />
                         <String fx:value="Normal" />
-                        <String fx:value="Âgé" />
+                        <String fx:value="Senior" />
                     </FXCollections>
                 </items>
             </ChoiceBox>
+            <Label text="Username :" />
+            <TextField fx:id="usernameTextField" />
             <Label text="Password :" />
             <PasswordField fx:id="passwordField" />
             <HBox spacing="10">
-                <Button text="Confirm" onAction="#handleConfirm"/>
-                <Button text="Cancel" onAction="#handleCancel"/>
+                <Button onAction="#handleConfirm" text="Confirm" />
+                <Button onAction="#handleCancel" text="Cancel" />
             </HBox>
         </VBox>
     </children>

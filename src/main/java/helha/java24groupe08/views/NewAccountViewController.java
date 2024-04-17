@@ -8,14 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * NewAccountViewController class is responsible for handling user interactions in the "New Account" window.
+ * It provides methods to display the "New Account" window, handle the "Confirm" and "Cancel" buttons, and validate user input.
+ */
 public class NewAccountViewController {
 
     @FXML
@@ -37,48 +38,98 @@ public class NewAccountViewController {
     private ChoiceBox<String> statusChoiceBox;
 
     @FXML
+    private TextField usernameTextField;
+
+    @FXML
     private PasswordField passwordField;
 
 
-
+    /**
+     * Displays the "New Account" window.
+     * @throws IOException If an input or output exception occurred
+     */
     public static void showNewAccountWindow() throws IOException {
-        // Load the newAccount.fxml file using the FXMLLoader
         FXMLLoader loader = new FXMLLoader(NewAccountViewController.class.getResource("newAccount.fxml"));
         Parent root = loader.load();
 
-        // Configures the stage and displays it (the new account window)
         Scene scene = new Scene(root);
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.setTitle("New Account");
 
-        primaryStage.setResizable(false);//locks window size
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
 
+    /**
+     * Handles the "Confirm" button click event.
+     * Validates the user input, creates a new User object, adds it to the database, and closes the "New Account" window.
+     * @param event The ActionEvent object representing the button click event
+     */
     public void handleConfirm(javafx.event.ActionEvent event) {
-        String nom = nameTextField.getText();
-        String prenom = firstnameTextField.getText();
-        String telephone = numberPhoneTextField.getText();
+        if(!validateInput()){
+            return;
+        }
+
+        String name = nameTextField.getText();
+        String firstname = firstnameTextField.getText();
+        String numberPhone = numberPhoneTextField.getText();
         String email = emailTextField.getText();
         int age = Integer.parseInt(ageTextField.getText());
         String status = statusChoiceBox.getValue();
+        String username = usernameTextField.getText();
         String password = passwordField.getText();
 
-        // Créez un nouvel utilisateur avec ces valeurs
-        User newUser = new User(nom, prenom, telephone, email, age, status, password);
+        User newUser = new User(name, firstname, numberPhone, email, age, status, username, password);
 
-        // Ajoutez le nouvel utilisateur à votre base de données
-        // Vous devrez remplacer cette ligne par le code approprié pour ajouter un utilisateur à votre base de données
         UserDBController.addUser(newUser);
 
-        // Fermez la fenêtre
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Validates the user input in the "New Account" window.
+     * Checks if all fields are filled and if the age is a number.
+     * @return true if the input is valid, false otherwise
+     */
+    private boolean validateInput(){
+        boolean isValid = true;
+
+        if(nameTextField.getText().isEmpty() || firstnameTextField.getText().isEmpty() || numberPhoneTextField.getText().isEmpty() || emailTextField.getText().isEmpty() || ageTextField.getText().isEmpty() || statusChoiceBox.getValue() == null || usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty()){
+            showAlert("Please fill in all fields !");
+            isValid = false;
+        }
+
+        try{
+            Integer.parseInt(ageTextField.getText());
+        }catch(NumberFormatException e){
+            showAlert("Age must be a number !");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    /**
+     * Handles the "Cancel" button click event.
+     * Closes the "New Account" window.
+     * @param event The ActionEvent object representing the button click event
+     */
     public void handleCancel(ActionEvent event) {
         ((Button) event.getSource()).getScene().getWindow().hide();
+    }
+
+    /**
+     * Displays a warning alert with the specified message.
+     * @param message The message to be displayed in the alert
+     */
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
