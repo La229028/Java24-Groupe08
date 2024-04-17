@@ -41,6 +41,13 @@ public class IndexViewController implements Initializable {
         this.listener = listener;
     }
 
+    /**
+     * This method is called when the index view is initialized.
+     * It sets up the initial state of the index view.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleLabel.setText("CINEMA");
@@ -51,6 +58,12 @@ public class IndexViewController implements Initializable {
         loginButton.setOnAction(event -> loginButtonAction());
     }
 
+
+    /**
+     * This method creates the VBox elements for each movie and adds them to the FlowPane.
+     *
+     * @param movies The list of movies to be displayed.
+     */
     private void createVBoxes(List<String[]> movies) {
         int boxWidth = 150;
         int boxHeight = 300;
@@ -67,6 +80,14 @@ public class IndexViewController implements Initializable {
         }
     }
 
+
+
+    /**
+     * This method creates a VBox element for a movie with the given details.
+     *
+     * @param movieDetails The details of the movie to be displayed.
+     * @return The VBox element containing the movie details.
+     */
     private VBox createVBox(String[] movieDetails) {
         VBox vbox = new VBox();
         vbox.setPrefSize(150, 300);
@@ -80,6 +101,13 @@ public class IndexViewController implements Initializable {
         return vbox;
     }
 
+
+    /**
+     * This method creates an AnchorPane element for the movie title.
+     *
+     * @param title The title of the movie.
+     * @return The AnchorPane element containing the movie title.
+     */
     private AnchorPane createMovieTitle(String title) {
         AnchorPane movieTitle = new AnchorPane();
         movieTitle.setPrefSize(150, 50);
@@ -99,6 +127,13 @@ public class IndexViewController implements Initializable {
         return movieTitle;
     }
 
+
+    /**
+     * This method creates an AnchorPane element for the movie poster.
+     *
+     * @param movieDetails The details of the movie.
+     * @return The AnchorPane element containing the movie poster.
+     */
     private AnchorPane createPoster(String[] movieDetails) {
         AnchorPane poster = new AnchorPane();
         poster.setPrefSize(150, 200);
@@ -139,6 +174,12 @@ public class IndexViewController implements Initializable {
     }
 
 
+
+    /**
+     * This method opens the side window for the admin to delete a movie.
+     *
+     * @param movieDetails The details of the movie to be deleted.
+     */
     private void openSideWindow(String[] movieDetails) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("sideWindow.fxml"));
@@ -156,6 +197,12 @@ public class IndexViewController implements Initializable {
         }
     }
 
+
+    /**
+     * This method deletes the movie with the given title.
+     *
+     * @param title The title of the movie to be deleted.
+     */
     private void deleteMovie(String title) {
         MovieDBController.deleteMovie(title);
         flowPane.getChildren().clear();
@@ -164,12 +211,21 @@ public class IndexViewController implements Initializable {
         scrollPane.setContent(flowPane);
     }
 
+
+    /**
+     * This method is called when the login button is clicked.
+     * It calls the loginButtonAction method of the listener.
+     */
     private void loginButtonAction() {
         if (listener != null) {
             listener.loginButtonAction();
         }
     }
 
+
+    /**
+     * This interface defines the methods that the listener of the index view must implement.
+     */
     public interface Listener {
         void loginButtonAction();
         void seeMoreButtonAction(String[] movieDetails);

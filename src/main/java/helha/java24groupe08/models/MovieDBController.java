@@ -1,18 +1,14 @@
+/**
+ * The MovieDBController class provides methods to interact with the movie database.
+ * It includes functionality for retrieving, inserting, updating, and deleting movie data.
+ */
 package helha.java24groupe08.models;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,18 +18,19 @@ public class MovieDBController {
     private static final int MOVIE_DETAILS_LENGTH = 14;
 
     /**
-     * Retrieves movie data from the database.
-     * @param title The title of the movie to search for.
-     * @return The movie data as a JSON string.
+     * Retrieves the title of a movie from the database based on a partial match.
+     *
+     * @param title The partial or complete title of the movie.
+     * @return The title of the movie if found, null otherwise.
      */
     public static String getTitle(String title) {
-        String sql = "SELECT Title FROM movies WHERE data LIKE ?"; // SQL query to get the movie title from the database
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING); // Open a connection to the database
-             PreparedStatement pstmt = conn.prepareStatement(sql)) { // Prepare the SQL statement
-            pstmt.setString(1, "%" + title + "%"); // Set the title parameter
-            ResultSet rs = pstmt.executeQuery(); // Execute the query (search for the movie title) and get the result
-            if (rs.next()) { // Check if a result was found
-                return rs.getString("Title"); // Return the movie title
+        String sql = "SELECT Title FROM movies WHERE data LIKE ?";
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, "%" + title + "%");
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("Title");
             }
         } catch (SQLException e) {
             System.err.println("Error getting movie title from database: " + e.getMessage());
@@ -41,27 +38,27 @@ public class MovieDBController {
         return null;
     }
 
-
     /**
-     * Retrieves movie data from the database.
-     * @param movieData The movie data to search for.
-     * @return The movie data as a JSON string.
+     * Inserts a movie into the database.
+     *
+     * @param movieData The data of the movie to be inserted.
      */
     public static void insertMovie(String movieData) {
-        String sql = "INSERT INTO movies(data) VALUES(?)"; // SQL query to insert the movie data into the database
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING); // Open a connection to the database
-             PreparedStatement pstmt = conn.prepareStatement(sql)) { // Prepare the SQL statement
-            pstmt.setString(1, movieData); // Set the movie data parameter
-            pstmt.executeUpdate(); // Execute the query (insert the movie data into the database)
-            System.out.println("Movie inserted successfully."); // Print a success message
+        String sql = "INSERT INTO movies(data) VALUES(?)";
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, movieData);
+            pstmt.executeUpdate();
+            System.out.println("Movie inserted successfully.");
         } catch (SQLException e) {
             System.err.println("Error inserting movie into database: " + e.getMessage());
         }
     }
 
     /**
-     * Retrieves all movie data from the database.
-     * @return A list of movie data as JSON strings.
+     * Retrieves all movies from the database.
+     *
+     * @return A list containing details of all movies.
      */
     public static List<String[]> getAllMovies() {
         List<String[]> movies = new ArrayList<>();
@@ -97,7 +94,24 @@ public class MovieDBController {
         return movie;
     }
 
-
+    /**
+     * Inserts a movie into the database with specified details.
+     *
+     * @param title    The title of the movie.
+     * @param year     The release year of the movie.
+     * @param rated    The rating of the movie.
+     * @param released The release date of the movie.
+     * @param runtime  The runtime of the movie.
+     * @param genre    The genre of the movie.
+     * @param director The director of the movie.
+     * @param writer   The writer of the movie.
+     * @param actors   The actors of the movie.
+     * @param plot     The plot of the movie.
+     * @param language The language of the movie.
+     * @param country  The country of the movie.
+     * @param awards   The awards of the movie.
+     * @param poster   The poster URL of the movie.
+     */
     public void setMovie(String title, String year, String rated, String released, String runtime,
                          String genre, String director, String writer, String actors, String plot,
                          String language, String country, String awards, String poster) {
@@ -129,6 +143,12 @@ public class MovieDBController {
         }
     }
 
+    /**
+     * Retrieves details of a movie from the database based on its title.
+     *
+     * @param title The title of the movie.
+     * @return An array containing details of the movie if found, empty otherwise.
+     */
     public String[] getMovie(String title) {
         String[] movieDetails = new String[MOVIE_DETAILS_LENGTH];
         String sql = "SELECT * FROM movies WHERE Title = ?";
@@ -149,6 +169,12 @@ public class MovieDBController {
         return movieDetails;
     }
 
+    /**
+     * Checks if a movie with the specified title exists in the database.
+     *
+     * @param title The title of the movie.
+     * @return True if the movie exists, false otherwise.
+     */
     public boolean movieExists(String title) {
         String sql = "SELECT * FROM movies WHERE Title = ?";
         try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -162,6 +188,11 @@ public class MovieDBController {
         }
     }
 
+    /**
+     * Deletes a movie from the database based on its title.
+     *
+     * @param title The title of the movie to be deleted.
+     */
     public static void deleteMovie(String title) {
         String sql = "DELETE FROM movies WHERE Title = ?";
         try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);

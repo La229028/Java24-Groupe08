@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -8,11 +9,11 @@
     <children>
         <BorderPane prefHeight="700.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
             <top>
-                <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #6495ED;" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #6495ED;">
                     <!-- Your top content here -->
                     <Button fx:id="backButton" onAction="#handleBackButton" style="-fx-background-color: transparent">
                         <graphic>
-                            <ImageView fitHeight="30.0" fitWidth="30.0" >
+                            <ImageView fitHeight="30.0" fitWidth="30.0">
                                 <image>
                                     <Image url="@images/backButton.png" />
                                 </image>
@@ -22,31 +23,28 @@
                 </AnchorPane>
             </top>
             <center>
-                <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0" style="-fx-background-color: #f6f5f2;">
-                    <VBox fx:id="movieDetails" prefHeight="642.0" prefWidth="1017.0" BorderPane.alignment="CENTER_LEFT">
-                        <!-- ImageView for movie image -->
-                        <HBox>
-                            <VBox prefHeight="588.0" prefWidth="307.0" spacing="10">
-                                <StackPane fx:id="stackPane" prefHeight="300.0" prefWidth="230.0">
-                                    <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);" />
+                <ScrollPane fx:id="scrollPane" style="-fx-background-color: #f6f5f2;">
+                    <AnchorPane prefHeight="642.0" prefWidth="300.0">
+                        <HBox fx:id="stackPane" alignment="CENTER_LEFT" layoutY="10.0" spacing="20">
+                            <VBox spacing="10">
+                                <StackPane prefHeight="300.0" prefWidth="230.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);">
+                                    <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0" />
                                 </StackPane>
                             </VBox>
-                            <VBox prefHeight="505.0" prefWidth="734.0">
-                                <!-- Label for movie description -->
-                                <Label fx:id="movieLabel" prefHeight="53.0" prefWidth="733.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
+                            <VBox spacing="10">
+                                <Label fx:id="movieLabel" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <!-- Label for movie plot -->
-                                <Label fx:id="moviePlot" prefHeight="119.0" prefWidth="737.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
+                                <Label fx:id="moviePlot" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true" textOverrun="ELLIPSIS" maxWidth="600.0">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
                             </VBox>
                         </HBox>
-                    </VBox>
+                    </AnchorPane>
                 </ScrollPane>
             </center>
         </BorderPane>

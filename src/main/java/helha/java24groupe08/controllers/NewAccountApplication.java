@@ -9,6 +9,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * This class is the entry point of the application.
+ * It loads the newAccount.fxml file and displays the new account window.
+ */
 public class NewAccountApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {

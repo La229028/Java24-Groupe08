@@ -6,6 +6,8 @@ GÉNÉRAL :
 - Implémenter un design pattern (observer, factory, etc)
 - Refactoring du MVC (séparer les classes, etc)
 - Gérer les exceptions
+- Implémenter la deconnexion (visuel + code)
+- Ajouter la possibilité d'acheter des tickets dans la fenêtre de description
 
 VALENTIN :
 

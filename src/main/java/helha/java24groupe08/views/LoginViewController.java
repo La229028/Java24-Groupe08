@@ -122,6 +122,11 @@ public class LoginViewController {
         NewAccountViewController.showNewAccountWindow();
     }
 
+
+    /**
+     * This method is called when the "Forgot Password" button is clicked.
+     * It displays a message box with the password.
+     */
     public static boolean isAdminLoggedIn() {
         return isAdminLoggedIn;
     }
