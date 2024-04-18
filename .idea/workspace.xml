@@ -9,16 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/newAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/newAccount.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="login avec user + ajout javadoc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +78,7 @@
   "keyToString": {
     "Application.IndexController.executor": "Run",
     "Application.Launcher.executor": "Run",
+    "Application.NewAccountApplication.executor": "Run",
     "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "git-widget-placeholder": "Main",
@@ -97,7 +89,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.database.db.setting.configurable",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -367,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713280552686</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="login avec user + ajout javadoc">
+      <option name="closed" value="true" />
+      <created>1713361052890</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713361052890</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +428,8 @@
     <MESSAGE value="réparation du login" />
     <MESSAGE value="réparation de la page de description" />
     <MESSAGE value="commit du workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit du workspace.xml" />
+    <MESSAGE value="login avec user + ajout javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="login avec user + ajout javadoc" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
