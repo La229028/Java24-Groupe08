@@ -26,11 +26,24 @@ public class DescriptionViewController implements Initializable {
     @FXML
     private Label moviePlot;
 
+
+    /**
+     * This method is called when the description view is initialized.
+     * It sets up the initial state of the description view.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Initialization logic here
     }
 
+    /**
+     * This method sets the details of the movie to be displayed in the description view.
+     *
+     * @param movieDetails The details of the movie to be displayed.
+     */
     public void setMovieDetails(String[] movieDetails) {
 
         movieLabel.setText(movieDetails[0]); // Assuming title is at index 0
@@ -38,6 +51,12 @@ public class DescriptionViewController implements Initializable {
         moviePlot.setText(movieDetails[9]); // Assuming plot is at index 9
     }
 
+
+    /**
+     * This method sets the image of the movie.
+     *
+     * @param imageUrl The URL of the image to be displayed.
+     */
     public void setMovieImage(String imageUrl) {
 
         if (imageUrl != null) {
@@ -53,6 +72,12 @@ public class DescriptionViewController implements Initializable {
     @FXML
     private Button backButton;
 
+    /**
+     * This method is called when the back button is clicked.
+     * It closes the current window.
+     *
+     * @param event The action event triggered by the back button click.
+     */
     public void handleBackButton(ActionEvent event) {
         /*fermeture de la fenêtre actuelle*/
         Stage stage = (Stage) backButton.getScene().getWindow();

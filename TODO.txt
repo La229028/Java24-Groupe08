@@ -3,7 +3,11 @@ TODO :
 GÉNÉRAL :
 - Ajouter des commentaires dans le code
 - Ajouter des tests unitaires
-
+- Implémenter un design pattern (observer, factory, etc)
+- Refactoring du MVC (séparer les classes, etc)
+- Gérer les exceptions
+- Implémenter la deconnexion (visuel + code)
+- Ajouter la possibilité d'acheter des tickets dans la fenêtre de description
 
 VALENTIN :
 
@@ -16,7 +20,6 @@ GUILLAUME :
 
 
 JANNA :
-- DeleteMovie
-- ModifyMovie
-- AddMovie
-- login
+- réparation du bouton de retour via la page de description
+- Refactor du systeme de requête de l'API et création d'une classe de requête à la table Films
+- Réparation du bouton login et cancel

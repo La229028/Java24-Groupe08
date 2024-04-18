@@ -19,4 +19,6 @@ module helha.java24groupe08 {
     requires java.desktop;
     opens helha.java24groupe08.models to com.google.gson;
     exports helha.java24groupe08.models;
+
+    opens helha.java24groupe08.controllers to javafx.fxml;
 }

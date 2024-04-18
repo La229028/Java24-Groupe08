@@ -1,0 +1,37 @@
+DEROULEMENT DU PROJET :
+
+OBJECTIFS DU SPRINT (10/04 - 17/04) :
+
+L'objectif principal de ce sprint était avant tout de réparer un maximum de bugs/latences et de terminer les fonctionnalités encore en cours de développement.
+Nous avons donc décidé de nous répartir les tâches suivantes :
+
+
+Global :
+- Implémentation de tests unitaires -> Partiellement fait
+- Ajout de gestion des erreurs -> Pas fait
+
+
+VALENTIN :
+- Production du responsive du projet -> Partiellement fait
+- Mettre la page de login et la page de description sur la même fenêtre -> Pas fait
+- Amélioration du visuel global du projet -> Pas fait
+
+
+LYARA :
+- Reconstruction et optimisation du code index et login -> OK
+- Création de la table USER -> OK
+- Création de la fonctionnalité de création de compte user avec un formulaire -> OK
+- Possibilité de se connecter avec un compte user -> OK
+- Possibilité de se déconnecter -> Pas fait
+
+
+GUILLAUME :
+- Refactoring du systeme de récupération de film -> Partiellement fait
+- Création d'une barre de recherche -> Pas fait
+
+
+JANNA :
+- réparation du bouton de retour via la page de description, réapartion du bouton login et cancel (page de login) -> OK
+- Refactor du systeme de requête de l'API et création d'une classe de requête à la table Films -> OK
+- Ajout du bouton supprimer un film exclusivement en mode admin -> OK
+- Implémentation de la possibilité de supprimer/modifier un film en mode admin -> Pas fait
