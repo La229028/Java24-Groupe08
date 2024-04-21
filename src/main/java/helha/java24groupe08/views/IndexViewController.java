@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -34,6 +35,9 @@ public class IndexViewController implements Initializable {
     public ScrollPane scrollPane;
     @FXML
     public Button loginButton;
+
+    // List to store Vbox
+    private List<VBox> vBoxList = new ArrayList<>();
 
     private static Listener listener;
 
@@ -186,7 +190,7 @@ public class IndexViewController implements Initializable {
             Parent root = loader.load();
 
             SideWindowController controller = loader.getController();
-            controller.initData(movieDetails, this::deleteMovie);
+            controller.initData(movieDetails, this::deleteMovie, this::updateVBox);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -195,6 +199,20 @@ public class IndexViewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void updateVBox(String[] updatedMovieDetails) {
+        // Clear the FlowPane
+        flowPane.getChildren().clear();
+
+        // Get all movies from the database
+        List<String[]> movies = MovieDBController.getAllMovies();
+
+        // Create VBoxes for each movie
+        createVBoxes(movies);
+
+        // Set the FlowPane as the content of the ScrollPane
+        scrollPane.setContent(flowPane);
     }
 
 

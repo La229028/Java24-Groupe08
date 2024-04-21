@@ -30,8 +30,18 @@ GUILLAUME :
 - Création d'une barre de recherche -> Pas fait
 
 
+
 JANNA :
 - réparation du bouton de retour via la page de description, réapartion du bouton login et cancel (page de login) -> OK
 - Refactor du systeme de requête de l'API et création d'une classe de requête à la table Films -> OK
 - Ajout du bouton supprimer un film exclusivement en mode admin -> OK
 - Implémentation de la possibilité de supprimer/modifier un film en mode admin -> Pas fait
+
+petite hierarchie : classe abstraite/super classe ( + sous méthodes polymorphiques) -> classe fille
+polymorphisme =  (un plateau est composé de cases, une case est composée de coordonnées, une case peut être une case vide, une case peut être une case avec un pion, un pion peut être un pion blanc, un pion peut être un pion noir)
+1 super classe et 2 sous classes au min
+(ex : films, trilogies, concerts, spectacles, etc)
+même tickets mais pas le même objet derriere (ex : pack de tickets moins cher (composite pattern), ticket normal, ticket VIP)
+
+
+OBJECTIFS DU SPRINT (17/04 - 24/04) :
