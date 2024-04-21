@@ -204,4 +204,25 @@ public class MovieDBController {
             System.err.println("Error deleting movie from database: " + e.getMessage());
         }
     }
+
+
+
+    public static void updateMovieDetails(String oldTitle, String[] movieDetails){
+        String sql = "UPDATE movies SET Title = ?, Plot = ? WHERE Title = ?";
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, movieDetails[0]); // new title
+            pstmt.setString(2, movieDetails[9]); // new plot
+            pstmt.setString(3, oldTitle); // old title
+            int rowsUpdated = pstmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Movie updated successfully.");
+            } else {
+                System.out.println("No movie found with the given title.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error updating movie in database: " + e.getMessage());
+        }
+    }
+
 }

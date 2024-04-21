@@ -1,8 +1,12 @@
 package helha.java24groupe08.controllers;
 
+import helha.java24groupe08.models.MovieDBController;
+import helha.java24groupe08.views.IndexViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.util.function.Consumer;
 /**
@@ -14,17 +18,64 @@ public class SideWindowController {
     private String[] movieDetails;
     private Consumer<String> deleteMovieCallback;
 
+    private Consumer<String[]> updateMovieCallback;
+
+    private IndexViewController indexViewController;
+
+    // Reference to fxml fields
+    @FXML
+    private TextField titleField;
+
+    @FXML
+    private TextArea plotArea;
+
+
     /**
      * This method initializes the side window with the movie details and the delete movie callback.
      *
      * @param movieDetails        The details of the movie to be displayed in the side window.
      * @param deleteMovieCallback The callback function to be called when the delete button is clicked.
      */
-    public void initData(String[] movieDetails, Consumer<String> deleteMovieCallback) {
+    public void initData(String[] movieDetails, Consumer<String> deleteMovieCallback, Consumer<String[]> updateMovieCallback) {
         this.movieDetails = movieDetails;
         this.deleteMovieCallback = deleteMovieCallback;
+        this.updateMovieCallback = updateMovieCallback;
+
+        // Set the movie title and plot in the text fields
+        titleField.setText(movieDetails[0]); // title is at index 0
+        plotArea.setText(movieDetails[9]); // plot is at index 9
+    }
+    /**
+     * This method sets the index view controller.
+     *
+     * @param indexViewController The index view controller.
+     */
+    public void setIndexViewController(IndexViewController indexViewController) {
+        this.indexViewController = indexViewController;
     }
 
+    @FXML
+    private void saveChangesOnAction(ActionEvent event) {
+        // Get the new title and plot from the text fields
+        String oldTitle = movieDetails[0];
+        String newTitle = titleField.getText();
+        String newPlot = plotArea.getText();
+
+        // Update the movie details
+        movieDetails[0] = newTitle;
+        movieDetails[9] = newPlot;
+
+        // Update the movie in the database
+        MovieDBController.updateMovieDetails(oldTitle, movieDetails);
+
+        // Call the update callback
+        if (updateMovieCallback != null) {
+            updateMovieCallback.accept(movieDetails);
+        }
+
+        // Close the side window
+        ((Button) event.getSource()).getScene().getWindow().hide();
+    }
 
     /**
      * This method is called when the delete button is clicked.
