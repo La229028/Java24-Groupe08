@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,16 +16,25 @@ import java.io.IOException;
  */
 public class NewAccountApplication extends Application {
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(NewAccountViewController.class.getResource("newAccount.fxml"));
-        Parent root = loader.load();
+    public void start(Stage primaryStage) {
+        try{
+            FXMLLoader loader = new FXMLLoader(NewAccountViewController.class.getResource("newAccount.fxml"));
+            Parent root = loader.load();
 
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("New Account");
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("New Account");
 
-        primaryStage.setResizable(false);
-        primaryStage.show();
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        } catch (IOException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("An error occurred");
+            alert.setContentText("An error occurred while loading the new account view: " + e.getMessage());
+            alert.showAndWait();
+        }
+
     }
 
     public static void main(String[] args) {

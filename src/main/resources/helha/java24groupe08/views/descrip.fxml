@@ -23,28 +23,29 @@
                 </AnchorPane>
             </top>
             <center>
-                <Pane fx:id="scrollPane" style="-fx-background-color: #f6f5f2;">
-                     <HBox fx:id="stackPane" alignment="CENTER_LEFT" spacing="20">
-                         <VBox spacing="10">
-                             <StackPane prefHeight="300.0" prefWidth="230.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);">
-                                 <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0" />
-                             </StackPane>
-                         </VBox>
-                         <VBox spacing="10">
-                             <Label fx:id="movieLabel" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
-                                 <font>
-                                     <Font size="24.0" />
-                                 </font>
-                             </Label>
-                             <Label fx:id="moviePlot" maxWidth="600.0" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" textOverrun="ELLIPSIS" wrapText="true">
-                                 <font>
-                                     <Font size="18.0" />
-                                 </font>
-                             </Label>
-                         </VBox>
-                     </HBox>
-               <Button fx:id="buyButton" layoutX="810.0" layoutY="580.0" mnemonicParsing="false" text="Buy" />
-                </Pane>
+                <ScrollPane fx:id="scrollPane" style="-fx-background-color: #f6f5f2;">
+                    <AnchorPane prefHeight="642.0" prefWidth="300.0">
+                        <HBox fx:id="stackPane" alignment="CENTER_LEFT" layoutY="10.0" spacing="20">
+                            <VBox spacing="10">
+                                <StackPane prefHeight="300.0" prefWidth="230.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);">
+                                    <ImageView fx:id="movieImage" fitHeight="300.0" fitWidth="200.0" />
+                                </StackPane>
+                            </VBox>
+                            <VBox spacing="10">
+                                <Label fx:id="movieLabel" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="moviePlot" style="-fx-font-size: 20px; -fx-font-family: 'Serif';" wrapText="true" textOverrun="ELLIPSIS" maxWidth="600.0">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+                        </HBox>
+                    </AnchorPane>
+                </ScrollPane>
             </center>
         </BorderPane>
     </children>

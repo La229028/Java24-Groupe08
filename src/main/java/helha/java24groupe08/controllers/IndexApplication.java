@@ -5,7 +5,7 @@
 package helha.java24groupe08.controllers;
 
 import helha.java24groupe08.models.MovieDBController;
-import helha.java24groupe08.controllers.MovieAPIController;
+import helha.java24groupe08.models.exceptions.MovieNotFoundException;
 import helha.java24groupe08.views.DescriptionViewController;
 import helha.java24groupe08.views.IndexViewController;
 
@@ -21,10 +21,19 @@ import javafx.stage.Stage;
 
 public class IndexApplication extends Application implements IndexViewController.Listener {
     private Stage indexStage;
-    private static final String ERROR_TITLE = "Error";
-    private static final String ERROR_HEADER = "An error occurred";
     private MovieDBController movieDBController = new MovieDBController();
     private MovieAPIController movieAPIController = new MovieAPIController();
+
+
+    /**
+     * The main method of the application.
+     *
+     * @param args Command-line arguments.
+     */
+    public static void main(String[] args) {
+        launch(new String[0]);
+    }
+
 
     /**
      * Default constructor for IndexApplication.
@@ -32,21 +41,30 @@ public class IndexApplication extends Application implements IndexViewController
     public IndexApplication() {
     }
 
+
     /**
      * Initializes the main stage of the application.
      *
      * @param stage The primary stage of the application.
      * @throws Exception If an error occurs during initialization.
      */
-    public void start(Stage stage) throws Exception {
-        this.indexStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/helha/java24groupe08/views/index.fxml"));
-        Scene scene = new Scene((Parent)fxmlLoader.load());
-        IndexViewController controller = (IndexViewController)fxmlLoader.getController();
-        controller.setListener(this);
-        stage.setTitle("Cinéma");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage) {
+        try {
+            this.indexStage = stage;
+            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/helha/java24groupe08/views/index.fxml"));
+            Scene scene = new Scene((Parent)fxmlLoader.load());
+            IndexViewController controller = (IndexViewController)fxmlLoader.getController();
+            controller.setListener(this);
+            stage.setTitle("Cinéma");
+            stage.setScene(scene);
+            stage.show();
+        } catch (javafx.fxml.LoadException e){
+            showErrorAlert("Error while loading the main view: " + e.getMessage());
+            stage.close();
+        } catch (IOException e) {
+            showErrorAlert("Other IO error occurred: " + e.getMessage());
+            stage.close();
+        }
     }
 
     /**
@@ -60,10 +78,10 @@ public class IndexApplication extends Application implements IndexViewController
             loginStage.setTitle("Login");
             loginStage.setScene(new Scene(root));
             loginStage.show();
-        } catch (Exception var4) {
-            var4.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showErrorAlert("Error while loading the login view: " + e.getMessage());
         }
-
     }
 
     /**
@@ -72,15 +90,18 @@ public class IndexApplication extends Application implements IndexViewController
      * @param movieTitle The title of the movie for which more information is requested.
      */
     public void seeMoreButtonAction(String movieTitle) {
+        String[] movieDetails = null;
         try {
-            String[] movieDetails = this.movieDBController.getMovie(movieTitle);
+            movieDetails = this.movieDBController.getMovie(movieTitle);
+        } catch (MovieNotFoundException e) {
+            showErrorAlert("Movie not found: " + e.getMessage());
+        } catch (Exception e){
+            showErrorAlert("An error occurred: " + e.getMessage());
+        } finally{
             if (movieDetails == null) {
                 this.showErrorAlert("Movie not found in database: " + movieTitle);
             }
-        } catch (Exception var3) {
-            this.showErrorAlert("Error for movie : " + movieTitle + " \n " + var3.getMessage());
         }
-
     }
 
     /**
@@ -89,37 +110,51 @@ public class IndexApplication extends Application implements IndexViewController
      * @param movieTitle Array of movie titles for which more information is requested.
      */
     public void seeMoreButtonAction(String[] movieTitle) {
+        String[] movieDetails = null;
+        Stage stage = null;
+        DescriptionViewController controller = null;
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
             Parent root = (Parent)loader.load();
-            Stage stage = new Stage();
+            stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Description");
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(this.indexStage.getOwner());
-            DescriptionViewController controller = (DescriptionViewController)loader.getController();
-            String[] movieDetails = this.movieDBController.getMovie(movieTitle[0]);
-            if (movieDetails == null) {
-                this.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
-                return;
-            }
+            controller = (DescriptionViewController)loader.getController();
+            movieDetails = this.movieDBController.getMovie(movieTitle[0]);
 
-            controller.setMovieDetails(movieDetails);
-            stage.showAndWait();
-        } catch (IOException var7) {
-            this.showErrorAlert("Error while trying to open the description page : " + var7.getMessage());
+        } catch (IOException e) {
+            this.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
+        } catch (MovieNotFoundException e) {
+            showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
         }
 
+        if (movieDetails == null) {
+            this.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
+            return;
+        }
+
+        controller.setMovieDetails(movieDetails);
+        stage.showAndWait();
     }
 
+
+
+
+
     /**
-     * The main method of the application.
-     *
-     * @param args Command-line arguments.
+     * Loads and inserts movies from the Movie API into the database.
      */
-    public static void main(String[] args) {
-        launch(new String[0]);
+    private void loadAndInsertMoviesFromAPI() {
+        try {
+            String[] titles = new String[]{"title1", "title2", "title3"};
+            MovieAPIController.getAndStoreMoviesFromApi(titles);
+        } catch (Exception e) {
+            this.showErrorAlert("An error occurred while loading and inserting movies from API: " + e.getMessage());
+        }
+
     }
 
     /**
@@ -133,18 +168,5 @@ public class IndexApplication extends Application implements IndexViewController
         alert.setHeaderText("An error occurred");
         alert.setContentText(contentText);
         alert.showAndWait();
-    }
-
-    /**
-     * Loads and inserts movies from the Movie API into the database.
-     */
-    private void loadAndInsertMoviesFromAPI() {
-        try {
-            String[] titles = new String[]{"title1", "title2", "title3"};
-            MovieAPIController.getAndStoreMoviesFromApi(titles);
-        } catch (Exception var2) {
-            this.showErrorAlert("An error occurred while loading and inserting movies from API: " + var2.getMessage());
-        }
-
     }
 }

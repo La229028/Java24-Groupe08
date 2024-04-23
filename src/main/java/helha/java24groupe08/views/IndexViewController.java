@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -162,7 +163,11 @@ public class IndexViewController implements Initializable {
                     }
                 });
             } catch (IllegalArgumentException e) {
-                System.err.println("Image not found" + movieDetails[13]);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("An error occurred");
+                alert.setContentText("Image not found: " + movieDetails[13]);
+                alert.showAndWait();
             }
         }
         poster.setOnMouseClicked(event -> {
@@ -197,7 +202,11 @@ public class IndexViewController implements Initializable {
             stage.setTitle("Admin Side Window");
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("An error occurred");
+            alert.setContentText("Error opening side window: " + e.getMessage());
+            alert.showAndWait();
         }
     }
 
