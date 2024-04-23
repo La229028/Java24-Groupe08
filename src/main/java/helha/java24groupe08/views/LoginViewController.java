@@ -3,6 +3,7 @@ package helha.java24groupe08.views;
 import helha.java24groupe08.models.User;
 import helha.java24groupe08.controllers.UserDBController;
 
+import helha.java24groupe08.models.exceptions.DatabaseException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -28,7 +29,7 @@ public class LoginViewController {
      * It checks if the username and password are correct, and displays an error message if they are not.
      */
     @FXML
-    private void handleLogin(ActionEvent event) {
+    private void handleLogin(ActionEvent event) throws DatabaseException {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -69,7 +70,7 @@ public class LoginViewController {
      * @param username The username entered by the user
      * @param password The password entered by the user
      */
-    private void handleLoginUser(String username, String password){
+    private void handleLoginUser(String username, String password) throws DatabaseException {
         UserDBController userDBController = new UserDBController();
         User user = userDBController.getUserByUsername(username);
 

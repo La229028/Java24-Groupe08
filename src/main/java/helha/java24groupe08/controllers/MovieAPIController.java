@@ -1,14 +1,14 @@
 package helha.java24groupe08.controllers;
 
 import helha.java24groupe08.models.MovieDBController;
+import javafx.scene.control.Alert;
 
 import java.io.InputStreamReader;
 
+import java.net.*;
 import java.util.Arrays;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import java.util.stream.Collectors;
 
@@ -21,7 +21,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 
 
 public class MovieAPIController {
@@ -35,7 +34,7 @@ public class MovieAPIController {
      * @param title The title of the movie to search for.
      * @return The movie data as a JSON string.
      */
-    public static String getMovieFromApi(String title) { // title comes from the user input
+    public String getMovieFromApi(String title) { // title comes from the user input
         try {
             String encodedTitle = URLEncoder.encode(title, "UTF-8"); // Encode the title to handle special characters
             String apiUrl = API_URL + "?" + QUERY_PARAM_TITLE + "=" + encodedTitle + "&apikey=" + API_KEY; // Construct the API URL
@@ -46,16 +45,22 @@ public class MovieAPIController {
                 try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) { // Read the response from the API
                     String response = in.lines().collect(Collectors.joining()); // Convert the response to a string
                     if (response.contains("\"Response\":\"False\"")) { // Check if the movie was not found
-                        System.out.println("The movie : " + title + " has not been found or is not accessible via the API."); // Print an error message
+                        showErrorAlert("The movie : " + title + " has not been found or is not accessible via the API."); // Print an error message
                         return null; // Return null
                     }
                     return response; // Or return the movie data
                 }
             } else { // If the request was not successful
-                System.err.println("GET request failed with response code: " + con.getResponseCode()); // Print an error message
+                showErrorAlert("GET request failed with response code: " + con.getResponseCode()); // Print an error message
             }
-        } catch (Exception e) { // Catch any exceptions
-            System.err.println("Error fetching movie data from API: " + e.getMessage());
+        } catch (UnsupportedEncodingException e) {
+            showErrorAlert("Error encoding the movie title: " + e.getMessage());
+        } catch (MalformedURLException e) {
+            showErrorAlert("Error with the API URL: " + e.getMessage());
+        } catch (ProtocolException e) {
+            showErrorAlert("Error setting the request method: " + e.getMessage());
+        } catch (IOException e) {
+            showErrorAlert("Error fetching movie data from API: " + e.getMessage());
         }
         return null;
     }
@@ -65,11 +70,16 @@ public class MovieAPIController {
      * @param title The title of the movie to search for.
      */
     public static void getMovieFromApiAndInsertIntoDB(String title) {
-        String movieData = getMovieFromApi(title); // Get the movie data from the API
-        if (movieData != null) { // If the movie data is not null
-            MovieDBController.insertMovie(movieData); // Insert the movie data into the database
-        } else {
-            System.out.println("The movie : " + title + " has not been found or is not accessible via the API."); // Print an error message
+        MovieAPIController movieAPIController = new MovieAPIController(); // Create a new instance of the MovieAPIController
+        try{
+            String movieData = movieAPIController.getMovieFromApi(title); // Get the movie data from the API
+            if (movieData != null) { // If the movie data is not null
+                MovieDBController.insertMovie(movieData); // Insert the movie data into the database
+            } else {
+                movieAPIController.showErrorAlert("The movie : " + title + " has not been found or is not accessible via the API.");
+            }
+        } catch(Exception e){
+            movieAPIController.showErrorAlert("Error getting movie data from API: " + e.getMessage());
         }
     }
 
@@ -79,7 +89,14 @@ public class MovieAPIController {
      * @param titles The titles of the movies to search for.
      */
     public static void getAndStoreMoviesFromApi(String[] titles) {
-        Arrays.stream(titles).forEach(MovieAPIController::getMovieFromApiAndInsertIntoDB); // For each title, get the movie data from the API and insert it into the database
+        MovieAPIController movieAPIController = new MovieAPIController();
+        for (String title : titles) {
+            try {
+                movieAPIController.getMovieFromApiAndInsertIntoDB(title); // For each title, get the movie data from the API and insert it into the database
+            } catch (Exception e) {
+                movieAPIController.showErrorAlert("An error occurred while getting the movie '" + title + "' from the API and inserting it into the database: " + e.getMessage());
+            }
+        }
     }
 
 
@@ -92,8 +109,18 @@ public class MovieAPIController {
         try {
             new URL(url).toURI(); // Try to convert the string to a URL
             return true;
-        } catch (Exception e) {
+        } catch (MalformedURLException | URISyntaxException e) {
+            showErrorAlert("Invalid URL: " + e.getMessage());
             return false;
         }
+    }
+
+
+    private void showErrorAlert(String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("An error occurred");
+        alert.setContentText(contentText);
+        alert.showAndWait();
     }
 }
