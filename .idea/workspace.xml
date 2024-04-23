@@ -9,24 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="FIN DU SPRINT. ajout de la javadoc, du jar et du suivi du sprint.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/exceptions/DatabaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/exceptions/MovieNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieAPIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/SideWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/SideWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" afterDir="false" />
-    </list>
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Gestion des exceptions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -413,7 +396,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713452306594</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Gestion des exceptions">
+      <option name="closed" value="true" />
+      <created>1713881365144</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713881365145</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +471,8 @@
     <MESSAGE value="FIN DU SPRINT. Ajout de la javadoc + .jar + review de sprint" />
     <MESSAGE value="FIN DU SPRINT. ajout de la javadoc, du jar et du suivi du sprint." />
     <MESSAGE value="update du todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="update du todo" />
+    <MESSAGE value="Gestion des exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestion des exceptions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
