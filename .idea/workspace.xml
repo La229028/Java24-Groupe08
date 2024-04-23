@@ -9,29 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="workspace">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/exceptions/DatabaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/exceptions/MovieNotFoundException.java" afterDir="false" />
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="réglage problème">
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Tickets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsChild.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsRegular.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsSenior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsVIP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieAPIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/SideWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/SideWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Tickets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsChild.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsRegular.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsSenior.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsStudent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsVIP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -443,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713881664229</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="réglage problème">
+      <option name="closed" value="true" />
+      <created>1713887610902</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713887610902</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +479,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Visuel page index" />
     <MESSAGE value="Ajout classe index" />
     <MESSAGE value="Amélioration code + visuel" />
     <MESSAGE value="Base FXML + MVC" />
@@ -511,7 +503,8 @@
     <MESSAGE value="update du todo" />
     <MESSAGE value="Gestion des exceptions" />
     <MESSAGE value="workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
+    <MESSAGE value="réglage problème" />
+    <option name="LAST_COMMIT_MESSAGE" value="réglage problème" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
