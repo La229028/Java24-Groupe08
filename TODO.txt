@@ -1,25 +1,52 @@
 TODO :
 
-GÉNÉRAL :
-- Ajouter des commentaires dans le code
-- Ajouter des tests unitaires
-- Implémenter un design pattern (observer, factory, etc)
-- Refactoring du MVC (séparer les classes, etc)
-- Gérer les exceptions
-- Implémenter la deconnexion (visuel + code)
-- Ajouter la possibilité d'acheter des tickets dans la fenêtre de description
+MVC
+Refactoring
+Début des fichiers (buffer) -> panier utilisateur
+Les composants -> les films, les salles, les tickets, les utilisateurs
+multithreading -> plusieurs utilisateurs en même temps
+Heritage -> Filtrage des films (à associer par la suite avec le buffer, ou le type du film)
+interfaces -> les utilisateurs, les films, les salles, les tickets (utilieer DAO : Data Access Object pour les interfaces)
+polymorphisme -> un ticket senior, un ticket enfant, un ticket normal, un ticket étudiant, un ticket VIP
+design pattern d'observer -> à partir de 10 tickets vendus, une réduction de 10% est appliquée
+(Par exemple, on permet à une vue de film spécifique d'observer les modifications apportées à la liste de
+films principale et de se mettre à jour en conséquence).
+- côté client :
+  sockets - thread -> selection du siege en direct
+
+
+
+
 
 VALENTIN :
 
+POLYMORPHISME :
+    - tickets (classe mère) -> ticket senior, ticket enfant, ticket normal, ticket étudiant, ticket VIP
+(attributs temporaires : prix, type, film)
 
-LYARA :
-- Visuel page description (RESPONSIVE !!) => voir schéma fait dans le cahier
-- tests, commentaires, javadoc
+
 
 GUILLAUME :
+- barre de recherche (films, salles, séances)
+- responsive design
+
+
 
 
 JANNA :
-- réparation du bouton de retour via la page de description
-- Refactor du systeme de requête de l'API et création d'une classe de requête à la table Films
-- Réparation du bouton login et cancel
+
+côté admin :
+- Page de modification de films et ajout de sceances en admin.
+- (ajout de films, suppression de films, modification de films, ajout de séances, suppression de séances, modification de séances)
+
+
+
+
+LYARA :
+
+- design pattern d'observer : à partir de 10 tickets vendus, une réduction de 10% est appliquée
+- Gestions des erreurs (try catch)
+
+
+
+
