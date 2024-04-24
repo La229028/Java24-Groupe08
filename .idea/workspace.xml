@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="réglage problème - ajout code valentin">
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche.">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
     </list>
@@ -89,6 +89,7 @@
     "JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
     "Maven.Java24-Groupe08 [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "MainLocal",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -442,7 +443,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713888525028</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche.">
+      <option name="closed" value="true" />
+      <created>1713974404723</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1713974404723</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Amélioration code + visuel" />
     <MESSAGE value="Base FXML + MVC" />
     <MESSAGE value="Création movieData.json" />
     <MESSAGE value="Réorganisation code et fichiers" />
@@ -510,7 +518,8 @@
     <MESSAGE value="workspace" />
     <MESSAGE value="réglage problème" />
     <MESSAGE value="réglage problème - ajout code valentin" />
-    <option name="LAST_COMMIT_MESSAGE" value="réglage problème - ajout code valentin" />
+    <MESSAGE value="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

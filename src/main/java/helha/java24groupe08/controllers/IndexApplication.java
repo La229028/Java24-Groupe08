@@ -21,8 +21,8 @@ import javafx.stage.Stage;
 
 public class IndexApplication extends Application implements IndexViewController.Listener {
     private Stage indexStage;
-    private MovieDBController movieDBController = new MovieDBController();
-    private MovieAPIController movieAPIController = new MovieAPIController();
+    private final MovieDBController movieDBController = new MovieDBController();
+    //private MovieAPIController movieAPIController = new MovieAPIController();
 
 
     /**
@@ -46,7 +46,6 @@ public class IndexApplication extends Application implements IndexViewController
      * Initializes the main stage of the application.
      *
      * @param stage The primary stage of the application.
-     * @throws Exception If an error occurs during initialization.
      */
     public void start(Stage stage) {
         try {

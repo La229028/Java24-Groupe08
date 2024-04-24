@@ -262,10 +262,17 @@ public class IndexViewController implements Initializable {
     @FXML
     private void onSearch() {
         String searchText = searchField.getText();
-        List<String[]> searchResults = MovieDBController.searchMoviesByTitle(searchText);
-        updateVBoxes(searchResults);
-        isSearchPerformed = true;
+        if (searchText == null || searchText.trim().isEmpty()) {
+            // Si la barre de recherche est vide ou ne contient que des espaces blancs, ne rien faire.
+            return;
+        }
 
+        // Procédez avec la recherche car l'utilisateur a saisi du texte.
+        List<String[]> searchResults = MovieDBController.searchMoviesByTitle(searchText);
+        updateVBoxes(searchResults); // Votre logique pour afficher les résultats
+
+        searchField.clear();
+        isSearchPerformed = true;
     }
     /**
      * Handles the refresh action when the refresh button is clicked.
@@ -274,12 +281,11 @@ public class IndexViewController implements Initializable {
     @FXML
     private void onRefresh() {
         if (isSearchPerformed) {
-
             List<String[]> allMovies = MovieDBController.getAllMovies();
             updateVBoxes(allMovies);
-            searchField.clear();
             isSearchPerformed = false;
         }
+        searchField.clear(); // Efface le texte de la barre de recherche indépendamment de si isSearchPerformed est vrai
     }
     /**
      * Updates the display with a given list of movies. Each movie is represented by a VBox.
