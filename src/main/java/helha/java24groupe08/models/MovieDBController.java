@@ -4,6 +4,9 @@
  */
 package helha.java24groupe08.models;
 
+import helha.java24groupe08.models.exceptions.MovieNotFoundException;
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -51,7 +54,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie inserted successfully.");
         } catch (SQLException e) {
-            System.err.println("Error inserting movie into database: " + e.getMessage());
+            showErrorAlert("Error inserting movie into database: " + e.getMessage());
         }
     }
 
@@ -70,7 +73,7 @@ public class MovieDBController {
                 movies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            System.err.println("Error getting all movies from database: " + e.getMessage());
+            showErrorAlert("Error getting all movies from database: " + e.getMessage());
         }
         return movies;
     }
@@ -139,7 +142,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie inserted successfully.");
         } catch (SQLException e) {
-            System.err.println("Error setting movie in database: " + e.getMessage());
+            showErrorAlert("Error setting movie in database: " + e.getMessage());
         }
     }
 
@@ -149,7 +152,7 @@ public class MovieDBController {
      * @param title The title of the movie.
      * @return An array containing details of the movie if found, empty otherwise.
      */
-    public String[] getMovie(String title) {
+    public String[] getMovie(String title) throws MovieNotFoundException {
         String[] movieDetails = new String[MOVIE_DETAILS_LENGTH];
         String sql = "SELECT * FROM movies WHERE Title = ?";
 
@@ -163,7 +166,7 @@ public class MovieDBController {
                 movieDetails = getMovieDetailsFromResultSet(rs);
             }
         } catch (SQLException e) {
-            System.err.println("Error getting movie from database: " + e.getMessage());
+            showErrorAlert("Error getting movie from database: " + e.getMessage());
         }
 
         return movieDetails;
@@ -183,7 +186,7 @@ public class MovieDBController {
             ResultSet rs = pstmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
-            System.err.println("Error checking movie existence in database: " + e.getMessage());
+            showErrorAlert("Error checking movie existence in database: " + e.getMessage());
             return false;
         }
     }
@@ -201,7 +204,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie deleted successfully.");
         } catch (SQLException e) {
-            System.err.println("Error deleting movie from database: " + e.getMessage());
+            showErrorAlert("Error deleting movie from database: " + e.getMessage());
         }
     }
 
@@ -218,11 +221,20 @@ public class MovieDBController {
             if (rowsUpdated > 0) {
                 System.out.println("Movie updated successfully.");
             } else {
-                System.out.println("No movie found with the given title.");
+                showErrorAlert("No movie found with the given title.");
             }
         } catch (SQLException e) {
-            System.err.println("Error updating movie in database: " + e.getMessage());
+            showErrorAlert("Error updating movie in database: " + e.getMessage());
         }
+    }
+
+
+    private static void showErrorAlert(String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Database Error");
+        alert.setHeaderText(null);
+        alert.setContentText(contentText);
+        alert.showAndWait();
     }
 
 }

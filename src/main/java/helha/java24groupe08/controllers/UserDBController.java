@@ -1,6 +1,8 @@
 package helha.java24groupe08.controllers;
 
 import helha.java24groupe08.models.User;
+import helha.java24groupe08.models.exceptions.DatabaseException;
+
 import java.sql.*;
 
 /**
@@ -14,7 +16,7 @@ public class UserDBController {
      * Adds a user to the SQLite database.
      * @param user The user to be added to the database.
      */
-        public static void addUser(User user) {
+        public static void addUser(User user) throws DatabaseException {
             String sql = "INSERT INTO user(name, firstname, numberPhone, email, age, status, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -22,7 +24,7 @@ public class UserDBController {
 
                 pstmt.setString(1, user.getName());
                 pstmt.setString(2, user.getFirstname());
-                pstmt.setString(3, user.getNumberPhone());
+                pstmt.setInt(3, user.getNumberPhone());
                 pstmt.setString(4, user.getEmail());
                 pstmt.setInt(5, user.getAge());
                 pstmt.setString(6, user.getStatus());
@@ -32,7 +34,7 @@ public class UserDBController {
                 pstmt.executeUpdate();
                 System.out.println("User inserted successfully.");
             } catch (SQLException e) {
-                System.err.println("Error inserting user into database: " + e.getMessage());
+                throw new DatabaseException("Error inserting user into database : " + e.getMessage(), e);
             }
         }
 
@@ -42,7 +44,7 @@ public class UserDBController {
      * @param username The username of the user to be retrieved.
      * @return The user retrieved from the database, or null if no user was found with the given username.
      */
-        public User getUserByUsername(String username) {
+        public User getUserByUsername(String username) throws DatabaseException {
             String sql = "SELECT * FROM user WHERE username = ?";
 
             try(Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -55,7 +57,7 @@ public class UserDBController {
                     return new User(
                             rs.getString("name"),
                             rs.getString("firstname"),
-                            rs.getString("numberPhone"),
+                            rs.getInt("numberPhone"),
                             rs.getString("email"),
                             rs.getInt("age"),
                             rs.getString("status"),
@@ -64,7 +66,7 @@ public class UserDBController {
                     );
                 }
             } catch (SQLException e) {
-                System.err.println("Error getting user from database: " + e.getMessage());
+                throw new DatabaseException("Error getting user from database: " + e.getMessage(), e);
             }
 
             return null;

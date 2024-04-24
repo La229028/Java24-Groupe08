@@ -7,7 +7,7 @@ package helha.java24groupe08.models;
 public class User {
     private String name;
     private String firstname;
-    private String numberPhone;
+    private int numberPhone;
     private String email;
     private int age;
     private String status;
@@ -25,7 +25,7 @@ public class User {
      * @param username The username of the user.
      * @param password The password of the user.
      */
-    public User(String name, String firstname, String numberPhone, String email, int age, String status, String username, String password) {
+    public User(String name, String firstname, int numberPhone, String email, int age, String status, String username, String password) {
         this.name = name;
         this.firstname = firstname;
         this.numberPhone = numberPhone;
@@ -46,7 +46,7 @@ public class User {
         return firstname;
     }
 
-    public String getNumberPhone() {
+    public int getNumberPhone() {
         return numberPhone;
     }
 
@@ -80,7 +80,7 @@ public class User {
         this.firstname = firstname;
     }
 
-    public void setNumberPhone(String numberPhone) {
+    public void setNumberPhone(int numberPhone) {
         this.numberPhone = numberPhone;
     }
 

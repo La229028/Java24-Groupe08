@@ -4,10 +4,12 @@ import helha.java24groupe08.models.MovieDBController;
 import helha.java24groupe08.views.IndexViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
 import java.util.function.Consumer;
 /**
  * This class is the controller for the side window.
@@ -17,9 +19,7 @@ public class SideWindowController {
 
     private String[] movieDetails;
     private Consumer<String> deleteMovieCallback;
-
     private Consumer<String[]> updateMovieCallback;
-
     private IndexViewController indexViewController;
 
     // Reference to fxml fields
@@ -56,25 +56,29 @@ public class SideWindowController {
 
     @FXML
     private void saveChangesOnAction(ActionEvent event) {
-        // Get the new title and plot from the text fields
-        String oldTitle = movieDetails[0];
-        String newTitle = titleField.getText();
-        String newPlot = plotArea.getText();
+        try{
+            // Get the new title and plot from the text fields
+            String oldTitle = movieDetails[0];
+            String newTitle = titleField.getText();
+            String newPlot = plotArea.getText();
 
-        // Update the movie details
-        movieDetails[0] = newTitle;
-        movieDetails[9] = newPlot;
+            // Update the movie details
+            movieDetails[0] = newTitle;
+            movieDetails[9] = newPlot;
 
-        // Update the movie in the database
-        MovieDBController.updateMovieDetails(oldTitle, movieDetails);
+            // Update the movie in the database
+            MovieDBController.updateMovieDetails(oldTitle, movieDetails);
 
-        // Call the update callback
-        if (updateMovieCallback != null) {
-            updateMovieCallback.accept(movieDetails);
+            // Call the update callback
+            if (updateMovieCallback != null) {
+                updateMovieCallback.accept(movieDetails);
+            }
+
+            // Close the side window
+            ((Button) event.getSource()).getScene().getWindow().hide();
+        } catch (Exception e) {
+            showErrorAlert("Error updating movie details: " + e.getMessage());
         }
-
-        // Close the side window
-        ((Button) event.getSource()).getScene().getWindow().hide();
     }
 
     /**
@@ -86,11 +90,23 @@ public class SideWindowController {
      */
     @FXML
     private void deleteMovieAction(ActionEvent event) {
-        String movieTitle = movieDetails[0];
-        if (deleteMovieCallback != null) {
-            deleteMovieCallback.accept(movieTitle);
+        try{
+            String movieTitle = movieDetails[0];
+            if (deleteMovieCallback != null) {
+                deleteMovieCallback.accept(movieTitle);
+            }
+            // Close the side window
+            ((Button) event.getSource()).getScene().getWindow().hide();
+        } catch (NullPointerException e) {
+            showErrorAlert("The delete callback function is not set : " + e.getMessage());
         }
-        // Close the side window
-        ((Button) event.getSource()).getScene().getWindow().hide();
+    }
+
+    private void showErrorAlert(String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("An error occurred");
+        alert.setContentText(contentText);
+        alert.showAndWait();
     }
 }
