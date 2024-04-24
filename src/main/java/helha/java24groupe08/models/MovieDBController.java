@@ -21,25 +21,29 @@ public class MovieDBController {
     private static final int MOVIE_DETAILS_LENGTH = 14;
 
     /**
-     * Retrieves the title of a movie from the database based on a partial match.
+     * Searches for movies in the database that match the given partial or complete title.
+     * It will return a list of movie details where each movie's title contains the search term.
      *
-     * @param title The partial or complete title of the movie.
-     * @return The title of the movie if found, null otherwise.
+     * @param searchTitle The partial or complete title of the movie to search for.
+     * @return A list of String arrays, each containing details of a matching movie.
      */
-    public static String getTitle(String title) {
-        String sql = "SELECT Title FROM movies WHERE data LIKE ?";
+
+    public static List<String[]> searchMoviesByTitle(String searchTitle) {
+        List<String[]> foundMovies = new ArrayList<>();
+        String sql = "SELECT * FROM movies WHERE Title LIKE ?";
         try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "%" + title + "%");
+            pstmt.setString(1, "%" + searchTitle + "%");
             ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return rs.getString("Title");
+            while (rs.next()) {
+                foundMovies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            System.err.println("Error getting movie title from database: " + e.getMessage());
+            showErrorAlert("Error searching movies in database: " + e.getMessage());
         }
-        return null;
+        return foundMovies;
     }
+
 
     /**
      * Inserts a movie into the database.

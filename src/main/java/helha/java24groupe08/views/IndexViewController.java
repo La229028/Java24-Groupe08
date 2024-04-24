@@ -9,20 +9,18 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -36,14 +34,20 @@ public class IndexViewController implements Initializable {
     public ScrollPane scrollPane;
     @FXML
     public Button loginButton;
+    public Pane searchMovie;
+    @FXML
+    private TextField searchField;
+    @FXML
+    private Button searchButton;
+    @FXML
+    private Button refreshButton;
 
     // List to store Vbox
-    private List<VBox> vBoxList = new ArrayList<>();
-
+    private boolean isSearchPerformed = false;
     private static Listener listener;
 
     public void setListener(Listener listener) {
-        this.listener = listener;
+        IndexViewController.listener = listener;
     }
 
     /**
@@ -61,6 +65,8 @@ public class IndexViewController implements Initializable {
         scrollPane.setContent(flowPane);
 
         loginButton.setOnAction(event -> loginButtonAction());
+        searchButton.setOnAction(event -> onSearch());
+        refreshButton.setOnAction(event -> onRefresh());
     }
 
 
@@ -248,7 +254,67 @@ public class IndexViewController implements Initializable {
             listener.loginButtonAction();
         }
     }
+    /**
+     * Handles the search action when the search button is clicked or a search query is submitted.
+     * It retrieves the movies that match the search query and updates the display with the results.
+     * If no movies are found, it displays a message indicating that no results were found.
+     */
+    @FXML
+    private void onSearch() {
+        String searchText = searchField.getText();
+        List<String[]> searchResults = MovieDBController.searchMoviesByTitle(searchText);
+        updateVBoxes(searchResults);
+        isSearchPerformed = true;
 
+    }
+    /**
+     * Handles the refresh action when the refresh button is clicked.
+     * It resets the movie display to the initial full list of movies.
+     */
+    @FXML
+    private void onRefresh() {
+        if (isSearchPerformed) {
+
+            List<String[]> allMovies = MovieDBController.getAllMovies();
+            updateVBoxes(allMovies);
+            searchField.clear();
+            isSearchPerformed = false;
+        }
+    }
+    /**
+     * Updates the display with a given list of movies. Each movie is represented by a VBox.
+     * If the list is empty, a placeholder VBox is displayed with a message indicating no movies were found.
+     *
+     * @param movies The list of movies to display.
+     */
+    private void updateVBoxes(List<String[]> movies) {
+        flowPane.getChildren().clear();
+        if (movies.isEmpty()) {
+            flowPane.getChildren().add(createNoResultsVBox());
+        } else {
+            for (String[] movieDetails : movies) {
+                VBox vbox = createVBox(movieDetails);
+                flowPane.getChildren().add(vbox);
+            }
+        }
+        scrollPane.setContent(flowPane);
+    }
+    /**
+     * Creates and returns a VBox that displays a message indicating no movies were found.
+     *
+     * @return A VBox with a "Not Found" message.
+     */
+    private VBox createNoResultsVBox() {
+        VBox vbox = new VBox();
+        vbox.setPrefSize(150, 300);
+        vbox.setStyle("-fx-background-color: #e0e0e0; -fx-padding: 10px; -fx-spacing: 10px;");
+
+        Label label = new Label("No movies found");
+        label.setFont(new Font("Arial", 16));
+        label.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(label);
+        vbox.setAlignment(Pos.CENTER);
+        return vbox;}
 
     /**
      * This interface defines the methods that the listener of the index view must implement.
@@ -256,6 +322,6 @@ public class IndexViewController implements Initializable {
     public interface Listener {
         void loginButtonAction();
         void seeMoreButtonAction(String[] movieDetails);
-        void seeMoreButtonAction(String movieTitle);
+        //void seeMoreButtonAction(String movieTitle);
     }
 }

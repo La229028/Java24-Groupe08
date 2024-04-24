@@ -13,8 +13,8 @@ public class DatabaseConnection {
         try {
             this.connection = DriverManager.getConnection(CONNECTION_STRING);
         } catch (SQLException e) {
-            System.out.println("Erreur de connexion à la base de données: " + e.getMessage());
-            throw new RuntimeException("Erreur de connexion à la base de données.", e);
+            System.out.println("Database connection error: "  + e.getMessage());
+            throw new RuntimeException("Database connection error.", e);
         }
     }
 
