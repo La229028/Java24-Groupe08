@@ -1,10 +1,10 @@
-package helha.java24groupe08.models;
+package helha.java24groupe08.client.models;
 
-public class TicketsVIP extends Tickets {
-    private double price = 15.0;
+public class TicketsRegular extends Tickets{
+    private double price = 11.0;
 
-    public TicketsVIP(String movie) {
-        super("VIP", movie);
+    public TicketsRegular(String movie) {
+        super("Regular", movie);
         setPrice(price);
     }
 

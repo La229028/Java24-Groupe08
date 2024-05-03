@@ -1,6 +1,6 @@
-package helha.java24groupe08.controllers;
+package helha.java24groupe08.client.controllers;
 
-import helha.java24groupe08.views.NewAccountViewController;
+import helha.java24groupe08.client.views.NewAccountViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

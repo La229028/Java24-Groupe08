@@ -1,4 +1,4 @@
-package helha.java24groupe08.models;
+package helha.java24groupe08.client.models;
 
 import java.util.ArrayList;
 import java.util.List;

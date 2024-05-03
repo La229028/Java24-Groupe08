@@ -1,9 +1,10 @@
 package helha.java24groupe08.controllers;
 
-import helha.java24groupe08.models.MovieDBController;
+import helha.java24groupe08.client.controllers.MovieAPIController;
+import helha.java24groupe08.client.models.MovieDBController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MovieAPIControllerTest {

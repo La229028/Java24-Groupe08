@@ -2,12 +2,12 @@
  * The IndexApplication class represents the main application for the cinema index.
  * It handles the initialization of the main stage and the actions related to user interactions.
  */
-package helha.java24groupe08.controllers;
+package helha.java24groupe08.client.controllers;
 
-import helha.java24groupe08.models.MovieDBController;
-import helha.java24groupe08.models.exceptions.MovieNotFoundException;
-import helha.java24groupe08.views.DescriptionViewController;
-import helha.java24groupe08.views.IndexViewController;
+import helha.java24groupe08.client.models.MovieDBController;
+import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
+import helha.java24groupe08.client.views.DescriptionViewController;
+import helha.java24groupe08.client.views.IndexViewController;
 
 import java.io.IOException;
 import javafx.application.Application;

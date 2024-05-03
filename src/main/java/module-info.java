@@ -10,15 +10,15 @@ module helha.java24groupe08 {
 
 
 
-    exports helha.java24groupe08.controllers;
-    exports helha.java24groupe08.views;
-    opens helha.java24groupe08.views to javafx.fxml;
+    exports helha.java24groupe08.client.controllers;
+    exports helha.java24groupe08.client.views;
+    opens helha.java24groupe08.client.views to javafx.fxml;
 
     requires com.google.gson;
     requires java.sql;
     requires java.desktop;
-    opens helha.java24groupe08.models to com.google.gson;
-    exports helha.java24groupe08.models;
+    opens helha.java24groupe08.client.models to com.google.gson;
+    exports helha.java24groupe08.client.models;
 
-    opens helha.java24groupe08.controllers to javafx.fxml;
+    opens helha.java24groupe08.client.controllers to javafx.fxml;
 }

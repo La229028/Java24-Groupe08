@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="520.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.views.NewAccountViewController">
+<AnchorPane prefHeight="520.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.views.NewAccountViewController">
 
     <children>
         <VBox layoutX="85.0" layoutY="6.0" prefHeight="583.0" prefWidth="427.0" spacing="10" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-padding: 10;">

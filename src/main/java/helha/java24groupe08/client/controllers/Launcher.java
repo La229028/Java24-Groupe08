@@ -1,4 +1,4 @@
-package helha.java24groupe08.controllers;
+package helha.java24groupe08.client.controllers;
 
 /**
  * This is the launcher class for the application.

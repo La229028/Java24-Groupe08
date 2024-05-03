@@ -1,14 +1,14 @@
-package helha.java24groupe08.models;
+package helha.java24groupe08.client.models;
 
-public class TicketsSenior extends Tickets{
+public class TicketsChild extends Tickets{
     private int ageRequirement;
-    private double price = 7.5;
+    private double price = 5.0;
 
-    public TicketsSenior(String movie, int personAge) {
-        super("Senior", movie);
+    public TicketsChild(String movie, int personAge) {
+        super("Child", movie);
         ageRequirement = personAge;
-        if(ageRequirement < 60){
-            throw new IllegalArgumentException("Senior tickets are only for people aged 60 or older.");
+        if(ageRequirement >= 12){
+            throw new IllegalArgumentException("Child tickets are only for people aged 11 or younger.");
         }else{
             setPrice(price);
         }
@@ -25,5 +25,4 @@ public class TicketsSenior extends Tickets{
 
     public int getAgeRequirement() { return ageRequirement; }
     public double getPrice() { return price; }
-
 }

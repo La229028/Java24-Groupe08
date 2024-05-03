@@ -1,7 +1,7 @@
-package helha.java24groupe08.views;
+package helha.java24groupe08.client.views;
 
-import helha.java24groupe08.controllers.SideWindowController;
-import helha.java24groupe08.models.MovieDBController;
+import helha.java24groupe08.client.controllers.SideWindowController;
+import helha.java24groupe08.client.models.MovieDBController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

@@ -11,7 +11,7 @@
 
 <?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="helha.java24groupe08.controllers.SideWindowController"
+      fx:controller="helha.java24groupe08.client.controllers.SideWindowController"
       prefWidth="500" prefHeight="400"
       alignment="CENTER">
 

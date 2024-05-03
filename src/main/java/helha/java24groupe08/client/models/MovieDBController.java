@@ -2,9 +2,9 @@
  * The MovieDBController class provides methods to interact with the movie database.
  * It includes functionality for retrieving, inserting, updating, and deleting movie data.
  */
-package helha.java24groupe08.models;
+package helha.java24groupe08.client.models;
 
-import helha.java24groupe08.models.exceptions.MovieNotFoundException;
+import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 import javafx.scene.control.Alert;
 
 import java.sql.Connection;

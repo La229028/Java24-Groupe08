@@ -1,7 +1,7 @@
-package helha.java24groupe08.controllers;
+package helha.java24groupe08.client.controllers;
 
-import helha.java24groupe08.models.MovieDBController;
-import helha.java24groupe08.views.IndexViewController;
+import helha.java24groupe08.client.models.MovieDBController;
+import helha.java24groupe08.client.views.IndexViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import java.sql.SQLException;
 import java.util.function.Consumer;
 /**
  * This class is the controller for the side window.
