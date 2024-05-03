@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.views.BuyTicketViewController">
+    <Tab text="Date/Séance">
+        <!-- Contenu à ajouter plus tard -->
+    </Tab>
+    <Tab text="Sièges">
+        <GridPane fx:id="seatsGrid" hgap="10" vgap="10">
+            <!-- buttons added by the controller -->
+        </GridPane>
+    </Tab>
+    <Tab text="Tarifs">
+        <VBox>
+            <HBox>
+                <Label text="Regular">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Label>
+                <Spinner fx:id="quantitySpinnerRegular" initialValue="0" max="100" min="0">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Spinner>
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin>
+            </HBox>
+            <HBox>
+                <Label text="Child">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Label>
+                <Spinner fx:id="quantitySpinnerChild" initialValue="0" max="100" min="0">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Spinner>
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin>
+            </HBox>
+            <HBox>
+                <Label text="Student">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Label>
+                <Spinner fx:id="quantitySpinnerStudent" initialValue="0" max="100" min="0">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Spinner>
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin>
+            </HBox>
+            <HBox>
+                <Label text="Senior">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Label>
+                <Spinner fx:id="quantitySpinnerSenior" initialValue="0" max="100" min="0">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Spinner>
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin>
+            </HBox>
+            <HBox>
+                <Label text="VIP">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Label>
+                <Spinner fx:id="quantitySpinnerVIP" initialValue="0" max="100" min="0">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Spinner>
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin>
+            </HBox>
+            <Label text="Total:">
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin></Label>
+            <Label fx:id="totalLabel" />
+        </VBox>
+    </Tab>
+    <Tab text="Récapitulatif">
+        <VBox>
+            <ListView fx:id="recapListView" />
+            <Label text="Prix total:" />
+            <Label fx:id="totalPriceLabel" />
+        </VBox>
+    </Tab>
+</TabPane>

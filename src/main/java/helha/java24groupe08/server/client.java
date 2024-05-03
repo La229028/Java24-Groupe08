@@ -7,18 +7,18 @@ import java.util.Hashtable;
 
 public class client {
     public static void main(String[] args) {
-       try {
-           Socket socket = new Socket("localhost", 6500);
-           InputStream in = socket.getInputStream();
-           ObjectInputStream ois = new ObjectInputStream(in);
+        try {
+            Socket socket = new Socket("localhost", 6500);
+            InputStream in = socket.getInputStream();
+            ObjectInputStream ois = new ObjectInputStream(in);
 
-           // Read the object from the server
-           final Hashtable clientTable = (Hashtable) ois.readObject();
+            // Read the object from the server
+            final Hashtable clientTable = (Hashtable) ois.readObject();
 
-           System.out.println(clientTable.get("test"));
+            System.out.println(clientTable.get("test"));
 
-         } catch (Exception e) {
-              e.printStackTrace();
-       }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

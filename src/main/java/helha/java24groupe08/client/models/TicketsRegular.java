@@ -18,4 +18,5 @@ public class TicketsRegular extends Tickets{
     // GETTERS
 
     public double getPrice() { return price; }
+
 }

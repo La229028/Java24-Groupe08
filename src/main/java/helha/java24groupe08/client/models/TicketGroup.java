@@ -23,4 +23,13 @@ public class TicketGroup implements TicketComponent{
     public void getDetails() {
         tickets.forEach(TicketComponent::getDetails);
     }
+
+    public List<TicketComponent> getTickets() {
+        return tickets;
+    }
+
+    @Override
+    public String getType() {
+        return "TicketGroup";
+    }
 }

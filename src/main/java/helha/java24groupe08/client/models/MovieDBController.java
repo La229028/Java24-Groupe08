@@ -7,7 +7,7 @@ package helha.java24groupe08.client.models;
 import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 import javafx.scene.control.Alert;
 
-import helha.java24groupe08.models.exceptions.MovieNotFoundException;
+import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 import javafx.scene.control.Alert;
 
 import java.sql.Connection;

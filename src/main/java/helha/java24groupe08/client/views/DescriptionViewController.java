@@ -87,4 +87,19 @@ public class DescriptionViewController implements Initializable {
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
+
+    @FXML
+    private void handleBuyButton(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/buyTicket.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

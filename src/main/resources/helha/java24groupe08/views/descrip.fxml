@@ -43,7 +43,7 @@
                             </Label>
                         </VBox>
                     </HBox>
-                    <Button fx:id="buyButton" layoutX="810.0" layoutY="580.0" mnemonicParsing="false" text="Buy" />
+                    <Button fx:id="buyButton" onAction="#handleBuyButton" layoutX="810.0" layoutY="580.0" mnemonicParsing="false" text="Buy" />
                 </Pane>
             </center>
         </BorderPane>
