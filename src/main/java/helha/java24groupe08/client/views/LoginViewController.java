@@ -4,6 +4,7 @@ import helha.java24groupe08.client.models.exceptions.DatabaseException;
 import helha.java24groupe08.client.models.User;
 import helha.java24groupe08.client.controllers.UserDBController;
 
+import helha.java24groupe08.models.exceptions.DatabaseException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

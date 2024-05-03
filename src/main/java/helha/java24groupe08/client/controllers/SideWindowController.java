@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
 import java.util.function.Consumer;
 /**
  * This class is the controller for the side window.
