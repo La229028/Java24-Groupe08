@@ -1,4 +1,4 @@
-package helha.java24groupe08.views;
+package helha.java24groupe08.client.views;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

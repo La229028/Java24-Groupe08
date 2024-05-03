@@ -1,4 +1,4 @@
-package helha.java24groupe08.models;
+package helha.java24groupe08.client.models;
 
 public class Tickets implements TicketComponent{
     private String type;

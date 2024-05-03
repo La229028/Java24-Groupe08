@@ -1,18 +1,9 @@
-package helha.java24groupe08.views;
-
-import helha.java24groupe08.models.MovieDBController;
-import helha.java24groupe08.models.MovieDBController;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
-import java.io.IOException;
+package helha.java24groupe08.client.views;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class SceneViewsController {

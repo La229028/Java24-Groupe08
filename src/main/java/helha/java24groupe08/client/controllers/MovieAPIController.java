@@ -1,12 +1,11 @@
-package helha.java24groupe08.controllers;
+package helha.java24groupe08.client.controllers;
 
-import helha.java24groupe08.models.MovieDBController;
+import helha.java24groupe08.client.models.MovieDBController;
 import javafx.scene.control.Alert;
 
 import java.io.InputStreamReader;
 
 import java.net.*;
-import java.util.Arrays;
 
 import java.io.*;
 
@@ -18,7 +17,6 @@ import java.util.stream.Collectors;
  * storing movie data in a SQLite database, and loading movie data from a JSON file.
  */
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 

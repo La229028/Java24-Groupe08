@@ -1,4 +1,4 @@
-package helha.java24groupe08.views.Components;
+package helha.java24groupe08.client.views.Components;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;

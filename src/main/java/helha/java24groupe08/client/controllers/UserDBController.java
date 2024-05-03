@@ -1,7 +1,7 @@
-package helha.java24groupe08.controllers;
+package helha.java24groupe08.client.controllers;
 
-import helha.java24groupe08.models.User;
-import helha.java24groupe08.models.exceptions.DatabaseException;
+import helha.java24groupe08.client.models.exceptions.DatabaseException;
+import helha.java24groupe08.client.models.User;
 
 import java.sql.*;
 
