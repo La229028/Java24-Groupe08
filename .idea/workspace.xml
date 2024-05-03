@@ -10,43 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Changement de package, redirection dans client et ajour du package server + network">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/LoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/LoginApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/MovieAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/MovieAPIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/NewAccountApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/NewAccountApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/SideWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/SideWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/controllers/UserDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/UserDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/MovieDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/MovieDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/Tickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/Tickets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsChild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsChild.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsRegular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsSenior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsSenior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/TicketsVIP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsVIP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/exceptions/DatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/exceptions/DatabaseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/models/exceptions/MovieNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/exceptions/MovieNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/Components/MovieCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/Components/MovieCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/DescriptionViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/IndexViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/NewAccountViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/NewAccountViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/views/SceneViewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/SceneViewsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/Components/movieCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/Components/movieCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/newAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/newAccount.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/sideWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/sideWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/controllers/MovieAPIControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/controllers/MovieAPIControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,8 +81,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.IndexController.executor": "Run",
-    "Application.Launcher.executor": "Run",
+    "Application.Launcher.executor": "Debug",
+    "Application.helha.java24groupe08.client.controllers.Launcher.executor": "Run",
     "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
+    "Application.server.executor": "Run",
     "JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
     "Maven.Java24-Groupe08 [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -163,13 +130,26 @@
       <recent name="helha.java24groupe08.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.helha.java24groupe08.client.controllers.Launcher">
+  <component name="RunManager" selected="Application.client">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.Launcher" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="helha.java24groupe08.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.server.client" />
+      <module name="Java24-Groupe08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="helha.java24groupe08.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -190,30 +170,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="helha.java24groupe08.controllers.IndexApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.IndexApplication" />
+    <configuration name="server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.server.server" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="be.helha.java24groupe08.controllers.*" />
+          <option name="PATTERN" value="helha.java24groupe08.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Java24-Groupe08" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="helha.java24groupe08.models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="helha.java24groupe08.models" />
-      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.models.MovieTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,19 +188,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.client" />
       <item itemvalue="Application.helha.java24groupe08.client.controllers.Launcher" />
+      <item itemvalue="Application.server" />
       <item itemvalue="Application.Launcher" />
-      <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
       <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
-      <item itemvalue="JUnit.MovieTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.client" />
+        <item itemvalue="Application.server" />
         <item itemvalue="Application.helha.java24groupe08.client.controllers.Launcher" />
         <item itemvalue="Application.Launcher" />
         <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
-        <item itemvalue="Application.helha.java24groupe08.controllers.IndexApplication" />
-        <item itemvalue="JUnit.MovieTest" />
       </list>
     </recent_temporary>
   </component>
@@ -264,7 +229,7 @@
       <workItem from="1713341017476" duration="8018000" />
       <workItem from="1713440827463" duration="10946000" />
       <workItem from="1713714185322" duration="3241000" />
-      <workItem from="1714721114741" duration="1465000" />
+      <workItem from="1714721114741" duration="3030000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -482,7 +447,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713974404723</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Changement de package, redirection dans client et ajour du package server + network">
+      <option name="closed" value="true" />
+      <created>1714722773773</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1714722773773</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,8 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Visuel page index" />
-    <MESSAGE value="Ajout classe index" />
     <MESSAGE value="Amélioration code + visuel" />
     <MESSAGE value="Base FXML + MVC" />
     <MESSAGE value="Création movieData.json" />
@@ -555,6 +526,17 @@
     <MESSAGE value="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche." />
     <MESSAGE value="Changement de package, redirection dans client et ajour du package server + network" />
     <option name="LAST_COMMIT_MESSAGE" value="Changement de package, redirection dans client et ajour du package server + network" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexApplication.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
