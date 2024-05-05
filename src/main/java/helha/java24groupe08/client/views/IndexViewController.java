@@ -197,7 +197,7 @@ public class IndexViewController implements Initializable {
      */
     private void openSideWindow(String[] movieDetails) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("sideWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/sideWindow.fxml"));
             Parent root = loader.load();
 
             SideWindowController controller = loader.getController();
