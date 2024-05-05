@@ -9,20 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="remise en ordre">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/BuyTicketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/BuyTicketViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/buyTicket.fxml" afterDir="false" />
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Implémentation achat ticket+ composite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/MovieDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/MovieDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsRegular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsRegular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/DescriptionViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/descrip.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -466,7 +454,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714744625857</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Implémentation achat ticket+ composite">
+      <option name="closed" value="true" />
+      <created>1714747567602</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1714747567602</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Création movieData.json" />
     <MESSAGE value="Réorganisation code et fichiers" />
     <MESSAGE value="ajout du dossier DEPOT" />
     <MESSAGE value="Ajout d'une TODO pour le groupe (chaque membre à sa propre section, vous êtes libres d'ajouter les tâches générales et individuelles). Peut être d'une grande aide pour une autogestion de ses tâches (cf. exemple Janna)" />
@@ -534,7 +529,8 @@
     <MESSAGE value="réglage problème - ajout code valentin" />
     <MESSAGE value="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche." />
     <MESSAGE value="remise en ordre" />
-    <option name="LAST_COMMIT_MESSAGE" value="remise en ordre" />
+    <MESSAGE value="Implémentation achat ticket+ composite" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implémentation achat ticket+ composite" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
