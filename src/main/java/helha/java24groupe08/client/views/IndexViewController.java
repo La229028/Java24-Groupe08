@@ -51,18 +51,34 @@ public class IndexViewController implements Initializable {
     }
 
     /**
-     * This method is called when the index view is initialized.
-     * It sets up the initial state of the index view.
+     * Initialize the Index view with the main movie list, setting up action handlers
+     * and ensuring that the scroll pane and flow pane are properly configured.
      *
-     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     * @param url            URL for resolving relative paths.
+     * @param resourceBundle Resources for localization.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleLabel.setText("CINEMA");
+
+        // S'assuré que le ScrollPane s'adapte correctement
+        scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+        // Configure les propriétés d'extension du FlowPane
+        flowPane.setPrefWrapLength(800);  // Largeur préférée pour les éléments en wrapping
+        flowPane.setVgap(20);// Espace vertical entre les enfants
+        flowPane.setHgap(20);// Espace horizontal entre les enfants
+
+        // Assurez-vous que les enfants s'adaptent bien en hauteur et largeur
+        flowPane.setAlignment(Pos.CENTER);// Centrer le contenu
+        flowPane.setStyle("-fx-background-color: white;");
+
+        // Récupère tous les films et crée les boîtes correspondantes
+
         List<String[]> movies = MovieDBController.getAllMovies();
         createVBoxes(movies);
         scrollPane.setContent(flowPane);
+        // Associe des actions aux boutons
 
         loginButton.setOnAction(event -> loginButtonAction());
         searchButton.setOnAction(event -> onSearch());
