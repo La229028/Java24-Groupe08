@@ -25,8 +25,9 @@ public class DescriptionViewController implements Initializable {
     @FXML
     private ImageView movieImage;
     @FXML
-    private Label moviePlot;
+    private Label moviePlotTextArea;
 
+    private String[] movieDetails;
 
     /**
      * This method is called when the description view is initialized.
@@ -46,10 +47,11 @@ public class DescriptionViewController implements Initializable {
      * @param movieDetails The details of the movie to be displayed.
      */
     public void setMovieDetails(String[] movieDetails) {
+        this.movieDetails = movieDetails; // Add this line
 
         movieLabel.setText(movieDetails[0]); // Assuming title is at index 0
         setMovieImage(movieDetails[13]); // Assuming poster URL is at index 13
-        moviePlot.setText(movieDetails[9]); // Assuming plot is at index 9
+        moviePlotTextArea.setText(movieDetails[9]); // Assuming plot is at index 9
     }
 
 
@@ -90,9 +92,17 @@ public class DescriptionViewController implements Initializable {
 
     @FXML
     private void handleBuyButton(ActionEvent event) {
+        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/buyTicket.fxml"));
             Parent root = loader.load();
+
+            BuyTicketViewController controller = loader.getController();
+            controller.setMovieDetails(movieDetails);
+
+            // Load sessions for the movie
+            int movieId = Integer.parseInt(movieDetails[14]); // Assuming movie ID is at index 14
+            controller.loadSessions(movieId);
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -102,4 +112,6 @@ public class DescriptionViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
 }

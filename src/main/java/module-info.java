@@ -21,4 +21,6 @@ module helha.java24groupe08 {
     exports helha.java24groupe08.client.models;
 
     opens helha.java24groupe08.client.controllers to javafx.fxml;
+
+
 }

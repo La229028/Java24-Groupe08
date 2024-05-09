@@ -2,6 +2,8 @@ package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.SideWindowController;
 import helha.java24groupe08.client.models.MovieDBController;
+import helha.java24groupe08.client.models.Session;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,18 +54,34 @@ public class IndexViewController implements Initializable {
     }
 
     /**
-     * This method is called when the index view is initialized.
-     * It sets up the initial state of the index view.
+     * Initialize the Index view with the main movie list, setting up action handlers
+     * and ensuring that the scroll pane and flow pane are properly configured.
      *
-     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     * @param url            URL for resolving relative paths.
+     * @param resourceBundle Resources for localization.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleLabel.setText("CINEMA");
+
+        // S'assuré que le ScrollPane s'adapte correctement
+        scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+        // Configure les propriétés d'extension du FlowPane
+        flowPane.setPrefWrapLength(800);  // Largeur préférée pour les éléments en wrapping
+        flowPane.setVgap(20);// Espace vertical entre les enfants
+        flowPane.setHgap(20);// Espace horizontal entre les enfants
+
+        // Assurez-vous que les enfants s'adaptent bien en hauteur et largeur
+        flowPane.setAlignment(Pos.CENTER);// Centrer le contenu
+        flowPane.setStyle("-fx-background-color: white;");
+
+        // Récupère tous les films et crée les boîtes correspondantes
+
         List<String[]> movies = MovieDBController.getAllMovies();
         createVBoxes(movies);
         scrollPane.setContent(flowPane);
+        // Associe des actions aux boutons
 
         loginButton.setOnAction(event -> loginButtonAction());
         searchButton.setOnAction(event -> onSearch());
@@ -201,17 +220,22 @@ public class IndexViewController implements Initializable {
             Parent root = loader.load();
 
             SideWindowController controller = loader.getController();
+            if (controller == null) {
+                throw new RuntimeException("Controller not found. Check FXML controller assignment.");
+            }
+
             controller.initData(movieDetails, this::deleteMovie, this::updateVBox);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Admin Side Window");
             stage.show();
-        } catch (IOException e) {
+        } catch (Exception e) {  // Catch more broadly to diagnose issues
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("An error occurred");
             alert.setContentText("Error opening side window: " + e.getMessage());
+            e.printStackTrace();  // Consider logging the stack trace for more detailed diagnostics
             alert.showAndWait();
         }
     }
@@ -320,7 +344,27 @@ public class IndexViewController implements Initializable {
         label.setAlignment(Pos.CENTER);
         vbox.getChildren().add(label);
         vbox.setAlignment(Pos.CENTER);
-        return vbox;}
+        return vbox;
+    }
+
+    @FXML
+    private TableView<Session> sessionTable;
+
+    public void initSessionTable(int movieId) {
+        try {
+            List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
+            sessionTable.setItems(FXCollections.observableArrayList(sessions));
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("An error occurred");
+            alert.setContentText("Invalid initSession table: " + e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+
+
 
     /**
      * This interface defines the methods that the listener of the index view must implement.

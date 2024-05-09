@@ -1,46 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="700.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.views.IndexViewController">
     <!-- Top section -->
     <top>
-        <Pane fx:id="searchMovie" prefHeight="56.0" prefWidth="930.0" style="-fx-background-color: #6495ED;"
-              BorderPane.alignment="CENTER">
-            <Label fx:id="titleLabel" layoutX="393.0" prefHeight="56.0" prefWidth="165.0" text="Cinéma"
-                   textFill="#fcfcfc">
-                <font>
-                    <Font size="30.0"/>
-                </font>
+        <AnchorPane prefHeight="56.0" style="-fx-background-color: #6495ED;" BorderPane.alignment="CENTER">
+            <!-- Titre "Cinéma" centré -->
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="383.0" layoutY="5.0" prefHeight="46.0" prefWidth="174.0" style="-fx-font-size: 30.0px;" text="Cinéma" textFill="#fcfcfc">
+                <AnchorPane.leftAnchor>383.0</AnchorPane.leftAnchor>
+                <AnchorPane.rightAnchor>383.4000000000001</AnchorPane.rightAnchor>
+                <AnchorPane.topAnchor>5.0</AnchorPane.topAnchor>
             </Label>
-            <Button fx:id="loginButton" layoutX="847.0" layoutY="13.0" prefHeight="29.0" prefWidth="78.0"
-                    style="-fx-background-color: #6495ED; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 5px;"
-                    text="Connexion"/>
-            <TextField fx:id="searchField" layoutX="531.0" layoutY="15.0" promptText="Type here to search">
-                <styleClass>
-                    <String fx:value="shadow"/>
-                    <String fx:value="search-box"/>
-                </styleClass>
+
+            <!-- Barre de recherche avec largeur limitée -->
+            <TextField fx:id="searchField" prefHeight="26.0" prefWidth="122.0" promptText="Type here to search" styleClass="search-box">
+                <AnchorPane.leftAnchor>10.0</AnchorPane.leftAnchor>
+                <AnchorPane.topAnchor>15.0</AnchorPane.topAnchor>
             </TextField>
-            <Button fx:id="searchButton" layoutX="680.0" layoutY="15.0" mnemonicParsing="false"
-                    styleClass="search-button" text="Submit" onAction="#onSearch"/>
-            <Button fx:id="refreshButton" layoutX="734.0" layoutY="15.0" mnemonicParsing="false"
-                    styleClass="search-button" text="Refresh" onAction="#onRefresh"/>
-        </Pane>
+
+            <!-- Boutons de recherche et de rafraîchissement -->
+            <Button fx:id="searchButton" layoutX="133.0" layoutY="16.0" prefWidth="60.0" styleClass="button" text="Submit">
+                <AnchorPane.leftAnchor>133.0</AnchorPane.leftAnchor>
+                <AnchorPane.topAnchor>16.0</AnchorPane.topAnchor>
+            </Button>
+            <Button fx:id="refreshButton" layoutX="193.0" layoutY="16.0" prefWidth="60.0" styleClass="button" text="Refresh">
+                <AnchorPane.leftAnchor>193.0</AnchorPane.leftAnchor>
+                <AnchorPane.topAnchor>16.0</AnchorPane.topAnchor>
+            </Button>
+
+            <!-- Bouton Connexion à droite -->
+            <Button fx:id="loginButton" style="-fx-background-color: #6495ED; -fx-text-fill: #ffffff;" text="Connexion">
+                <AnchorPane.rightAnchor>10.0</AnchorPane.rightAnchor>
+                <AnchorPane.topAnchor>15.0</AnchorPane.topAnchor>
+            </Button>
+        </AnchorPane>
     </top>
-    <!-- Center section -->
+
+    <!-- Section centrale -->
     <center>
         <ScrollPane fx:id="scrollPane" prefHeight="645.0" prefWidth="922.0">
-            <FlowPane fx:id="flowPane" prefHeight="1790.0" prefWidth="938.0" BorderPane.alignment="CENTER" />
+            <FlowPane fx:id="flowPane" alignment="CENTER" prefHeight="1790.0" prefWidth="938.0" />
         </ScrollPane>
     </center>
 </BorderPane>
-
