@@ -2,13 +2,17 @@ package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.BuyTicketController;
 import helha.java24groupe08.client.models.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.Map;
@@ -50,6 +54,10 @@ public class BuyTicketViewController {
     private ListView<String> recapListView;
     @FXML
     private Label totalPriceLabel;
+    @FXML
+    private Button nextButton;
+    @FXML
+    private TabPane tabPane;
 
 
     @FXML
@@ -91,6 +99,7 @@ public class BuyTicketViewController {
         });
 
 
+
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 Button seatButton = new Button();
@@ -98,15 +107,27 @@ public class BuyTicketViewController {
                 seatButton.setPrefHeight(30);
                 seatButton.setStyle("-fx-background-color: white;");
 
-                final boolean[] isClicked = {false};
-
                 seatButton.setOnAction(event -> {
-                    if (!isClicked[0]) {
-                        seatButton.setStyle("-fx-background-color: blue;");
-                        isClicked[0] = true;
-                    } else {
+                    int totalTickets = quantitySpinnerRegular.getValue() + quantitySpinnerChild.getValue() +
+                            quantitySpinnerStudent.getValue() + quantitySpinnerSenior.getValue() +
+                            quantitySpinnerVIP.getValue();
+
+                    int totalSeatsSelected = 0;
+                    for (Node node : seatsGrid.getChildren()) {
+                        if (node instanceof Button) {
+                            Button button = (Button) node;
+                            if ("-fx-background-color: blue;".equals(button.getStyle())) {
+                                totalSeatsSelected++;
+                            }
+                        }
+                    }
+
+                    if ("-fx-background-color: blue;".equals(seatButton.getStyle())) {
                         seatButton.setStyle("-fx-background-color: white;");
-                        isClicked[0] = false;
+                    } else if (totalSeatsSelected >= totalTickets) {
+                        displayError("Vous ne pouvez pas sélectionner plus de sièges que de tickets.");
+                    } else {
+                        seatButton.setStyle("-fx-background-color: blue;");
                     }
                 });
 
@@ -177,6 +198,9 @@ public class BuyTicketViewController {
      */
     public void displayError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.initModality(Modality.APPLICATION_MODAL);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.setAlwaysOnTop(true); // Always show on top of other windows
         alert.setTitle("Error Dialog");
         alert.setHeaderText(null);
         alert.setContentText(message);
@@ -195,5 +219,25 @@ public class BuyTicketViewController {
     public void setSelectedSession(Session session) {
         this.selectedSession = session;
         // Update the UI elements here based on the selected session
+    }
+
+    @FXML
+    public void onNextButtonClicked() {
+        int totalTickets = quantitySpinnerRegular.getValue() + quantitySpinnerChild.getValue() +
+                quantitySpinnerStudent.getValue() + quantitySpinnerSenior.getValue() +
+                quantitySpinnerVIP.getValue();
+
+        if (totalTickets <= 0) {
+            displayError("Veuillez sélectionner au moins un ticket.");
+            return;
+        }
+
+        if (selectedSession != null && totalTickets > selectedSession.getSeatsAvailable()) {
+            displayError("Vous ne pouvez pas sélectionner plus de tickets que de sièges disponibles.");
+            return;
+        }
+
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        selectionModel.selectNext();
     }
 }

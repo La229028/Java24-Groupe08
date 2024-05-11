@@ -9,6 +9,8 @@ public class client {
     public static void main(String[] args) {
         try {
             Socket socket = new Socket("localhost", 6500);
+            System.out.println("Connected to the server");
+
             InputStream in = socket.getInputStream();
             ObjectInputStream ois = new ObjectInputStream(in);
 

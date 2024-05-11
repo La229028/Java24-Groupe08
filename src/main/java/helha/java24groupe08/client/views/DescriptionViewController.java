@@ -104,10 +104,10 @@ public class DescriptionViewController implements Initializable {
             int movieId = Integer.parseInt(movieDetails[14]); // Assuming movie ID is at index 14
             controller.loadSessions(movieId);
 
+            //open the buyTicket page in the description page
             Scene scene = new Scene(root);
-            Stage stage = new Stage();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

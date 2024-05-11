@@ -13,16 +13,33 @@ public class server {
         try {
             ServerSocket serverSocket = new ServerSocket(6500);
             System.out.println("Server started on port " + 6500);
-            Socket client = serverSocket.accept();
-            System.out.println("New connection from " + client.getInetAddress());
 
+            while(true){
+                Socket client = serverSocket.accept();
+                System.out.println("New connection from " + client.getInetAddress() + ". Client is now connected !!");
 
-            Hashtable clientTable = new Hashtable();
-            clientTable.put("test", "Je suis le test !");
+                new Thread(() -> {
+                    try {
+                        Hashtable clientTable = new Hashtable();
+                        clientTable.put("test", "Je suis le test !");
 
-            OutputStream out = client.getOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(out);
-            oos.writeObject(clientTable);
+                        OutputStream out = client.getOutputStream();
+                        ObjectOutputStream oos = new ObjectOutputStream(out);
+                        oos.writeObject(clientTable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+            }
+//
+//
+//
+//            Hashtable clientTable = new Hashtable();
+//            clientTable.put("test", "Je suis le test !");
+//
+//            OutputStream out = client.getOutputStream();
+//            ObjectOutputStream oos = new ObjectOutputStream(out);
+//            oos.writeObject(clientTable);
 
         } catch (IOException e) {
             e.printStackTrace();
