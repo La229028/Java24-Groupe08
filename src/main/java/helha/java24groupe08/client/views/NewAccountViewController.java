@@ -51,7 +51,7 @@ public class NewAccountViewController {
      */
     public static void showNewAccountWindow() {
         try{
-            FXMLLoader loader = new FXMLLoader(NewAccountViewController.class.getResource("newAccount.fxml"));
+            FXMLLoader loader = new FXMLLoader(NewAccountViewController.class.getResource("/helha/java24groupe08/views/newAccount.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);

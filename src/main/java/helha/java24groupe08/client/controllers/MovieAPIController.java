@@ -72,7 +72,7 @@ public class MovieAPIController {
         try{
             String movieData = movieAPIController.getMovieFromApi(title); // Get the movie data from the API
             if (movieData != null) { // If the movie data is not null
-                MovieDBController.insertMovie(movieData); // Insert the movie data into the database
+                MovieDBController.insertMovieWithTitle(movieData); // Insert the movie data into the database
             } else {
                 movieAPIController.showErrorAlert("The movie : " + title + " has not been found or is not accessible via the API.");
             }

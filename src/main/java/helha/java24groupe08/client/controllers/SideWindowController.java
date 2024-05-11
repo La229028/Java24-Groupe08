@@ -1,19 +1,24 @@
 package helha.java24groupe08.client.controllers;
 
 import helha.java24groupe08.client.models.MovieDBController;
+import helha.java24groupe08.client.models.Session;
 import helha.java24groupe08.client.views.IndexViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.function.Consumer;
-/**
- * This class is the controller for the side window.
- * It contains the logic for the side window UI elements.
- */
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import javafx.collections.FXCollections;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 public class SideWindowController {
 
     private String[] movieDetails;
@@ -28,6 +33,55 @@ public class SideWindowController {
     @FXML
     private TextArea plotArea;
 
+    @FXML
+    private TableView<Session> sessionTable;
+
+    @FXML
+    private ComboBox<Integer> roomNumberComboBox;
+
+    @FXML
+    private ComboBox<String> hourComboBox;
+    @FXML
+    private ComboBox<String> minuteComboBox;
+
+    @FXML
+    private DatePicker dateField;
+
+    @FXML
+    private TableColumn<Session, Integer> roomNumberColumn;
+    @FXML
+    private TableColumn<Session, Time> startTimeColumn;
+    @FXML
+    private TableColumn<Session, Date> dateColumn;
+
+    @FXML
+    private void initialize() {
+        roomNumberColumn.setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
+        startTimeColumn.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        List<Integer> roomNumbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        roomNumberComboBox.getItems().setAll(roomNumbers);
+        roomNumberComboBox.getSelectionModel().selectFirst(); // Select the first room by default
+
+        // Initialiser les heures
+        List<String> hours = IntStream.range(0, 24)
+                .mapToObj(h -> String.format("%02d", h))
+                .collect(Collectors.toList());
+        hourComboBox.getItems().setAll(hours);
+        hourComboBox.getSelectionModel().selectFirst(); // Sélectionnez la première heure par défaut
+
+        // Initialiser les minutes
+        List<String> minutes = IntStream.range(0, 60)
+                .mapToObj(m -> String.format("%02d", m))
+                .collect(Collectors.toList());
+        minuteComboBox.getItems().setAll(minutes);
+        minuteComboBox.getSelectionModel().selectFirst(); // Sélectionnez la première minute par défaut
+
+    }
+
+
+
 
     /**
      * This method initializes the side window with the movie details and the delete movie callback.
@@ -40,10 +94,12 @@ public class SideWindowController {
         this.deleteMovieCallback = deleteMovieCallback;
         this.updateMovieCallback = updateMovieCallback;
 
-        // Set the movie title and plot in the text fields
         titleField.setText(movieDetails[0]); // title is at index 0
         plotArea.setText(movieDetails[9]); // plot is at index 9
+
+        initSessionTable(); // Initialize the session table
     }
+
     /**
      * This method sets the index view controller.
      *
@@ -108,4 +164,65 @@ public class SideWindowController {
         alert.setContentText(contentText);
         alert.showAndWait();
     }
+
+    public void initSessionTable() {
+        try {
+            List<Session> sessions = MovieDBController.getSessionsByMovieId(Integer.parseInt(movieDetails[14]));
+            sessionTable.setItems(FXCollections.observableArrayList(sessions));
+        } catch (Exception e) {
+            showErrorAlert("Invalid MovieID format: " + e.getMessage());
+        }
+
+    }
+
+    private Time parseStartTime() {
+        String hour = hourComboBox.getValue();
+        String minute = minuteComboBox.getValue();
+        String timeString = hour + ":" + minute + ":00";
+        return Time.valueOf(timeString);
+    }
+
+
+    private Date parseDate() {
+        LocalDate localDate = dateField.getValue();
+        if (localDate == null) {
+            showErrorAlert("Date is required.");
+            return null;
+        }
+        return Date.valueOf(localDate);  // Converts LocalDate to java.sql.Date
+    }
+
+
+    @FXML
+    private void addSessionAction(ActionEvent event) {
+        Integer roomNumber = roomNumberComboBox.getValue();
+        Time startTime = parseStartTime();
+        Date date = parseDate();
+
+        if (roomNumber == null || startTime == null || date == null) {
+            return;  // Exit if any critical error in parsing
+        }
+
+        try {
+            Session session = new Session(roomNumber, startTime, date, Integer.parseInt(movieDetails[14]));
+            MovieDBController.insertSession(session);
+            initSessionTable(); // Refresh the table or update UI
+        } catch (Exception e) {
+            showErrorAlert("Error adding session: " + e.getMessage());
+        }
+    }
+
+
+
+    @FXML
+    private void deleteSessionAction(ActionEvent event) {
+        Session selectedSession = sessionTable.getSelectionModel().getSelectedItem();
+        if (selectedSession != null) {
+            MovieDBController.deleteSession(selectedSession.getSessionId());
+            initSessionTable(); // Refresh the table
+        } else {
+            showErrorAlert("No session selected for deletion.");
+        }
+    }
+
 }
