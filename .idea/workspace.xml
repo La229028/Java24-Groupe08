@@ -10,16 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="correction de l'erreur lorsqu'on clique sur les affiches en mode admin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SeatReservationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SessionDatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-05-24_11_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-05-24_11_02__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-05-24_14_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-05-24_14_07__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/BuyTicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/BuyTicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/MovieDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/MovieDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/BuyTicketViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/BuyTicketViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/IndexViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/buyTicket.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/buyTicket.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -556,7 +555,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Guillaume" />
+                        <option value="Main" />
                       </list>
                     </value>
                   </entry>

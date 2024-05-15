@@ -26,9 +26,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class IndexViewController implements Initializable {
-
+    @FXML
+    private ComboBox<String> genreComboBox;
+    @FXML
+    private ComboBox<String> languageComboBox;
+    @FXML
+    private ComboBox<String> sortComboBox;
     @FXML
     public Label titleLabel;
     @FXML
@@ -48,6 +54,10 @@ public class IndexViewController implements Initializable {
     // List to store Vbox
     private boolean isSearchPerformed = false;
     private static Listener listener;
+    // Variables pour suivre l'état initial des ComboBox
+    private String initialGenre = "All";
+    private String initialLanguage = "All";
+    private String initialSort = "Title";
 
     public void setListener(Listener listener) {
         IndexViewController.listener = listener;
@@ -63,6 +73,10 @@ public class IndexViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleLabel.setText("CINEMA");
+        //je vien dajouter /gui
+        genreComboBox.setItems(FXCollections.observableArrayList("All", "Action", "Comedy", "Drama"));
+        languageComboBox.setItems(FXCollections.observableArrayList("All", "English", "French", "Spanish"));
+        sortComboBox.setItems(FXCollections.observableArrayList("Title", "Release Date"));
 
         // S'assuré que le ScrollPane s'adapte correctement
         scrollPane.setFitToWidth(true);
@@ -86,7 +100,13 @@ public class IndexViewController implements Initializable {
         loginButton.setOnAction(event -> loginButtonAction());
         searchButton.setOnAction(event -> onSearch());
         refreshButton.setOnAction(event -> onRefresh());
+        //je vien dajouter /gui
+        genreComboBox.setOnAction(event -> filterAndSortMovies());
+        languageComboBox.setOnAction(event -> filterAndSortMovies());
+        sortComboBox.setOnAction(event -> filterAndSortMovies());
     }
+
+
 
 
     /**
@@ -95,21 +115,11 @@ public class IndexViewController implements Initializable {
      * @param movies The list of movies to be displayed.
      */
     private void createVBoxes(List<String[]> movies) {
-        int boxWidth = 150;
-        int boxHeight = 300;
-        int horizontalGap = 25;
-        int verticalGap = 30;
-
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 6; j++) {
-                VBox vbox = createVBox(movies.get(i * 6 + j));
-                flowPane.getChildren().add(vbox);
-                vbox.setLayoutX(35 + i * (boxWidth + horizontalGap));
-                vbox.setLayoutY(30 + j * (boxHeight + verticalGap));
-            }
+        for (String[] movieDetails : movies) {
+            VBox vbox = createMovieVBox(movieDetails);
+            flowPane.getChildren().add(vbox);
         }
     }
-
 
 
     /**
@@ -118,7 +128,7 @@ public class IndexViewController implements Initializable {
      * @param movieDetails The details of the movie to be displayed.
      * @return The VBox element containing the movie details.
      */
-    private VBox createVBox(String[] movieDetails) {
+    private VBox createMovieVBox(String[] movieDetails) {
         VBox vbox = new VBox();
         vbox.setPrefSize(150, 300);
         vbox.setStyle("-fx-background-color: #e0e0e0; -fx-padding: 10px; -fx-spacing: 10px;");
@@ -240,21 +250,6 @@ public class IndexViewController implements Initializable {
         }
     }
 
-    private void updateVBox(String[] updatedMovieDetails) {
-        // Clear the FlowPane
-        flowPane.getChildren().clear();
-
-        // Get all movies from the database
-        List<String[]> movies = MovieDBController.getAllMovies();
-
-        // Create VBoxes for each movie
-        createVBoxes(movies);
-
-        // Set the FlowPane as the content of the ScrollPane
-        scrollPane.setContent(flowPane);
-    }
-
-
     /**
      * This method deletes the movie with the given title.
      *
@@ -278,44 +273,85 @@ public class IndexViewController implements Initializable {
             listener.loginButtonAction();
         }
     }
+
     /**
-     * Handles the search action when the search button is clicked or a search query is submitted.
-     * It retrieves the movies that match the search query and updates the display with the results.
-     * If no movies are found, it displays a message indicating that no results were found.
+     * Method called when a search is performed.
+     * It searches for movies matching the text entered in the search field,
+     * filtering according to the selected genre and language, and then sorting based on the chosen criteria.
      */
     @FXML
     private void onSearch() {
+
         String searchText = searchField.getText();
         if (searchText == null || searchText.trim().isEmpty()) {
-            // Si la barre de recherche est vide ou ne contient que des espaces blancs, ne rien faire.
             return;
         }
 
-        // Procédez avec la recherche car l'utilisateur a saisi du texte.
         List<String[]> searchResults = MovieDBController.searchMoviesByTitle(searchText);
-        updateVBoxes(searchResults); // Votre logique pour afficher les résultats
 
+        String selectedGenre = genreComboBox.getValue();
+        String selectedLanguage = languageComboBox.getValue();
+        if (!"All".equals(selectedGenre)) {
+            searchResults = searchResults.stream()
+                    .filter(movie -> movie[5] != null && movie[5].contains(selectedGenre))
+                    .collect(Collectors.toList());
+        }
+        if (!"All".equals(selectedLanguage)) {
+            searchResults = searchResults.stream()
+                    .filter(movie -> movie[10] != null && movie[10].equals(selectedLanguage))
+                    .collect(Collectors.toList());
+        }
+
+        String sort = sortComboBox.getValue();
+        if ("Title".equals(sort)) {
+            searchResults.sort((a, b) -> a[0].compareToIgnoreCase(b[0]));
+        } else if ("Release Date".equals(sort)) {
+            searchResults.sort((a, b) -> a[3].compareToIgnoreCase(b[3]));
+        }
+
+        updateVBoxes(searchResults);
         searchField.clear();
         isSearchPerformed = true;
     }
+
+
     /**
-     * Handles the refresh action when the refresh button is clicked.
-     * It resets the movie display to the initial full list of movies.
+     * Method called when a refresh is requested.
+     * It resets the search field and ComboBoxes to default values,
+     * then retrieves and displays all available movies.
      */
     @FXML
     private void onRefresh() {
-        if (isSearchPerformed) {
-            List<String[]> allMovies = MovieDBController.getAllMovies();
-            updateVBoxes(allMovies);
-            isSearchPerformed = false;
-        }
-        searchField.clear(); // Efface le texte de la barre de recherche indépendamment de si isSearchPerformed est vrai
+        searchField.clear();
+        genreComboBox.setValue(initialGenre);
+        languageComboBox.setValue(initialLanguage);
+        sortComboBox.setValue(initialSort);
+
+        List<String[]> allMovies = MovieDBController.getAllMovies();
+        updateVBoxes(allMovies);
+
+        isSearchPerformed = false;
+    }
+
+    //je vien dajouter
+
+    /**
+     * Filters and sorts the movies based on the selected genre, language, and sort criteria.
+     */
+    private void filterAndSortMovies() {
+        String selectedGenre = genreComboBox.getValue();
+        String selectedLanguage = languageComboBox.getValue();
+        String sort = sortComboBox.getValue();
+
+        List<String[]> movies = MovieDBController.filterAndSortMovies(selectedGenre, selectedLanguage, sort);
+
+        updateVBoxes(movies);
     }
     /**
-     * Updates the display with a given list of movies. Each movie is represented by a VBox.
-     * If the list is empty, a placeholder VBox is displayed with a message indicating no movies were found.
+     * Updates the VBoxes in the FlowPane with the details of the provided movies.
+     * If no movies are found, displays a message indicating that no movies were found.
      *
-     * @param movies The list of movies to display.
+     * @param movies The list of movies to be displayed.
      */
     private void updateVBoxes(List<String[]> movies) {
         flowPane.getChildren().clear();
@@ -323,12 +359,26 @@ public class IndexViewController implements Initializable {
             flowPane.getChildren().add(createNoResultsVBox());
         } else {
             for (String[] movieDetails : movies) {
-                VBox vbox = createVBox(movieDetails);
+                VBox vbox = createMovieVBox(movieDetails);
                 flowPane.getChildren().add(vbox);
             }
         }
         scrollPane.setContent(flowPane);
     }
+    /**
+     * Updates the VBox in the FlowPane with the details of the provided movie.
+     * Clears the existing VBox, creates a new VBox with the details of the specified movie,
+     * and sets it as the content of the FlowPane.
+     *
+     * @param movieDetails The details of the movie to be displayed in the updated VBox.
+     */
+    private void updateVBox(String[] movieDetails) {
+        flowPane.getChildren().clear();
+        VBox vbox = createMovieVBox(movieDetails);
+        flowPane.getChildren().add(vbox);
+        scrollPane.setContent(flowPane);
+    }
+
     /**
      * Creates and returns a VBox that displays a message indicating no movies were found.
      *
@@ -363,14 +413,20 @@ public class IndexViewController implements Initializable {
         }
     }
 
-
-
-
     /**
      * This interface defines the methods that the listener of the index view must implement.
      */
     public interface Listener {
+        /**
+         * Method called when the login button is clicked.
+         */
         void loginButtonAction();
+
+        /**
+         * Method called when the "see more" button for a movie is clicked.
+         *
+         * @param movieDetails The details of the movie.
+         */
         void seeMoreButtonAction(String[] movieDetails);
         //void seeMoreButtonAction(String movieTitle);
     }

@@ -2,6 +2,10 @@
  * The MovieDBController class provides methods to interact with the movie database.
  * It includes functionality for retrieving, inserting, updating, and deleting movie data.
  */
+/**
+ * The MovieDBController class provides methods to interact with the movie database.
+ * It includes functionality for retrieving, inserting, updating, and deleting movie data.
+ */
 package helha.java24groupe08.client.models;
 
 import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
@@ -16,13 +20,18 @@ public class MovieDBController {
 private static final String CONNECTION_STRING = "jdbc:sqlite:src/main/DB/DB.db";
 private static final int MOVIE_DETAILS_LENGTH = 16;
 
-
+    /**
+     * Constructs a MovieDBController object and initializes the sessions table if it doesn't exist.
+     */
 public MovieDBController() {
     createSessionsTable();
 }
 
     /**
      * Searches for movies by title, now also retrieves movie_id.
+     *
+     * @param searchTitle The title to search for.
+     * @return A list of movies matching the search criteria.
      */
 
     public static List<String[]> searchMoviesByTitle(String searchTitle) {
@@ -336,6 +345,53 @@ public static void updateMovieDetails(String oldTitle, String[] movieDetails){
         alert.showAndWait();
     }
 
+    /**
+     * Filters and sorts movies based on genre, language, and sort criteria.
+     *
+     * @param genre The genre to filter by.
+     * @param language The language to filter by.
+     * @param sort The sorting criteria.
+     * @return A list of movies matching the filter and sort criteria.
+     */
+    public static List<String[]> filterAndSortMovies(String genre, String language, String sort) {
+        List<String[]> movies = new ArrayList<>();
+        StringBuilder queryBuilder = new StringBuilder("SELECT * FROM movies WHERE 1=1");
+
+        if (genre != null && !genre.equals("All")) {
+            queryBuilder.append(" AND genre LIKE ?");
+        }
+        if (language != null && !language.equals("All")) {
+            queryBuilder.append(" AND language LIKE ?");
+        }
+        if (sort != null) {
+            if (sort.equals("Title")) {
+                queryBuilder.append(" ORDER BY title");
+            } else if (sort.equals("Release Date")) {
+                queryBuilder.append(" ORDER BY released");
+            }
+        }
+
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             PreparedStatement pstmt = conn.prepareStatement(queryBuilder.toString())) {
+
+            int paramIndex = 1;
+            if (genre != null && !genre.equals("All")) {
+                pstmt.setString(paramIndex++, "%" + genre + "%");
+            }
+            if (language != null && !language.equals("All")) {
+                pstmt.setString(paramIndex++, "%" + language + "%");
+            }
+
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                movies.add(getMovieDetailsFromResultSet(rs));
+            }
+        } catch (SQLException e) {
+            showErrorAlert("Error filtering and sorting movies from database: " + e.getMessage());
+        }
+
+        return movies;
+    }
 
 
 }

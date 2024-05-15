@@ -124,7 +124,7 @@
             <bottom>
                 <HBox alignment="BOTTOM_RIGHT">
                     <Pane HBox.hgrow="ALWAYS" />
-                    <Button text="Payer" fx:id="payButton" onAction="#onPayButtonClick" />
+                    <Button text="Payer" fx:id="payButton"/>
                 </HBox>
             </bottom>
         </BorderPane>
