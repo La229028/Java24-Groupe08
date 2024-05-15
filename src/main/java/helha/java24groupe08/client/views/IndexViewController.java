@@ -20,9 +20,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -43,7 +40,6 @@ public class IndexViewController implements Initializable {
     public ScrollPane scrollPane;
     @FXML
     public Button loginButton;
-    public Pane searchMovie;
     @FXML
     private TextField searchField;
     @FXML
@@ -54,10 +50,6 @@ public class IndexViewController implements Initializable {
     // List to store Vbox
     private boolean isSearchPerformed = false;
     private static Listener listener;
-    // Variables pour suivre l'état initial des ComboBox
-    private String initialGenre = "All";
-    private String initialLanguage = "All";
-    private String initialSort = "Title";
 
     public void setListener(Listener listener) {
         IndexViewController.listener = listener;
@@ -323,8 +315,12 @@ public class IndexViewController implements Initializable {
     @FXML
     private void onRefresh() {
         searchField.clear();
+        // Variables pour suivre l'état initial des ComboBox
+        String initialGenre = "All";
         genreComboBox.setValue(initialGenre);
+        String initialLanguage = "All";
         languageComboBox.setValue(initialLanguage);
+        String initialSort = "Title";
         sortComboBox.setValue(initialSort);
 
         List<String[]> allMovies = MovieDBController.getAllMovies();
