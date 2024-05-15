@@ -31,8 +31,13 @@ public class IndexApplication extends Application implements IndexViewController
      * @param args Command-line arguments.
      */
     public static void main(String[] args) {
-        launch(new String[0]);
+        // Ensure DatabaseConnection instance is created which will initialize the database
+        DatabaseConnection.getInstance();
+
+        System.out.println("Database initialized successfully.");
+        launch(new String[0]);  // Assuming this is part of your JavaFX application startup
     }
+
 
 
     /**

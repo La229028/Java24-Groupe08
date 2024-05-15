@@ -92,7 +92,7 @@ public class DescriptionViewController implements Initializable {
 
     @FXML
     private void handleBuyButton(ActionEvent event) {
-        
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/buyTicket.fxml"));
             Parent root = loader.load();
