@@ -9,8 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="correction de l'erreur lorsqu'on clique sur les affiches en mode admin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/Reservation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/Seats.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SessionSeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-05-24_11_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-05-24_11_02__Changes_.xml" afterDir="false" />
     <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Suite multithreading avec la connexion !">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/DescriptionViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,20 +63,27 @@
     &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;La229028&quot;
-    }
-    }</component>
+  }
+}</component>
   <component name="GithubPullRequestsUISettings">{
-    &quot;selectedUrlAndAccountId&quot;: {
+  &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/La229028/Java24-Groupe08.git&quot;,
     &quot;accountId&quot;: &quot;16ec3f5e-dc7f-4702-a408-ce2d33926979&quot;
-    }
-    }</component>
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-    &quot;associatedIndex&quot;: 0
-    }</component>
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2e0ARGaTu4eHfuulePmeyZLksFz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -91,12 +107,12 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/coupe/OneDrive - Haute Ecole Louvain en Hainaut/B2/Programmation - JAVA/Java24-Groupe08/src/main/java/helha/java24groupe08&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/coupe/OneDrive - Haute Ecole Louvain en Hainaut/B2/Programmation - JAVA/Java24-Groupe08&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ljann/IdeaProjects/Java24-Groupe08&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -135,20 +151,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Launcher">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.server.Client" />
-      <module name="Java24-Groupe08" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="helha.java24groupe08.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Launcher" type="Application" factoryName="Application" singleton="false" temporary="true">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.client.controllers.Launcher" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
@@ -174,6 +177,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MovieAPIControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java24-Groupe08" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="helha.java24groupe08.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="helha.java24groupe08.controllers" />
+      <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.controllers.MovieAPIControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MovieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Java24-Groupe08" />
       <extension name="coverage">
@@ -194,19 +212,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Launcher" />
       <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JUnit.MovieAPIControllerTest" />
       <item itemvalue="JUnit.MovieTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.Client" />
         <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
         <item itemvalue="JUnit.MovieTest" />
+        <item itemvalue="JUnit.MovieAPIControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -237,6 +255,8 @@
       <workItem from="1715241303752" duration="2190000" />
       <workItem from="1715244117648" duration="4406000" />
       <workItem from="1715249400350" duration="1094000" />
+      <workItem from="1715767438472" duration="342000" />
+      <workItem from="1715767814232" duration="89000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -541,6 +561,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Réorganisation code et fichiers" />
+    <MESSAGE value="ajout du dossier DEPOT" />
     <MESSAGE value="Ajout d'une TODO pour le groupe (chaque membre à sa propre section, vous êtes libres d'ajouter les tâches générales et individuelles). Peut être d'une grande aide pour une autogestion de ses tâches (cf. exemple Janna)" />
     <MESSAGE value="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale" />
     <MESSAGE value="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password" />
@@ -558,6 +580,7 @@
     <MESSAGE value="FIN DU SPRINT. ajout de la javadoc, du jar et du suivi du sprint." />
     <MESSAGE value="update du todo" />
     <MESSAGE value="Gestion des exceptions" />
+    <MESSAGE value="workspace" />
     <MESSAGE value="réglage problème" />
     <MESSAGE value="réglage problème - ajout code valentin" />
     <MESSAGE value="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche." />
