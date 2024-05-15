@@ -1,8 +1,13 @@
 package helha.java24groupe08.server;
 
+import helha.java24groupe08.client.models.Reservation;
+import helha.java24groupe08.client.models.SeatReservationRequest;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.Hashtable;
 
 

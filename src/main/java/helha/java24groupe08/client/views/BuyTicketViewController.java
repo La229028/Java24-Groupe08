@@ -208,6 +208,22 @@ public class BuyTicketViewController {
         alert.showAndWait();
     }
 
+    /**
+     * Displays a success message to the user.
+     * @param message the success message to display
+     */
+    public void displaySuccess(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.initModality(Modality.APPLICATION_MODAL);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.setAlwaysOnTop(true); // Always show on top of other windows
+        alert.setTitle("Success Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
+    }
+
     @FXML
     private TableView<Session> sessionTable;
 
@@ -239,5 +255,9 @@ public class BuyTicketViewController {
 
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.selectNext();
+    }
+
+    public void onSeatClicked(int sessionId, int seatId, String username) {
+        controller.reserveSeat(sessionId, seatId, username);
     }
 }

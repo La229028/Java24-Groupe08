@@ -115,8 +115,18 @@
     </Tab>
 
     <Tab text="Sièges">
-        <GridPane fx:id="seatsGrid" hgap="10" vgap="10">
-            <!-- buttons added by the controller -->
-        </GridPane>
+        <BorderPane>
+            <center>
+                <GridPane fx:id="seatsGrid" hgap="10" vgap="10">
+                    <!-- buttons added by the controller -->
+                </GridPane>
+            </center>
+            <bottom>
+                <HBox alignment="BOTTOM_RIGHT">
+                    <Pane HBox.hgrow="ALWAYS" />
+                    <Button text="Payer" fx:id="payButton" onAction="#onPayButtonClick" />
+                </HBox>
+            </bottom>
+        </BorderPane>
     </Tab>
 </TabPane>

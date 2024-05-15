@@ -1,5 +1,7 @@
 package helha.java24groupe08.client.controllers;
 
+import helha.java24groupe08.client.models.SessionDatabaseHandler;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

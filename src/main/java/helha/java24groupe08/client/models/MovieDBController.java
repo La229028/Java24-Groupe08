@@ -239,14 +239,20 @@ public static void updateMovieDetails(String oldTitle, String[] movieDetails){
      * @param sessionId The ID of the session to delete.
      */
     public static void deleteSession(int sessionId) {
-        String sql = "DELETE FROM sessions WHERE session_id = ?";
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, sessionId);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            showErrorAlert("Error deleting session from database: " + e.getMessage());
-        }
+            String deleteSessionSeatsSql = "DELETE FROM SessionSeats WHERE SessionID = ?";
+            String deleteSessionSql = "DELETE FROM Sessions WHERE session_id = ?";
+            try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+                 PreparedStatement deleteSessionSeatsStmt = conn.prepareStatement(deleteSessionSeatsSql);
+                 PreparedStatement deleteSessionStmt = conn.prepareStatement(deleteSessionSql)) {
+                // Delete session seats
+                deleteSessionSeatsStmt.setInt(1, sessionId);
+                deleteSessionSeatsStmt.executeUpdate();
+                // Delete session
+                deleteSessionStmt.setInt(1, sessionId);
+                deleteSessionStmt.executeUpdate();
+            } catch (SQLException e) {
+                showErrorAlert("Error deleting session from database: " + e.getMessage());
+            }
     }
     /**
      * Retrieves sessions associated with a specific movie by its ID.
@@ -308,18 +314,27 @@ public static void updateMovieDetails(String oldTitle, String[] movieDetails){
             pstmt.setDate(3, session.getDate());
             pstmt.setInt(4, session.getMovieId());
             pstmt.executeUpdate();
+            try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int sessionId = generatedKeys.getInt(1);
+                    SessionDatabaseHandler dbHandler = new SessionDatabaseHandler();
+                    dbHandler.generateSeatsForSession(sessionId);
+                }
+            }
         } catch (SQLException e) {
             showErrorAlert("Error inserting session into database: " + e.getMessage());
         }
     }
 
-private static void showErrorAlert(String contentText) {
-    Alert alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Database Error");
-    alert.setHeaderText(null);
-    alert.setContentText(contentText);
-    alert.showAndWait();
-}
+
+
+    private static void showErrorAlert(String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Database Error");
+        alert.setHeaderText(null);
+        alert.setContentText(contentText);
+        alert.showAndWait();
+    }
 
 
 
