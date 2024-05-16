@@ -1,8 +1,42 @@
-TODO :
+TODO NON ATTRIBUES:
+- réseau, sièges en direct
+(après avoir appuyé sur le bouton buy le siege est reservé et une fois que l'achat est fait il est occupé)
+- Bouton Déconnexion
+- Refactoring
+
+
+TODO VALENTIN :
+- Conclusion de la partie réseau
+- Refactoring
+
+
+TODO GUILLAUME :
+- bug barre de recherche
+(en mode admin, quand on modifie titre/plot, bug de filtre, affichage d'un seul film dans la liste).
+
+
+
+TODO JANNA :
+- Début des fichiers (buffer) -> panier utilisateur
+- Fonctionnalité supplémentaire utilisateur (historique des achats)
+
+
+TODO LYARA :
+- réparer serveur (pas de messages d'erreur et quand on ferme le serveur afficher au client "connexion perdue").
+- refactoring
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+
 
 MVC
 Refactoring
-Début des fichiers (buffer) -> panier utilisateur
+
 Les composants -> les films, les salles, les tickets, les utilisateurs
 multithreading -> plusieurs utilisateurs en même temps
 Heritage -> Filtrage des films (à associer par la suite avec le buffer, ou le type du film)
@@ -13,40 +47,3 @@ design pattern d'observer -> à partir de 10 tickets vendus, une réduction de 1
 films principale et de se mettre à jour en conséquence).
 - côté client :
   sockets - thread -> selection du siege en direct
-
-
-
-
-
-VALENTIN :
-
-POLYMORPHISME :
-    - tickets (classe mère) -> ticket senior, ticket enfant, ticket normal, ticket étudiant, ticket VIP
-(attributs temporaires : prix, type, film)
-
-
-
-GUILLAUME :
-- barre de recherche (films, salles, séances)
-- responsive design
-
-
-
-
-JANNA :
-
-côté admin :
-- Page de modification de films et ajout de sceances en admin.
-- (ajout de films, suppression de films, modification de films, ajout de séances, suppression de séances, modification de séances)
-
-
-
-
-LYARA :
-
-- design pattern d'observer : à partir de 10 tickets vendus, une réduction de 10% est appliquée
-- Gestions des erreurs (try catch)
-
-
-
-
