@@ -2,13 +2,11 @@ package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.BuyTicketController;
 import helha.java24groupe08.client.models.*;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -51,6 +49,8 @@ public class BuyTicketViewController {
     private BuyTicketController controller;
 
     @FXML
+    private Tab tabSeat;
+    @FXML
     private ListView<String> recapListView;
     @FXML
     private Label totalPriceLabel;
@@ -64,6 +64,9 @@ public class BuyTicketViewController {
     private GridPane seatsGrid;
 
     private Session selectedSession;
+
+    private int TicketsSelected = 0;
+
 
 
 
@@ -80,38 +83,63 @@ public class BuyTicketViewController {
         // Setup listeners for the spinners
         quantitySpinnerRegular.valueProperty().addListener((obs, oldSelection, newSelection) -> {
             controller.updateTotal(new TicketsRegular("movie"), newSelection);
+            clearSeat();
         });
 
         quantitySpinnerChild.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            controller.updateTotal(new TicketsChild("movie", 10), newSelection);//à changer avec la db par la suite
+            //ajouter une fenêtre pour choisir l'âge
+            controller.updateTotal(new TicketsChild("movie", 10), newSelection);
+            //à changer avec la db par la suite
+            clearSeat();
         });
 
         quantitySpinnerStudent.valueProperty().addListener((obs, oldSelection, newSelection) -> {
+            //ajouter une fenêtre pour choisir l'école
             controller.updateTotal(new TicketsStudent("movie", "Some School Name"), newSelection);//à récup de l'utilisateur ou db ??
+            //faire fonction pour mettre à jour le nombre de tickets à acheté
+            clearSeat();
         });
 
         quantitySpinnerSenior.valueProperty().addListener((obs, oldSelection, newSelection) -> {
+            //ajouter une fenêtre pour choisir l'âge
+            clearSeat();
             controller.updateTotal(new TicketsSenior("movie", 65), newSelection);//à changer avec la db par la suite
         });
 
         quantitySpinnerVIP.valueProperty().addListener((obs, oldSelection, newSelection) -> {
+            // A supprimer
             controller.updateTotal(new TicketsVIP("movie"), newSelection);
         });
 
+        // Setup the grid of seats
+        for(int row = 0; row < 10; row++){
+            for(int col = 0; col < 10; col++){
+                seatsGrid.add(createButton(), col, row);
+            }
+        }
 
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        startTimeColumn.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+        seatsAvailableColumn.setCellValueFactory(new PropertyValueFactory<>("seatsAvailable"));
+    }
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                Button seatButton = new Button();
-                seatButton.setPrefWidth(30);
-                seatButton.setPrefHeight(30);
-                seatButton.setStyle("-fx-background-color: white;");
+    private void clearSeat() {
+        seatsGrid.getChildren().clear();
+        for(int row = 0; row < 10; row++){
+            for(int col = 0; col < 10; col++){
+                seatsGrid.add(createButton(), col, row);
+            }
+        }
+    }
 
-                seatButton.setOnAction(event -> {
-                    int totalTickets = quantitySpinnerRegular.getValue() + quantitySpinnerChild.getValue() +
-                            quantitySpinnerStudent.getValue() + quantitySpinnerSenior.getValue() +
-                            quantitySpinnerVIP.getValue();
-
+    public Button createButton(){
+        Button seatButton = new Button();
+        seatButton.setPrefWidth(30);
+        seatButton.setPrefHeight(30);
+        seatButton.setStyle("-fx-background-color: white;");
+        seatButton.setOnAction(event -> {
+                    GetTicketsSelected();
+                    System.out.println("Tickets selected: " + TicketsSelected);
                     int totalSeatsSelected = 0;
                     for (Node node : seatsGrid.getChildren()) {
                         if (node instanceof Button) {
@@ -124,21 +152,13 @@ public class BuyTicketViewController {
 
                     if ("-fx-background-color: blue;".equals(seatButton.getStyle())) {
                         seatButton.setStyle("-fx-background-color: white;");
-                    } else if (totalSeatsSelected >= totalTickets) {
+                    } else if (totalSeatsSelected >= TicketsSelected) {
                         displayError("Vous ne pouvez pas sélectionner plus de sièges que de tickets.");
                     } else {
                         seatButton.setStyle("-fx-background-color: blue;");
                     }
                 });
-
-                seatsGrid.add(seatButton, j, i);
-            }
-        }
-
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        startTimeColumn.setCellValueFactory(new PropertyValueFactory<>("startTime"));
-        seatsAvailableColumn.setCellValueFactory(new PropertyValueFactory<>("seatsAvailable"));
-
+        return seatButton;
     }
 
     /**
@@ -170,7 +190,17 @@ public class BuyTicketViewController {
         }
     }
 
+    public int GetTicketsSelected() {
+        TicketsSelected = quantitySpinnerRegular.getValue() + quantitySpinnerChild.getValue() +
+                quantitySpinnerStudent.getValue() + quantitySpinnerSenior.getValue() +
+                quantitySpinnerVIP.getValue();
+        return TicketsSelected;
+    }
 
+    public void clearSeatSelection() {
+
+
+    }
 
     /**
      * Updates the total price label in the view.
@@ -239,16 +269,14 @@ public class BuyTicketViewController {
 
     @FXML
     public void onNextButtonClicked() {
-        int totalTickets = quantitySpinnerRegular.getValue() + quantitySpinnerChild.getValue() +
-                quantitySpinnerStudent.getValue() + quantitySpinnerSenior.getValue() +
-                quantitySpinnerVIP.getValue();
+        GetTicketsSelected();
 
-        if (totalTickets <= 0) {
+        if (TicketsSelected <= 0) {
             displayError("Veuillez sélectionner au moins un ticket.");
             return;
         }
 
-        if (selectedSession != null && totalTickets > selectedSession.getSeatsAvailable()) {
+        if (selectedSession != null && TicketsSelected > selectedSession.getSeatsAvailable()) {
             displayError("Vous ne pouvez pas sélectionner plus de tickets que de sièges disponibles.");
             return;
         }
