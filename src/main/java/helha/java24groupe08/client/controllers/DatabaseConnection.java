@@ -16,6 +16,8 @@ public class DatabaseConnection {
     private final Connection connection;
     private static final String CONNECTION_STRING = "jdbc:sqlite:src/main/DB/DB.db";
 
+    private SessionDatabaseHandler sessionDatabaseHandler = new SessionDatabaseHandler();
+
     private DatabaseConnection() {
         try {
             this.connection = DriverManager.getConnection(CONNECTION_STRING);
@@ -41,14 +43,19 @@ public class DatabaseConnection {
         return this.connection;
     }
 
+
+
     private void initializeDatabase() {
         try (Statement statement = connection.createStatement()) {
             // Création de la table Seats si elle n'existe pas déjà
             statement.execute("CREATE TABLE IF NOT EXISTS Seats (" +
                     "SeatID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "Row CHAR(1), " +
+                    "Status VARCHAR(10) CHECK (Status IN ('free', 'reserved', 'purchased')),"   +
                     "Number INTEGER)");
             System.out.println("Table Seats present or created.");
+            // Implémentation de la table seats
+            sessionDatabaseHandler.generateSeatsForSession(1);
             // Création de la table SessionSeats
             statement.execute("CREATE TABLE IF NOT EXISTS SessionSeats (" +
                     "SessionID INT, " +

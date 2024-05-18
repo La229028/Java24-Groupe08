@@ -12,6 +12,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -59,23 +63,19 @@ public class BuyTicketViewController {
     @FXML
     private TabPane tabPane;
 
-
+    @FXML
+    private Button addToCartButton;
     @FXML
     private GridPane seatsGrid;
 
     private Session selectedSession;
 
     private int TicketsSelected = 0;
+    private List<String> selectedSeats = new ArrayList<>(); // Track selected seats
 
+    @FXML
+    private Button payButton;
 
-
-
-    /**
-     * Initializes the controller and sets up listeners for the spinners.
-     * Each spinner represents a different type of ticket and updates the total price when its value changes.
-     * Also initializes a 10x10 grid of buttons to represent seats in a theater.
-     * Each button changes color from white to blue and vice versa when clicked, indicating seat selection.
-     */
     @FXML
     public void initialize() {
         controller = new BuyTicketController(this);
@@ -87,34 +87,28 @@ public class BuyTicketViewController {
         });
 
         quantitySpinnerChild.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            //ajouter une fenêtre pour choisir l'âge
             controller.updateTotal(new TicketsChild("movie", 10), newSelection);
-            //à changer avec la db par la suite
             clearSeat();
         });
 
         quantitySpinnerStudent.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            //ajouter une fenêtre pour choisir l'école
-            controller.updateTotal(new TicketsStudent("movie", "Some School Name"), newSelection);//à récup de l'utilisateur ou db ??
-            //faire fonction pour mettre à jour le nombre de tickets à acheté
+            controller.updateTotal(new TicketsStudent("movie", "Some School Name"), newSelection);
             clearSeat();
         });
 
         quantitySpinnerSenior.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            //ajouter une fenêtre pour choisir l'âge
+            controller.updateTotal(new TicketsSenior("movie", 65), newSelection);
             clearSeat();
-            controller.updateTotal(new TicketsSenior("movie", 65), newSelection);//à changer avec la db par la suite
         });
 
         quantitySpinnerVIP.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            // A supprimer
             controller.updateTotal(new TicketsVIP("movie"), newSelection);
         });
 
         // Setup the grid of seats
-        for(int row = 0; row < 10; row++){
-            for(int col = 0; col < 10; col++){
-                seatsGrid.add(createButton(), col, row);
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++) {
+                seatsGrid.add(createButton(row, col), col, row);
             }
         }
 
@@ -125,68 +119,107 @@ public class BuyTicketViewController {
 
     private void clearSeat() {
         seatsGrid.getChildren().clear();
-        for(int row = 0; row < 10; row++){
-            for(int col = 0; col < 10; col++){
-                seatsGrid.add(createButton(), col, row);
+        selectedSeats.clear(); // Clear selected seats list
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++) {
+                seatsGrid.add(createButton(row, col), col, row);
             }
         }
     }
 
-    public Button createButton(){
+    @FXML
+    private void handleAddToCart() {
+        try {
+            // Get the selected session
+            Session selectedSession = sessionTableView.getSelectionModel().getSelectedItem();
+            if (selectedSession == null) {
+                System.out.println("No session selected.");
+                return;
+            }
+
+            // Collect ticket information from the selected session
+            String movie = movieTitleLabel.getText();
+            Date date = selectedSession.getDate();
+            Time time = selectedSession.getStartTime();
+            String room = "Room " + selectedSession.getRoomNumber();
+            String duration = "120 mins"; // This can be fetched from your data model if available
+
+            // Convert date and time to strings
+            String dateString = (date != null) ? date.toString() : "";
+            String timeString = (time != null) ? time.toString() : "";
+
+            // Create a TicketInfo object for each selected seat
+            for (String seatNumber : selectedSeats) {
+                TicketInfo ticketInfo = new TicketInfo(dateString, timeString, room, movie, duration, seatNumber);
+
+                // Add to buffer
+                Buffer.getInstance().addToCart(ticketInfo);
+            }
+
+            // Mark the selected seats as reserved
+            markSeatsAsReserved(selectedSeats);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void markSeatsAsReserved(List<String> seatNumbers) {
+        for (Node node : seatsGrid.getChildren()) {
+            if (node instanceof Button) {
+                Button button = (Button) node;
+                if (seatNumbers.contains(button.getText())) {
+                    button.setStyle("-fx-background-color: red;");
+                    System.out.println("Seat " + button.getText() + " marked as reserved.");
+                }
+            }
+        }
+    }
+
+    public Button createButton(int row, int col) {
         Button seatButton = new Button();
         seatButton.setPrefWidth(30);
         seatButton.setPrefHeight(30);
+        seatButton.setText(String.format("%s%d", (char) ('A' + row), col + 1)); // Example seat label
         seatButton.setStyle("-fx-background-color: white;");
         seatButton.setOnAction(event -> {
-                    GetTicketsSelected();
-                    System.out.println("Tickets selected: " + TicketsSelected);
-                    int totalSeatsSelected = 0;
-                    for (Node node : seatsGrid.getChildren()) {
-                        if (node instanceof Button) {
-                            Button button = (Button) node;
-                            if ("-fx-background-color: blue;".equals(button.getStyle())) {
-                                totalSeatsSelected++;
-                            }
-                        }
+            GetTicketsSelected();
+            int totalSeatsSelected = 0;
+            for (Node node : seatsGrid.getChildren()) {
+                if (node instanceof Button) {
+                    Button button = (Button) node;
+                    if ("-fx-background-color: blue;".equals(button.getStyle())) {
+                        totalSeatsSelected++;
                     }
+                }
+            }
 
-                    if ("-fx-background-color: blue;".equals(seatButton.getStyle())) {
-                        seatButton.setStyle("-fx-background-color: white;");
-                    } else if (totalSeatsSelected >= TicketsSelected) {
-                        displayError("Vous ne pouvez pas sélectionner plus de sièges que de tickets.");
-                    } else {
-                        seatButton.setStyle("-fx-background-color: blue;");
-                    }
-                });
+            if ("-fx-background-color: blue;".equals(seatButton.getStyle())) {
+                seatButton.setStyle("-fx-background-color: white;");
+                selectedSeats.remove(seatButton.getText());
+            } else if (totalSeatsSelected >= TicketsSelected) {
+                displayError("Vous ne pouvez pas sélectionner plus de sièges que de tickets.");
+            } else {
+                seatButton.setStyle("-fx-background-color: blue;");
+                selectedSeats.add(seatButton.getText());
+            }
+        });
         return seatButton;
     }
 
-    /**
-     * Loads the sessions into the TableView based on the movie ID.
-     *
-     * @param movieId The ID of the movie.
-     */
     void loadSessions(int movieId) {
         try {
-            // Fetch sessions from the controller or directly from a model if appropriate
             List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
             sessionTableView.setItems(FXCollections.observableArrayList(sessions));
         } catch (Exception e) {
             System.err.println("Error loading sessions: " + e.getMessage());
-            // Handle error
         }
     }
 
-    /**
-     * Sets the details of the movie to be displayed in the buy ticket view.
-     *
-     * @param movieDetails The details of the movie.
-     */
     public void setMovieDetails(String[] movieDetails) {
         if (movieDetails != null && movieDetails.length > 14) {
-            movieTitleLabel.setText(movieDetails[0]);  // title
-            moviePlotTextArea.setText(movieDetails[9]);  //  plot
-            loadSessions(Integer.parseInt(movieDetails[14])); // movie ID
+            movieTitleLabel.setText(movieDetails[0]);
+            moviePlotTextArea.setText(movieDetails[9]);
+            loadSessions(Integer.parseInt(movieDetails[14]));
         }
     }
 
@@ -197,24 +230,11 @@ public class BuyTicketViewController {
         return TicketsSelected;
     }
 
-    public void clearSeatSelection() {
-
-
-    }
-
-    /**
-     * Updates the total price label in the view.
-     * @param totalText the new total price
-     */
     public void updateTotal(String totalText) {
         totalLabel.setText(totalText);
         totalPriceLabel.setText(totalText);
     }
 
-    /**
-     * Updates the recap list in the view.
-     * @param ticketCounts a map of ticket types to their counts
-     */
     public void updateRecap(Map<String, Long> ticketCounts) {
         recapListView.getItems().clear();
         ticketCounts.forEach((type, count) -> {
@@ -222,15 +242,11 @@ public class BuyTicketViewController {
         });
     }
 
-    /**
-     * Displays an error message to the user.
-     * @param message the error message to display
-     */
     public void displayError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initModality(Modality.APPLICATION_MODAL);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.setAlwaysOnTop(true); // Always show on top of other windows
+        stage.setAlwaysOnTop(true);
         alert.setTitle("Error Dialog");
         alert.setHeaderText(null);
         alert.setContentText(message);
@@ -238,15 +254,11 @@ public class BuyTicketViewController {
         alert.showAndWait();
     }
 
-    /**
-     * Displays a success message to the user.
-     * @param message the success message to display
-     */
     public void displaySuccess(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.initModality(Modality.APPLICATION_MODAL);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.setAlwaysOnTop(true); // Always show on top of other windows
+        stage.setAlwaysOnTop(true);
         alert.setTitle("Success Dialog");
         alert.setHeaderText(null);
         alert.setContentText(message);
@@ -254,38 +266,12 @@ public class BuyTicketViewController {
         alert.showAndWait();
     }
 
-    @FXML
-    private TableView<Session> sessionTable;
-
     public void updateSessionsForMovie(int movieId) {
         List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
-        sessionTable.setItems(FXCollections.observableArrayList(sessions));
+        sessionTableView.setItems(FXCollections.observableArrayList(sessions));
     }
 
     public void setSelectedSession(Session session) {
         this.selectedSession = session;
-        // Update the UI elements here based on the selected session
-    }
-
-    @FXML
-    public void onNextButtonClicked() {
-        GetTicketsSelected();
-
-        if (TicketsSelected <= 0) {
-            displayError("Veuillez sélectionner au moins un ticket.");
-            return;
-        }
-
-        if (selectedSession != null && TicketsSelected > selectedSession.getSeatsAvailable()) {
-            displayError("Vous ne pouvez pas sélectionner plus de tickets que de sièges disponibles.");
-            return;
-        }
-
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        selectionModel.selectNext();
-    }
-
-    public void onSeatClicked(int sessionId, int seatId, String username) {
-        controller.reserveSeat(sessionId, seatId, username);
     }
 }
