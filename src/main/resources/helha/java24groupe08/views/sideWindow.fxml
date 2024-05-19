@@ -1,45 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
+
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="helha.java24groupe08.client.controllers.SideWindowController"
-      prefWidth="500" prefHeight="400">
-    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+<VBox prefHeight="300.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.controllers.SideWindowController">
+    <TabPane prefHeight="390.0" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
         <Tab text="Manage Movie">
-            <GridPane fx:id="modifyMoviePane" VBox.vgrow="ALWAYS">
-                <Label text="Title:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="titleField" GridPane.rowIndex="0" GridPane.columnIndex="1" HBox.hgrow="ALWAYS"/>
+            <GridPane fx:id="modifyMoviePane" prefHeight="436.0" prefWidth="641.0" VBox.vgrow="ALWAYS">
+                <Label prefHeight="17.0" prefWidth="48.0" text="Title:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="titleField" prefHeight="37.0" prefWidth="389.0" GridPane.columnIndex="1" GridPane.rowIndex="0" HBox.hgrow="ALWAYS" />
 
-                <Label text="Plot:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <TextArea fx:id="plotArea" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="500" prefHeight="100" VBox.vgrow="ALWAYS"/>
+                <Label text="Plot:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextArea fx:id="plotArea" prefHeight="189.0" prefWidth="672.0" GridPane.columnIndex="1" GridPane.rowIndex="1" VBox.vgrow="ALWAYS" />
 
-                <Button text="Save Changes" onAction="#saveChangesOnAction" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <Button text="Delete Movie" onAction="#deleteMovieAction" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Button onAction="#saveChangesOnAction" text="Save Changes" GridPane.rowIndex="7" />
+                <Button onAction="#deleteMovieAction" prefHeight="25.0" prefWidth="89.0" text="Delete Movie" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
         </Tab>
 
         <Tab text="Session Management">
-            <VBox spacing="10">
+            <VBox prefHeight="449.0" prefWidth="806.0" spacing="10">
                 <TableView fx:id="sessionTable" prefHeight="200">
                     <columns>
-                        <TableColumn fx:id="roomNumberColumn" text="Room Number"/>
-                        <TableColumn fx:id="startTimeColumn" text="Start Time"/>
-                        <TableColumn fx:id="dateColumn" text="Date"/>
+                        <TableColumn fx:id="roomNumberColumn" text="Room Number" />
+                        <TableColumn fx:id="startTimeColumn" text="Start Time" />
+                        <TableColumn fx:id="dateColumn" text="Date" />
                     </columns>
                 </TableView>
 
 
                 <HBox spacing="10">
                     <Label text="Room Number:" />
-                    <ComboBox fx:id="roomNumberComboBox" prefWidth="150"/>
+                    <ComboBox fx:id="roomNumberComboBox" prefHeight="25.0" prefWidth="50.0" />
                     <Label text="Start Time (HH:MM):" />
-                    <ComboBox fx:id="hourComboBox" prefWidth="150"/>
-                    <ComboBox fx:id="minuteComboBox" prefWidth="150"/>
+                    <ComboBox fx:id="hourComboBox" prefHeight="25.0" prefWidth="41.0" />
+                    <ComboBox fx:id="minuteComboBox" prefHeight="25.0" prefWidth="40.0" />
                     <Label text="Date:" />
-                    <DatePicker fx:id="dateField" prefWidth="100"/>
-                    <Button text="Add Session" onAction="#addSessionAction"/>
-                    <Button text="Delete Session" onAction="#deleteSessionAction"/>
+                    <DatePicker fx:id="dateField" prefHeight="25.0" prefWidth="129.0" />
+                    <Button onAction="#addSessionAction" text="Add Session" />
+                    <Button onAction="#deleteSessionAction" text="Delete Session" />
                 </HBox>
 
             </VBox>

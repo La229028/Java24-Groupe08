@@ -36,6 +36,9 @@ public class IndexViewController implements Initializable {
     public Label titleLabel;
     @FXML
     public FlowPane flowPane;
+
+    @FXML
+    private Button cartButton;
     @FXML
     public ScrollPane scrollPane;
     @FXML
@@ -406,6 +409,20 @@ public class IndexViewController implements Initializable {
             alert.setHeaderText("An error occurred");
             alert.setContentText("Invalid initSession table: " + e.getMessage());
             alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void handleCartButton() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/cartView.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Cart");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

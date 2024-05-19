@@ -3,6 +3,10 @@ package helha.java24groupe08.client.models;
 import java.sql.*;
 
 public class SessionDatabaseHandler {
+    // this class is responsible for generating seats for a session
+    // it generates 100 seats for a session, 10 rows and 10 columns
+    // each seat is inserted into the Seats table and a corresponding entry is inserted into the SessionSeats table
+
     private static final String DB_URL = "jdbc:sqlite:src/main/DB/DB.db";
 
     public void generateSeatsForSession(int sessionId) {

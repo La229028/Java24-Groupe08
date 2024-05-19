@@ -10,8 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Javadoc, filtrage film, triage film, fxml, updatevbox,Exception.....">
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/MovieDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/MovieDBController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/AuthentificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/Buffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SeatTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SessionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/CartViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/cartView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SessionDatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SessionDatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SessionSeat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/SessionSeat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/BuyTicketViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/BuyTicketViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/IndexViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/buyTicket.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/buyTicket.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/index.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +78,9 @@
     &quot;accountId&quot;: &quot;16ec3f5e-dc7f-4702-a408-ce2d33926979&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/21/javafx-controls-21-win.jar!/javafx/scene/control/Label.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -83,37 +100,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.IndexController.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.helha.java24groupe08.controllers.IndexApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.server.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Java24-Groupe08 [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/coupe/OneDrive - Haute Ecole Louvain en Hainaut/B2/Programmation - JAVA/Java24-Groupe08/src/main/java/helha/java24groupe08&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ljann/IdeaProjects/Java24-Groupe08&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Client.executor": "Run",
+    "Application.IndexController.executor": "Run",
+    "Application.Launcher.executor": "Run",
+    "Application.Server.executor": "Run",
+    "Application.client.executor": "Run",
+    "Application.helha.java24groupe08.controllers.IndexApplication.executor": "Run",
+    "Application.server.executor": "Run",
+    "JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar.executor": "Run",
+    "Maven.Java24-Groupe08 [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/coupe/OneDrive - Haute Ecole Louvain en Hainaut/B2/Programmation - JAVA/Java24-Groupe08/src/main/java/helha/java24groupe08",
+    "last_opened_file_path": "C:/Users/ljann/IdeaProjects/Java24-Groupe08",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "SQLite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ljann\IdeaProjects\Java24-Groupe08\target\classes\helha\java24groupe08\views" />
@@ -144,7 +165,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Launcher">
-    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true">
+    <configuration name="Launcher" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="helha.java24groupe08.client.controllers.Launcher" />
       <module name="Java24-Groupe08" />
       <extension name="coverage">
@@ -205,8 +226,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Launcher" />
       <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Launcher" />
       <item itemvalue="JAR Application.Java24-Groupe08-1.0-SNAPSHOT.jar" />
       <item itemvalue="JUnit.MovieAPIControllerTest" />
       <item itemvalue="JUnit.MovieTest" />
@@ -250,6 +271,8 @@
       <workItem from="1715249400350" duration="1094000" />
       <workItem from="1715767438472" duration="342000" />
       <workItem from="1715767814232" duration="89000" />
+      <workItem from="1716014787880" duration="791000" />
+      <workItem from="1716015601924" duration="12840000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -491,31 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715433807304</updated>
     </task>
-    <task id="LOCAL-00031" summary="Suite multithreading avec la connexion !">
+    <task id="LOCAL-00031" summary="modification du visuel de la page de modification de film + ajout de scéance en mode admin">
       <option name="closed" value="true" />
-      <created>1715524529499</created>
+      <created>1715867910326</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1715524529499</updated>
+      <updated>1715867910326</updated>
     </task>
-    <task id="LOCAL-00032" summary="workspace">
-      <option name="closed" value="true" />
-      <created>1715774771558</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1715774771558</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Javadoc, filtrage film, triage film, fxml, updatevbox,Exception.....">
-      <option name="closed" value="true" />
-      <created>1715790103679</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1715790103679</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +564,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Main" />
+                        <option value="origin/Guillaume" />
                       </list>
                     </value>
                   </entry>
@@ -587,6 +594,7 @@
     <MESSAGE value="FIN DU SPRINT. ajout de la javadoc, du jar et du suivi du sprint." />
     <MESSAGE value="update du todo" />
     <MESSAGE value="Gestion des exceptions" />
+    <MESSAGE value="workspace" />
     <MESSAGE value="réglage problème" />
     <MESSAGE value="réglage problème - ajout code valentin" />
     <MESSAGE value="- Commentaires en anglais dans DatabaseConnection&#10; searchMoviesByTitle renvoie maintenant une liste pour améliorer la recherche.&#10; - Méthode createNoResultsVBox pour afficher 'Introuvable' si pas de résultat.&#10; - Mise à jour de updateVBox pour nouveau scénario sans résultat.&#10; - onRefresh optimisé pour ne pas refresh sans avoir fait une recherche." />
@@ -597,7 +605,8 @@
     <MESSAGE value="workspace" />
     <MESSAGE value="workspace" />
     <MESSAGE value="Javadoc, filtrage film, triage film, fxml, updatevbox,Exception....." />
-    <option name="LAST_COMMIT_MESSAGE" value="Javadoc, filtrage film, triage film, fxml, updatevbox,Exception....." />
+    <MESSAGE value="modification du visuel de la page de modification de film + ajout de scéance en mode admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification du visuel de la page de modification de film + ajout de scéance en mode admin" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
