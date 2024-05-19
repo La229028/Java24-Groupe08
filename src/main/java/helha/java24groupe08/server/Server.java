@@ -1,46 +1,58 @@
 package helha.java24groupe08.server;
 
-import helha.java24groupe08.client.models.Reservation;
-import helha.java24groupe08.client.models.SeatReservationRequest;
+import helha.java24groupe08.common.network.Constants;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.Hashtable;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Server {
+    private static Server instance;
+    private static List<ClientHandlerThread> clients = new ArrayList<>();
+
     public static void main(String[] args) {
-        try (ServerSocket serverSocket = new ServerSocket(6500)) {
-            System.out.println("Server started on port " + 6500);
-
-            while(true) {
-                Socket client = serverSocket.accept();
-                System.out.println("New connection from " + client.getInetAddress() + ". Client is now connected !!");
-
-                new Thread(() -> {
-                    try (OutputStream out = client.getOutputStream();
-                         ObjectOutputStream oos = new ObjectOutputStream(out);
-                         InputStream in = client.getInputStream();
-                         ObjectInputStream ois = new ObjectInputStream(in)) {
-
-                        String username = (String) ois.readObject();
-                        System.out.println("Bonjour " + username + "!");
-
-                        Hashtable clientTable = new Hashtable();
-                        synchronized (clientTable) {
-                            clientTable.put("test", "Récupération du username !");
-                            oos.writeObject(clientTable);
-                        }
-                    } catch (IOException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                }).start();
-            }
+        try {
+            startServer();
         } catch (IOException e) {
+            System.out.println("Error while starting server" + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    //method to start the server
+    private static void startServer() throws IOException {
+        try (ServerSocket serverSocket = new ServerSocket(Constants.SERVER_PORT)) {
+            System.out.println("Server started on port " + Constants.SERVER_PORT);
+
+            while(true) {
+                acceptNewClient(serverSocket);
+            }
+        }
+    }
+
+    // Accepts new client connections
+    private static void acceptNewClient(ServerSocket serverSocket) throws IOException {
+        Socket socket = serverSocket.accept();
+        System.out.println("New connection from " + socket.getInetAddress() + ". Client is now connected !!");
+
+        ClientHandlerThread clientThread = new ClientHandlerThread(socket);
+        clients.add(clientThread);
+        clientThread.start();
+    }
+
+    // Singleton pattern
+    public static Server getInstance() {
+        if (instance == null) {
+            instance = new Server();
+        }
+        return instance;
+    }
+
+    // Disconnects a client
+    public void disconnect(ClientHandlerThread clientThread) {
+        clientThread.stopRunning();
+        clients.remove(clientThread);
     }
 }
