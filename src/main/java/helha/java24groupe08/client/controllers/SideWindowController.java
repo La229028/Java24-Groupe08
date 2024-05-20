@@ -16,8 +16,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 
 public class SideWindowController {
 
@@ -26,7 +28,6 @@ public class SideWindowController {
     private Consumer<String[]> updateMovieCallback;
     private IndexViewController indexViewController;
 
-    // Reference to fxml fields
     @FXML
     private TextField titleField;
 
@@ -62,98 +63,70 @@ public class SideWindowController {
 
         List<Integer> roomNumbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         roomNumberComboBox.getItems().setAll(roomNumbers);
-        roomNumberComboBox.getSelectionModel().selectFirst(); // Select the first room by default
+        roomNumberComboBox.getSelectionModel().selectFirst();
 
-        // Initialiser les heures
         List<String> hours = IntStream.range(0, 24)
                 .mapToObj(h -> String.format("%02d", h))
                 .collect(Collectors.toList());
         hourComboBox.getItems().setAll(hours);
-        hourComboBox.getSelectionModel().selectFirst(); // Sélectionnez la première heure par défaut
+        hourComboBox.getSelectionModel().selectFirst();
 
-        // Initialiser les minutes
         List<String> minutes = IntStream.range(0, 60)
                 .mapToObj(m -> String.format("%02d", m))
                 .collect(Collectors.toList());
         minuteComboBox.getItems().setAll(minutes);
-        minuteComboBox.getSelectionModel().selectFirst(); // Sélectionnez la première minute par défaut
+        minuteComboBox.getSelectionModel().selectFirst();
 
+        dateField.setValue(java.time.LocalDate.now());
     }
 
-
-
-
-    /**
-     * This method initializes the side window with the movie details and the delete movie callback.
-     *
-     * @param movieDetails        The details of the movie to be displayed in the side window.
-     * @param deleteMovieCallback The callback function to be called when the delete button is clicked.
-     */
     public void initData(String[] movieDetails, Consumer<String> deleteMovieCallback, Consumer<String[]> updateMovieCallback) {
         this.movieDetails = movieDetails;
         this.deleteMovieCallback = deleteMovieCallback;
         this.updateMovieCallback = updateMovieCallback;
 
-        titleField.setText(movieDetails[0]); // title is at index 0
-        plotArea.setText(movieDetails[9]); // plot is at index 9
+        titleField.setText(movieDetails[0]);
+        plotArea.setText(movieDetails[9]);
 
-        initSessionTable(); // Initialize the session table
+        initSessionTable();
     }
 
-    /**
-     * This method sets the index view controller.
-     *
-     * @param indexViewController The index view controller.
-     */
     public void setIndexViewController(IndexViewController indexViewController) {
         this.indexViewController = indexViewController;
     }
 
     @FXML
     private void saveChangesOnAction(ActionEvent event) {
-        try{
-            // Get the new title and plot from the text fields
+        try {
             String oldTitle = movieDetails[0];
             String newTitle = titleField.getText();
             String newPlot = plotArea.getText();
 
-            // Update the movie details
             movieDetails[0] = newTitle;
             movieDetails[9] = newPlot;
 
-            // Update the movie in the database
             MovieDBController.updateMovieDetails(oldTitle, movieDetails);
 
-            // Call the update callback
             if (updateMovieCallback != null) {
                 updateMovieCallback.accept(movieDetails);
             }
 
-            // Close the side window
             ((Button) event.getSource()).getScene().getWindow().hide();
         } catch (Exception e) {
             showErrorAlert("Error updating movie details: " + e.getMessage());
         }
     }
 
-    /**
-     * This method is called when the delete button is clicked.
-     * It calls the deleteMovieCallback function with the movie title as the argument.
-     * It also closes the side window.
-     *
-     * @param event The action event triggered by the delete button click.
-     */
     @FXML
     private void deleteMovieAction(ActionEvent event) {
-        try{
+        try {
             String movieTitle = movieDetails[0];
             if (deleteMovieCallback != null) {
                 deleteMovieCallback.accept(movieTitle);
             }
-            // Close the side window
             ((Button) event.getSource()).getScene().getWindow().hide();
         } catch (NullPointerException e) {
-            showErrorAlert("The delete callback function is not set : " + e.getMessage());
+            showErrorAlert("The delete callback function is not set: " + e.getMessage());
         }
     }
 
@@ -172,7 +145,6 @@ public class SideWindowController {
         } catch (Exception e) {
             showErrorAlert("Invalid MovieID format: " + e.getMessage());
         }
-
     }
 
     private Time parseStartTime() {
@@ -182,16 +154,14 @@ public class SideWindowController {
         return Time.valueOf(timeString);
     }
 
-
     private Date parseDate() {
-        LocalDate localDate = dateField.getValue();
+        java.time.LocalDate localDate = dateField.getValue();
         if (localDate == null) {
             showErrorAlert("Date is required.");
             return null;
         }
-        return Date.valueOf(localDate);  // Converts LocalDate to java.sql.Date
+        return Date.valueOf(localDate);
     }
-
 
     @FXML
     private void addSessionAction(ActionEvent event) {
@@ -200,18 +170,18 @@ public class SideWindowController {
         Date date = parseDate();
 
         if (roomNumber == null || startTime == null || date == null) {
-            return;  // Exit if any critical error in parsing
+            return;
         }
 
         try {
-            Session session = new Session(roomNumber, startTime, date, Integer.parseInt(movieDetails[14]));
+            // Create a new session without the sessionId (use the overloaded constructor)
+            Session session = new Session(roomNumber.intValue(), startTime, date, Integer.parseInt(movieDetails[14]));
             MovieDBController.insertSession(session);
-            initSessionTable(); // Refresh the table or update UI
+            initSessionTable();
         } catch (Exception e) {
             showErrorAlert("Error adding session: " + e.getMessage());
         }
     }
-
 
 
     @FXML
@@ -219,10 +189,9 @@ public class SideWindowController {
         Session selectedSession = sessionTable.getSelectionModel().getSelectedItem();
         if (selectedSession != null) {
             MovieDBController.deleteSession(selectedSession.getSessionId());
-            initSessionTable(); // Refresh the table
+            initSessionTable();
         } else {
             showErrorAlert("No session selected for deletion.");
         }
     }
-
 }

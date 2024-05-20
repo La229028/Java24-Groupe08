@@ -4,16 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.views.BuyTicketViewController">
+<TabPane fx:id="tabPane" prefHeight="481.0" prefWidth="467.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.views.BuyTicketViewController">
     <Tab text="Date/Showings">
         <content>
             <TextArea fx:id="moviePlotTextArea" />
             <TableView fx:id="sessionTableView">
                 <Label fx:id="movieTitleLabel" text="Movie" />
                 <columns>
-                    <TableColumn fx:id="dateColumn" text="Date" />
-                    <TableColumn fx:id="startTimeColumn" text="Start Time" />
-                    <TableColumn fx:id="seatsAvailableColumn" text="Seats Available" />
+                    <TableColumn fx:id="dateColumn" prefWidth="77.0" text="Date" />
+                    <TableColumn fx:id="startTimeColumn" prefWidth="91.0" text="Start Time" />
+                    <TableColumn fx:id="seatsAvailableColumn" prefWidth="128.0" text="Seats Available" />
                 </columns>
             </TableView>
         </content>
@@ -116,7 +116,7 @@
             <bottom>
                 <HBox alignment="BOTTOM_RIGHT">
                     <Pane HBox.hgrow="ALWAYS" />
-                    <Button fx:id="addToCartButton" text="Add to Cart" onAction="#handleAddToCart" />
+                    <Button fx:id="addToCartButton" onAction="#handleAddToCart" text="Add to Cart" />
                     <Button fx:id="payButton" text="Payer" />
                 </HBox>
             </bottom>

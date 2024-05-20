@@ -60,6 +60,7 @@ public class DatabaseConnection {
             statement.execute("CREATE TABLE IF NOT EXISTS SessionSeats (" +
                     "SessionID INT, " +
                     "SeatID INT, " +
+                    "Status VARCHAR(10) CHECK (Status IN ('free', 'reserved', 'taken')), " +
                     "PRIMARY KEY (SessionID, SeatID), " +
                     "FOREIGN KEY (SeatID) REFERENCES Seats(SeatID))");
             System.out.println("Table SessionSeats present or created.");

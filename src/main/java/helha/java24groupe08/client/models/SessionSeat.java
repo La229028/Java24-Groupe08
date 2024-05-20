@@ -1,20 +1,37 @@
 package helha.java24groupe08.client.models;
 
+
 public class SessionSeat {
     private int sessionID;
     private int seatID;
+    private String seatNumber;
+    private String status; // "free", "reserved", "taken"
 
-    // status of seat
-    private boolean isReserved;
-
-    // Constructeur
+    // Constructor
     public SessionSeat(int sessionID, int seatID) {
         this.sessionID = sessionID;
         this.seatID = seatID;
-        this.isReserved = false;
+        this.status = "free"; // default status
     }
 
-    // Getters et setters
+    public SessionSeat(String seatNumber) {
+        this.seatNumber = seatNumber;
+        this.status = "free"; // default status
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    // Getters and setters
     public int getSessionID() {
         return sessionID;
     }
@@ -31,7 +48,12 @@ public class SessionSeat {
         this.seatID = seatID;
     }
 
-    public boolean isReserved() {
-        return isReserved;
+
+    public void updateSeatStatus(SessionSeat seat){
+        // 1. establish connection to database
+
+        // 2. update the status of the seat in the database
+        // 3. execute sql query to update the status of the seat
+        // 4. close the connection
     }
 }

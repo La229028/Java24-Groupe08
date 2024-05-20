@@ -53,18 +53,5 @@ public class BuyTicketController {
         }
     }
 
-    //méthode utilisé dans
-    public void reserveSeat(int sessionId, int seatId, String username){
-        try{
-            SeatReservationRequest request = new SeatReservationRequest(sessionId, seatId, username);
-//            boolean success = MovieDBController.reserveSeat(request);
-//            if (success) {
-//                viewController.displaySuccess("Seat reserved successfully!");
-//            } else {
-//                viewController.displayError("Failed to reserve seat.");
-//            }
-        } catch (Exception e) {
-            viewController.displayError(e.getMessage());
-        }
-    }
+
 }
