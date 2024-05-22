@@ -77,20 +77,6 @@
                <Insets top="5.0" />
             </VBox.margin>
             </HBox>
-            <HBox>
-                <Label text="VIP">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Label>
-                <Spinner fx:id="quantitySpinnerVIP" initialValue="0" max="100" min="0">
-                    <VBox.margin>
-                        <Insets top="5.0" />
-                    </VBox.margin>
-                </Spinner>
-            <VBox.margin>
-               <Insets top="5.0" />
-            </VBox.margin>
-            </HBox>
             <Label text="Total:">
             <VBox.margin>
                <Insets top="5.0" />

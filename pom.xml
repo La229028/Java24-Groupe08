@@ -139,7 +139,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.example.java24groupe08/be.helha.java24groupe08.client.controllers.IndexApplication</mainClass>
+              <mainClass>com.example.java24groupe08/be.helha.java24groupe08.client.controllers.IndexController</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

@@ -51,7 +51,7 @@ public class IndexViewController implements Initializable {
     private Button refreshButton;
 
     // List to store Vbox
-    private boolean isSearchPerformed = false;
+    public boolean isSearchPerformed = false;
     private static Listener listener;
 
     public void setListener(Listener listener) {
@@ -100,8 +100,6 @@ public class IndexViewController implements Initializable {
         languageComboBox.setOnAction(event -> filterAndSortMovies());
         sortComboBox.setOnAction(event -> filterAndSortMovies());
     }
-
-
 
 
     /**
@@ -211,7 +209,6 @@ public class IndexViewController implements Initializable {
         });
         return poster;
     }
-
 
 
     /**
@@ -346,6 +343,7 @@ public class IndexViewController implements Initializable {
 
         updateVBoxes(movies);
     }
+
     /**
      * Updates the VBoxes in the FlowPane with the details of the provided movies.
      * If no movies are found, displays a message indicating that no movies were found.
@@ -364,6 +362,7 @@ public class IndexViewController implements Initializable {
         }
         scrollPane.setContent(flowPane);
     }
+
     /**
      * Updates the VBox in the FlowPane with the details of the provided movie.
      * Clears the existing VBox, creates a new VBox with the details of the specified movie,
@@ -430,16 +429,7 @@ public class IndexViewController implements Initializable {
      * This interface defines the methods that the listener of the index view must implement.
      */
     public interface Listener {
-        /**
-         * Method called when the login button is clicked.
-         */
         void loginButtonAction();
-
-        /**
-         * Method called when the "see more" button for a movie is clicked.
-         *
-         * @param movieDetails The details of the movie.
-         */
         void seeMoreButtonAction(String[] movieDetails);
         //void seeMoreButtonAction(String movieTitle);
     }

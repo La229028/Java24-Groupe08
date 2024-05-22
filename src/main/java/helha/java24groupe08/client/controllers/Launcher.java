@@ -20,7 +20,7 @@ public class Launcher {
             Socket socket = new Socket("localhost", 6500);
             System.out.println("Connected to the server");
 
-            IndexApplication.main(args);
+            IndexController.main(args);
 
         } catch (IOException e) {
             e.printStackTrace();

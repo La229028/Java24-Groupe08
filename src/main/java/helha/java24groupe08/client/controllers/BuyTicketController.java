@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class BuyTicketController {
 
-    private BuyTicketViewController viewController;
-    private TicketGroup group;
+    private final BuyTicketViewController viewController;
+    private final TicketGroup group;
 
     /**
      * Constructs a new BuyTicketController with the given view controller.

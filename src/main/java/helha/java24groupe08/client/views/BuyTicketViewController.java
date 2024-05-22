@@ -47,8 +47,7 @@ public class BuyTicketViewController {
     private Spinner<Integer> quantitySpinnerStudent;
     @FXML
     private Spinner<Integer> quantitySpinnerSenior;
-    @FXML
-    private Spinner<Integer> quantitySpinnerVIP;
+
 
     @FXML
     private TableView<Session> sessionTableView;
@@ -63,8 +62,6 @@ public class BuyTicketViewController {
     private Label movieTitleLabel;
     @FXML
     private TextArea moviePlotTextArea;
-    @FXML
-    private ImageView moviePosterImageView;
 
     private BuyTicketController controller;
 
@@ -74,8 +71,6 @@ public class BuyTicketViewController {
     private ListView<String> recapListView;
     @FXML
     private Label totalPriceLabel;
-    @FXML
-    private Button nextButton;
     @FXML
     private TabPane tabPane;
 
@@ -88,7 +83,7 @@ public class BuyTicketViewController {
 
     private int TicketsSelected = 0;
 
-    private Set<String> selectedSeats = new CopyOnWriteArraySet<>();
+    private final Set<String> selectedSeats = new CopyOnWriteArraySet<>();
 
     @FXML
     private Button payButton;
@@ -117,9 +112,6 @@ public class BuyTicketViewController {
             clearSeat();
         });
 
-        quantitySpinnerVIP.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            controller.updateTotal(new TicketsVIP("movie"), newSelection);
-        });
 
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         startTimeColumn.setCellValueFactory(new PropertyValueFactory<>("startTime"));
@@ -158,6 +150,11 @@ public class BuyTicketViewController {
                 return;
             }
 
+            if(quantitySpinnerChild.getValue() > 0 && GetTicketsSelected() == 1){
+                displayError("You must select at least one adult ticket for each child ticket.");
+                return;
+            }
+
             String movie = movieTitleLabel.getText();
             Date date = selectedSession.getDate();
             Time time = selectedSession.getStartTime();
@@ -182,7 +179,7 @@ public class BuyTicketViewController {
 
             markSeatsAsReserved(selectedSeatNumbers);
         } catch (Exception e) {
-            e.printStackTrace();
+            displayError("An error occurred : "+ e.getMessage());
         }
     }
 
@@ -263,8 +260,7 @@ public class BuyTicketViewController {
 
     public int GetTicketsSelected() {
         TicketsSelected = quantitySpinnerRegular.getValue() + quantitySpinnerChild.getValue() +
-                quantitySpinnerStudent.getValue() + quantitySpinnerSenior.getValue() +
-                quantitySpinnerVIP.getValue();
+                quantitySpinnerStudent.getValue() + quantitySpinnerSenior.getValue();
         return TicketsSelected;
     }
 
@@ -290,27 +286,5 @@ public class BuyTicketViewController {
         alert.setContentText(message);
 
         alert.showAndWait();
-    }
-
-    public void displaySuccess(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.initModality(Modality.APPLICATION_MODAL);
-        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.setAlwaysOnTop(true);
-        alert.setTitle("Success Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-
-        alert.showAndWait();
-    }
-
-    public void updateSessionsForMovie(int movieId) {
-        List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
-        sessionTableView.setItems(FXCollections.observableArrayList(sessions));
-    }
-
-    public void setSelectedSession(Session session) {
-        this.selectedSession = session;
-        updateSeatGrid(session);
     }
 }

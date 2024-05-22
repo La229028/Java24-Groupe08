@@ -19,10 +19,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class IndexApplication extends Application implements IndexViewController.Listener {
+public class IndexController extends Application implements IndexViewController.Listener {
     private Stage indexStage;
     private final MovieDBController movieDBController = new MovieDBController();
-    //private MovieAPIController movieAPIController = new MovieAPIController();
 
 
     /**
@@ -36,14 +35,6 @@ public class IndexApplication extends Application implements IndexViewController
 
         System.out.println("Database initialized successfully.");
         launch(new String[0]);  // Assuming this is part of your JavaFX application startup
-    }
-
-
-
-    /**
-     * Default constructor for IndexApplication.
-     */
-    public IndexApplication() {
     }
 
 
@@ -89,26 +80,6 @@ public class IndexApplication extends Application implements IndexViewController
     }
 
     /**
-     * Action performed when the "See More" button is clicked.
-     *
-     * @param movieTitle The title of the movie for which more information is requested.
-     */
-    public void seeMoreButtonAction(String movieTitle) {
-        String[] movieDetails = null;
-        try {
-            movieDetails = this.movieDBController.getMovie(movieTitle);
-        } catch (MovieNotFoundException e) {
-            showErrorAlert("Movie not found: " + e.getMessage());
-        } catch (Exception e){
-            showErrorAlert("An error occurred: " + e.getMessage());
-        } finally{
-            if (movieDetails == null) {
-                this.showErrorAlert("Movie not found in database: " + movieTitle);
-            }
-        }
-    }
-
-    /**
      * Action performed when the "See More" button is clicked for multiple movies.
      *
      * @param movieTitle Array of movie titles for which more information is requested.
@@ -128,7 +99,6 @@ public class IndexApplication extends Application implements IndexViewController
             stage.initOwner(this.indexStage.getOwner());
             controller = (DescriptionViewController)loader.getController();
             movieDetails = this.movieDBController.getMovie(movieTitle[0]);
-
         } catch (IOException e) {
             this.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
         } catch (MovieNotFoundException e) {
@@ -139,27 +109,10 @@ public class IndexApplication extends Application implements IndexViewController
             this.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
             return;
         }
-
         controller.setMovieDetails(movieDetails);
         stage.showAndWait();
     }
 
-
-
-
-
-    /**
-     * Loads and inserts movies from the Movie API into the database.
-     */
-    private void loadAndInsertMoviesFromAPI() {
-        try {
-            String[] titles = new String[]{"title1", "title2", "title3"};
-            MovieAPIController.getAndStoreMoviesFromApi(titles);
-        } catch (Exception e) {
-            this.showErrorAlert("An error occurred while loading and inserting movies from API: " + e.getMessage());
-        }
-
-    }
 
     /**
      * Displays an error alert dialog with the specified content text.
