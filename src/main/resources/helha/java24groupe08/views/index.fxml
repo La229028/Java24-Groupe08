@@ -15,6 +15,8 @@
             <!-- Bouton Connexion à droite -->
             <Button fx:id="loginButton" style="-fx-background-color: transparent; -fx-text-fill: white;"
                     text="Connexion" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0"/>
+            <Button fx:id="logoutButton" style="-fx-background-color: transparent; -fx-text-fill: white;"
+                    text="Déconnexion" visible="false" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0"/>
         </AnchorPane>
     </top>
 

@@ -1,6 +1,6 @@
 package helha.java24groupe08.client.models;
 
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AlertUtils;
 import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 
 import java.sql.*;
@@ -44,7 +44,7 @@ public class MovieDBController {
                 foundMovies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error searching movies in database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error searching movies in database: " + e.getMessage());
         }
         return foundMovies;
     }
@@ -64,7 +64,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie inserted successfully.");
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error inserting movie into database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error inserting movie into database: " + e.getMessage());
         }
     }
 
@@ -83,7 +83,7 @@ public class MovieDBController {
                 movies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error getting all movies from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error getting all movies from database: " + e.getMessage());
         }
         return movies;
     }
@@ -155,7 +155,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie inserted successfully.");
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error setting movie in database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error setting movie in database: " + e.getMessage());
         }
     }
 
@@ -179,7 +179,7 @@ public class MovieDBController {
                 movieDetails = getMovieDetailsFromResultSet(rs);
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error getting movie from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error getting movie from database: " + e.getMessage());
         }
 
         return movieDetails;
@@ -204,7 +204,7 @@ public class MovieDBController {
             ResultSet rs = pstmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error checking movie existence in database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error checking movie existence in database: " + e.getMessage());
             return false;
         }
     }
@@ -222,7 +222,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie deleted successfully.");
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error deleting movie from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error deleting movie from database: " + e.getMessage());
         }
     }
 
@@ -239,10 +239,10 @@ public class MovieDBController {
             if (rowsUpdated > 0) {
                 System.out.println("Movie updated successfully.");
             } else {
-                ErrorUtils.showErrorAlert("No movie found with the given title.");
+                AlertUtils.showErrorAlert("No movie found with the given title.");
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error updating movie in database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error updating movie in database: " + e.getMessage());
         }
     }
 
@@ -291,7 +291,7 @@ public class MovieDBController {
                 movies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error filtering and sorting movies from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error filtering and sorting movies from database: " + e.getMessage());
         }
 
         return movies;

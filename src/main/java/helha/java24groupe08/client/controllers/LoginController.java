@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,7 +31,7 @@ public class LoginController extends Application {
             primaryStage.setTitle("Login");
             primaryStage.show();
         } catch(IOException e) {
-            ErrorUtils.showErrorAlert("An error occurred while loading the login view : " + e.getMessage());
+            AlertUtils.showErrorAlert("An error occurred while loading the login view : " + e.getMessage());
         }
     }
 

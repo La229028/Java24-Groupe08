@@ -1,11 +1,14 @@
 package helha.java24groupe08.client.views;
 
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AuthentificationController;
+import helha.java24groupe08.client.controllers.AlertUtils;
+import helha.java24groupe08.client.controllers.IndexController;
 import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.Session;
 import helha.java24groupe08.client.models.SessionDBController;
 import helha.java24groupe08.client.models.UserSession;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -45,6 +48,8 @@ public class IndexViewController implements Initializable {
     @FXML
     public Button loginButton;
     @FXML
+    public Button logoutButton;
+    @FXML
     private TextField searchField;
     @FXML
     private Button searchButton;
@@ -78,6 +83,8 @@ public class IndexViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateCartButtonVisibility();
+        updateBuyButtonVisibility();
+        updateButtonVisibility();
 
         titleLabel.setText("CINEMA");
 
@@ -103,6 +110,7 @@ public class IndexViewController implements Initializable {
         scrollPane.setContent(flowPane);
 
         loginButton.setOnAction(event -> loginButtonAction());
+        logoutButton.setOnAction(event -> handleLogoutButtonAction(event));
         searchButton.setOnAction(event -> onSearch());
         refreshButton.setOnAction(event -> onRefresh());
 
@@ -201,12 +209,13 @@ public class IndexViewController implements Initializable {
                     }
                 });
             } catch (IllegalArgumentException e) {
-                ErrorUtils.showErrorAlert("Image not found: " + movieDetails[13]);
+                AlertUtils.showErrorAlert("Image not found: " + movieDetails[13]);
             }
         }
         poster.setOnMouseClicked(event -> {
             if (listener != null) {
                 if (LoginViewController.isAdminLoggedIn()) {
+                    IndexController indexController = new IndexController();
                     openSideWindow(movieDetails);
                 } else {
                     listener.seeMoreAction(movieDetails);
@@ -216,22 +225,17 @@ public class IndexViewController implements Initializable {
         return poster;
     }
 
-
     /**
      * This method opens the side window for the admin to delete a movie.
      *
      * @param movieDetails The details of the movie to be deleted.
      */
-    private void openSideWindow(String[] movieDetails) {
+    public void openSideWindow(String[] movieDetails) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/sideWindow.fxml"));
             Parent root = loader.load();
 
             SideWindowViewController controller = loader.getController();
-            if (controller == null) {
-                throw new RuntimeException("Controller not found. Check FXML controller assignment.");
-            }
-
             controller.initData(movieDetails, this::deleteMovie, this::modifiedVBox);
 
             Stage stage = new Stage();
@@ -239,7 +243,7 @@ public class IndexViewController implements Initializable {
             stage.setTitle("Admin Side Window");
             stage.show();
         } catch (Exception e) {  // Catch more broadly to diagnose issues
-            ErrorUtils.showErrorAlert("Error opening side window: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error opening side window: " + e.getMessage());
             e.printStackTrace();  // Consider logging the stack trace for more detailed diagnostics
         }
     }
@@ -249,7 +253,7 @@ public class IndexViewController implements Initializable {
      *
      * @param title The title of the movie to be deleted.
      */
-    private void deleteMovie(String title) {
+    public void deleteMovie(String title) {
         MovieDBController.deleteMovie(title);
         flowPane.getChildren().clear();
         List<String[]> movies = MovieDBController.getAllMovies();
@@ -370,7 +374,7 @@ public class IndexViewController implements Initializable {
      *
      * @param movieDetails The details of the movie to be displayed in the updated VBox.
      */
-    private void modifiedVBox(String[] movieDetails) {
+    public void modifiedVBox(String[] movieDetails) {
         flowPane.getChildren().clear();
 
         List<String[]> allMovies = MovieDBController.getAllMovies();
@@ -407,7 +411,7 @@ public class IndexViewController implements Initializable {
             List<Session> sessions = SessionDBController.getSessionsByMovieId(movieId);
             sessionTable.setItems(FXCollections.observableArrayList(sessions));
         } catch (Exception e) {
-            ErrorUtils.showErrorAlert("Invalid MovieID format: " + e.getMessage());
+            AlertUtils.showErrorAlert("Invalid MovieID format: " + e.getMessage());
         }
     }
 
@@ -422,7 +426,7 @@ public class IndexViewController implements Initializable {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            ErrorUtils.showErrorAlert("An error occurred while loading the cart view : " + e.getMessage());
+            AlertUtils.showErrorAlert("An error occurred while loading the cart view : " + e.getMessage());
         }
     }
 
@@ -432,6 +436,36 @@ public class IndexViewController implements Initializable {
         } else {
             cartButton.setVisible(true);
         }
+    }
+
+    public void updateBuyButtonVisibility() {
+        if (AuthentificationController.isLoggedIn()) {
+            cartButton.setVisible(true);
+        } else {
+            cartButton.setVisible(false);
+        }
+    }
+
+    public void updateButtonVisibility() {
+        if (AuthentificationController.isLoggedIn()) {
+            loginButton.setVisible(false);
+            logoutButton.setVisible(true);
+            cartButton.setVisible(true);
+        } else {
+            loginButton.setVisible(true);
+            logoutButton.setVisible(false);
+            cartButton.setVisible(false);
+        }
+    }
+
+    @FXML
+    private void handleLogoutButtonAction(ActionEvent event) {
+        AuthentificationController.logout();
+        updateButtonVisibility();
+        updateCartButtonVisibility();
+        updateBuyButtonVisibility();
+
+        AlertUtils.showInfoAlert("Successful disconnection");
     }
 
     /**

@@ -1,8 +1,9 @@
 package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.BuyTicketController;
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AlertUtils;
 import helha.java24groupe08.client.models.*;
+import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -16,7 +17,10 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-
+/**
+ * This class is the controller for the Buy Ticket view.
+ * It handles the actions of the Buy Ticket view.
+ */
 public class BuyTicketViewController {
 
     @FXML
@@ -68,6 +72,12 @@ public class BuyTicketViewController {
     @FXML
     private Button payButton;
 
+    /**
+     * This method sets the controller for the BuyTicketViewController.
+     * It sets up the event listeners for the quantity spinners, the session table, the seat grid, and the tab pane.
+     *
+     * @param controller The BuyTicketController to set.
+     */
     public void setController(BuyTicketController controller) {
 
         quantitySpinnerRegular.valueProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -110,6 +120,10 @@ public class BuyTicketViewController {
     }
 
 
+    /**
+     * This method is called when the user clicks on the "Add to cart" button.
+     * It adds the selected seats to the cart.
+     */
     @FXML
     private void handleAddToCart() {
         try {
@@ -120,39 +134,62 @@ public class BuyTicketViewController {
             }
 
             if(quantitySpinnerChild.getValue() > 0 && GetTicketsSelected() == 1){
-                ErrorUtils.showErrorAlert("You must select at least one adult ticket for each child ticket.");
+                AlertUtils.showErrorAlert("You must select at least one adult ticket for each child ticket.");
                 return;
             }
 
-            String movie = movieTitleLabel.getText();
-            Date date = selectedSession.getDate();
-            Time time = selectedSession.getStartTime();
-            String room = "Room " + selectedSession.getRoomNumber();
-            MovieDBController movieDBController = new MovieDBController();
-            String duration = movieDBController.getMovieDuration(movieTitleLabel.getText());
-            List<String> selectedSeatNumbers = new ArrayList<>(selectedSeats);
+            ResultSession resultSession = getSession(selectedSession);
 
-            String dateString = (date != null) ? date.toString() : "";
-            String timeString = (time != null) ? time.toString() : "";
+            String dateString = (resultSession.date() != null) ? resultSession.date().toString() : "";
+            String timeString = (resultSession.time() != null) ? resultSession.time().toString() : "";
 
-            for (String seatNumber : selectedSeatNumbers) {
-                if (Buffer.getInstance().isSeatInCart(dateString, timeString, room, seatNumber)) {
-                    ErrorUtils.showErrorAlert("Seat " + seatNumber + " is already in the cart.");
+            for (String seatNumber : resultSession.selectedSeatNumbers()) {
+                if (Buffer.getInstance().isSeatInCart(dateString, timeString, resultSession.room(), seatNumber)) {
+                    AlertUtils.showErrorAlert("Seat " + seatNumber + " is already in the cart.");
                     return;
                 }
             }
 
-            for (String seatNumber : selectedSeatNumbers) {
-                TicketInfo ticketInfo = new TicketInfo(dateString, timeString, room, movie, duration, seatNumber);
+            for (String seatNumber : resultSession.selectedSeatNumbers()) {
+                TicketInfo ticketInfo = new TicketInfo(dateString, timeString, resultSession.room(), resultSession.movie(), resultSession.duration(), seatNumber);
                 Buffer.getInstance().addToCart(ticketInfo);
             }
 
-            markSeatsAsReserved(selectedSeatNumbers);
+            markSeatsAsReserved(resultSession.selectedSeatNumbers());
         } catch (Exception e) {
-            ErrorUtils.showErrorAlert("An error occurred : "+ e.getMessage());
+            AlertUtils.showErrorAlert("An error occurred : "+ e.getMessage());
         }
     }
 
+    /**
+     * Creates and returns an instance of ResultSession from a selected session.
+     * @param selectedSession The session selected by the user.
+     * @return An instance of ResultSession containing the details of the selected session.
+     * @throws MovieNotFoundException If the movie associated with the session is not found.
+     */
+    private ResultSession getSession(Session selectedSession) throws MovieNotFoundException {
+        String movie = movieTitleLabel.getText();
+        Date date = selectedSession.getDate();
+        Time time = selectedSession.getStartTime();
+        String room = "Room " + selectedSession.getRoomNumber();
+        MovieDBController movieDBController = new MovieDBController();
+        String duration = movieDBController.getMovieDuration(movieTitleLabel.getText());
+        List<String> selectedSeatNumbers = new ArrayList<>(selectedSeats);
+        ResultSession resultSession = new ResultSession(movie, date, time, room, duration, selectedSeatNumbers);
+        return resultSession;
+    }
+
+    /**
+     * An immutable data class representing a movie session selected by the user.
+     * Contains details such as movie title, session date and time, theater number, movie duration and selected seat numbers.
+     */
+    private record ResultSession(String movie, Date date, Time time, String room, String duration, List<String> selectedSeatNumbers) {
+    }
+
+    /**
+     * Marks the selected seats as reserved in the seat grid.
+     * @param seatNumbers
+     */
     private void markSeatsAsReserved(List<String> seatNumbers) {
         for (Node node : seatsGrid.getChildren()) {
             if (node instanceof Button) {
@@ -165,6 +202,7 @@ public class BuyTicketViewController {
             }
         }
     }
+
 
     private void clearSeat() {
         seatsGrid.getChildren().clear();
@@ -190,9 +228,9 @@ public class BuyTicketViewController {
                 seatButton.setStyle("-fx-background-color: white;");
                 selectedSeats.remove(seatButton.getText());
             } else if (totalSeatsSelected >= TicketsSelected) {
-                ErrorUtils.showErrorAlert("You cannot select more seats than tickets.");
+                AlertUtils.showErrorAlert("You cannot select more seats than tickets.");
             } else if ("-fx-background-color: red;".equals(seatButton.getStyle()) || "-fx-background-color: yellow;".equals(seatButton.getStyle())) {
-                ErrorUtils.showErrorAlert("This seat is already reserved or taken.");
+                AlertUtils.showErrorAlert("This seat is already reserved or taken.");
             } else {
                 seatButton.setStyle("-fx-background-color: blue;");
                 selectedSeats.add(seatButton.getText());

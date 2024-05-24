@@ -10,12 +10,11 @@ import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 import helha.java24groupe08.client.views.DescriptionViewController;
 
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -57,10 +56,10 @@ public class IndexController extends Application implements IndexViewController.
             stage.setScene(scene);
             stage.show();
         } catch (javafx.fxml.LoadException e){
-            ErrorUtils.showErrorAlert("Error while loading the main view: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error while loading the main view: " + e.getMessage());
             stage.close();
         } catch (IOException e) {
-            ErrorUtils.showErrorAlert("Other IO error occurred: " + e.getMessage());
+            AlertUtils.showErrorAlert("Other IO error occurred: " + e.getMessage());
             stage.close();
         }
     }
@@ -77,7 +76,7 @@ public class IndexController extends Application implements IndexViewController.
             loginStage.setScene(new Scene(root));
             loginStage.show();
         } catch (IOException e) {
-            ErrorUtils.showErrorAlert("Error while loading the login view: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error while loading the login view: " + e.getMessage());
         }
     }
 
@@ -102,16 +101,17 @@ public class IndexController extends Application implements IndexViewController.
             controller = (DescriptionViewController)loader.getController();
             movieDetails = this.movieDBController.getMovie(movieTitle[0]);
         } catch (IOException e) {
-            ErrorUtils.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
+            AlertUtils.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
         } catch (MovieNotFoundException e) {
-            ErrorUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
+            AlertUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
         }
 
         if (movieDetails == null) {
-            ErrorUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
+            AlertUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
             return;
         }
         controller.setMovieDetails(movieDetails);
         stage.showAndWait();
     }
+
 }

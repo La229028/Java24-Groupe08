@@ -1,7 +1,7 @@
 package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.BuyTicketController;
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AlertUtils;
 import helha.java24groupe08.client.models.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -19,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class DescriptionViewController implements Initializable {
@@ -78,7 +76,7 @@ public class DescriptionViewController implements Initializable {
                 movieImage.setImage(image);
             } catch (Exception e) {
                 e.printStackTrace();
-                ErrorUtils.showErrorAlert("An error occurred while loading the movie image : " + e.getMessage());
+                AlertUtils.showErrorAlert("An error occurred while loading the movie image : " + e.getMessage());
             }
         }
     }
@@ -117,7 +115,7 @@ public class DescriptionViewController implements Initializable {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
         } catch (IOException e) {
-            ErrorUtils.showErrorAlert("An error occurred while loading the buy ticket view : " + e.getMessage());
+            AlertUtils.showErrorAlert("An error occurred while loading the buy ticket view : " + e.getMessage());
         }
     }
 

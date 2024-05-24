@@ -4,7 +4,11 @@ import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ErrorUtils {
+public class AlertUtils {
+    /**
+     * Shows an error alert with the given message.
+     * @param message the message to display
+     */
     public static void showErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initModality(Modality.APPLICATION_MODAL);
@@ -17,6 +21,10 @@ public class ErrorUtils {
         alert.showAndWait();
     }
 
+    /**
+     * Shows an information alert with the given message.
+     * @param message the message to display
+     */
     public static void showInfoAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.initModality(Modality.APPLICATION_MODAL);
