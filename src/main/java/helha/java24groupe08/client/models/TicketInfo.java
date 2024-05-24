@@ -31,9 +31,6 @@ public class TicketInfo {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
 
 
     public String getMovie() {

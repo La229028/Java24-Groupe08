@@ -46,5 +46,11 @@ public class AuthentificationController {
         return isLoggedIn;
     }
 
-
+    /**
+     * Method to check if the admin is logged in
+     * @return True if the admin is logged in, false otherwise
+     */
+    public static boolean isAdminLoggedIn() {
+        return isAdminLoggedIn;
+    }
 }
