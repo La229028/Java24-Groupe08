@@ -11,10 +11,13 @@
             <HBox alignment="CENTER" prefHeight="56.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                 <Label fx:id="titleLabel" style="-fx-font-size: 24px; -fx-text-fill: white;" text="CINEMA"/>
             </HBox>
-            <Button fx:id="cartButton" text="🛒" onAction="#handleCartButton" />
+            <!-- Bouton Panier stylisé -->
+            <Button fx:id="cartButton" text="🛒" onAction="#handleCartButton" style="-fx-background-color: transparent; -fx-font-size: 20px; -fx-text-fill: white;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0"/>
             <!-- Bouton Connexion à droite -->
             <Button fx:id="loginButton" style="-fx-background-color: transparent; -fx-text-fill: white;"
                     text="Connexion" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0"/>
+            <Button fx:id="logoutButton" style="-fx-background-color: transparent; -fx-text-fill: white;"
+                    text="Déconnexion" visible="false" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0"/>
         </AnchorPane>
     </top>
 

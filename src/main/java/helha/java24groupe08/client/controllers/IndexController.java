@@ -1,6 +1,10 @@
+/**
+ * The IndexApplication class represents the main application for the cinema index.
+ * It handles the initialization of the main stage and the actions related to user interactions.
+ */
 package helha.java24groupe08.client.controllers;
 
-import helha.java24groupe08.client.models.*;
+
 import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 import helha.java24groupe08.client.views.DescriptionViewController;
@@ -42,8 +46,8 @@ public class IndexController extends Application implements IndexViewController.
      */
     @Override
     public void start(Stage stage) {
+        this.indexStage = stage; // Ensure the stage is set
         try {
-            this.indexStage = stage;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/index.fxml"));
             Parent root = fxmlLoader.load();
             IndexViewController controller = fxmlLoader.getController();
@@ -52,13 +56,9 @@ public class IndexController extends Application implements IndexViewController.
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
-            ErrorUtils.showErrorAlert("Error while loading the main view: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error while loading the main view: " + e.getMessage());
             stage.close();
         }
-    }
-
-    public void setIndexStage(Stage stage) {
-        this.indexStage = stage;
     }
 
     /**
@@ -74,7 +74,7 @@ public class IndexController extends Application implements IndexViewController.
             loginStage.setScene(new Scene(root));
             loginStage.show();
         } catch (IOException e) {
-            ErrorUtils.showErrorAlert("Error while loading the login view: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error while loading the login view: " + e.getMessage());
         }
     }
 
@@ -95,21 +95,20 @@ public class IndexController extends Application implements IndexViewController.
             stage.setTitle("Description");
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initOwner(this.indexStage); // Use indexStage instead of this.indexStage.getOwner()
+            stage.initOwner(this.indexStage); // Use indexStage
             controller = loader.getController();
             movieDetails = this.movieDBController.getMovie(movieTitle[0]);
         } catch (IOException e) {
-            ErrorUtils.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
+            AlertUtils.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
         } catch (MovieNotFoundException e) {
-            ErrorUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
+            AlertUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
         }
 
         if (movieDetails == null) {
-            ErrorUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
+            AlertUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
             return;
         }
         controller.setMovieDetails(movieDetails);
         stage.showAndWait();
     }
 }
-

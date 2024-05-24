@@ -1,6 +1,6 @@
 package helha.java24groupe08.client.models;
 
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AlertUtils;
 import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 
 import java.sql.*;
@@ -44,7 +44,7 @@ public class MovieDBController {
                 foundMovies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error searching movies in database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error searching movies in database: " + e.getMessage());
         }
         return foundMovies;
     }
@@ -64,7 +64,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie inserted successfully.");
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error inserting movie into database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error inserting movie into database: " + e.getMessage());
         }
     }
 
@@ -83,7 +83,7 @@ public class MovieDBController {
                 movies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error getting all movies from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error getting all movies from database: " + e.getMessage());
         }
         return movies;
     }
@@ -127,37 +127,7 @@ public class MovieDBController {
      * @param awards   The awards of the movie.
      * @param poster   The poster URL of the movie.
      */
-    public void setMovie(String title, String year, String rated, String released, String runtime,
-                         String genre, String director, String writer, String actors, String plot,
-                         String language, String country, String awards, String poster, int id) {
-        String sql = "INSERT INTO movies(Title, Year, Rated, Released, Runtime, Genre, Director, Writer, Actors, Plot, Language, Country, Awards, Poster, Id) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, title);
-            pstmt.setString(2, year);
-            pstmt.setString(3, rated);
-            pstmt.setString(4, released);
-            pstmt.setString(5, runtime);
-            pstmt.setString(6, genre);
-            pstmt.setString(7, director);
-            pstmt.setString(8, writer);
-            pstmt.setString(9, actors);
-            pstmt.setString(10, plot);
-            pstmt.setString(11, language);
-            pstmt.setString(12, country);
-            pstmt.setString(13, awards);
-            pstmt.setString(14, poster);
-            pstmt.setInt(15, id);
-
-            pstmt.executeUpdate();
-            System.out.println("Movie inserted successfully.");
-        } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error setting movie in database: " + e.getMessage());
-        }
-    }
 
     /**
      * Retrieves details of a movie from the database based on its title.
@@ -179,7 +149,7 @@ public class MovieDBController {
                 movieDetails = getMovieDetailsFromResultSet(rs);
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error getting movie from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error getting movie from database: " + e.getMessage());
         }
 
         return movieDetails;
@@ -190,24 +160,6 @@ public class MovieDBController {
         return movieDetails[4];
     }
 
-    /**
-     * Checks if a movie with the specified title exists in the database.
-     *
-     * @param title The title of the movie.
-     * @return True if the movie exists, false otherwise.
-     */
-    public boolean movieExists(String title) {
-        String sql = "SELECT * FROM movies WHERE Title = ?";
-        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, title);
-            ResultSet rs = pstmt.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error checking movie existence in database: " + e.getMessage());
-            return false;
-        }
-    }
 
     /**
      * Deletes a movie from the database based on its title.
@@ -222,7 +174,7 @@ public class MovieDBController {
             pstmt.executeUpdate();
             System.out.println("Movie deleted successfully.");
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error deleting movie from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error deleting movie from database: " + e.getMessage());
         }
     }
 
@@ -239,10 +191,10 @@ public class MovieDBController {
             if (rowsUpdated > 0) {
                 System.out.println("Movie updated successfully.");
             } else {
-                ErrorUtils.showErrorAlert("No movie found with the given title.");
+                AlertUtils.showErrorAlert("No movie found with the given title.");
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error updating movie in database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error updating movie in database: " + e.getMessage());
         }
     }
 
@@ -291,7 +243,7 @@ public class MovieDBController {
                 movies.add(getMovieDetailsFromResultSet(rs));
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error filtering and sorting movies from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error filtering and sorting movies from database: " + e.getMessage());
         }
 
         return movies;

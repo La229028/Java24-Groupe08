@@ -62,21 +62,15 @@ public class Session {
         return movieId;
     }
 
-    public int getSeatsAvailable() {
-        return seatsAvailable.get();
-    }
 
-    public IntegerProperty seatsAvailableProperty() {
-        return seatsAvailable;
-    }
 
     public Map<String, SessionSeat> getSeats() {
         return seats;
     }
 
-    public SessionSeat getSeat(String seatNumber) {
-        return seats.get(seatNumber);
-    }
+
+
+
 
     public synchronized void reserveSeat(String seatNumber) {
         SessionSeat seat = seats.get(seatNumber);

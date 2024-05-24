@@ -33,9 +33,7 @@ public class SeatReservationManager {
         return true;
     }
 
-    public synchronized boolean isSeatReserved(String sessionKey, String seat) {
-        return reservations.getOrDefault(sessionKey, ConcurrentHashMap.newKeySet()).contains(seat);
-    }
+
 
     public synchronized Set<String> getReservedSeats(String sessionKey) {
         return reservations.getOrDefault(sessionKey, ConcurrentHashMap.newKeySet());
@@ -43,10 +41,6 @@ public class SeatReservationManager {
 
     public void addObserver(SeatReservationObserver observer) {
         observers.add(observer);
-    }
-
-    public void removeObserver(SeatReservationObserver observer) {
-        observers.remove(observer);
     }
 
     public void notifyObservers() {

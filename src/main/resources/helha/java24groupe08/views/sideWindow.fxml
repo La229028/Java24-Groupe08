@@ -48,8 +48,8 @@
                     <Label text="Room Number:" />
                     <ComboBox fx:id="roomNumberComboBox" prefHeight="25.0" prefWidth="50.0" />
                     <Label text="Start Time (HH:MM):" />
-                    <ComboBox fx:id="hourComboBox" prefHeight="25.0" prefWidth="41.0" />
-                    <ComboBox fx:id="minuteComboBox" prefHeight="25.0" prefWidth="40.0" />
+                    <ComboBox fx:id="hourComboBox" prefHeight="25.0" prefWidth="64.0" />
+                    <ComboBox fx:id="minuteComboBox" prefHeight="25.0" prefWidth="61.0" />
                     <Label text="Date:" />
                     <DatePicker fx:id="dateField" prefHeight="25.0" prefWidth="129.0" />
                     <Button onAction="#addSessionAction" text="Add Session" />

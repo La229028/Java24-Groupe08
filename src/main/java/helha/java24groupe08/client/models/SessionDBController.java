@@ -1,6 +1,6 @@
 package helha.java24groupe08.client.models;
 
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AlertUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class SessionDBController {
             deleteSessionStmt.setInt(1, sessionId);
             deleteSessionStmt.executeUpdate();
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error deleting session from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error deleting session from database: " + e.getMessage());
         }
     }
 
@@ -55,7 +55,7 @@ public class SessionDBController {
                 ));
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error retrieving sessions from database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error retrieving sessions from database: " + e.getMessage());
         }
         return sessions;
     }
@@ -78,7 +78,7 @@ public class SessionDBController {
             stmt.execute(sql);
             System.out.println("Sessions table created successfully.");
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error creating sessions table: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error creating sessions table: " + e.getMessage());
         }
     }
 
@@ -104,7 +104,7 @@ public class SessionDBController {
                 }
             }
         } catch (SQLException e) {
-            ErrorUtils.showErrorAlert("Error inserting session into database: " + e.getMessage());
+            AlertUtils.showErrorAlert("Error inserting session into database: " + e.getMessage());
         }
     }
 }

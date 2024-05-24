@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 public class Buffer {
     private static Buffer instance;
     private Set<TicketInfo> cart;
+    private Set<TicketInfo> takenSeats; // New set for taken seats
 
     private Buffer() {
         cart = new HashSet<>();
+        takenSeats = new HashSet<>();
     }
 
     public static synchronized Buffer getInstance() {
@@ -50,10 +52,20 @@ public class Buffer {
                 .collect(Collectors.toList());
     }
 
-    public void clearCart() {
+    public synchronized void clearCart() {
         cart.clear();
     }
+
+    public synchronized void removeFromCart(TicketInfo item) {
+        cart.remove(item);
+    }
+
+    public synchronized void addTakenSeat(TicketInfo ticketInfo) {
+        takenSeats.add(ticketInfo);
+    }
+
+
+    public synchronized List<TicketInfo> getTakenSeats() {
+        return takenSeats.stream().collect(Collectors.toList());
+    }
 }
-
-
-

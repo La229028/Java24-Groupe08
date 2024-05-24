@@ -103,7 +103,7 @@
                 <HBox alignment="BOTTOM_RIGHT">
                     <Pane HBox.hgrow="ALWAYS" />
                     <Button fx:id="addToCartButton" onAction="#handleAddToCart" text="Add to Cart" />
-                    <Button fx:id="payButton" text="Payer" />
+
                 </HBox>
             </bottom>
         </BorderPane>

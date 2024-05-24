@@ -32,9 +32,11 @@ public class SessionSeat {
     }
 
     // Getters and setters
-    public int getSessionID() {
-        return sessionID;
+    public int getId() {
+        return seatID;
     }
+
+
 
     public void setSessionID(int sessionID) {
         this.sessionID = sessionID;

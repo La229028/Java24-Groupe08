@@ -32,11 +32,5 @@ public class SeatTable {
         }
     }
 
-    public void setSeat(int row, int col, String seat) {
-        if (row >= 0 && row < seats.length && col >= 0 && col < seats[0].length) {
-            seats[row][col] = seat;
-        } else {
-            throw new IndexOutOfBoundsException("Invalid seat position.");
-        }
-    }
+
 }

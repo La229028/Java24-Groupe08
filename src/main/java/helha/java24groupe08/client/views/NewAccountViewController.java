@@ -1,20 +1,13 @@
 package helha.java24groupe08.client.views;
 
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AlertUtils;
 import helha.java24groupe08.client.controllers.NewAccountController;
 import helha.java24groupe08.client.models.exceptions.DatabaseException;
-import helha.java24groupe08.client.controllers.UserDBController;
-import helha.java24groupe08.client.models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * NewAccountViewController class is responsible for handling user interactions in the "New Account" window.
@@ -87,7 +80,7 @@ public class NewAccountViewController {
      */
     private boolean isAllFieldsFilled(){
         if(nameTextField.getText().isEmpty() || firstnameTextField.getText().isEmpty() || numberPhoneTextField.getText().isEmpty() || emailTextField.getText().isEmpty() || ageTextField.getText().isEmpty() || statusChoiceBox.getValue() == null || usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty()){
-            ErrorUtils.showErrorAlert("Please fill in all fields !");
+            AlertUtils.showErrorAlert("Please fill in all fields !");
             return false;
         }
         return true;
@@ -101,7 +94,7 @@ public class NewAccountViewController {
         try{
             Integer.parseInt(ageTextField.getText());
         }catch(NumberFormatException e){
-            ErrorUtils.showErrorAlert("Age must be a number !");
+            AlertUtils.showErrorAlert("Age must be a number !");
             return false;
         }
         return true;
@@ -115,11 +108,11 @@ public class NewAccountViewController {
         try{
             int phoneNumber = Integer.parseInt(numberPhoneTextField.getText());
             if(String.valueOf(phoneNumber).length() < 5){
-                ErrorUtils.showErrorAlert("Phone number must be at least 5 digits !");
+                AlertUtils.showErrorAlert("Phone number must be at least 5 digits !");
                 return false;
             }
         }catch(NumberFormatException e){
-            ErrorUtils.showErrorAlert("Phone number must be a number !");
+            AlertUtils.showErrorAlert("Phone number must be a number !");
             return false;
         }
         return true;

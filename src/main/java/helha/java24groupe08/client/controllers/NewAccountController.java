@@ -2,7 +2,6 @@ package helha.java24groupe08.client.controllers;
 
 import helha.java24groupe08.client.models.User;
 import helha.java24groupe08.client.models.exceptions.DatabaseException;
-import helha.java24groupe08.client.views.NewAccountViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,17 +18,34 @@ import java.io.IOException;
 public class NewAccountController extends Application {
     private static Stage primaryStage;
 
+    /**
+     * Adds a new user to the database.
+     *
+     * @param name The name of the user.
+     * @param firstname The first name of the user.
+     * @param numberPhone The phone number of the user.
+     * @param email The email of the user.
+     * @param age The age of the user.
+     * @param status The status of the user.
+     * @param username The username of the user.
+     * @param password The password of the user.
+     * @throws DatabaseException If an error occurred while adding the user to the database.
+     */
     public static void AddUser(String name, String firstname, int numberPhone, String email, int age, String status, String username, String password) throws DatabaseException {
         try {
             User newUser = new User(name, firstname, numberPhone, email, age, status, username, password);
 
             UserDBController.addUser(newUser);
-            ErrorUtils.showInfoAlert("User added successfully.");
+            AlertUtils.showInfoAlert("User added successfully.");
         } catch (DatabaseException e) {
-            ErrorUtils.showErrorAlert("An error occurred while adding the user: " + e.getMessage());
+            AlertUtils.showErrorAlert("An error occurred while adding the user: " + e.getMessage());
         }
     }
 
+    /**
+     * This method is called when the application is launched.
+     * It loads the newAccount.fxml file and displays the new account window.
+     */
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -52,6 +68,10 @@ public class NewAccountController extends Application {
         }
     }
 
+    /**
+     * This method is called when the application is launched.
+     * It loads the newAccount.fxml file and displays the new account window.
+     */
     public static void showNewAccountWindow() throws IOException {
         FXMLLoader loader = new FXMLLoader(NewAccountController.class.getResource("/helha/java24groupe08/views/newAccount.fxml"));
         Parent root = loader.load();

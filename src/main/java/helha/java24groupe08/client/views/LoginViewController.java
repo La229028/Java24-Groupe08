@@ -1,6 +1,7 @@
 package helha.java24groupe08.client.views;
 
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AuthentificationController;
+import helha.java24groupe08.client.controllers.AlertUtils;
 import helha.java24groupe08.client.controllers.NewAccountController;
 import helha.java24groupe08.client.models.UserSession;
 import helha.java24groupe08.client.models.exceptions.DatabaseException;
@@ -10,13 +11,13 @@ import helha.java24groupe08.client.controllers.UserDBController;
 import helha.java24groupe08.server.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Properties;
 
 public class LoginViewController {
 
@@ -27,7 +28,21 @@ public class LoginViewController {
     private PasswordField passwordField;
 
     private static boolean isAdminLoggedIn = false;
+    private static boolean isLoginWindowOpen = false;
+    private Properties adminProperties;
 
+    /**
+     * Loads administrator properties from the configuration file.
+     * Properties include administrator username and password.
+     */
+    private void loadAdminProperties() {
+        adminProperties = new Properties();
+        try {
+            adminProperties.load(getClass().getResourceAsStream("/config.properties"));
+        } catch (IOException e) {
+            AlertUtils.showErrorAlert("An error occurred while loading the admin properties file : " + e.getMessage());
+        }
+    }
 
     /**
      * This method is called when the "Login" button is clicked.
@@ -35,6 +50,7 @@ public class LoginViewController {
      */
     @FXML
     private void handleLogin(ActionEvent event) throws DatabaseException {
+        loadAdminProperties();
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -55,12 +71,16 @@ public class LoginViewController {
      * @param password The password entered by the user
      */
     private void handleLoginAdmin(String username, String password) {
-        if (username.equals("admin") && password.equals("admin")) {
+        String adminUsername = adminProperties.getProperty("admin.username");
+        String adminPassword = adminProperties.getProperty("admin.password");
+
+        if (username.equals(adminUsername) && password.equals(adminPassword)) {
+            AuthentificationController.loginAdmin();
             isAdminLoggedIn = true; // Granting administrator rights
-            ErrorUtils.showInfoAlert("Successful connection. Welcome admin!");
+            AlertUtils.showInfoAlert("Successful connection. Welcome admin!");
             onLoginSuccess();
         } else {
-            ErrorUtils.showErrorAlert("Connection error. Please check your username and password admin.");
+            AlertUtils.showErrorAlert("Connection error. Please check your username and password admin.");
         }
     }
 
@@ -75,7 +95,8 @@ public class LoginViewController {
         User user = userDBController.getUserByUsername(username);
 
         if (user != null && user.getPassword().equals(password)) {
-            ErrorUtils.showInfoAlert("Successful connection. Welcome " + username + "!");
+            AuthentificationController.loginUser(user);
+            AlertUtils.showInfoAlert("Successful connection. Welcome " + username + "!");
             isAdminLoggedIn = false;
             onLoginSuccess();
             UserSession.getInstance().setUser(user);
@@ -85,10 +106,9 @@ public class LoginViewController {
                 indexViewController.updateCartButtonVisibility();
             }
         } else {
-            ErrorUtils.showErrorAlert("Connection error. Please check your username and password.");
+            AlertUtils.showErrorAlert("Connection error. Please check your username and password.");
         }
     }
-
 
     /**
      * This method is called when the "Cancel" button is clicked.
@@ -96,8 +116,9 @@ public class LoginViewController {
      */
     @FXML
     private void handleCancel(ActionEvent event) {
-        // Close the login window
-        ((Button) event.getSource()).getScene().getWindow().hide();
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+        isLoginWindowOpen = false;
     }
 
     /**
@@ -105,8 +126,14 @@ public class LoginViewController {
      * It closes the login window.
      */
     private void onLoginSuccess() {
-        // Close the login window
-        usernameField.getScene().getWindow().hide();
+        Stage stage = (Stage) usernameField.getScene().getWindow();
+        stage.close();
+        isLoginWindowOpen = false;
+
+        IndexViewController indexViewController = IndexViewController.getInstance();
+        if(indexViewController != null) {
+            indexViewController.updateButtonVisibility();
+        }
     }
 
     /**
@@ -117,17 +144,21 @@ public class LoginViewController {
      */
     @FXML
     private void handleNewAccount(ActionEvent event) throws IOException {
-        ((Button) event.getSource()).getScene().getWindow().hide();
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+        isLoginWindowOpen = false;
         NewAccountController.showNewAccountWindow();
     }
 
-
-    /**
-     * This method is called when the "Forgot Password" button is clicked.
-     * It displays a message box with the password.
-     */
     public static boolean isAdminLoggedIn() {
         return isAdminLoggedIn;
     }
 
+    public static boolean isLoginWindowOpen() {
+        return isLoginWindowOpen;
+    }
+
+    public static void setLoginWindowOpen(boolean loginWindowOpen) {
+        isLoginWindowOpen = loginWindowOpen;
+    }
 }

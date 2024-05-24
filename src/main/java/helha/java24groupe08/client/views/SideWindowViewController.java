@@ -1,8 +1,7 @@
 package helha.java24groupe08.client.views;
 
-import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.controllers.AlertUtils;
 import helha.java24groupe08.client.controllers.SideWindowController;
-import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.Session;
 import helha.java24groupe08.client.models.SessionDBController;
 import javafx.collections.FXCollections;
@@ -122,7 +121,7 @@ public class SideWindowViewController {
             List<Session> sessions = SessionDBController.getSessionsByMovieId(Integer.parseInt(movieDetails[14]));
             sessionTable.setItems(FXCollections.observableArrayList(sessions));
         } catch (Exception e) {
-            ErrorUtils.showErrorAlert("Invalid MovieID format: " + e.getMessage());
+            AlertUtils.showErrorAlert("Invalid MovieID format: " + e.getMessage());
         }
     }
 
@@ -154,7 +153,7 @@ public class SideWindowViewController {
     public Date parseDate() {
         java.time.LocalDate localDate = dateField.getValue();
         if (localDate == null) {
-            ErrorUtils.showErrorAlert("Date is required.");
+            AlertUtils.showErrorAlert("Date is required.");
             return null;
         }
         return Date.valueOf(localDate);

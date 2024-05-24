@@ -3,8 +3,6 @@ package helha.java24groupe08.client.controllers;
 import helha.java24groupe08.client.models.*;
 import helha.java24groupe08.client.models.SessionDBController;
 import helha.java24groupe08.client.views.BuyTicketViewController;
-import javafx.collections.FXCollections;
-import javafx.scene.control.TableView;
 
 import java.util.List;
 import java.util.Map;
@@ -44,7 +42,7 @@ public class BuyTicketController {
             viewController.updateTotal(totalText);
             updateRecap();
         } catch (Exception e) {
-            ErrorUtils.showErrorAlert(e.getMessage());
+            AlertUtils.showErrorAlert(e.getMessage());
         }
     }
 
@@ -57,10 +55,14 @@ public class BuyTicketController {
                     .collect(Collectors.groupingBy(TicketComponent::getType, Collectors.counting()));
             viewController.updateRecap(ticketCounts);
         } catch (Exception e) {
-            ErrorUtils.showErrorAlert(e.getMessage());
+            AlertUtils.showErrorAlert(e.getMessage());
         }
     }
 
+    /**
+     * Loads the sessions for the given movie.
+     * @param movieId the ID of the movie
+     */
     public static void loadSessions(int movieId) {
         try {
             List<Session> sessions = SessionDBController.getSessionsByMovieId(movieId);
