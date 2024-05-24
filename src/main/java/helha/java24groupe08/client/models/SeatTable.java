@@ -5,18 +5,38 @@ public class SeatTable {
 
     public SeatTable(int rows, int cols) {
         seats = new String[rows][cols];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                // Convert row number to seat row label (1-based index)
-                String rowLabel = Integer.toString(i + 1);
-                // Convert column number to seat column label (a, b, c, ...)
-                char colLabel = (char) ('a' + j);
-                seats[i][j] = rowLabel + colLabel;
+        initializeSeats();
+    }
+
+    private void initializeSeats() {
+        for (int i = 0; i < seats.length; i++) {
+            for (int j = 0; j < seats[i].length; j++) {
+                seats[i][j] = "Seat " + (i * seats[i].length + j + 1);
             }
         }
     }
 
+    public int getRows() {
+        return seats.length;
+    }
+
+    public int getCols() {
+        return seats[0].length;
+    }
+
     public String getSeat(int row, int col) {
-        return seats[row][col];
+        if (row >= 0 && row < seats.length && col >= 0 && col < seats[0].length) {
+            return seats[row][col];
+        } else {
+            throw new IndexOutOfBoundsException("Invalid seat position.");
+        }
+    }
+
+    public void setSeat(int row, int col, String seat) {
+        if (row >= 0 && row < seats.length && col >= 0 && col < seats[0].length) {
+            seats[row][col] = seat;
+        } else {
+            throw new IndexOutOfBoundsException("Invalid seat position.");
+        }
     }
 }

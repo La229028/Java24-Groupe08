@@ -1,56 +1,82 @@
 package helha.java24groupe08.server;
 
-import helha.java24groupe08.common.network.Constants;
+import helha.java24groupe08.client.models.SeatReservationManager;
 
-import java.io.*;
-import java.net.ConnectException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.SocketException;
 
-/*
- * responsible for server connection
- */
 public class Client {
-    private final String username;
     private Socket socket;
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
+    private String username;
 
     public Client(String username) {
-            this.username = username;
+        this.username = username;
     }
 
     public void connectToServer() {
         try {
-            setupConnection();
-            sendUsername();
-        } catch (ConnectException e){
-            System.out.println("Error while connecting to server: Server is not available. Please try again later.");
-            System.exit(1);
+            socket = new Socket("localhost", 12345);
+            oos = new ObjectOutputStream(socket.getOutputStream());
+            ois = new ObjectInputStream(socket.getInputStream());
+            oos.writeObject(username);
+            oos.flush();
+
+            // Start a thread to listen for server updates
+            new Thread(this::listenForServerUpdates).start();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.err.println("Error connecting to server: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    // Connects to the server
-    private void setupConnection() throws IOException {
-        if (socket == null) {
-            socket = new Socket(Constants.SERVER_HOST, Constants.SERVER_PORT);
-            System.out.println("Connected to the server");
-
-            OutputStream out = socket.getOutputStream();
-            oos = new ObjectOutputStream(out);
+    public boolean reserveSeat(int sessionId, String seatNumber) {
+        try {
+            oos.writeObject("RESERVE_SEAT");
+            oos.writeObject(sessionId);
+            oos.writeObject(seatNumber);
             oos.flush();
 
-            InputStream in = socket.getInputStream();
-            ois = new ObjectInputStream(in);
+            // Read the response from the server
+            return (boolean) ois.readObject(); // Expecting a boolean response
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error while reserving seat: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private void listenForServerUpdates() {
+        try {
+            while (true) {
+                Object obj = ois.readObject();
+                if (obj instanceof String) {
+                    String message = (String) obj;
+                    if ("UPDATE".equals(message)) {
+                        // Trigger UI update
+                        SeatReservationManager.getInstance().notifyObservers();
+                    }
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error while listening for server updates: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    // Sends the username to the server
-    private void sendUsername() throws IOException {
-        oos.writeObject(username);
-        oos.flush();
+    public void disconnect() {
+        try {
+            if (socket != null && !socket.isClosed()) {
+                oos.writeObject("DISCONNECT");
+                oos.flush();
+                socket.close();
+            }
+        } catch (IOException e) {
+            System.err.println("Error while disconnecting: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

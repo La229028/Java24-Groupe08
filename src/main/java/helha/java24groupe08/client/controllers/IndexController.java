@@ -1,23 +1,18 @@
-/**
- * The IndexApplication class represents the main application for the cinema index.
- * It handles the initialization of the main stage and the actions related to user interactions.
- */
 package helha.java24groupe08.client.controllers;
 
-import helha.java24groupe08.client.views.IndexViewController;
+import helha.java24groupe08.client.models.*;
 import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.exceptions.MovieNotFoundException;
 import helha.java24groupe08.client.views.DescriptionViewController;
-
-import java.io.IOException;
+import helha.java24groupe08.client.views.IndexViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  * The IndexController class represents the main application for the cinema index.
@@ -37,41 +32,43 @@ public class IndexController extends Application implements IndexViewController.
         DatabaseConnection.getInstance();
 
         System.out.println("Database initialized successfully.");
-        launch(new String[0]);  // Assuming this is part of your JavaFX application startup
+        launch(args);  // Assuming this is part of your JavaFX application startup
     }
-
 
     /**
      * Initializes the main stage of the application.
      *
      * @param stage The primary stage of the application.
      */
+    @Override
     public void start(Stage stage) {
         try {
             this.indexStage = stage;
-            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/helha/java24groupe08/views/index.fxml"));
-            Scene scene = new Scene((Parent)fxmlLoader.load());
-            IndexViewController controller = (IndexViewController)fxmlLoader.getController();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/index.fxml"));
+            Parent root = fxmlLoader.load();
+            IndexViewController controller = fxmlLoader.getController();
             controller.setListener(this);
             stage.setTitle("Cinéma");
-            stage.setScene(scene);
+            stage.setScene(new Scene(root));
             stage.show();
-        } catch (javafx.fxml.LoadException e){
+        } catch (IOException e) {
             ErrorUtils.showErrorAlert("Error while loading the main view: " + e.getMessage());
             stage.close();
-        } catch (IOException e) {
-            ErrorUtils.showErrorAlert("Other IO error occurred: " + e.getMessage());
-            stage.close();
         }
+    }
+
+    public void setIndexStage(Stage stage) {
+        this.indexStage = stage;
     }
 
     /**
      * Action performed when the login button is clicked.
      */
+    @Override
     public void loginButtonAction() {
         try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/helha/java24groupe08/views/login.fxml"));
-            Parent root = (Parent)loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/login.fxml"));
+            Parent root = loader.load();
             Stage loginStage = new Stage();
             loginStage.setTitle("Login");
             loginStage.setScene(new Scene(root));
@@ -81,25 +78,25 @@ public class IndexController extends Application implements IndexViewController.
         }
     }
 
-
     /**
      * Action performed when you click on the poster to "see more" about a movie.
      * @param movieTitle arrays of movie title
      */
+    @Override
     public void seeMoreAction(String[] movieTitle) {
         String[] movieDetails = null;
         Stage stage = null;
         DescriptionViewController controller = null;
         try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
-            Parent root = (Parent)loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/descrip.fxml"));
+            Parent root = loader.load();
             stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Description");
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initOwner(this.indexStage.getOwner());
-            controller = (DescriptionViewController)loader.getController();
+            stage.initOwner(this.indexStage); // Use indexStage instead of this.indexStage.getOwner()
+            controller = loader.getController();
             movieDetails = this.movieDBController.getMovie(movieTitle[0]);
         } catch (IOException e) {
             ErrorUtils.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
@@ -115,3 +112,4 @@ public class IndexController extends Application implements IndexViewController.
         stage.showAndWait();
     }
 }
+

@@ -23,9 +23,14 @@ public class SeatReservationManager {
         return instance;
     }
 
-    public synchronized void reserveSeat(String sessionKey, String seat) {
-        reservations.computeIfAbsent(sessionKey, k -> ConcurrentHashMap.newKeySet()).add(seat);
+    public synchronized boolean reserveSeat(String sessionKey, String seat) {
+        Set<String> sessionReservations = reservations.computeIfAbsent(sessionKey, k -> ConcurrentHashMap.newKeySet());
+        if (sessionReservations.contains(seat)) {
+            return false; // Seat already reserved
+        }
+        sessionReservations.add(seat);
         notifyObservers();
+        return true;
     }
 
     public synchronized boolean isSeatReserved(String sessionKey, String seat) {
@@ -44,10 +49,9 @@ public class SeatReservationManager {
         observers.remove(observer);
     }
 
-    private void notifyObservers() {
+    public void notifyObservers() {
         for (SeatReservationObserver observer : observers) {
             observer.updateReservations();
         }
     }
 }
-

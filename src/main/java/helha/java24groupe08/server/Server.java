@@ -1,58 +1,40 @@
 package helha.java24groupe08.server;
 
-import helha.java24groupe08.common.network.Constants;
-
-import java.io.*;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Server {
     private static Server instance;
-    private static List<ClientHandlerThread> clients = new ArrayList<>();
+    private final int port = 12345;
+    private final CopyOnWriteArrayList<ClientHandlerThread> clients;
 
-    public static void main(String[] args) {
-        try {
-            startServer();
-        } catch (IOException e) {
-            System.out.println("Error while starting server" + e.getMessage());
-            e.printStackTrace();
-        }
+    private Server() {
+        clients = new CopyOnWriteArrayList<>();
     }
 
-    //method to start the server
-    private static void startServer() throws IOException {
-        try (ServerSocket serverSocket = new ServerSocket(Constants.SERVER_PORT)) {
-            System.out.println("Server started on port " + Constants.SERVER_PORT);
-
-            while(true) {
-                acceptNewClient(serverSocket);
-            }
-        }
-    }
-
-    // Accepts new client connections
-    private static void acceptNewClient(ServerSocket serverSocket) throws IOException {
-        Socket socket = serverSocket.accept();
-        System.out.println("New connection from " + socket.getInetAddress() + ". Client is now connected !!");
-
-        ClientHandlerThread clientThread = new ClientHandlerThread(socket);
-        clients.add(clientThread);
-        clientThread.start();
-    }
-
-    // Singleton pattern
-    public static Server getInstance() {
+    public static synchronized Server getInstance() {
         if (instance == null) {
             instance = new Server();
         }
         return instance;
     }
 
-    // Disconnects a client
-    public void disconnect(ClientHandlerThread clientThread) {
-        clientThread.stopRunning();
-        clients.remove(clientThread);
+    public void startServer() {
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                ClientHandlerThread clientHandler = new ClientHandlerThread(clientSocket, this);
+                clients.add(clientHandler);
+                clientHandler.start();
+            }
+        } catch (IOException e) {
+            System.err.println("Server error: " + e.getMessage());
+        }
+    }
+
+    public void disconnect(ClientHandlerThread clientHandler) {
+        clients.remove(clientHandler);
     }
 }
