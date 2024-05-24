@@ -127,7 +127,37 @@ public class MovieDBController {
      * @param awards   The awards of the movie.
      * @param poster   The poster URL of the movie.
      */
+    public void setMovie(String title, String year, String rated, String released, String runtime,
+                         String genre, String director, String writer, String actors, String plot,
+                         String language, String country, String awards, String poster, int id) {
+        String sql = "INSERT INTO movies(Title, Year, Rated, Released, Runtime, Genre, Director, Writer, Actors, Plot, Language, Country, Awards, Poster, Id) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, title);
+            pstmt.setString(2, year);
+            pstmt.setString(3, rated);
+            pstmt.setString(4, released);
+            pstmt.setString(5, runtime);
+            pstmt.setString(6, genre);
+            pstmt.setString(7, director);
+            pstmt.setString(8, writer);
+            pstmt.setString(9, actors);
+            pstmt.setString(10, plot);
+            pstmt.setString(11, language);
+            pstmt.setString(12, country);
+            pstmt.setString(13, awards);
+            pstmt.setString(14, poster);
+            pstmt.setInt(15, id);
+
+            pstmt.executeUpdate();
+            System.out.println("Movie inserted successfully.");
+        } catch (SQLException e) {
+            AlertUtils.showErrorAlert("Error setting movie in database: " + e.getMessage());
+        }
+    }
 
     /**
      * Retrieves details of a movie from the database based on its title.
@@ -160,6 +190,24 @@ public class MovieDBController {
         return movieDetails[4];
     }
 
+    /**
+     * Checks if a movie with the specified title exists in the database.
+     *
+     * @param title The title of the movie.
+     * @return True if the movie exists, false otherwise.
+     */
+    public boolean movieExists(String title) {
+        String sql = "SELECT * FROM movies WHERE Title = ?";
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, title);
+            ResultSet rs = pstmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            AlertUtils.showErrorAlert("Error checking movie existence in database: " + e.getMessage());
+            return false;
+        }
+    }
 
     /**
      * Deletes a movie from the database based on its title.

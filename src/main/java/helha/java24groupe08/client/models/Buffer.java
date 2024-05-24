@@ -64,6 +64,14 @@ public class Buffer {
         takenSeats.add(ticketInfo);
     }
 
+    public synchronized boolean isSeatTaken(String date, String time, String room, String seatNumber) {
+        return takenSeats.stream().anyMatch(ticket ->
+                ticket.getDate().equals(date) &&
+                        ticket.getTime().equals(time) &&
+                        ticket.getRoom().equals(room) &&
+                        ticket.getSeatNumber().equals(seatNumber)
+        );
+    }
 
     public synchronized List<TicketInfo> getTakenSeats() {
         return takenSeats.stream().collect(Collectors.toList());
