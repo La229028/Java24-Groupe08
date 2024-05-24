@@ -1,5 +1,6 @@
 package helha.java24groupe08.client.views;
 
+import helha.java24groupe08.client.controllers.ErrorUtils;
 import helha.java24groupe08.client.controllers.SideWindowController;
 import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.Session;
@@ -16,7 +17,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -24,6 +24,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import javafx.scene.Node;
 
 public class IndexViewController implements Initializable {
     @FXML
@@ -107,7 +108,7 @@ public class IndexViewController implements Initializable {
      *
      * @param movies The list of movies to be displayed.
      */
-    private void createVBoxes(List<String[]> movies) {
+    public void createVBoxes(List<String[]> movies) {
         for (String[] movieDetails : movies) {
             VBox vbox = createMovieVBox(movieDetails);
             flowPane.getChildren().add(vbox);
@@ -187,15 +188,11 @@ public class IndexViewController implements Initializable {
 
                 poster.setOnMouseClicked(event -> {
                     if (listener != null) {
-                        listener.seeMoreButtonAction(movieDetails);
+                        listener.seeMoreAction(movieDetails);
                     }
                 });
             } catch (IllegalArgumentException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("An error occurred");
-                alert.setContentText("Image not found: " + movieDetails[13]);
-                alert.showAndWait();
+                ErrorUtils.showErrorAlert("Image not found: " + movieDetails[13]);
             }
         }
         poster.setOnMouseClicked(event -> {
@@ -203,7 +200,7 @@ public class IndexViewController implements Initializable {
                 if (LoginViewController.isAdminLoggedIn()) {
                     openSideWindow(movieDetails);
                 } else {
-                    listener.seeMoreButtonAction(movieDetails);
+                    listener.seeMoreAction(movieDetails);
                 }
             }
         });
@@ -221,7 +218,7 @@ public class IndexViewController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/sideWindow.fxml"));
             Parent root = loader.load();
 
-            SideWindowController controller = loader.getController();
+            SideWindowViewController controller = loader.getController();
             if (controller == null) {
                 throw new RuntimeException("Controller not found. Check FXML controller assignment.");
             }
@@ -233,12 +230,8 @@ public class IndexViewController implements Initializable {
             stage.setTitle("Admin Side Window");
             stage.show();
         } catch (Exception e) {  // Catch more broadly to diagnose issues
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("An error occurred");
-            alert.setContentText("Error opening side window: " + e.getMessage());
+            ErrorUtils.showErrorAlert("Error opening side window: " + e.getMessage());
             e.printStackTrace();  // Consider logging the stack trace for more detailed diagnostics
-            alert.showAndWait();
         }
     }
 
@@ -313,7 +306,7 @@ public class IndexViewController implements Initializable {
      * then retrieves and displays all available movies.
      */
     @FXML
-    private void onRefresh() {
+    public void onRefresh() {
         searchField.clear();
         // Variables pour suivre l'état initial des ComboBox
         String initialGenre = "All";
@@ -372,8 +365,12 @@ public class IndexViewController implements Initializable {
      */
     private void updateVBox(String[] movieDetails) {
         flowPane.getChildren().clear();
-        VBox vbox = createMovieVBox(movieDetails);
-        flowPane.getChildren().add(vbox);
+
+        List<String[]> allMovies = MovieDBController.getAllMovies();
+        for(String[] details : allMovies){
+            VBox vbox = createMovieVBox(details);
+            flowPane.getChildren().add(vbox);
+        }
         scrollPane.setContent(flowPane);
     }
 
@@ -422,6 +419,7 @@ public class IndexViewController implements Initializable {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
+            ErrorUtils.showErrorAlert("An error occurred while loading the cart view : " + e.getMessage());
         }
     }
 
@@ -430,7 +428,7 @@ public class IndexViewController implements Initializable {
      */
     public interface Listener {
         void loginButtonAction();
-        void seeMoreButtonAction(String[] movieDetails);
+        void seeMoreAction(String[] movieDetails);
         //void seeMoreButtonAction(String movieTitle);
     }
 }

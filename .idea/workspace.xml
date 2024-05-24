@@ -9,17 +9,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="les places réservées (mises dans le panier utilisateur) sont mises en rouges">
+    <list default="true" id="c8fec727-e7b6-43a5-b1ae-1e88c5830a14" name="Changes" comment="Ajout de plus de polymorphisme + refactoring">
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/ErrorUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/SideWindowViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-05-24_20_39_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-05-24_20_39__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DB/DB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/DB/DB.db-journal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/BuyTicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/BuyTicketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/models/TicketsVIP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/LoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/MovieAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/MovieAPIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/NewAccountApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/NewAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/SessionDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/SessionDBController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/SideWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/SideWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/UserDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/controllers/UserDBController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/BuyTicketViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/BuyTicketViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/buyTicket.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/buyTicket.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/CartViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/CartViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/DescriptionViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/DescriptionViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/IndexViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/IndexViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/LoginViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/NewAccountViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/client/views/NewAccountViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/ClientHandlerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helha/java24groupe08/server/ClientHandlerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/sideWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/helha/java24groupe08/views/sideWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/controllers/IndexApplicationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/controllers/MovieAPIControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/models/MovieTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/helha/java24groupe08/views/NewAccountViewControllerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +50,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -117,7 +136,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -516,7 +535,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715867910326</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Ajout de plus de polymorphisme + refactoring">
+      <option name="closed" value="true" />
+      <created>1716387066902</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716387066902</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +598,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fin du sprint 1, mise en place d'une page de description et reformatage du visuel de la page principale" />
     <MESSAGE value="page login + ajout bouton connexion + rôle bouton connexion et annuler + hardcodage username et password" />
     <MESSAGE value="Ajout pour page login" />
     <MESSAGE value="Visuel page description + /!\ problème avec bouton retour page description" />
@@ -599,7 +625,8 @@
     <MESSAGE value="workspace" />
     <MESSAGE value="modification du visuel de la page de modification de film + ajout de scéance en mode admin" />
     <MESSAGE value="Javadoc, filtrage film, triage film, fxml, updatevbox,Exception....." />
-    <option name="LAST_COMMIT_MESSAGE" value="Javadoc, filtrage film, triage film, fxml, updatevbox,Exception....." />
+    <MESSAGE value="Ajout de plus de polymorphisme + refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de plus de polymorphisme + refactoring" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

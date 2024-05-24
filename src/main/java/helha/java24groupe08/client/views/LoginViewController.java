@@ -1,17 +1,18 @@
 package helha.java24groupe08.client.views;
 
+import helha.java24groupe08.client.controllers.NewAccountController;
 import helha.java24groupe08.client.models.exceptions.DatabaseException;
 import helha.java24groupe08.client.models.User;
 import helha.java24groupe08.client.controllers.UserDBController;
 
 import helha.java24groupe08.server.Client;
-import helha.java24groupe08.server.ClientHandlerThread;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -125,7 +126,9 @@ public class LoginViewController {
     @FXML
     private void handleNewAccount(ActionEvent event) throws IOException {
         ((Button) event.getSource()).getScene().getWindow().hide();
-        NewAccountViewController.showNewAccountWindow();
+        NewAccountController newAccountController = new NewAccountController();
+        Stage stage = new Stage();
+        newAccountController.start(stage);
     }
 
 

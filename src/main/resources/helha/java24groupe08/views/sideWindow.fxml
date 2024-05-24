@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="300.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.controllers.SideWindowController">
+<VBox prefHeight="300.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.views.SideWindowViewController">
     <TabPane prefHeight="390.0" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
         <Tab text="Manage Movie">
             <GridPane fx:id="modifyMoviePane" prefHeight="436.0" prefWidth="641.0" VBox.vgrow="ALWAYS">

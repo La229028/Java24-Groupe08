@@ -2,13 +2,20 @@ package helha.java24groupe08.client.controllers;
 
 import helha.java24groupe08.client.models.*;
 import helha.java24groupe08.client.views.BuyTicketViewController;
+import javafx.collections.FXCollections;
+import javafx.scene.control.TableView;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * This class is the controller for the BuyTicketView.
+ * It handles the logic for buying tickets.
+ */
 public class BuyTicketController {
 
-    private final BuyTicketViewController viewController;
+    private static BuyTicketViewController viewController;
     private final TicketGroup group;
 
     /**
@@ -16,9 +23,10 @@ public class BuyTicketController {
      * @param viewController the view controller to interact with
      */
     public BuyTicketController(BuyTicketViewController viewController) {
-        this.viewController = viewController;
+        BuyTicketController.viewController = viewController;
         this.group = new TicketGroup();
     }
+
 
     /**
      * Updates the total price based on the given ticket and quantity.
@@ -35,9 +43,8 @@ public class BuyTicketController {
             viewController.updateTotal(totalText);
             updateRecap();
         } catch (Exception e) {
-            viewController.displayError(e.getMessage());
+            ErrorUtils.showErrorAlert(e.getMessage());
         }
-
     }
 
     /**
@@ -49,9 +56,21 @@ public class BuyTicketController {
                     .collect(Collectors.groupingBy(TicketComponent::getType, Collectors.counting()));
             viewController.updateRecap(ticketCounts);
         } catch (Exception e) {
-            viewController.displayError(e.getMessage());
+            ErrorUtils.showErrorAlert(e.getMessage());
         }
     }
 
+    public static void loadSessions(int movieId) {
+        try {
+            List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
+            viewController.updateSessionTable(sessions);
+            if (!sessions.isEmpty()) {
+                Session selectedSession = sessions.get(0);
+                viewController.updateSeatGrid(selectedSession);
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading sessions: " + e.getMessage());
+        }
+    }
 
 }

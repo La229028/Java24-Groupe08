@@ -9,7 +9,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginApplication extends Application {
+/**
+ * This class is the entry point of the application.
+ * It loads the login.fxml file and displays the login window.
+ */
+public class LoginController extends Application {
 
     /**
      * This method is called when the application is launched.
@@ -28,7 +32,7 @@ public class LoginApplication extends Application {
             primaryStage.setTitle("Login");
             primaryStage.show();
         } catch(IOException e) {
-            this.showErrorAlert("An error occurred while loading the login view : " + e.getMessage());
+            ErrorUtils.showErrorAlert("An error occurred while loading the login view : " + e.getMessage());
         }
     }
 
@@ -41,11 +45,4 @@ public class LoginApplication extends Application {
         launch(args);
     }
 
-    private void showErrorAlert(String contentText) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("An error occurred");
-        alert.setContentText(contentText);
-        alert.showAndWait();
-    }
 }

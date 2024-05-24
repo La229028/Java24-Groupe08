@@ -51,20 +51,20 @@ public class UserDBController {
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
                 pstmt.setString(1, username);
-                ResultSet rs = pstmt.executeQuery();
+                //ResultSet rs = pstmt.executeQuery();
 
-                if (rs.next()) {
-                    return new User(
-                            rs.getString("name"),
-                            rs.getString("firstname"),
-                            rs.getInt("numberPhone"),
-                            rs.getString("email"),
-                            rs.getInt("age"),
-                            rs.getString("status"),
-                            rs.getString("username"),
-                            rs.getString("password")
-                    );
-                }
+//                if (rs.next()) {
+//                    return new User(
+//                            rs.getString("name"),
+//                            rs.getString("firstname"),
+//                            rs.getInt("numberPhone"),
+//                            rs.getString("email"),
+//                            rs.getInt("age"),
+//                            rs.getString("status"),
+//                            rs.getString("username"),
+//                            rs.getString("password")
+//                    );
+//                }
             } catch (SQLException e) {
                 throw new DatabaseException("Error getting user from database: " + e.getMessage(), e);
             }

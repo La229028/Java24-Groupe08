@@ -1,5 +1,6 @@
 package helha.java24groupe08.client.views;
 
+import helha.java24groupe08.client.controllers.NewAccountController;
 import helha.java24groupe08.client.models.exceptions.DatabaseException;
 import helha.java24groupe08.client.controllers.UserDBController;
 import helha.java24groupe08.client.models.User;
@@ -45,39 +46,17 @@ public class NewAccountViewController {
     private PasswordField passwordField;
 
 
-    /**
-     * Displays the "New Account" window.
-     * @throws IOException If an input or output exception occurred
-     */
-    public static void showNewAccountWindow() {
-        try{
-            FXMLLoader loader = new FXMLLoader(NewAccountViewController.class.getResource("/helha/java24groupe08/views/newAccount.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-            Stage primaryStage = new Stage();
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("New Account");
-
-            primaryStage.setResizable(false);
-            primaryStage.show();
-        } catch (IOException e) {
-            showAlert("Error opening new account window: " + e.getMessage());
-        }
-    }
-
 
     /**
      * Handles the "Confirm" button click event.
      * Validates the user input, creates a new User object, adds it to the database, and closes the "New Account" window.
      * @param event The ActionEvent object representing the button click event
      */
-    public void handleConfirm(javafx.event.ActionEvent event) throws DatabaseException {
+    public void handleConfirm(javafx.event.ActionEvent event) {
         if(!validateInput()){
             return;
         }
 
-        try{
             String name = nameTextField.getText();
             String firstname = firstnameTextField.getText();
             int numberPhone = Integer.parseInt(numberPhoneTextField.getText());
@@ -87,49 +66,61 @@ public class NewAccountViewController {
             String username = usernameTextField.getText();
             String password = passwordField.getText();
 
-            User newUser = new User(name, firstname, numberPhone, email, age, status, username, password);
-
-            UserDBController.addUser(newUser);
+            NewAccountController.createUserAccount(name, firstname, numberPhone, email, age, status, username, password);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
-        } catch (DatabaseException e) {
-            showAlert("Error adding user to database: " + e.getMessage());
-        }
     }
 
     /**
-     * Validates the user input in the "New Account" window.
-     * Checks if all fields are filled and if the age is a number.
-     * @return true if the input is valid, false otherwise
+     * Displays the "New Account" window.
      */
     private boolean validateInput(){
-        boolean isValid = true;
+        return isAllFieldsFilled() && isAgeValid() && isPhoneNumberValid();
+    }
 
+    /**
+     * Check the fields input
+     * @return true if all fields are filled, false otherwise
+     */
+    private boolean isAllFieldsFilled(){
         if(nameTextField.getText().isEmpty() || firstnameTextField.getText().isEmpty() || numberPhoneTextField.getText().isEmpty() || emailTextField.getText().isEmpty() || ageTextField.getText().isEmpty() || statusChoiceBox.getValue() == null || usernameTextField.getText().isEmpty() || passwordField.getText().isEmpty()){
             showAlert("Please fill in all fields !");
-            isValid = false;
+            return false;
         }
+        return true;
+    }
 
+    /**
+     * Check if the age is valid
+     * @return true if the age is a number, false otherwise
+     */
+    private boolean isAgeValid(){
         try{
             Integer.parseInt(ageTextField.getText());
         }catch(NumberFormatException e){
             showAlert("Age must be a number !");
-            isValid = false;
+            return false;
         }
+        return true;
+    }
 
+    /**
+     * Check if the phone number is valid
+     * @return true if the phone number is a number and has at least 5 digits, false otherwise
+     */
+    private boolean isPhoneNumberValid() {
         try{
             int phoneNumber = Integer.parseInt(numberPhoneTextField.getText());
             if(String.valueOf(phoneNumber).length() < 5){
                 showAlert("Phone number must be at least 5 digits !");
-                isValid = false;
+                return false;
             }
         }catch(NumberFormatException e){
             showAlert("Phone number must be a number !");
-            isValid = false;
+            return false;
         }
-
-        return isValid;
+        return true;
     }
 
     /**

@@ -1,5 +1,7 @@
 package helha.java24groupe08.client.views;
 
+import helha.java24groupe08.client.controllers.BuyTicketController;
+import helha.java24groupe08.client.controllers.ErrorUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,10 +69,7 @@ public class DescriptionViewController implements Initializable {
                 movieImage.setImage(image);
             } catch (Exception e) {
                 e.printStackTrace();
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error with image recovery");
-                alert.setHeaderText(null);
-                alert.showAndWait();
+                ErrorUtils.showErrorAlert("An error occurred while loading the movie image : " + e.getMessage());
             }
         }
     }
@@ -85,7 +84,7 @@ public class DescriptionViewController implements Initializable {
      * @param event The action event triggered by the back button click.
      */
     public void handleBackButton(ActionEvent event) {
-        /*fermeture de la fenêtre actuelle*/
+        /*close current window*/
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
@@ -97,19 +96,22 @@ public class DescriptionViewController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/helha/java24groupe08/views/buyTicket.fxml"));
             Parent root = loader.load();
 
-            BuyTicketViewController controller = loader.getController();
-            controller.setMovieDetails(movieDetails);
+            BuyTicketViewController viewController = loader.getController();
+            BuyTicketController buyTicketController = new BuyTicketController(viewController);//ajout
+            viewController.setController(buyTicketController);//ajout
+
+            viewController.setMovieDetails(movieDetails);
 
             // Load sessions for the movie
             int movieId = Integer.parseInt(movieDetails[14]); // Assuming movie ID is at index 14
-            controller.loadSessions(movieId);
+            BuyTicketController.loadSessions(movieId);
 
             //open the buyTicket page in the description page
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
         } catch (IOException e) {
-            e.printStackTrace();
+            ErrorUtils.showErrorAlert("An error occurred while loading the buy ticket view : " + e.getMessage());
         }
     }
 

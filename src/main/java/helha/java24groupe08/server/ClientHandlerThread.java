@@ -40,6 +40,8 @@ public class ClientHandlerThread extends Thread {
         String username = (String) ois.readObject();
         System.out.println("Bonjour " + username + "!");
 
+
+
         String message = (String) ois.readObject();
         if ("DISCONNECT".equals(message)) {
             Server.getInstance().disconnect(this);

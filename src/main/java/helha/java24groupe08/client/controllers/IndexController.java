@@ -19,10 +19,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * The IndexController class represents the main application for the cinema index.
+ * It handles the initialization of the main stage and the actions related to user interactions.
+ */
 public class IndexController extends Application implements IndexViewController.Listener {
     private Stage indexStage;
     private final MovieDBController movieDBController = new MovieDBController();
-
 
     /**
      * The main method of the application.
@@ -54,10 +57,10 @@ public class IndexController extends Application implements IndexViewController.
             stage.setScene(scene);
             stage.show();
         } catch (javafx.fxml.LoadException e){
-            showErrorAlert("Error while loading the main view: " + e.getMessage());
+            ErrorUtils.showErrorAlert("Error while loading the main view: " + e.getMessage());
             stage.close();
         } catch (IOException e) {
-            showErrorAlert("Other IO error occurred: " + e.getMessage());
+            ErrorUtils.showErrorAlert("Other IO error occurred: " + e.getMessage());
             stage.close();
         }
     }
@@ -74,17 +77,16 @@ public class IndexController extends Application implements IndexViewController.
             loginStage.setScene(new Scene(root));
             loginStage.show();
         } catch (IOException e) {
-            e.printStackTrace();
-            showErrorAlert("Error while loading the login view: " + e.getMessage());
+            ErrorUtils.showErrorAlert("Error while loading the login view: " + e.getMessage());
         }
     }
 
+
     /**
-     * Action performed when the "See More" button is clicked for multiple movies.
-     *
-     * @param movieTitle Array of movie titles for which more information is requested.
+     * Action performed when you click on the poster to "see more" about a movie.
+     * @param movieTitle arrays of movie title
      */
-    public void seeMoreButtonAction(String[] movieTitle) {
+    public void seeMoreAction(String[] movieTitle) {
         String[] movieDetails = null;
         Stage stage = null;
         DescriptionViewController controller = null;
@@ -100,30 +102,16 @@ public class IndexController extends Application implements IndexViewController.
             controller = (DescriptionViewController)loader.getController();
             movieDetails = this.movieDBController.getMovie(movieTitle[0]);
         } catch (IOException e) {
-            this.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
+            ErrorUtils.showErrorAlert("Error while trying to open the description page : " + e.getMessage());
         } catch (MovieNotFoundException e) {
-            showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
+            ErrorUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
         }
 
         if (movieDetails == null) {
-            this.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
+            ErrorUtils.showErrorAlert("The movie \"" + movieTitle[0] + "\" was not found in the database.");
             return;
         }
         controller.setMovieDetails(movieDetails);
         stage.showAndWait();
-    }
-
-
-    /**
-     * Displays an error alert dialog with the specified content text.
-     *
-     * @param contentText The content text of the error alert.
-     */
-    private void showErrorAlert(String contentText) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("An error occurred");
-        alert.setContentText(contentText);
-        alert.showAndWait();
     }
 }

@@ -24,11 +24,10 @@ public class Client {
         try {
             setupConnection();
             sendUsername();
-            receiveResponse();
         } catch (ConnectException e){
             System.out.println("Error while connecting to server: Server is not available. Please try again later.");
             System.exit(1);
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
@@ -53,16 +52,5 @@ public class Client {
     private void sendUsername() throws IOException {
         oos.writeObject(username);
         oos.flush();
-    }
-
-    // Receives and prints the response from the server
-    private void receiveResponse() throws IOException, ClassNotFoundException {
-        try {
-            Object response = ois.readObject();
-            System.out.println("Response from server: " + response);
-        } catch (SocketException e) {
-            System.out.println("Connection lost.");
-            System.exit(1);
-        }
     }
 }

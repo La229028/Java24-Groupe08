@@ -8,15 +8,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.sql.Date;
 
 /**
  * Handles database operations for movie sessions.
  */
 public class SessionDBController {
     private static final String CONNECTION_STRING = "jdbc:sqlite:src/main/DB/DB.db";
-
 
 
     /**

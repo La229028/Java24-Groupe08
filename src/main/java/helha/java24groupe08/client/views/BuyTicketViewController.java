@@ -1,13 +1,13 @@
 package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.BuyTicketController;
+import helha.java24groupe08.client.controllers.ErrorUtils;
 import helha.java24groupe08.client.models.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -16,22 +16,6 @@ import java.sql.Time;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-import javafx.application.Platform;
-import java.util.concurrent.Executors;
-import java.util.concurrent.*;
-import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-
-import java.sql.Date;
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -90,7 +74,12 @@ public class BuyTicketViewController {
 
     @FXML
     public void initialize() {
-        controller = new BuyTicketController(this);
+
+    }
+
+    //ajout
+    public void setController(BuyTicketController controller) {
+        this.controller = controller;
 
         quantitySpinnerRegular.valueProperty().addListener((obs, oldSelection, newSelection) -> {
             controller.updateTotal(new TicketsRegular("movie"), newSelection);
@@ -131,15 +120,6 @@ public class BuyTicketViewController {
         });
     }
 
-    private void clearSeat() {
-        seatsGrid.getChildren().clear();
-        for (int row = 0; row < 10; row++) {
-            for (int col = 0; col < 10; col++) {
-                seatsGrid.add(createButton(row, col), col, row);
-            }
-        }
-        selectedSeats.clear();
-    }
 
     @FXML
     private void handleAddToCart() {
@@ -151,7 +131,7 @@ public class BuyTicketViewController {
             }
 
             if(quantitySpinnerChild.getValue() > 0 && GetTicketsSelected() == 1){
-                displayError("You must select at least one adult ticket for each child ticket.");
+                ErrorUtils.showErrorAlert("You must select at least one adult ticket for each child ticket.");
                 return;
             }
 
@@ -167,7 +147,7 @@ public class BuyTicketViewController {
 
             for (String seatNumber : selectedSeatNumbers) {
                 if (Buffer.getInstance().isSeatInCart(dateString, timeString, room, seatNumber)) {
-                    displayError("Seat " + seatNumber + " is already in the cart.");
+                    ErrorUtils.showErrorAlert("Seat " + seatNumber + " is already in the cart.");
                     return;
                 }
             }
@@ -179,7 +159,7 @@ public class BuyTicketViewController {
 
             markSeatsAsReserved(selectedSeatNumbers);
         } catch (Exception e) {
-            displayError("An error occurred : "+ e.getMessage());
+            ErrorUtils.showErrorAlert("An error occurred : "+ e.getMessage());
         }
     }
 
@@ -196,6 +176,16 @@ public class BuyTicketViewController {
         }
     }
 
+    private void clearSeat() {
+        seatsGrid.getChildren().clear();
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++) {
+                seatsGrid.add(createButton(row, col), col, row);
+            }
+        }
+        selectedSeats.clear();
+    }
+
     private Button createButton(int row, int col) {
         Button seatButton = new Button();
         seatButton.setPrefWidth(30);
@@ -210,9 +200,9 @@ public class BuyTicketViewController {
                 seatButton.setStyle("-fx-background-color: white;");
                 selectedSeats.remove(seatButton.getText());
             } else if (totalSeatsSelected >= TicketsSelected) {
-                displayError("Vous ne pouvez pas sélectionner plus de sièges que de tickets.");
+                ErrorUtils.showErrorAlert("You cannot select more seats than tickets.");
             } else if ("-fx-background-color: red;".equals(seatButton.getStyle()) || "-fx-background-color: yellow;".equals(seatButton.getStyle())) {
-                displayError("Ce siège est déjà réservé ou pris.");
+                ErrorUtils.showErrorAlert("This seat is already reserved or taken.");
             } else {
                 seatButton.setStyle("-fx-background-color: blue;");
                 selectedSeats.add(seatButton.getText());
@@ -221,28 +211,21 @@ public class BuyTicketViewController {
         return seatButton;
     }
 
-    public void loadSessions(int movieId) {
-        try {
-            List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
-            sessionTableView.setItems(FXCollections.observableArrayList(sessions));
-            if (!sessions.isEmpty()) {
-                selectedSession = sessions.get(0);
-                updateSeatGrid(selectedSession);
-            }
-        } catch (Exception e) {
-            System.err.println("Error loading sessions: " + e.getMessage());
-        }
-    }
+
 
     public void setMovieDetails(String[] movieDetails) {
         if (movieDetails != null && movieDetails.length > 14) {
             movieTitleLabel.setText(movieDetails[0]);
             moviePlotTextArea.setText(movieDetails[9]);
-            loadSessions(Integer.parseInt(movieDetails[14]));
+            BuyTicketController.loadSessions(Integer.parseInt(movieDetails[14]));
         }
     }
 
-    private void updateSeatGrid(Session session) {
+    public void updateSessionTable(List<Session> sessions) {
+        sessionTableView.setItems(FXCollections.observableArrayList(sessions));
+    }
+
+    public void updateSeatGrid(Session session) {
         clearSeat();
         List<TicketInfo> tickets = Buffer.getInstance().getTicketsForSession(session);
         for (TicketInfo ticket : tickets) {
@@ -276,15 +259,4 @@ public class BuyTicketViewController {
         });
     }
 
-    public void displayError(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.initModality(Modality.APPLICATION_MODAL);
-        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.setAlwaysOnTop(true);
-        alert.setTitle("Error Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-
-        alert.showAndWait();
-    }
 }

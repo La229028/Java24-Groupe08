@@ -5,19 +5,21 @@ import helha.java24groupe08.client.models.SessionDatabaseHandler;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This class is responsible for managing the connection to the SQLite database.
+ */
 public class DatabaseConnection {
     private static DatabaseConnection instance;
     private final Connection connection;
     private static final String CONNECTION_STRING = "jdbc:sqlite:src/main/DB/DB.db";
 
-    private SessionDatabaseHandler sessionDatabaseHandler = new SessionDatabaseHandler();
+    private final SessionDatabaseHandler sessionDatabaseHandler = new SessionDatabaseHandler();
 
+    /**
+     * Constructs a new DatabaseConnection object.
+     */
     private DatabaseConnection() {
         try {
             this.connection = DriverManager.getConnection(CONNECTION_STRING);
@@ -28,6 +30,10 @@ public class DatabaseConnection {
         }
     }
 
+    /**
+     * Returns the singleton instance of the DatabaseConnection.
+     * @return the singleton instance of the DatabaseConnection
+     */
     public static DatabaseConnection getInstance() {
         if (instance == null) {
             synchronized (DatabaseConnection.class) {
@@ -45,18 +51,21 @@ public class DatabaseConnection {
 
 
 
+    /**
+     * Initializes the database by creating the necessary tables if they don't already exist.
+     */
     private void initializeDatabase() {
         try (Statement statement = connection.createStatement()) {
-            // Création de la table Seats si elle n'existe pas déjà
+            // Create Seats table if it doesn't already exist
             statement.execute("CREATE TABLE IF NOT EXISTS Seats (" +
                     "SeatID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "Row CHAR(1), " +
                     "Status VARCHAR(10) CHECK (Status IN ('free', 'reserved', 'purchased')),"   +
                     "Number INTEGER)");
             System.out.println("Table Seats present or created.");
-            // Implémentation de la table seats
+            // Table seats implementation
             sessionDatabaseHandler.generateSeatsForSession(1);
-            // Création de la table SessionSeats
+            // Creating the SessionSeats table
             statement.execute("CREATE TABLE IF NOT EXISTS SessionSeats (" +
                     "SessionID INT, " +
                     "SeatID INT, " +
@@ -64,7 +73,7 @@ public class DatabaseConnection {
                     "PRIMARY KEY (SessionID, SeatID), " +
                     "FOREIGN KEY (SeatID) REFERENCES Seats(SeatID))");
             System.out.println("Table SessionSeats present or created.");
-            // Création de la table Reservations
+            // Creating the Reservations table
             statement.execute("CREATE TABLE IF NOT EXISTS Reservations (" +
                     "ReservationID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "UserID INT, " +
@@ -79,6 +88,5 @@ public class DatabaseConnection {
             System.out.println("Error creating database tables: " + e.getMessage());
         }
     }
-
 
 }

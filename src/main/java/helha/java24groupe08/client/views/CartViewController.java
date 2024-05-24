@@ -1,4 +1,5 @@
 package helha.java24groupe08.client.views;// CartViewController.java
+import helha.java24groupe08.client.controllers.ErrorUtils;
 import helha.java24groupe08.client.models.Buffer;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
