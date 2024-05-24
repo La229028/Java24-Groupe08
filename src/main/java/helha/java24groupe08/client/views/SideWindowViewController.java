@@ -4,6 +4,7 @@ import helha.java24groupe08.client.controllers.ErrorUtils;
 import helha.java24groupe08.client.controllers.SideWindowController;
 import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.Session;
+import helha.java24groupe08.client.models.SessionDBController;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -118,7 +119,7 @@ public class SideWindowViewController {
 
     public void initSessionTable() {
         try {
-            List<Session> sessions = MovieDBController.getSessionsByMovieId(Integer.parseInt(movieDetails[14]));
+            List<Session> sessions = SessionDBController.getSessionsByMovieId(Integer.parseInt(movieDetails[14]));
             sessionTable.setItems(FXCollections.observableArrayList(sessions));
         } catch (Exception e) {
             ErrorUtils.showErrorAlert("Invalid MovieID format: " + e.getMessage());

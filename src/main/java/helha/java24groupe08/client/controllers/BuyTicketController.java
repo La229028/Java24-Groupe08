@@ -1,6 +1,7 @@
 package helha.java24groupe08.client.controllers;
 
 import helha.java24groupe08.client.models.*;
+import helha.java24groupe08.client.models.SessionDBController;
 import helha.java24groupe08.client.views.BuyTicketViewController;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableView;
@@ -62,7 +63,7 @@ public class BuyTicketController {
 
     public static void loadSessions(int movieId) {
         try {
-            List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
+            List<Session> sessions = SessionDBController.getSessionsByMovieId(movieId);
             viewController.updateSessionTable(sessions);
             if (!sessions.isEmpty()) {
                 Session selectedSession = sessions.get(0);

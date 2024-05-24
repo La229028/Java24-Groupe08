@@ -2,6 +2,7 @@ package helha.java24groupe08.client.controllers;
 
 import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.Session;
+import helha.java24groupe08.client.models.SessionDBController;
 import helha.java24groupe08.client.views.IndexViewController;
 import helha.java24groupe08.client.views.SideWindowViewController;
 import javafx.event.ActionEvent;
@@ -71,7 +72,7 @@ public class SideWindowController implements SideWindowViewController.Listener{
         try {
             // Create a new session without the sessionId (use the overloaded constructor)
             Session session = new Session(roomNumber.intValue(), startTime, date, Integer.parseInt(movieDetails[14]));
-            MovieDBController.insertSession(session);
+            SessionDBController.insertSession(session);
             viewController.initSessionTable();
         } catch (Exception e) {
             ErrorUtils.showErrorAlert("Error adding session: " + e.getMessage());
@@ -82,7 +83,7 @@ public class SideWindowController implements SideWindowViewController.Listener{
     @Override
     public void deleteSessionAction(ActionEvent event, Session selectedSession) {
         if (selectedSession != null) {
-            MovieDBController.deleteSession(selectedSession.getSessionId());
+            SessionDBController.deleteSession(selectedSession.getSessionId());
             viewController.initSessionTable();
         } else {
             ErrorUtils.showErrorAlert("No session selected for deletion.");

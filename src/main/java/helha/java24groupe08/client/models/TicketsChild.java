@@ -1,28 +1,23 @@
 package helha.java24groupe08.client.models;
 
+/**
+ * This class represents a child ticket.
+ * It extends the Tickets class.
+ */
 public class TicketsChild extends Tickets{
-    private int ageRequirement;
-    private double price = 5.0;
+    private final double price = 5.0;
 
-    public TicketsChild(String movie, int personAge) {
-        super("Child", movie);
-        ageRequirement = personAge;
-        if(ageRequirement >= 12){
-            throw new IllegalArgumentException("Child tickets are only for people aged 11 or younger.");
-        }else{
-            setPrice(price);
-        }
+    public TicketsChild() {
+        super("Child");
+        setPrice(price);
     }
 
     @Override
     public void getDetails() {
         System.out.println("Type: " + getType());
-        System.out.println("Movie: " + getMovie());
         System.out.println("Price: " + price);
     }
 
-    // GETTERS
-
-    public int getAgeRequirement() { return ageRequirement; }
+    // GETTER
     public double getPrice() { return price; }
 }

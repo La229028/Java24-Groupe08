@@ -39,6 +39,7 @@ public class SessionDatabaseHandler {
                 }
             }
         } catch (SQLException e) {
+            System.out.println("Error generating seats for session: " + e.getMessage());
             e.printStackTrace();
         } finally {
             try {
@@ -52,6 +53,7 @@ public class SessionDatabaseHandler {
                     conn.close();
                 }
             } catch (SQLException e) {
+                System.out.println("Error closing resources: " + e.getMessage());
                 e.printStackTrace();
             }
         }

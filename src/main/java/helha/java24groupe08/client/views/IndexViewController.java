@@ -1,9 +1,10 @@
 package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.ErrorUtils;
-import helha.java24groupe08.client.controllers.SideWindowController;
 import helha.java24groupe08.client.models.MovieDBController;
 import helha.java24groupe08.client.models.Session;
+import helha.java24groupe08.client.models.SessionDBController;
+import helha.java24groupe08.client.models.UserSession;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-import javafx.scene.Node;
 
 public class IndexViewController implements Initializable {
     @FXML
@@ -55,8 +55,17 @@ public class IndexViewController implements Initializable {
     public boolean isSearchPerformed = false;
     private static Listener listener;
 
+    private static IndexViewController instance;
+
     public void setListener(Listener listener) {
         IndexViewController.listener = listener;
+    }
+
+    public IndexViewController() {
+        instance = this;
+    }
+    public static IndexViewController getInstance() {
+        return instance;
     }
 
     /**
@@ -68,35 +77,35 @@ public class IndexViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        updateCartButtonVisibility();
+
         titleLabel.setText("CINEMA");
-        //je vien dajouter /gui
+
         genreComboBox.setItems(FXCollections.observableArrayList("All", "Action", "Comedy", "Drama"));
         languageComboBox.setItems(FXCollections.observableArrayList("All", "English", "French", "Spanish"));
         sortComboBox.setItems(FXCollections.observableArrayList("Title", "Release Date"));
 
-        // S'assuré que le ScrollPane s'adapte correctement
+
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
-        // Configure les propriétés d'extension du FlowPane
-        flowPane.setPrefWrapLength(800);  // Largeur préférée pour les éléments en wrapping
-        flowPane.setVgap(20);// Espace vertical entre les enfants
-        flowPane.setHgap(20);// Espace horizontal entre les enfants
 
-        // Assurez-vous que les enfants s'adaptent bien en hauteur et largeur
-        flowPane.setAlignment(Pos.CENTER);// Centrer le contenu
+        flowPane.setPrefWrapLength(800);
+        flowPane.setVgap(20);
+        flowPane.setHgap(20);
+
+
+        flowPane.setAlignment(Pos.CENTER);
         flowPane.setStyle("-fx-background-color: white;");
 
-        // Récupère tous les films et crée les boîtes correspondantes
 
         List<String[]> movies = MovieDBController.getAllMovies();
         createVBoxes(movies);
         scrollPane.setContent(flowPane);
-        // Associe des actions aux boutons
 
         loginButton.setOnAction(event -> loginButtonAction());
         searchButton.setOnAction(event -> onSearch());
         refreshButton.setOnAction(event -> onRefresh());
-        //je vien dajouter /gui
+
         genreComboBox.setOnAction(event -> filterAndSortMovies());
         languageComboBox.setOnAction(event -> filterAndSortMovies());
         sortComboBox.setOnAction(event -> filterAndSortMovies());
@@ -223,7 +232,7 @@ public class IndexViewController implements Initializable {
                 throw new RuntimeException("Controller not found. Check FXML controller assignment.");
             }
 
-            controller.initData(movieDetails, this::deleteMovie, this::updateVBox);
+            controller.initData(movieDetails, this::deleteMovie, this::modifiedVBox);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -308,7 +317,7 @@ public class IndexViewController implements Initializable {
     @FXML
     public void onRefresh() {
         searchField.clear();
-        // Variables pour suivre l'état initial des ComboBox
+        // Variables for monitoring the initial state of ComboBoxes
         String initialGenre = "All";
         genreComboBox.setValue(initialGenre);
         String initialLanguage = "All";
@@ -321,8 +330,6 @@ public class IndexViewController implements Initializable {
 
         isSearchPerformed = false;
     }
-
-    //je vien dajouter
 
     /**
      * Filters and sorts the movies based on the selected genre, language, and sort criteria.
@@ -363,7 +370,7 @@ public class IndexViewController implements Initializable {
      *
      * @param movieDetails The details of the movie to be displayed in the updated VBox.
      */
-    private void updateVBox(String[] movieDetails) {
+    private void modifiedVBox(String[] movieDetails) {
         flowPane.getChildren().clear();
 
         List<String[]> allMovies = MovieDBController.getAllMovies();
@@ -397,14 +404,10 @@ public class IndexViewController implements Initializable {
 
     public void initSessionTable(int movieId) {
         try {
-            List<Session> sessions = MovieDBController.getSessionsByMovieId(movieId);
+            List<Session> sessions = SessionDBController.getSessionsByMovieId(movieId);
             sessionTable.setItems(FXCollections.observableArrayList(sessions));
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("An error occurred");
-            alert.setContentText("Invalid initSession table: " + e.getMessage());
-            alert.showAndWait();
+            ErrorUtils.showErrorAlert("Invalid MovieID format: " + e.getMessage());
         }
     }
 
@@ -420,6 +423,14 @@ public class IndexViewController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
             ErrorUtils.showErrorAlert("An error occurred while loading the cart view : " + e.getMessage());
+        }
+    }
+
+    public void updateCartButtonVisibility() {
+        if(UserSession.getInstance().getUser() == null) {
+            cartButton.setVisible(false);
+        } else {
+            cartButton.setVisible(true);
         }
     }
 

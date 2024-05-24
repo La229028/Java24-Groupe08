@@ -69,38 +69,4 @@ public class User {
     public String getPassword() {
         return password;
     }
-
-    //SETTERS
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public void setNumberPhone(int numberPhone) {
-        this.numberPhone = numberPhone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

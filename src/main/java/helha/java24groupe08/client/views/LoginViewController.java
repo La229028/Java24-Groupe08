@@ -1,6 +1,8 @@
 package helha.java24groupe08.client.views;
 
+import helha.java24groupe08.client.controllers.ErrorUtils;
 import helha.java24groupe08.client.controllers.NewAccountController;
+import helha.java24groupe08.client.models.UserSession;
 import helha.java24groupe08.client.models.exceptions.DatabaseException;
 import helha.java24groupe08.client.models.User;
 import helha.java24groupe08.client.controllers.UserDBController;
@@ -54,20 +56,12 @@ public class LoginViewController {
      */
     private void handleLoginAdmin(String username, String password) {
         if (username.equals("admin") && password.equals("admin")) {
-            isAdminLoggedIn = true; // Accorder les droits administrateurs
-            showAlert("Successful connection", "You are logged in as administrator.", Alert.AlertType.INFORMATION);
+            isAdminLoggedIn = true; // Granting administrator rights
+            ErrorUtils.showInfoAlert("Successful connection. Welcome admin!");
             onLoginSuccess();
         } else {
-            showAlert("Connection error", "Incorrect username or password.", Alert.AlertType.ERROR);
+            ErrorUtils.showErrorAlert("Connection error. Please check your username and password admin.");
         }
-    }
-
-    private void showAlert(String title, String message, Alert.AlertType type) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
     /**
@@ -81,19 +75,17 @@ public class LoginViewController {
         User user = userDBController.getUserByUsername(username);
 
         if (user != null && user.getPassword().equals(password)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Successful connection");
-            alert.setHeaderText(null);
-            alert.setContentText("Welcome " + user.getFirstname() + " !");
-            alert.showAndWait();
+            ErrorUtils.showInfoAlert("Successful connection. Welcome " + username + "!");
             isAdminLoggedIn = false;
             onLoginSuccess();
+            UserSession.getInstance().setUser(user);
+
+            IndexViewController indexViewController = IndexViewController.getInstance();
+            if(indexViewController != null) {
+                indexViewController.updateCartButtonVisibility();
+            }
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Connection error");
-            alert.setHeaderText(null);
-            alert.setContentText("Incorrect username or password.");
-            alert.showAndWait();
+            ErrorUtils.showErrorAlert("Connection error. Please check your username and password.");
         }
     }
 
@@ -126,9 +118,7 @@ public class LoginViewController {
     @FXML
     private void handleNewAccount(ActionEvent event) throws IOException {
         ((Button) event.getSource()).getScene().getWindow().hide();
-        NewAccountController newAccountController = new NewAccountController();
-        Stage stage = new Stage();
-        newAccountController.start(stage);
+        NewAccountController.showNewAccountWindow();
     }
 
 

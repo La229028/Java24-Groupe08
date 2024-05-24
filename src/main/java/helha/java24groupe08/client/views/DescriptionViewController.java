@@ -2,6 +2,7 @@ package helha.java24groupe08.client.views;
 
 import helha.java24groupe08.client.controllers.BuyTicketController;
 import helha.java24groupe08.client.controllers.ErrorUtils;
+import helha.java24groupe08.client.models.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +29,10 @@ public class DescriptionViewController implements Initializable {
     private ImageView movieImage;
     @FXML
     private Label moviePlotTextArea;
+    @FXML
+    private Button buyButton;
+    @FXML
+    private Button backButton;
 
     private String[] movieDetails;
 
@@ -40,7 +45,11 @@ public class DescriptionViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Initialization logic here
+        if(UserSession.getInstance().getUser() == null) {
+            buyButton.setVisible(false);
+        } else {
+            buyButton.setVisible(true);
+        }
     }
 
     /**
@@ -74,9 +83,6 @@ public class DescriptionViewController implements Initializable {
         }
     }
 
-    @FXML
-    private Button backButton;
-
     /**
      * This method is called when the back button is clicked.
      * It closes the current window.
@@ -97,8 +103,8 @@ public class DescriptionViewController implements Initializable {
             Parent root = loader.load();
 
             BuyTicketViewController viewController = loader.getController();
-            BuyTicketController buyTicketController = new BuyTicketController(viewController);//ajout
-            viewController.setController(buyTicketController);//ajout
+            BuyTicketController buyTicketController = new BuyTicketController(viewController);
+            viewController.setController(buyTicketController);
 
             viewController.setMovieDetails(movieDetails);
 

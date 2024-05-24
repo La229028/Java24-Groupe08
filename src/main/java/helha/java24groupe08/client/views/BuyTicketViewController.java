@@ -9,8 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -47,8 +45,6 @@ public class BuyTicketViewController {
     @FXML
     private TextArea moviePlotTextArea;
 
-    private BuyTicketController controller;
-
     @FXML
     private Tab tabSeat;
     @FXML
@@ -59,7 +55,7 @@ public class BuyTicketViewController {
     private TabPane tabPane;
 
     @FXML
-    private Button addToCartButton;
+    public Button addToCartButton;
     @FXML
     private GridPane seatsGrid;
 
@@ -72,32 +68,25 @@ public class BuyTicketViewController {
     @FXML
     private Button payButton;
 
-    @FXML
-    public void initialize() {
-
-    }
-
-    //ajout
     public void setController(BuyTicketController controller) {
-        this.controller = controller;
 
         quantitySpinnerRegular.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            controller.updateTotal(new TicketsRegular("movie"), newSelection);
+            controller.updateTotal(new TicketsRegular(), newSelection);
             clearSeat();
         });
 
         quantitySpinnerChild.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            controller.updateTotal(new TicketsChild("movie", 10), newSelection);
+            controller.updateTotal(new TicketsChild(), newSelection);
             clearSeat();
         });
 
         quantitySpinnerStudent.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            controller.updateTotal(new TicketsStudent("movie", "Some School Name"), newSelection);
+            controller.updateTotal(new TicketsStudent(), newSelection);
             clearSeat();
         });
 
         quantitySpinnerSenior.valueProperty().addListener((obs, oldSelection, newSelection) -> {
-            controller.updateTotal(new TicketsSenior("movie", 65), newSelection);
+            controller.updateTotal(new TicketsSenior(), newSelection);
             clearSeat();
         });
 
@@ -139,7 +128,8 @@ public class BuyTicketViewController {
             Date date = selectedSession.getDate();
             Time time = selectedSession.getStartTime();
             String room = "Room " + selectedSession.getRoomNumber();
-            String duration = "120 mins";
+            MovieDBController movieDBController = new MovieDBController();
+            String duration = movieDBController.getMovieDuration(movieTitleLabel.getText());
             List<String> selectedSeatNumbers = new ArrayList<>(selectedSeats);
 
             String dateString = (date != null) ? date.toString() : "";

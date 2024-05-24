@@ -10,7 +10,7 @@ public class Reservation {
     private String status;
     private Timestamp timestamp;
 
-    // Constructeur
+    // Constructor
     public Reservation(int userID, int seatID, int sessionID, String status) {
         this.userID = userID;
         this.seatID = seatID;
@@ -18,7 +18,7 @@ public class Reservation {
         this.status = status;
     }
 
-    // Getters et setters
+    // Getters and setters
     public int getReservationID() {
         return reservationID;
     }

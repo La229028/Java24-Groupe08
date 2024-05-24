@@ -11,7 +11,7 @@ public class Seats {
         this.number = number;
     }
 
-    // Getters et setters
+    // Getters and setters
     public int getSeatID() {
         return seatID;
     }

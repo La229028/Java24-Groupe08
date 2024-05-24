@@ -9,13 +9,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class Session {
-    private int sessionId;
-    private int roomNumber;
-    private Time startTime;
-    private Date date;
-    private int movieId;
-    private IntegerProperty seatsAvailable;
-    private Map<String, SessionSeat> seats;
+    private final int sessionId;
+    private final int roomNumber;
+    private final Time startTime;
+    private final Date date;
+    private final int movieId;
+    private final IntegerProperty seatsAvailable;
+    private final Map<String, SessionSeat> seats;
 
     public Session(int sessionId, int roomNumber, Time startTime, Date date, int movieId) {
         this.sessionId = sessionId;

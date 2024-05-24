@@ -7,23 +7,23 @@ TODO NON ATTRIBUES:
 
 TODO VALENTIN :
 - Conclusion de la partie réseau
-- Refactoring
+- Refactoring EN COURS
 
 
 TODO GUILLAUME :
-- bug barre de recherche
+- bug barre de recherche OK
 (en mode admin, quand on modifie titre/plot, bug de filtre, affichage d'un seul film dans la liste).
 
 
 
 TODO JANNA :
-- Début des fichiers (buffer) -> panier utilisateur
-- Fonctionnalité supplémentaire utilisateur (historique des achats)
+- Début des fichiers (buffer) -> panier utilisateur OK
+- Fonctionnalité supplémentaire utilisateur (historique des achats) OK
 
 
 TODO LYARA :
-- réparer serveur (pas de messages d'erreur et quand on ferme le serveur afficher au client "connexion perdue").
-- refactoring
+- réparer serveur (pas de messages d'erreur et quand on ferme le serveur afficher au client "connexion perdue"). OK
+- refactoring EN COURS
 
 
 
