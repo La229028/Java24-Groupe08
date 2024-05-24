@@ -9,6 +9,11 @@ public class SessionDatabaseHandler {
 
     private static final String DB_URL = "jdbc:sqlite:src/main/DB/DB.db";
 
+    /**
+     * Generates 100 seats for a session and inserts them into the database.
+     *
+     * @param sessionId The ID of the session for which to generate seats.
+     */
     public void generateSeatsForSession(int sessionId) {
         Connection conn = null;
         PreparedStatement insertSeatStmt = null;
