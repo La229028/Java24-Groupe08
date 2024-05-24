@@ -3,39 +3,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<!-- NOUVEAU LOGIN FXML - 2021-05-06 - 15:00 - 15:30 -->
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e6eaeb;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="helha.java24groupe08.client.views.LoginViewController">
+    <VBox alignment="CENTER" layoutX="133.0" layoutY="88.0" prefHeight="208.0" prefWidth="345.0" spacing="20" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-padding: 20px; -fx-background-radius: 10px;">
+        <Label text="Login" style="-fx-font-size: 24px; -fx-text-fill: #6495ED;" />
 
-    <VBox alignment="CENTER" layoutX="133.0" layoutY="88.0" prefHeight="208.0" prefWidth="345.0" spacing="10" style="-fx-border-radius: 5px;">
-
-        <GridPane alignment="CENTER" hgap="10" prefHeight="142.0" prefWidth="368.0" vgap="5">
+        <GridPane alignment="CENTER" hgap="10" prefHeight="142.0" prefWidth="368.0" vgap="10">
             <Label text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <TextField fx:id="usernameField" prefHeight="27.0" prefWidth="346.0" promptText="username..." style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="usernameField" prefHeight="27.0" prefWidth="346.0" promptText="username..." style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-border-color: #6495ED;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
 
             <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <PasswordField fx:id="passwordField" prefHeight="28.0" prefWidth="328.0" promptText="password..." style="-fx-border-radius: 5px;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <PasswordField fx:id="passwordField" prefHeight="28.0" prefWidth="328.0" promptText="password..." style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-border-color: #6495ED;" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
 
-            <HBox alignment="CENTER" prefHeight="27.0" prefWidth="164.0" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                <Button fx:id="connectButton" onAction="#handleLogin" prefHeight="11.0" prefWidth="54.0" text="Log In" />
-            <Button fx:id="newAccountButton" onAction="#handleNewAccount" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="New Account" />
-                <Button fx:id="returnButton" onAction="#handleCancel" prefHeight="11.0" prefWidth="54.0" text="Cancel" />
+            <HBox alignment="CENTER" prefHeight="27.0" prefWidth="164.0" spacing="20" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                <Button fx:id="connectButton" onAction="#handleLogin" prefHeight="27.0" prefWidth="90.0" text="Log In" style="-fx-background-color: #6495ED; -fx-text-fill: white; -fx-background-radius: 5px;" />
+                <Button fx:id="newAccountButton" onAction="#handleNewAccount" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" text="New Account" style="-fx-background-color: #6495ED; -fx-text-fill: white; -fx-background-radius: 5px;" />
+                <Button fx:id="returnButton" onAction="#handleCancel" prefHeight="27.0" prefWidth="90.0" text="Cancel" style="-fx-background-color: #FF6347; -fx-text-fill: white; -fx-background-radius: 5px;" />
             </HBox>
-            <columnConstraints>
-                <ColumnConstraints maxWidth="314.3679894296879" minWidth="314.3679894296879" prefWidth="314.3679894296879" />
-                <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
-                <ColumnConstraints />
-                <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-            </rowConstraints>
         </GridPane>
     </VBox>
-
-
 </AnchorPane>

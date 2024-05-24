@@ -14,14 +14,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * This class is the controller for the login view.
- * It handles the login process, and displays the login window.
- */
 public class LoginViewController {
 
     @FXML
@@ -31,7 +28,7 @@ public class LoginViewController {
     private PasswordField passwordField;
 
     private static boolean isAdminLoggedIn = false;
-
+    private static boolean isLoginWindowOpen = false;
     private Properties adminProperties;
 
     /**
@@ -113,15 +110,15 @@ public class LoginViewController {
         }
     }
 
-
     /**
      * This method is called when the "Cancel" button is clicked.
      * It closes the login window.
      */
     @FXML
     private void handleCancel(ActionEvent event) {
-        // Close the login window
-        ((Button) event.getSource()).getScene().getWindow().hide();
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+        isLoginWindowOpen = false;
     }
 
     /**
@@ -129,8 +126,9 @@ public class LoginViewController {
      * It closes the login window.
      */
     private void onLoginSuccess() {
-        // Close the login window
-        usernameField.getScene().getWindow().hide();
+        Stage stage = (Stage) usernameField.getScene().getWindow();
+        stage.close();
+        isLoginWindowOpen = false;
 
         IndexViewController indexViewController = IndexViewController.getInstance();
         if(indexViewController != null) {
@@ -146,17 +144,21 @@ public class LoginViewController {
      */
     @FXML
     private void handleNewAccount(ActionEvent event) throws IOException {
-        ((Button) event.getSource()).getScene().getWindow().hide();
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+        isLoginWindowOpen = false;
         NewAccountController.showNewAccountWindow();
     }
 
-
-    /**
-     * This method is called when the "Forgot Password" button is clicked.
-     * It displays a message box with the password.
-     */
     public static boolean isAdminLoggedIn() {
         return isAdminLoggedIn;
     }
 
+    public static boolean isLoginWindowOpen() {
+        return isLoginWindowOpen;
+    }
+
+    public static void setLoginWindowOpen(boolean loginWindowOpen) {
+        isLoginWindowOpen = loginWindowOpen;
+    }
 }
