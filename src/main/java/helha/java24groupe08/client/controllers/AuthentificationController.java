@@ -8,12 +8,14 @@ import helha.java24groupe08.client.models.UserSession;
  */
 public class AuthentificationController {
     private static boolean isLoggedIn = false;
+    private static boolean isAdminLoggedIn = false;
 
     /**
      * Method to login as an admin
      */
     public static void loginAdmin() {
         isLoggedIn = true;
+        isAdminLoggedIn = true;
     }
 
     /**
@@ -22,6 +24,7 @@ public class AuthentificationController {
      */
     public static void loginUser(User user) {
         isLoggedIn = true;
+        isAdminLoggedIn = false;
         UserSession.getInstance().setUser(user);
     }
 
@@ -30,6 +33,7 @@ public class AuthentificationController {
      */
     public static void logout() {
         isLoggedIn = false;
+        isAdminLoggedIn = false;
         UserSession.getInstance().setUser(null);
     }
 
@@ -39,5 +43,13 @@ public class AuthentificationController {
      */
     public static boolean isLoggedIn() {
         return isLoggedIn;
+    }
+
+    /**
+     * Method to check if the admin is logged in
+     * @return True if the admin is logged in, false otherwise
+     */
+    public static boolean isAdminLoggedIn() {
+        return isAdminLoggedIn;
     }
 }

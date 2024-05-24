@@ -431,7 +431,7 @@ public class IndexViewController implements Initializable {
     }
 
     public void updateCartButtonVisibility() {
-        if(UserSession.getInstance().getUser() == null) {
+        if (UserSession.getInstance().getUser() == null || AuthentificationController.isAdminLoggedIn()) {
             cartButton.setVisible(false);
         } else {
             cartButton.setVisible(true);
@@ -450,7 +450,11 @@ public class IndexViewController implements Initializable {
         if (AuthentificationController.isLoggedIn()) {
             loginButton.setVisible(false);
             logoutButton.setVisible(true);
-            cartButton.setVisible(true);
+            if (!AuthentificationController.isAdminLoggedIn()) {
+                cartButton.setVisible(true);
+            } else {
+                cartButton.setVisible(false);
+            }
         } else {
             loginButton.setVisible(true);
             logoutButton.setVisible(false);
@@ -458,15 +462,16 @@ public class IndexViewController implements Initializable {
         }
     }
 
+
     @FXML
     private void handleLogoutButtonAction(ActionEvent event) {
         AuthentificationController.logout();
         updateButtonVisibility();
         updateCartButtonVisibility();
-        updateBuyButtonVisibility();
 
         AlertUtils.showInfoAlert("Successful disconnection");
     }
+
 
     /**
      * This interface defines the methods that the listener of the index view must implement.
